@@ -14,7 +14,7 @@ echo List partitions by typing p ENTER
 echo Then delete all partitions in reverse order as necessary, full delete commands are:
 echo d ENTER 4 ENTER d ENTER 3 ENTER d ENTER 2 ENTER d ENTER
 echo Then press n ENTER ENTER ENTER ENTER w ENTER to write changes...
-sudo fdisk /dev/sda1
+sudo fdisk /dev/sda
 
 echo Making EXT4 filesystem on USB drive...
 sudo mkfs.ext4 /dev/sda1
