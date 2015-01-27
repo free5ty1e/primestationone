@@ -32,6 +32,9 @@ echo Now replacing fstab and boot cmdline with versions that mount the USB as th
 sudo cp -v ~/primestationone/reference/etc/fstabForUsb /etc/fstab
 sudo cp -v ~/primestationone/reference/boot/cmdlineForUsb.txt /boot/cmdline.txt
 
+echo Removing USB copyroms service...
+sudo rm /etc/usbmount/mount.d/01_retropie_copyroms
+
 echo Installing package progressview pv so we can see something happening during the next big operation...
 sudo apt-get install -y pv
 
