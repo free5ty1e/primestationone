@@ -12,5 +12,8 @@ cp -vr RetroPie/* ~/RetroPie/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -v .* ~/
 #cp -v *.gz ~/
-cp -v splashscreen.png ~/RetroPie-Setup/supplementary/splashscreens/retropieproject2014/splashscreen.png
+
+#Splashscreen is now taken care of correctly, with the /etc/splashscreen.list file
+#cp -v splashscreen.png ~/RetroPie-Setup/supplementary/splashscreens/retropieproject2014/splashscreen.png
+
 cd ~
