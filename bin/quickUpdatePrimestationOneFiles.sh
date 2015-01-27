@@ -1,0 +1,6 @@
+#!/bin/bash
+cowsay -f eyes Initiating a quick-update of the PrimeStation One...
+cd ~/primestationone
+echo Updating latest PrimeStationOne files from git repo...
+git pull
+bin/actuallyUpdatePrimestationOneQuick.sh

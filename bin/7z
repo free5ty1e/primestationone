@@ -1,0 +1,5 @@
+#!/bin/bash
+
+##Can install p7zip with apt-get:
+
+p7zip "$1"
