@@ -10,6 +10,3 @@ sudo umount /dev/sda1
 echo Now expanding filesystem to fill USB drive capacity...
 sudo resize2fs -p /dev/sda1
 df -h
-
-read -p "Press any key to continue rebooting... " -n1 -s
-restart
