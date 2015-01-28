@@ -23,7 +23,7 @@ primeStationOne images / installations older than v0.951alpha can not be automat
 ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).
 
 ## BASIC USAGE
-Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
+###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
