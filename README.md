@@ -8,25 +8,49 @@
 ![SplashScreen](splashscreen.png)
 https://github.com/free5ty1e/primestationone/blob/master/splashscreen.png 
 
-## BASIC USAGE
-You can download an actual ready-to-go PrimeStationOne image from our VerilyShare at (http://goo.gl/5rzgcj).  Download count from this link since 20141224 @ 7pm PST can be found at the following analytics link: (http://goo.gl/#analytics/goo.gl/5rzgcj/all_time) 
+## NOTE:
+primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later:
+```
+        cd ~
+        rm -rf primestationone
+        git clone https://github.com/free5ty1e/primestationone.git
+        cd primestationone
+        bin/installPrimeStationOneFiles.sh
+        quickUpdatePrimestationOneFiles.sh
+```
+ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).
 
-The first alpha release should be available in time for Christmas 2014! 
+## BASIC USAGE
+Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
 Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.91 alpha release archive is used for this example, adjust accordingly if you have a different version.  We apologize, but as of this time the PrimeStation One is being developed on a 16GB SD card and so that is going to be the minimum size SD card you will need to utilize this image sensibly:
 
-Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card.
+Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
 ```
-        pv --size 16000000000 primeStationOne16gV0.91alpha.img | sudo dd bs=2m of=/dev/disk1
-```
-
-Install on Linux:  Replace the device `/dev/sdb` with your SD card.
-```
-        sudo dd bs=2M if=primeStationOne16gV0.6a.img of=/dev/sdb
+        pv --size 16000000000 primeStationOne4gSdV0.951alpha.img | sudo dd bs=2m of=/dev/disk1
 ```
 
+Install on Linux:  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
+```
+        sudo dd bs=2M if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
+```
+
+#### Transferring your PrimeStation One SD root filesystem to a USB drive:
+...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is far less expensive and available than SD card storage space.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
+
+The PrimeStation One v0.951alpha introduces a new ```usbRootFilesystemSetup.sh``` script to handle this process almost completely for you, save for some instructed keystrokes.
+
+Yes.  Plug in your USB drive, and type ```usbRootFilesystemSetup.sh``` in order to start the guided process.  In some rare cases, you may find (by typing ```df -h```) that your USB drive has mounted twice, in both /media/usb0 and /media/usb1 for some reason.  In this case, you can type ```sudo umount /dev/sda1``` until it complains that ```sda1``` is not mounted anywhere.
+
+This process takes about 20-30 minutes, depending on the speeds of your SD card and USB drive.  
+
+I heavily recommend starting with a fresh PrimeStationOne SD imaged with v0.951alpha or later, and transferring to USB first thing instead of expanding the filesystem on the SD card first for any reason (via the ```sudo raspi-config``` menu, only works for SD cards, DON'T do this if you are going to USB).  
+
+Part of the guided process is to expand the USB filesystem from the initial 4G to however large your USB drive is.  
+
+Plenty of space for ROMS now!!  xD 
 
 
 #### CONTINUE IF YOU WANT TO START FROM A FRESH RETROPIE IMAGE INSTEAD (can use 8GB SD card):
