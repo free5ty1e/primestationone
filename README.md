@@ -8,7 +8,8 @@
 ![SplashScreen](splashscreen.png)
 https://github.com/free5ty1e/primestationone/blob/master/splashscreen.png 
 
-## NOTE primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later:
+## NOTE:
+primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later:
 ```
         cd ~
         rm -rf primestationone
