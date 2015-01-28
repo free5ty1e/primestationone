@@ -37,8 +37,8 @@ echo Now actually transferring entire root filesystem to USB drive so we can boo
 #sudo dd if=/dev/root of=/dev/sda1 bs=4M
 sudo pv --size 4000000000 /dev/root | sudo dd bs=4M of=/dev/sda1
 
-#echo Checking new root filesystem...
-#sudo e2fsck -f /dev/sda1
+echo Checking new root filesystem...press enter to auto fix any issues that you are prompted for...
+sudo e2fsck -f /dev/sda1
 
 usbSda1ExpandFilesystem.sh
 
