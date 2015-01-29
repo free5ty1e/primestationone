@@ -6,10 +6,13 @@ bin/installPrimeStationOneFiles.sh
 echo Ensuring all required apt packages are installed...
 installAptRuntimePackages.sh
 updateSplashscreenVersion.sh
-echo Updating latest RetroPie-Setup files from git repo...
-cd ~/RetroPie-Setup
-sudo git pull
-cd ~
+
+echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
+
+#echo Updating latest RetroPie-Setup files from git repo...
+#cd ~/RetroPie-Setup
+#sudo git pull
+#cd ~
 
 #echo =====================> Launching mplayer config 4 pi script...
 #mplayerConfigForPi.sh
