@@ -9,7 +9,7 @@ echo Adding apt repository for MEGAtools Stable...
 sudo add-apt-repository -y ppa:megous/ppa
 
 echo Installing MEGAtools Stable...
-apt-get update -y && apt-get install -y megatools glib-networking fuse curl
+sudo apt-get update -y && sudo apt-get install -y megatools glib-networking fuse curl
 
 echo If no errors are shown above, MEGATools Stable is probably installed.
 echo Commands are:
