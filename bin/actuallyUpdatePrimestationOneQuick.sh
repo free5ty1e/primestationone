@@ -4,6 +4,11 @@ cd ~/primestationone
 echo Installing PrimeStationOne files to their proper locations....
 bin/installPrimeStationOneFiles.sh
 echo Ensuring all required apt packages are installed...
+
+echo Applying various APT fixes just in case there is a problem in the package manager...
+sudo apt-get -fy install
+sudo dpkg --configure -a
+
 installAptRuntimePackages.sh
 updateSplashscreenVersion.sh
 
