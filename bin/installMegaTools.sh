@@ -21,7 +21,7 @@ echo megarm : Remove remote file or directory
 echo megamv : Move and rename remote files
 echo megaput : Upload individual files
 echo megaget : Download individual files
-echo megadl : Download file from a “public” Mega link (doesn’t require login)
+echo megadl : Download file from a “public” Mega link, doesn’t require login
 echo megasync : Upload or download a directory tree
 echo megafs : Mount remote filesystem locally.
 
