@@ -1,18 +1,25 @@
 #!/bin/bash
 
-cowsay -f hellokitty Installing MEGA.co.nz cloud tools...
-echo =====================> Installing MEGA.co.nz cloud tools...
+cowsay -f hellokitty Installing MEGA.co.nz cloud tools megacmd...
+echo =====================> Installing MEGA.co.nz cloud tools megacmd...
 
 pushd ~
 
-echo Adding apt repository for MEGAtools Stable...
-sudo add-apt-repository -y ppa:megous/ppa
+echo Installing required depedencies for wheezy MegaTools...
+sudo apt-get update && sudo apt-get install -y glib-networking fuse curl wget
 
-echo Installing MEGAtools Stable...
-sudo apt-get update -y && sudo apt-get install -y megatools glib-networking fuse curl
+#echo Installing 32-bit wheezy version of MegaTools...
+#cd /tmp
+#wget http://megatools.megous.com/builds/megatools-1.9.91-debian-wheezy-i386.tar.gz
+#sudo tar -x -f /tmp/megatools-1.9.91-debian-wheezy-i386.tar.gz -C / --no-overwrite-dir
 
-echo If no errors are shown above, MEGATools Stable is probably installed.
-echo Commands are:
+echo Installing 64-bit wheezy version of MegaTools...
+cd /tmp
+wget http://megatools.megous.com/builds/megatools-1.9.91-debian-wheezy-amd64.tar.gz
+sudo tar -x -f megatools-1.9.91-debian-wheezy-amd64.tar.gz -C / --no-overwrite-dir
+
+echo MegaTools should now be installed, if there are no errors above.
+echo !!!Note: Remeber to escape the ! (ie. replace the ! with a \! in the mega url).
 echo megareg : Register and verify a new mega account
 echo megadf : Show your cloud storage space usage/quota
 echo megals : List all remote files
@@ -21,7 +28,7 @@ echo megarm : Remove remote file or directory
 echo megamv : Move and rename remote files
 echo megaput : Upload individual files
 echo megaget : Download individual files
-echo megadl : Download file from a “public” Mega link, doesn’t require login
+echo megadl : Download file from a “public” Mega link -- doesn’t require login...
 echo megasync : Upload or download a directory tree
 echo megafs : Mount remote filesystem locally.
 
