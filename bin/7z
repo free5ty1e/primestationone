@@ -1,5 +1,4 @@
 #!/bin/bash
 
-##Can install p7zip with apt-get:
-
-p7zip "$1"
+echo Can install p7zip with sudo apt-get install -y p7zip
+p7zip "$1" "$2"
