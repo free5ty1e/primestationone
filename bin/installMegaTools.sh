@@ -28,6 +28,7 @@ make
 make check
 sudo make install
 make installcheck
+sudo ldconfig
 
 echo MegaTools should now be installed, if there are no errors above.
 echo !!!Note: Remeber to escape the ! ...ie. replace the ! with a \! in the mega url.
