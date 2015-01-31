@@ -7,7 +7,7 @@ sudo cp -v bin/* /usr/local/bin/
 sudo cp -vr etc /
 sudo cp -vr opt /
 sudo cp -vr var /
-sudo cp -vr boot /
+#sudo cp -vr boot /
 cp -vr RetroPie/* ~/RetroPie/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -v .* ~/
