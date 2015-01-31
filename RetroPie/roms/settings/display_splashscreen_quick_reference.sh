@@ -1,3 +1,3 @@
 #!/bin/bash
-splashscreenQuickReference.sh
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 splashscreenQuickReference.sh
 

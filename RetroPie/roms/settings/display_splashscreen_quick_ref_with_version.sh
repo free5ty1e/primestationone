@@ -1,3 +1,3 @@
 #!/bin/bash
-versionSplashscreenQuickRef.sh
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 versionSplashscreenQuickRef.sh
 
