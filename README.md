@@ -29,7 +29,7 @@ If you have managed to obtain one of these releases, extract the .7z archive so 
 
 Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.960 alpha release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 2GB SD card to begin using the PrimeStation One (although, in that form, it won't quite yet do all the things yet.  However, it's the quickest and simplest way to get started so here we go!):
 
-Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
+####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
 ```
         pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2m of=/dev/disk1
 ```
@@ -38,7 +38,8 @@ Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Home
         sudo dd bs=2m if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
 ```
 
-Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
+
+####Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
 ```
         pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2M of=/dev/disk1
 ```
