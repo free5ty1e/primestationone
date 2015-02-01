@@ -2,16 +2,16 @@
 
 cd ~/primestationone
 sudo chmod +x bin/*
-mkdir ~/RetroPie/roms/settings
+#sudo mkdir ~/RetroPie/roms/settings
 sudo chmod +x RetroPie/roms/settings/*.sh
 sudo cp -v bin/* /usr/local/bin/
 sudo cp -vr etc /
 sudo cp -vr opt /
 sudo cp -vr var /
 #sudo cp -vr boot /
-cp -vr RetroPie/* ~/RetroPie/
-cp -vr .emulationstation/* ~/.emulationstation/
-cp -v .* ~/
+sudo cp -vr RetroPie/* ~/RetroPie/
+sudo cp -vr .emulationstation/* ~/.emulationstation/
+sudo cp -v .* ~/
 #cp -v *.gz ~/
 
 #Splashscreen is now taken care of correctly, with the /etc/splashscreen.list file
