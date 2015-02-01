@@ -1,8 +1,12 @@
 #!/bin/bash
 
 primestationVersion=$(cat ~/primestationone/version.txt)
-echo "PrimeStation One $primestationVersion updating splashscreen version text overlay..."
+primestationVerColor=$(cat ~/primestationone/vercolor.txt)
+
+echo "PrimeStation One $primestationVersion updating splashscreen version text overlay with $primestationVersion in color $primestationVerColor..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
 echo "......"
-convert -pointsize 44 -fill blue -draw "text 1660,45 \"$primestationVersion\"" ~/primestationone/splashscreen.png ~/splashscreenversion.png
+
+convert -pointsize 44 -fill "$primestationVerColor" -draw "text 1660,45 \"$primestationVersion\"" ~/primestationone/splashscreen.png ~/splashscreenversion.png
+
 echo "Complete, if you didn't just see any errors."
