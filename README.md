@@ -27,17 +27,33 @@ ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
-Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.91 alpha release archive is used for this example, adjust accordingly if you have a different version.  We apologize, but as of this time the PrimeStation One is being developed on a 16GB SD card and so that is going to be the minimum size SD card you will need to utilize this image sensibly:
+Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.960 alpha release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 2GB SD card to begin using the PrimeStation One (although, in that form, it won't quite yet do all the things yet.  However, it's the quickest and simplest way to get started so here we go!):
 
 Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
 ```
-        pv --size 16000000000 primeStationOne4gSdV0.951alpha.img | sudo dd bs=2m of=/dev/disk1
+        pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2m of=/dev/disk1
+```
+...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
+```
+        sudo dd bs=2m if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
 ```
 
-Install on Linux:  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
+Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
+```
+        pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2M of=/dev/disk1
+```
+...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
 ```
         sudo dd bs=2M if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
 ```
+
+#### Expanding your SD filesystem to fill your SD card > 2GB
+...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
+```
+sudo raspi-config
+```
+...select `Expand Filesystem` from the menu, exit, and follow the prompt to reboot your Pi.  This ONLY works for SD card root filesystems.
+
 
 #### Transferring your PrimeStation One SD root filesystem to a USB drive:
 ...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is far less expensive and available than SD card storage space.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
@@ -54,9 +70,31 @@ Part of the guided process is to expand the USB filesystem from the initial 4G t
 
 Plenty of space for ROMS now!!  xD 
 
+#### PrimeStation One MEGA.co.nz module auto-install scripts (as of V0.960alpha):
+The PrimeStation One's modules are now released through mega.co.nz's awesome cloud by running more automated scripts!
 
-#### CONTINUE IF YOU WANT TO START FROM A FRESH RETROPIE IMAGE INSTEAD (can use 8GB SD card):
-Install RetroPie (https://github.com/petrockblog/RetroPie-Setup) by writing the SD card image v2.3 downloaded from their site (http://blog.petrockblock.com/retropie/retropie-downloads/).  
+(NOTE: If any of these installation scripts ever fails on you, be sure you try running a `quickUpdatePrimestationOneFiles.sh` as this will ensure you have the very latest module version download links.)
+
+First, type `installMegaTools.sh` to handle building and installation of the very handy MegaTools, which are required for any module installations.
+
+Then, type any or all of the following (`megaInstallAllModules.sh` will go through and install them all for you if you are lazy):
+```
+megaInstallBinsNRoms.sh
+megaInstallBinsNRomsLarge.sh
+megaInstallThemePrimeStationOne.sh
+```
+
+Installation of each module may take up to 20ish minutes, depending on your connection speed and overclock settings (7z max compression is a bit intensive on the Pi).  
+
+The goal here is, after installing all modules, you should have a theme for every emulator and at least one working thing for every emulator.  
+
+#### Building emulators from source / downloading binaries (RetroPie)
+Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source.  
+
+SOON: List of emulators PrimeStation One recommends / works best for most situations.  For now, just recommend build ALL emulators from source and give it a good 30ish hours to do so, then build each experimental item so you can support all the things (another 3-4 hours, mostly on that MSX emu build)...
+
+#### BELOW IS NOT RECOMMENDED / OUTDATED INFO!!  CONTINUE IF YOU WANT TO START FROM A FRESH RETROPIE IMAGE INSTEAD:
+Install RetroPie (https://github.com/petrockblog/RetroPie-Setup) by writing from an SD card image downloaded from their site (http://blog.petrockblock.com/retropie/retropie-downloads/).  
 
 Once you can type 'emulationstation' from the command line and get into the basic EmulationStation interface and see one or two entries, you can continue with the PrimeStation One overlay scripts.
 
@@ -84,8 +122,6 @@ So far mainly tested with the RetroPie image v2.3 downloaded from their site and
 * Add the `opt/vc/src/hello_pi/*` demos to the Settings / Tools menu, or even a new Demos menu as these are neat to show off and why not?
 * Quick reference image / controller layout / emulator notes for special emulators such as FastDosBox and RPix86 and the C64 emulator that shows via launchs script for X seconds before / while the actual emulator is loading up, so the user knows what might be useful to try on a controller from a couch...
 * Menu system to handle running services, both for the current session and for all future sessions (services enabled / disabled upon startup).  The PrimeStation One can do a lot, and sometimes its nice to turn some unused features off!
-* Resolve issue with using higher resolutions while still maintaining the ability to exit FastDosBox and Vice and similar emulators without requiring a hard reboot (for now, everything is running in 640x480 mode to alleviate this issue)
-* Resolve issue where sometimes exiting EmulationStation will leave the user with a blank black screen; currently have to press ALT + Right Arrow then ALT + Left Arrow to change terminals away and back and reinitialize the display sometimes.
 * Add START + SELECT to request a soft reboot of the Pi for panic / crash situations.  This might just end up pressing CTRL-ALT-DEL if we continue to find this actually does work like we think it does...
 
 Comments / suggestions / contributions to the code welcome!  
