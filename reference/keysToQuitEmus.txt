@@ -1,0 +1,11 @@
+DOSBOX: 		CTRL-F9
+Amstrad CPC: 		F6
+Intellivision: 		F1
+Apple ][ Linapple:	F10
+MAME (mame4all):	ESC
+NeoGeo (PiFBA):		SELECT + START works (libretocore?)
+ScummVM:		ESC (or click QUIT)
+C64 (vice):		F12 for menu and arrow down to quit and enter
+MSX (fmsx-libreto):	ESC
+GameBoy:		ESC
+GameBoy Color:		ESC
