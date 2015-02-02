@@ -71,6 +71,11 @@ Part of the guided process is to expand the USB filesystem from the initial 4G t
 
 Plenty of space for ROMS now!!  xD 
 
+###### If you have trouble booting from your USB drive after a crash or other issue, your USB filesystem may need to be checked / cleaned / fixed.  To workaround the issue, wait until your Pi gives you some error message about the USB drive during startup (gotta let it sit for a good 25 seconds or so), then you can pull out the USB drive and reinsert it.  This should enable the PrimeStation One USB to continue booting.  Once you're in, get to a command prompt (`F4` to quit EmulationStation), and type the following and answer Yes (should be default for `ENTER`) to all prompts to fix:
+```
+sudo e2fsck -f /dev/sda1
+```
+
 #### PrimeStation One MEGA.co.nz module auto-install scripts (as of V0.960alpha):
 The PrimeStation One's modules are now released through mega.co.nz's awesome cloud by running more automated scripts!
 
