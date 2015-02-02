@@ -90,9 +90,20 @@ Installation of each module may take up to 20ish minutes, depending on your conn
 The goal here is, after installing all modules, you should have a theme for every emulator and at least one working thing for every emulator.  
 
 #### Building emulators from source / downloading binaries (RetroPie)
-Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source.  
+Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
+
+```
+sudo ~/RetroPie-Setup/retropie_setup.sh
+```
 
 SOON: List of emulators PrimeStation One recommends / works best for most situations.  For now, just recommend build ALL emulators from source and give it a good 30ish hours to do so, then build each experimental item so you can support all the things (another 3-4 hours, mostly on that MSX emu build)...
+
+IMPORTANT: If you plan to build and use the N64 emulator (mupen64plus), you will need to change your memory split to 128MB for the GPU and 384MB for the CPU for smooth emulation, and of course will need to overclock to the "Turbo" setting (both of these things can be done from the `sudo raspi-config` menu).  With this much load on the Pi, consider at least a 2 amp power supply and some heat sinks and / or fan(s) to avoid overheating.  You may check the temperature in both *C and *F of your Pi's CPU and GPU at any time by logging in via SSH (its in the welcome message), and also by typing one of the following (all perform different types and speeds): 
+```
+pitemp
+pitemp.sh
+pytemp.py
+```
 
 #### BELOW IS NOT RECOMMENDED / OUTDATED INFO!!  CONTINUE IF YOU WANT TO START FROM A FRESH RETROPIE IMAGE INSTEAD:
 Install RetroPie (https://github.com/petrockblog/RetroPie-Setup) by writing from an SD card image downloaded from their site (http://blog.petrockblock.com/retropie/retropie-downloads/).  
