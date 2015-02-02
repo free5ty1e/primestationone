@@ -9,3 +9,4 @@ C64 (vice):		F12 for menu and arrow down to quit and enter
 MSX (fmsx-libreto):	ESC
 GameBoy:		ESC
 GameBoy Color:		ESC
+AMIGA (UAE4ALL):	TAB+Q  ???? (need to confirm)
