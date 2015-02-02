@@ -18,3 +18,4 @@ rm themePrimestationOne.7z
 rm -rf themePrimestationOne
 
 popd
+echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...

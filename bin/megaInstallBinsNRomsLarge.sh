@@ -18,3 +18,4 @@ rm binsnroms_large.7z
 rm -rf binsnroms_large
 
 popd
+echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...

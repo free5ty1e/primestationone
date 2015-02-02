@@ -5,7 +5,7 @@ echo =====================> Installing binsnroms archive...
 
 pushd ~
 
-megadl 'https://mega.co.nz/#!RAU1iTRQ!MX9VJ5Z3JebWKCU3tatlA4FYBUGn-m_dEM9dCIVwR1Y'
+megadl 'https://mega.co.nz/#!RZtSzTbR!Xgz5NmOj-W9Q9dbjPpY76UHloFOP2rVQgTlmtbR-43E'
 echo Extracting 7z archive.....
 7z -d binsnroms.7z
 cd binsnroms
@@ -18,3 +18,4 @@ rm binsnroms.7z
 rm -rf binsnroms
 
 popd
+echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
