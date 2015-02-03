@@ -57,7 +57,7 @@ sudo raspi-config
 
 
 #### Transferring your PrimeStation One SD root filesystem to a USB drive:
-...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is far less expensive and available than SD card storage space.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
+...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is normally less expensive and more available than SD card storage space.  USB storage will probably also last longer, as it was designed for more write cycles.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
 
 The PrimeStation One v0.951alpha introduces a new ```usbRootFilesystemSetup.sh``` script to handle this process almost completely for you, save for some instructed keystrokes.
 
