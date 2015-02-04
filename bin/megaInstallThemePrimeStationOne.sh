@@ -5,6 +5,7 @@ echo =====================> Installing Primestation One theme...
 
 pushd ~
 
+rm themePrimestationOne.7z
 megadl 'https://mega.co.nz/#!IY0wwBiR!rIvYSbXdHO5qYiTPdQHBAmFcDeklErj2sNVn2Cd3a78'
 echo Extracting 7z archive.....
 7z -d themePrimestationOne.7z
