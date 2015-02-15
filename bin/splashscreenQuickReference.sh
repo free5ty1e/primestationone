@@ -1,3 +1,3 @@
 #!/bin/bash
-fbi -a ~/primestationone/splashscreen.png
+fbi -a ~/splashscreen.png
 
