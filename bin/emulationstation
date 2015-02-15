@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo Ensuring bluetooth is up and scanning for PS3 controllers...
+sudo hciconfig hci0 up piscan
+
+es_bin="/opt/retropie/supplementary/emulationstation/emulationstation"
+
+nb_lock_files=$(find /tmp -name ".X?-lock" | wc -l)
+if [[ $nb_lock_files -ne 0 ]]; then
+    echo "X is running. Please shut down X in order to mitigate problems with loosing keyboard input. For example, logout from LXDE."
+    exit 1
+fi
+
+$es_bin "$@"
