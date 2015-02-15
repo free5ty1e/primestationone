@@ -94,6 +94,15 @@ Installation of each module may take up to 20ish minutes, depending on your conn
 
 The goal here is, after installing all modules, you should have a theme for every emulator and at least one working thing for every emulator.  
 
+#### Amiga emulator (uae4all) on the PrimeStation One:
+Since v0.962, usage of the megaInstallBinsNRoms.sh script will also install a special WORKING version of the Amiga emulator (uae4all) from the following post on the Raspberry Pi forums:
+http://www.raspberrypi.org/forums/viewtopic.php?f=78&t=80602
+
+Installing the Amiga emulator from RetroPie (or updating RetroPie binaries) will overwrite this installation, and you will need to run the megaInstallBinsNRoms.sh script again in order to get it back (although it will be removed at some point when RetroPie's version is fixed).
+
+The important thing to remember is that dispmanx MUST be disabled for the uae4all emulator in order for this emulator to function!  You can do this from the RetroPie Setup menu (available through the Settings page in EmulationStation).
+
+
 #### Building emulators from source / downloading binaries (RetroPie)
 Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
 
