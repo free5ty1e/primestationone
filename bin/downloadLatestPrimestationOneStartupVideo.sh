@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo =====================> Obtaining latest Primestation One splashscreen image...
+echo =====================> Obtaining latest Primestation One startup video..
 
 pushd ~
 rm -f splashscreen*

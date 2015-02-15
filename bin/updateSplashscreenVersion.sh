@@ -14,5 +14,6 @@ convert -pointsize 44 -fill "$primestationVerColor" -draw "text 1660,45 \"$prime
 
 updateSplashscreenTextOverlay.sh
 
+downloadLatestPrimestationOneStartupVideo.sh
 
 echo "Complete, if you didn't just see any errors."
