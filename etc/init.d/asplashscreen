@@ -17,7 +17,7 @@ do_start () {
         if [ -z "$isMovie" ]; then
             #/usr/bin/fbi -T 10 -once -t 10 -noverbose -a $splashline &
             /usr/bin/fbi -T 1 -once -t 10 -noverbose -a $splashline
-#            sleep 10
+            sleep 12
 #            wait
         else
             mplayer $splashline
