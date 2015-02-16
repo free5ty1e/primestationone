@@ -19,9 +19,9 @@ do_start () {
         else
             mplayer $splashline &
         fi
+        wait
     done </etc/splashscreen.list
     echo Waiting for background display of splash image or video to complete before proceeding...
-    wait
     exit 0
 }
 
