@@ -24,7 +24,6 @@ do_start () {
             wait
         fi
     done </etc/splashscreen.list
-    wait
     exit 0
 }
 
