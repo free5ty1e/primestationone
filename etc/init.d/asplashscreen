@@ -12,7 +12,7 @@
 do_start () {
 
     while read splashline; do
-        echo $splashline
+        echo Playing splash video or image $splashline
         isMovie=$(echo $splashline | grep -o ".mov\|.mp4\|.mkv\|.3gp\|.mpg")
         if [ -z "$isMovie" ]; then
             /usr/bin/fbi -T 10 -once -t 10 -noverbose -a $splashline &
@@ -20,7 +20,8 @@ do_start () {
             mplayer $splashline &
         fi
     done </etc/splashscreen.list
-
+    echo Waiting for background display of splash image or video to complete before proceeding...
+    wait
     exit 0
 }
 
