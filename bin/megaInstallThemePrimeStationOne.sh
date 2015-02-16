@@ -7,7 +7,7 @@ pushd ~
 
 rm themePrimestationOne.7z
 rm -rf themePrimestationOne
-megadl 'https://mega.co.nz/#!lc0kmKqD!VXUzNELvyh8j51YCLy44jJyoMahCHOFUUNRrYYdKRDo'
+megadl 'https://mega.co.nz/#!5Zt3ELLK!McpqYbijwKI437d_i-7lR7JLWxpTpy-XGeLeTWNA878'
 echo Extracting 7z archive.....
 7z -d themePrimestationOne.7z
 cd themePrimestationOne
