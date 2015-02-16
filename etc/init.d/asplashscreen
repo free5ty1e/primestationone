@@ -16,12 +16,12 @@ do_start () {
         isMovie=$(echo $splashline | grep -o ".mov\|.mp4\|.mkv\|.3gp\|.mpg")
         if [ -z "$isMovie" ]; then
             #/usr/bin/fbi -T 10 -once -t 10 -noverbose -a $splashline &
-            /usr/bin/fbi -T 1 -once -t 10 -noverbose -a $splashline &
-            sleep 10
-            wait
+            /usr/bin/fbi -T 1 -once -t 10 -noverbose -a $splashline
+#            sleep 10
+#            wait
         else
-            mplayer $splashline &
-            wait
+            mplayer $splashline
+#            wait
         fi
     done </etc/splashscreen.list
     exit 0
@@ -29,7 +29,7 @@ do_start () {
 
 case "$1" in
   start|"")
-    do_start
+    do_start &
     ;;
   restart|reload|force-reload)
     echo "Error: argument '$1' not supported" >&2
