@@ -56,6 +56,17 @@ Here are the commands to write the image file on Mac and Linux with a progress b
         sudo dd bs=2M if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
 ```
 
+#### First time running PrimeStation One from image
+Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
+
+1. Either expand SD filesystem to fill your >2GB SD card or transfer root filesystem to USB
+2. Reboot
+3. Execute `quickUpdatePrimestationOneFiles.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?)
+4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install all PrimeStation One modules by typing `megaInstallAllModules.sh` (individual install scripts also exist for convenience, highly recommend at least installing the two smaller `megaInstallBinsNRoms.sh` and `megaInstallThemePrimeStationOne.sh` modules to enable the majority of emulators and functionality.
+5. Optionally attach a wifi and / or a bluetooth dongle as both should be pretty well supported by this point
+6. Attach PS3 controller via USB (can pair via bluetooth from the Emulationstation Settings screen or by typing `sudo sixpair`)
+7. Reboot, behold splashscreen and videos during startup that cease as soon as Emulationstation is ready to launch
+
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
 ```
