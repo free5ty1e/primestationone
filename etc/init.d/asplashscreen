@@ -11,13 +11,16 @@
 
 do_start () {
 
-    line=$(head -n 1 /etc/splashscreen.list)
-    isMovie=$(echo $line | grep -o ".mov\|.mp4\|.mkv\|.3gp\|.mpg")
-    if [ -z "$isMovie" ]; then
-      /usr/bin/fbi -T 2 -once -t 10 -noverbose -a $line
-    else
-      mplayer $line
-    fi
+    while read splashline; do
+        echo $splashline
+        isMovie=$(echo $splashline | grep -o ".mov\|.mp4\|.mkv\|.3gp\|.mpg")
+        if [ -z "$isMovie" ]; then
+            /usr/bin/fbi -T 2 -once -t 10 -noverbose -a $line
+        else
+            mplayer $line
+        fi
+    done </etc/splashscreen.list
+
     exit 0
 }
 
