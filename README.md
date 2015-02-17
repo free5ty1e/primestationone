@@ -58,9 +58,9 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 
 
 ####Install on Windows: Follow this instruction.
-```
-         Go here for Windows install instructions
 
+         Go here for Windows install instructions
+```
          http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 ```
 
@@ -68,7 +68,7 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 #### First time running PrimeStation One from image
 Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
-1. Either expand SD filesystem to fill your >2GB SD card or transfer root filesystem to USB
+1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
 3. Execute `quickUpdatePrimestationOneFiles.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?)
 4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install all PrimeStation One modules by typing `megaInstallAllModules.sh` (individual install scripts also exist for convenience, highly recommend at least installing the two smaller `megaInstallBinsNRoms.sh` and `megaInstallThemePrimeStationOne.sh` modules to enable the majority of emulators and functionality.
