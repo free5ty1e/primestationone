@@ -58,7 +58,7 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 
 ####Install on Windows: Follow this instruction.
 ```
-        http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+        <a href="http://www.raspberrypi.org/documentation/installation/installing-images/windows.md">http://www.raspberrypi.org/documentation/installation/installing-images/windows.md</a>
 ```
 
 #### First time running PrimeStation One from image
