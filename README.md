@@ -58,9 +58,9 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 
 
 ####Install on Windows: Follow this instruction.
-
-         Go here for Windows install instructions
 ```
+         Go here for Windows install instructions
+
          http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 ```
 
