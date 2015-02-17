@@ -58,7 +58,7 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 
 ####Install on Windows: Follow this instruction.
 
-        [http://www.raspberrypi.org/documentation/installation/installing-images/windows.md](http://www.raspberrypi.org/documentation/installation/installing-images/windows.md) go here for windows instructions.
+        Go here for Windows install instructions (http://www.raspberrypi.org/documentation/installation/installing-images/windows.md) x
 
 #### First time running PrimeStation One from image
 Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
