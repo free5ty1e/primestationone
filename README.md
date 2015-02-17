@@ -56,9 +56,14 @@ Here are the commands to write the image file on Mac and Linux with a progress b
         sudo dd bs=2M if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
 ```
 
+
 ####Install on Windows: Follow this instruction.
 
-Go here for Windows install instructions http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+         Go here for Windows install instructions
+```
+         http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+```
+
 
 #### First time running PrimeStation One from image
 Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
