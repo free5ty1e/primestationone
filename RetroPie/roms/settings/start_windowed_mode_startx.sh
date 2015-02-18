@@ -1,3 +1,2 @@
 #!/bin/bash
-startx
-
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 startx
