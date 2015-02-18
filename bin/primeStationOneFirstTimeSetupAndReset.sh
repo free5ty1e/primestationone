@@ -30,9 +30,6 @@ pushd /opt/vc/src/hello_pi
 sudo ./rebuild.sh
 popd
 
-echo =====================> Updating PrimestationOne Specific RetroPie packages
-installAllPrimeStationOneEmulatorsFromRetroPie.sh
-
 cowsay Nuking and Fresh-Installing and Updating RetroPie-Setup...
 echo =====================> Now getting the latest RetroPie-Setup script.
 pushd ~
@@ -44,5 +41,8 @@ chmod +x retropie_packages.sh
 chmod +x retropie_setup.sh
 popd
 
-cowsay Launching retropie setup menu...
-sudo ~/RetroPie-Setup/retropie_setup.sh
+echo =====================> Updating PrimestationOne Specific RetroPie packages
+installAllPrimeStationOneEmulatorsFromRetroPie.sh
+
+#cowsay Launching retropie setup menu...
+#sudo ~/RetroPie-Setup/retropie_setup.sh
