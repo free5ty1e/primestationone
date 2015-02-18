@@ -28,7 +28,7 @@ primeStationOne images / installations older than v0.951alpha can not be automat
         bin/installPrimeStationOneFiles.sh
         quickUpdatePrimestationOneFiles.sh
 ```
-ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).
+ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.
 
 ## BASIC USAGE
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
@@ -63,6 +63,7 @@ Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
 
+
 #### First time running PrimeStation One from image
 Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
@@ -73,6 +74,9 @@ Starting with v0.970, the lightweight 2G SD card image will be as ready to go as
 5. Optionally attach a wifi and / or a bluetooth dongle as both should be pretty well supported by this point
 6. Attach PS3 controller via USB (can pair via bluetooth from the Emulationstation Settings screen or by typing `sudo sixpair`)
 7. Reboot, behold splashscreen and videos during startup that cease as soon as Emulationstation is ready to launch
+
+#### New alternate first-time Step 3 as of v0.975:
+3. Execute `primeStationOneFirstTimeSetupAndReset.sh` and be prepared to sit back and relax (or do something else entirely) for a couple hours while everything is put in place and built and installed as best as the script currently knows how (will reinstall all latest emulators us devs currently care about, blank out the gamelists, ensure all required packages are installed, all latest PORTS, etc...)
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
