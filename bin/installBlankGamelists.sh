@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -vr ~/primestationone/blankgamelists/* ~/.emulationstation/
+cp -vr ~/primestationone/reference/blankgamelists/* ~/.emulationstation/
