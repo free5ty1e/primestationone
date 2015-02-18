@@ -1,26 +1,26 @@
 Hold 0 to Enable:
 0  : * HOLD TO ENABLE
-1  : 
-2  : 
-3  : Exit Emulator
+1  : Analog DPad Toggle
+2  : Screenshot
+3  : Pause Emulator
 4  : 
-5  : 
-6  : 
-7  : 
+5  : Next State
+6  : Record Movie
+7  : Prev State
 8  : 
-9  : 
-10 : 
-11 : 
-12 : 
-13 : 
-14 : 
-15 : 
-16 : 
+9  : Toggle FastFwd
+10 : Load State
+11 : Save State
+12 : Menu 
+13 : Disc Next
+14 : Reset
+15 : Disc Eject
+16 : Exit Emulator
 X1-:  
 X1+: 
 Y1-: 
 Y1+: 
-X2-:  
-X2+: 
-Y2-: 
-Y2+: 
+X2-: Hold Rewind 
+X2+: Hold FastFwd
+Y2-: Frame Advance
+Y2+: Slow Motion
