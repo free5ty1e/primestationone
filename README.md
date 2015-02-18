@@ -76,7 +76,7 @@ Starting with v0.970, the lightweight 2G SD card image will be as ready to go as
 7. Reboot, behold splashscreen and videos during startup that cease as soon as Emulationstation is ready to launch
 
 #### New alternate first-time Step 3 as of v0.975:
-3. Execute `primeStationOneFirstTimeSetupAndReset.sh` and be prepared to sit back and relax (or do something else entirely) for a couple hours while everything is put in place and built and installed as best as the script currently knows how (will reinstall all latest emulators us devs currently care about, blank out the gamelists, ensure all required packages are installed, all latest PORTS, etc...)
+3: Execute `primeStationOneFirstTimeSetupAndReset.sh` and be prepared to sit back and relax (or do something else entirely) for a couple hours while everything is put in place and built and installed as best as the script currently knows how (will reinstall all latest emulators us devs currently care about, blank out the gamelists, ensure all required packages are installed, all latest PORTS, etc...)
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
