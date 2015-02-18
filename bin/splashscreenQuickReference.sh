@@ -1,3 +1,3 @@
 #!/bin/bash
-fbi -a ~/splashscreen.png
+fbi -T 2 -a ~/splashscreen.png
 
