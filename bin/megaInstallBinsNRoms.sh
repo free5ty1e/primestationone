@@ -12,14 +12,13 @@ echo Extracting 7z archive.....
 cd binsnroms
 echo Installing....
 ./installToPrimestationOne.sh
+cd ..
+
 echo Cleaning up...
 rm binsnroms.7z
 rm -rf binsnroms
 echo Resetting permissions on roms and BIOS folders...
 sudo chmod -R 777 ~/RetroPie
-
-cd ..
-
 
 popd
 echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
