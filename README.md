@@ -132,6 +132,37 @@ Installing the Amiga emulator from RetroPie (or updating RetroPie binaries) will
 
 The important thing to remember is that dispmanx MUST be disabled for the uae4all emulator in order for this emulator to function!  You can do this from the RetroPie Setup menu (available through the Settings page in EmulationStation).
 
+#### Netplay for RetroArch / LibRetroCore-enabled emulators
+As of v0.976, a handy netplay configuration / enable / disable script is provided on the EmulationStation settings page!
+Or, you can type `netplayConfigForRetroArchLibretrocoreEmulators.sh` to launch from the terminal.
+
+From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators (here's a list as of v0.976 / 2015.02.18):
+```
+NeoGeo
+MSX
+GameBoy
+GameBoy Color
+GameGear
+Atari Lynx
+MAME
+TurboGrafx16
+Nintendo
+Super Nintendo
+N64
+Sega Master System
+Sega Genesis
+Sega CD
+Sega 32x
+Playstation 1
+Atari 2600
+Atari 7800
+Vectrex 
+3D0
+```
+
+##### IMPORTANT:
+If you start in Host mode, your emulator may *freeze* until a Client connects.  If you want to play single-player again, you should run the script again and disable netplay!
+
 
 #### Building emulators from source / downloading binaries (RetroPie)
 Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
