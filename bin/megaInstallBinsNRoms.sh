@@ -6,7 +6,7 @@ echo =====================> Installing binsnroms archive...
 pushd ~
 rm binsnroms.7z
 rm -rf binsnroms
-megadl 'https://mega.co.nz/#!0Z8B0YgL!uP_2tHu4cq3nBofI1C9Outbol4Y4zp1w9Dj2wh9LOEE'
+megadl 'https://mega.co.nz/#!ddUEUS5C!HAWhv_CS5kL2vg5Py8YHPajW7cmExeqFXfmw31l7ZyA'
 echo Extracting 7z archive.....
 7z -d binsnroms.7z
 cd binsnroms
