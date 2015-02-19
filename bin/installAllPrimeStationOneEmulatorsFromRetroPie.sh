@@ -17,8 +17,15 @@ echo Installing missing dh-autoreconf package for SDL1 build...
 sudo apt-get -y install dh-autoreconf
 sudo ~/RetroPie-Setup/retropie_packages.sh sdl1
 
+cowsay -f elephant-in-snake Updating RetroArch...
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarch
 
 cowsay -f stegosaurus Updating all libretrocore emulators...
+sudo ~/RetroPie-Setup/retropie_packages.sh 4do
+sudo ~/RetroPie-Setup/retropie_packages.sh armsnes
+sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
+sudo ~/RetroPie-Setup/retropie_packages.sh cavestory
+sudo ~/RetroPie-Setup/retropie_packages.sh doom
 sudo ~/RetroPie-Setup/retropie_packages.sh fbalibretro
 sudo ~/RetroPie-Setup/retropie_packages.sh fmsx-libretro
 sudo ~/RetroPie-Setup/retropie_packages.sh gbclibretro
@@ -26,12 +33,17 @@ sudo ~/RetroPie-Setup/retropie_packages.sh genesislibretro
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-handy
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-vecx
 sudo ~/RetroPie-Setup/retropie_packages.sh mamelibretro
-cowsay -f stegosaurus Updating mupen64plus N64 emulator...
+sudo ~/RetroPie-Setup/retropie_packages.sh mednafenpcefast
 sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus-libretro
 sudo ~/RetroPie-Setup/retropie_packages.sh neslibretro
-cowsay -f stegosaurus Updating PSX emulators...
+sudo ~/RetroPie-Setup/retropie_packages.sh nestopia
+sudo ~/RetroPie-Setup/retropie_packages.sh o2em
+sudo ~/RetroPie-Setup/retropie_packages.sh picodrive
+sudo ~/RetroPie-Setup/retropie_packages.sh pocketsnes
 sudo ~/RetroPie-Setup/retropie_packages.sh psxlibretro
 sudo ~/RetroPie-Setup/retropie_packages.sh stellalibretro
+sudo ~/RetroPie-Setup/retropie_packages.sh turbografx16
+sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 
 #cowsay -f stegosaurus Updating SNES emulators...
 #sudo ~/RetroPie-Setup/retropie_packages.sh pisnes
@@ -42,20 +54,18 @@ sudo ~/RetroPie-Setup/retropie_packages.sh stellalibretro
 cowsay -f stegosaurus Updating DOS emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh rpix86
 sudo ~/RetroPie-Setup/retropie_packages.sh dosbox
-sudo ~/RetroPie-Setup/retropie_packages.sh fastdosbox
+#sudo ~/RetroPie-Setup/retropie_packages.sh fastdosbox
 cowsay -f stegosaurus Updating Atari emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh hatari
-cowsay -f stegosaurus Updating Genesis emulators...
-sudo ~/RetroPie-Setup/retropie_packages.sh dgen
-sudo ~/RetroPie-Setup/retropie_packages.sh picodrive
+#cowsay -f stegosaurus Updating Genesis emulators...
+#sudo ~/RetroPie-Setup/retropie_packages.sh dgen
+#sudo ~/RetroPie-Setup/retropie_packages.sh picodrive
 cowsay -f stegosaurus Updating Intellivision emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh jzintv
-cowsay -f stegosaurus Updating MSX emulators...
-sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
+#cowsay -f stegosaurus Updating MSX emulators...
+#sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
 cowsay -f stegosaurus Updating GameGear emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh osmose
-cowsay -f stegosaurus Updating TurboGrafx16 emulators...
-sudo ~/RetroPie-Setup/retropie_packages.sh turbografx16
 #cowsay -f stegosaurus Updating MAME emulators...
 #sudo ~/RetroPie-Setup/retropie_packages.sh advmame
 #cowsay -f stegosaurus Updating MAME emulators...
@@ -84,6 +94,7 @@ cowsay -f stegosaurus Updating EmulationStation...
 sudo ~/RetroPie-Setup/retropie_packages.sh emulationstation
 
 cowsay -f stegosaurus Updating retroarch joypad autoconfigs...
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchjoypadautoconf
 
 cowsay -f stegosaurus Updating PS3 controller driver...
