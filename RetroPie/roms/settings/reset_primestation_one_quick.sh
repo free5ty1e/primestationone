@@ -1,2 +1,2 @@
 #!/bin/bash
-primeStationOneQuickReset.sh
+quickResetPrimestationOne.sh
