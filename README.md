@@ -161,8 +161,11 @@ Vectrex
 ```
 
 ##### IMPORTANT:
-If you start in Host mode, your emulator may *freeze* until a Client connects.  If you want to play single-player again, you should run the script again and disable netplay!
+When launching an emulator capable of netplay, you must hit the `x` key pretty much immediately after emulationstation's interface dissappears; there is a brief prompt asking you to press this key for options.  You need to go to this menu and choose the `Launch with netplay support` (or hotkey `z`) then `ENTER` to actually launch the emulator with your netplay settings enabled.  
 
+If you start in Host mode, your emulator will appear to *freeze* until a Client connects.
+
+Start your host first, then start the client(s).  You can watch them connect and the screens sync up.  Awesome!!
 
 #### Building emulators from source / downloading binaries (RetroPie)
 Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
