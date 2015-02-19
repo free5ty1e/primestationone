@@ -22,7 +22,7 @@ cowsay -f vader Installing PrimeStationOne...
 echo =====================> Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
 ~/primestationone/bin/quickUpdatePrimestationOneFiles.sh
 
-primeStationOneQuickReset.sh
+quickResetPrimestationOne.sh
 
 echo =====================> Building hello_pi example and utility projects, because why not...
 pushd /opt/vc/src/hello_pi

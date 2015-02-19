@@ -12,4 +12,6 @@ installFirstRunFiles.sh
 echo =====================> Installing corrected blank gamelist.xml files...
 installBlankGamelists.sh
 
+autoStartEmulationstationEnforce.sh
+
 retroPieNukeAndCheckoutFresh.sh
