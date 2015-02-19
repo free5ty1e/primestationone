@@ -22,19 +22,12 @@ cowsay -f vader Installing PrimeStationOne...
 echo =====================> Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
 ~/primestationone/bin/quickUpdatePrimestationOneFiles.sh
 
-cowsay -f elephant Installing first run files...
-echo Installing first run files...
-installFirstRunFiles.sh
-
-echo =====================> Installing corrected blank gamelist.xml files...
-installBlankGamelists.sh
+primeStationOneQuickReset.sh
 
 echo =====================> Building hello_pi example and utility projects, because why not...
 pushd /opt/vc/src/hello_pi
 sudo ./rebuild.sh
 popd
-
-retroPieNukeAndCheckoutFresh.sh
 
 echo =====================> Updating PrimestationOne Specific RetroPie packages
 installAllPrimeStationOneEmulatorsFromRetroPie.sh
