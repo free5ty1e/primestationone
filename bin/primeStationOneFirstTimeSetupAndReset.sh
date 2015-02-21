@@ -19,11 +19,9 @@ echo =====================> Updating Pi firmware!  If this happens, you probably
 sudo rpi-update
 
 cowsay -f vader Performing a quick reset of the PrimeStationOne...
-~/primestationone/bin/quickResetPrimestationOne.sh
-
 cowsay -f vader Installing PrimeStationOne...
 echo =====================> Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
-~/primestationone/bin/quickUpdatePrimestationOneFiles.sh
+~/primestationone/bin/quickResetPrimestationOne.sh
 
 echo =====================> Building hello_pi example and utility projects, because why not...
 pushd /opt/vc/src/hello_pi
