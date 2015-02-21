@@ -25,3 +25,5 @@ echo You will have to repeat this procedure for EACH NEW PS3 CONTROLLER that thi
 echo .
 echo You can then type quit to quit... which I thought was rather clever...
 sudo bluetoothctl
+agent on
+default-agent
