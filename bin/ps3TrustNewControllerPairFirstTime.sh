@@ -5,14 +5,10 @@ echo .
 echo You are about to enter the bluetooth command console, unfortunately required to trust new PS3 controllers for the first time...
 echo After this is completed for a controller, you should only have to plug it into the Primestation via USB to pair bluetooth after using it on a real PS3.
 echo .
-echo .
 echo Ensure the PS3 controller you want to trust with the Primestation is connected via USB cable before proceeding!
 echo You should see your New device PLAYSTATION3 Controller listed before the prompt if all is normal.
 echo .
 echo First, type:
-echo agent on
-echo .
-echo Then, type:
 echo default-agent
 echo .
 echo Then, disconnect your PS3 controller from the USB and press the PS3 button...
@@ -24,6 +20,4 @@ echo .
 echo You will have to repeat this procedure for EACH NEW PS3 CONTROLLER that this Primestation has never seen before!
 echo .
 echo You can then type quit to quit... which I thought was rather clever...
-sudo bluetoothctl
-agent on
-default-agent
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 sudo bluetoothctl --agent
