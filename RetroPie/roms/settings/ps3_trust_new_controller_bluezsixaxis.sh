@@ -1,2 +1,2 @@
 #!/bin/bash
-ps3TrustNewControllerPairFirstTime.sh
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 ps3TrustNewControllerPairFirstTime.sh
