@@ -27,7 +27,7 @@ echo Disabling sixad if installed on startup so the two sixaxis drivers dont int
 sudo update-rc.d -f sixad remove
 
 echo Removing old Bluez...
-sudo apt-get remove --purge bluez
+sudo apt-get -y remove --purge bluez
 
 echo Installing new Bluez...
 sudo make install
