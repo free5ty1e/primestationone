@@ -5,6 +5,9 @@ function pause()
     read -p "$*"
 }
 
+cowsay -f eyes Ensuring all files here are actually owned by the Pi user!
+sudo chown --rescursive pi /home/pi/
+
 cowsay -f elephant Installing first run files...
 echo Installing first run files...
 installFirstRunFiles.sh
