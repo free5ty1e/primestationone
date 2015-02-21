@@ -20,4 +20,4 @@ echo .
 echo You will have to repeat this procedure for EACH NEW PS3 CONTROLLER that this Primestation has never seen before!
 echo .
 echo You can then type quit to quit... which I thought was rather clever...
-/opt/retropie/supplementary/runcommand/runcommand.sh 0 sudo bluetoothctl --agent
+bluetoothctl --agent
