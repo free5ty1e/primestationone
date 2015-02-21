@@ -7,7 +7,7 @@ echo Ensuring all required apt packages are installed...
 
 echo Applying various APT fixes just in case there is a problem in the package manager...
 sudo apt-get -fy install
-sudo dpkg --configure -a
+sudo dpkg --configure -a --force-confold
 
 installAptRuntimePackages.sh
 updateSplashscreenVersion.sh
