@@ -36,8 +36,8 @@ sudo install -v -m644 src/main.conf /etc/bluetooth/main.conf
 
 echo Installing init script and set to enable at startup...
 sudo cp -v ~/primestationone/reference/etc/init.d/bluetooth /etc/init.d/
+chmod +x /etc/init.d/bluetooth
 sudo update-rc.d bluetooth defaults
-
-
+sudo dpkg --configure -a --force-confold
 
 popd
