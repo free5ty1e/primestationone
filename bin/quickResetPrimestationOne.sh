@@ -20,3 +20,5 @@ clearFoldersThatMayHaveOldScripts.sh
 autoStartEmulationstationEnforce.sh
 
 retroPieNukeAndCheckoutFresh.sh
+
+quickUpdatePrimestationOneFiles.sh
