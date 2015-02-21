@@ -1,2 +1,2 @@
 #!/bin/bash
-ps3TrustNewControllerPairFirstTime.sh
+ps3TrustUsbControllerForBluezBluetooth.sh
