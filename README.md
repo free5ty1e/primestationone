@@ -167,6 +167,13 @@ If you start in Host mode, your emulator will appear to *freeze* until a Client 
 
 Start your host first, then start the client(s).  You can watch them connect and the screens sync up.  Awesome!!
 
+### Troubleshooting
+Some of the previous versions of the PrimeStation One may or may not have inadvertently caused some ownership issues in the user file structure, and / or left unused or outdated scripts lying around where they can cause confusion.  The best way to ensure that things are really set as they should be, and that you have the absolute best starting point to move forward, you should run the following script.  Be prepared to lose your cached gamelists, custom emulationstation input adjustments and general settings:
+```
+quickResetPrimestationOne.sh
+```
+
+
 #### Building emulators from source / downloading binaries (RetroPie)
 Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
 
