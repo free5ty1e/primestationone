@@ -18,7 +18,7 @@ do_start () {
             /usr/bin/fbi -T 1 -once -t 10 -noverbose -a $splashline
             sleep 12
         else
-            mplayer $splashline
+            omxplayer $splashline
         fi
     done </etc/splashscreen.list
     exit 0
