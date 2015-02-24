@@ -12,6 +12,9 @@ sudo apt-get -y upgrade
 echo =====================> Updating Pi firmware!  If this happens, you probably have to reboot...
 sudo rpi-update
 
+echo =====================> Updating PrimestationOne Specific RetroPie packages
+installAllPrimeStationOneEmulatorsFromRetroPie.sh
+
 cowsay -f vader Performing a quick reset of the PrimeStationOne...
 cowsay -f vader Installing PrimeStationOne...
 echo =====================> Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
@@ -25,9 +28,6 @@ popd
 installMegaTools.sh
 megaInstallBinsNRoms.sh
 megaInstallThemePrimeStationOne.sh
-
-echo =====================> Updating PrimestationOne Specific RetroPie packages
-installAllPrimeStationOneEmulatorsFromRetroPie.sh
 
 read -p "Press any key to restart or CTRL-C to cancel..." -n1 -s
 restart
