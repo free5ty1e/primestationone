@@ -15,8 +15,7 @@ do_start () {
         echo Playing splash video or image $splashline
         isMovie=$(echo $splashline | grep -o ".mov\|.mp4\|.mkv\|.3gp\|.mpg")
         if [ -z "$isMovie" ]; then
-            /usr/bin/fbi -T 1 -once -t 10 -noverbose -a $splashline
-            sleep 12
+            /usr/bin/fbi -T 2 -once -t 15 -noverbose -a $splashline
         else
             omxplayer $splashline
         fi
