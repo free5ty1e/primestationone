@@ -1,12 +1,6 @@
 #!/bin/bash
 
-function pause()
-{
-    read -p "$*"
-}
-
-echo PrimeStationOne Setup script - to be run on the PI after copying the PrimeStationOne files on top of a functional RetroPie image.
-echo Run the primeStationOneCopyFilesToPi script first from the installing computer after setting up an SSH key for passwordless SCP transfers... or just clone the github repo directly onto the Pi, easier...
+echo PrimeStationOne First Time and Full Reset Setup script GO!
 
 echo =====================> Making sure things are up to date...
 sudo apt-get -f install
@@ -28,8 +22,15 @@ pushd /opt/vc/src/hello_pi
 sudo ./rebuild.sh
 popd
 
+installMegaTools.sh
+megaInstallBinsNRoms.sh
+megaInstallThemePrimeStationOne.sh
+
 echo =====================> Updating PrimestationOne Specific RetroPie packages
 installAllPrimeStationOneEmulatorsFromRetroPie.sh
+
+read -p "Press any key to restart or CTRL-C to cancel..." -n1 -s
+restart
 
 #cowsay Launching retropie setup menu...
 #sudo ~/RetroPie-Setup/retropie_setup.sh
