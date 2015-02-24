@@ -4,21 +4,37 @@ cowsay -f mech-and-cow Updating RetroPie packages specific to the RetroPie...
 sudo ~/RetroPie-Setup/retropie_packages.sh aptpackages
 
 cowsay -f mech-and-cow Updating RetroPie packages specific to the PrimeStation One...
-cowsay -f elephant Updating the LinApple Apple 2 emulator...
-sudo ~/RetroPie-Setup/retropie_packages.sh linapple
 
 #cowsay -f elephant-in-snake Removing and reinstalling SDL 2...
 #sudo ~/RetroPie-Setup/retropie_packages.sh sdl2 remove
 #sudo ~/RetroPie-Setup/retropie_packages.sh sdl2
 
-cowsay -f elephant-in-snake Removing and reinstalling SDL 1...
-sudo ~/RetroPie-Setup/retropie_packages.sh sdl1 remove
-echo Installing missing dh-autoreconf package for SDL1 build...
-sudo apt-get -y install dh-autoreconf
-sudo ~/RetroPie-Setup/retropie_packages.sh sdl1
+#cowsay -f elephant-in-snake Removing and reinstalling SDL 1...
+#sudo ~/RetroPie-Setup/retropie_packages.sh sdl1 remove
+#echo Installing missing dh-autoreconf package for SDL1 build...
+#sudo apt-get -y install dh-autoreconf
+#sudo ~/RetroPie-Setup/retropie_packages.sh sdl1
+cowsay -f elephant Installing required module packagerepository
+sudo ~/RetroPie-Setup/retropie_packages.sh packagerepository
+cowsay -f elephant Installing required modules UInput, JoyDev, ALSA
+sudo ~/RetroPie-Setup/retropie_packages.sh modules
+cowsay -f elephant Installing required module runcommand
+sudo ~/RetroPie-Setup/retropie_packages.sh runcommand
+
+cowsay -f elephant Installing roms folder sharing module sambashares
+sudo ~/RetroPie-Setup/retropie_packages.sh sambashares
+
+cowsay -f stegosaurus Updating EmulationStation...
+sudo ~/RetroPie-Setup/retropie_packages.sh emulationstation
+sudo ~/RetroPie-Setup/retropie_packages.sh esconfig
+sudo ~/RetroPie-Setup/retropie_packages.sh esthemesimple
 
 cowsay -f elephant-in-snake Updating RetroArch...
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarch
+cowsay -f stegosaurus Updating retroarch joypad autoconfigs...
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarchjoypadautoconf
+
 
 cowsay -f stegosaurus Updating all libretrocore emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh 4do
@@ -66,6 +82,9 @@ sudo ~/RetroPie-Setup/retropie_packages.sh jzintv
 #sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
 cowsay -f stegosaurus Updating GameGear emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh osmose
+cowsay -f elephant Updating the LinApple Apple 2 emulator...
+sudo ~/RetroPie-Setup/retropie_packages.sh linapple
+
 #cowsay -f stegosaurus Updating MAME emulators...
 #sudo ~/RetroPie-Setup/retropie_packages.sh advmame
 #cowsay -f stegosaurus Updating MAME emulators...
@@ -79,6 +98,12 @@ sudo ~/RetroPie-Setup/retropie_packages.sh uae4all
 #Currently breaks C64 emulator and doesn't build the replacement one yet
 #installC64emulator.sh
 
+cowsay -f stegosaurus Updating other emulators...
+sudo ~/RetroPie-Setup/retropie_packages.sh zmachine
+sudo ~/RetroPie-Setup/retropie_packages.sh cpc
+sudo ~/RetroPie-Setup/retropie_packages.sh vice
+sudo ~/RetroPie-Setup/retropie_packages.sh basilisk
+
 cowsay -f elephant Updating various RPi PORTS...
 sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 sudo ~/RetroPie-Setup/retropie_packages.sh darkplaces
@@ -87,15 +112,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh quake3
 sudo ~/RetroPie-Setup/retropie_packages.sh xbmc
 cowsay -f stegosaurus Updating Minecraft...
 sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
-
-cowsay -f stegosaurus Updating RetroArch...
-sudo ~/RetroPie-Setup/retropie_packages.sh retroarch
-cowsay -f stegosaurus Updating EmulationStation...
-sudo ~/RetroPie-Setup/retropie_packages.sh emulationstation
-
-cowsay -f stegosaurus Updating retroarch joypad autoconfigs...
-sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
-sudo ~/RetroPie-Setup/retropie_packages.sh retroarchjoypadautoconf
 
 cowsay -f stegosaurus Updating PS3 controller driver...
 sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
