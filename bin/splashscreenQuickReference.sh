@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo fbi -T 2 -a /home/pi/splashscreenwithcontrolsandversion.png
+sudo fbi -T 1 -a /home/pi/splashscreenwithcontrolsandversion.png
 
