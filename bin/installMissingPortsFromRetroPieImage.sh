@@ -55,8 +55,8 @@ sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 #sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
 
 cowsay -f stegosaurus Updating DOS emulators...
-#sudo ~/RetroPie-Setup/retropie_packages.sh rpix86
-sudo ~/RetroPie-Setup/retropie_packages.sh dosbox
+sudo ~/RetroPie-Setup/retropie_packages.sh rpix86
+#sudo ~/RetroPie-Setup/retropie_packages.sh dosbox
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh fastdosbox
 
