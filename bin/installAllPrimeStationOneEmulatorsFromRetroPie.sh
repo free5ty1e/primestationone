@@ -105,7 +105,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh vice
 sudo ~/RetroPie-Setup/retropie_packages.sh basilisk
 
 cowsay -f elephant Updating various RPi PORTS...
-sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 sudo ~/RetroPie-Setup/retropie_packages.sh darkplaces
 sudo ~/RetroPie-Setup/retropie_packages.sh eduke32
 sudo ~/RetroPie-Setup/retropie_packages.sh quake3

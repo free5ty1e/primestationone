@@ -17,6 +17,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh sambashares
 cowsay -f stegosaurus Updating retroarch joypad autoconfigs...
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchjoypadautoconf
+sudo ~/RetroPie-Setup/retropie_packages.sh esconfig
 
 #Included with retropie image:
 #doom  Doom 1 Shareware.sh  duke3d  Duke3D Shareware.sh  quake  Quake III Arena.sh  Quake.sh
@@ -27,7 +28,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh o2em
 sudo ~/RetroPie-Setup/retropie_packages.sh cavestory
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-vecx
 sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
-
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh armsnes
 #sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
