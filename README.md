@@ -63,7 +63,7 @@ Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
 #### First time running PrimeStation One from ready-to-go 4GB SD card image
-Starting with v0.995, the full-featured 4GB SD card image is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!
+Starting with v0.995, the full-featured 4GB SD card image is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!  Feel free to follow step 4 for additional roms if you have the space...
 
 #### First time running PrimeStation One from lightweight 2GB SD card image
 Starting with v0.995, the lightweight 2GB SD card image will be as ready to go as reasonably possible in the compact 2GB starter image, but some emulators / ports / features are not yet compiled or installed.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
