@@ -62,21 +62,19 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
+#### First time running PrimeStation One from ready-to-go 4GB SD card image
+Starting with v0.995, the full-featured 4GB SD card image is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!
 
-
-#### First time running PrimeStation One from image
-Starting with v0.970, the lightweight 2G SD card image will be as ready to go as reasonably possible in the compact 2GB starter image.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
+#### First time running PrimeStation One from lightweight 2GB SD card image
+Starting with v0.995, the lightweight 2GB SD card image will be as ready to go as reasonably possible in the compact 2GB starter image, but some emulators / ports / features are not yet compiled or installed.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
 1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `quickUpdatePrimestationOneFiles.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?)
-4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install all PrimeStation One modules by typing `megaInstallAllModules.sh` (individual install scripts also exist for convenience, highly recommend at least installing the two smaller `megaInstallBinsNRoms.sh` and `megaInstallThemePrimeStationOne.sh` modules to enable the majority of emulators and functionality.
+3. Execute `primeStationOneFirstTimeSetupAndReset.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?) -- Be warned, this step will require a good 20 + hours (possibly less if you also overclocked during the previous `sudo raspi-config` step) to complete, but you will end up with a fully functional PrimeStation One.
+4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install the "binsnroms_large" PrimeStation One module (the smaller "binsnroms" package would have already been installed by this point, along with the "themePrimeStationOne" package) by typing `megaInstallBinsNRomsLarge.sh` 
 5. Optionally attach a wifi and / or a bluetooth dongle as both should be pretty well supported by this point
 6. Attach PS3 controller via USB (can pair via bluetooth from the Emulationstation Settings screen or by typing `sudo sixpair`)
-7. Reboot, behold splashscreen and videos during startup that cease as soon as Emulationstation is ready to launch
-
-#### New alternate first-time Step 3 as of v0.975:
-3: Execute `primeStationOneFirstTimeSetupAndReset.sh` and be prepared to sit back and relax (or do something else entirely) for a couple hours while everything is put in place and built and installed as best as the script currently knows how (will reinstall all latest emulators us devs currently care about, blank out the gamelists, ensure all required packages are installed, all latest PORTS, etc...)
+7. Reboot, behold splashscreen and possibly videos (depending on what we have at the server had when you updated) during startup... and then Emulationstation themed for the Primestation One and a full list of active emulators.
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
