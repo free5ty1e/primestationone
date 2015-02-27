@@ -103,6 +103,9 @@ sudo ~/RetroPie-Setup/retropie_packages.sh xbmc
 cowsay -f stegosaurus Updating Minecraft...
 sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
 
+cowsay -f stegosaurus Installing LXDE windowed mode - startx...
+installWindowedModeLxde.sh
+
 cowsay -f stegosaurus Updating PS3 controller driver...
 sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
 
