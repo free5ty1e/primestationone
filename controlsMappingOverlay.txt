@@ -7,7 +7,7 @@ Hold 0 to Enable:
 5  : Next State
 6  : Record Movie
 7  : Prev State
-8  : 
+8  : Flip NetPlayers
 9  : Toggle FastFwd
 10 : Load State
 11 : Save State
