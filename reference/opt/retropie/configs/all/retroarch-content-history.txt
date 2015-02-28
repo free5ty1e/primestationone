@@ -1,0 +1,39 @@
+/home/pi/RetroPie/roms/gbc/LEGEND_OF_ZELDA__THE___LINK.GBC
+/opt/retropie/libretrocores/gbclibretro/gambatte_libretro.so
+gambatte
+/home/pi/RetroPie/roms/gamegear/Addams Family, The (U) [!].gg
+/opt/retropie/libretrocores/genesislibretro/genesis_plus_gx_libretro.so
+Genesis Plus GX
+/home/pi/RetroPie/roms/mame/strider.zip
+/opt/retropie/libretrocores/mamelibretro/libretro.so
+iMAME4all
+/home/pi/RetroPie/roms/pcengine/JACKCHAN.PCE
+/opt/retropie/libretrocores/turbografx16/libretro.so
+Mednafen PCE FAST
+/home/pi/RetroPie/roms/atari2600/A/Alien Pac-Man (Rev 2) by PacManPlus (Alien Hack).bin
+/opt/retropie/libretrocores/stellalibretro/stella_libretro.so
+Stella
+/home/pi/RetroPie/roms/snes/Super Punch-Out!! (U).smc.zip
+/opt/retropie/libretrocores/pocketsnes/libretro.so
+PocketSNES
+/home/pi/RetroPie/roms/snes/F-ZERO (U) [!].smc.zip
+/opt/retropie/libretrocores/pocketsnes/libretro.so
+PocketSNES
+/home/pi/RetroPie/roms/megadrive/GOLDAXE.SMD
+/opt/retropie/libretrocores/picodrive/picodrive_libretro.so
+PicoDrive
+/home/pi/RetroPie/roms/mastersystem/Alex Kidd in Miracle World (USA).zip
+/opt/retropie/libretrocores/picodrive/picodrive_libretro.so
+PicoDrive
+/home/pi/RetroPie/roms/nes/1942.NES.zip
+/opt/retropie/libretrocores/neslibretro/fceumm_libretro.so
+FCEUmm
+/home/pi/RetroPie/roms/snes/Legend of Zelda, The - A Link to the Past (U) [!].smc.zip
+/opt/retropie/libretrocores/pocketsnes/libretro.so
+PocketSNES
+/home/pi/RetroPie/roms/nes/BLADESOFSTEEL.NES.zip
+/opt/retropie/libretrocores/neslibretro/fceumm_libretro.so
+FCEUmm
+/home/pi/RetroPie/roms/n64/(N64 Rom) Super Mario 64.v64.zip
+/opt/retropie/libretrocores/mupen64plus-libretro/mupen64plus_libretro.so
+Mupen64plus
