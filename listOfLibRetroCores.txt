@@ -1,16 +1,17 @@
-* Should work for:
+MAPPED EMUS:
+< = Rewindable
 NeoGeo, MSX
-GameBoy
-GameBoy Color
-GameGear
+GameBoy <
+GameBoy Color <
+GameGear <
 Atari 2600 / 7800
 Atari Lynx
 Vectrex, Odyssey 2
 3D0, MAME
 TurboGrafx16
-Nintendo NES
+Nintendo NES <
 Super NES, N64
-Sega Master System
+SegaMasterSystem <
 Sega Genesis / CD 
 Sega 32x
 Playstation 1

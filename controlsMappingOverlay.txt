@@ -20,7 +20,7 @@ X1-:
 X1+: 
 Y1-: Volume+
 Y1+: Volume-
-X2-: Hold Rewind 
+X2-: Hold Rewind < 
 X2+: Hold FastFwd
 Y2-: Frame Advance
 Y2+: Slow Motion
