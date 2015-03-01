@@ -3,7 +3,8 @@
 controlsMappingOverlay=$(cat ~/primestationone/controlsMappingOverlay.txt)
 controlsMappingTextColor=$(cat ~/primestationone/controlsMappingTextColor.txt)
 
-echo "PrimeStation One updating splashscreen controls text overlay with\n$controlsMappingOverlay"
+echo "PrimeStation One updating splashscreen controls text overlay with"
+echo "$controlsMappingOverlay"
 echo "in color $controlsMappingTextColor..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
 echo "......"
@@ -14,7 +15,8 @@ convert -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$co
 listOfLibRetroCores=$(cat ~/primestationone/listOfLibRetroCores.txt)
 colorOfLibRetroCores=$(cat ~/primestationone/listOfLibRetroCoresColor.txt)
 
-echo "PrimeStation One updating splashscreen mapped emulator list text overlay with\n$listOfLibRetroCores"
+echo "PrimeStation One updating splashscreen mapped emulator list text overlay with"
+echo "$listOfLibRetroCores"
 echo "in color $colorOfLibRetroCores..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
 echo "......"
