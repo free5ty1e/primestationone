@@ -4,6 +4,10 @@
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
+### PS3 Controller Layout / Quick Reference with overlaid information:
+![SplashScreen](https://mega.co.nz/#!YcFyFCSY!Ea_D1axb2LmHSSY33x45YONm2MXfKixSBkExn_lCsY0)
+https://mega.co.nz/#!YcFyFCSY!Ea_D1axb2LmHSSY33x45YONm2MXfKixSBkExn_lCsY0
+
 ### PS3 Controller Layout / Quick Reference: 
 ![SplashScreen](http://verilyshare.circuitstatic.com/splashscreen.png)
 http://verilyshare.circuitstatic.com/splashscreen.png 
