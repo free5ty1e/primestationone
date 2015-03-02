@@ -29,8 +29,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh cavestory
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-vecx
 sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 
-#sudo ~/RetroPie-Setup/retropie_packages.sh armsnes
-#sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
 #sudo ~/RetroPie-Setup/retropie_packages.sh fbalibretro
 #sudo ~/RetroPie-Setup/retropie_packages.sh fmsx-libretro
 #sudo ~/RetroPie-Setup/retropie_packages.sh gbclibretro
@@ -47,12 +45,12 @@ sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 #sudo ~/RetroPie-Setup/retropie_packages.sh stellalibretro
 #sudo ~/RetroPie-Setup/retropie_packages.sh turbografx16
 
-#cowsay -f stegosaurus Updating SNES emulators...
+cowsay -f stegosaurus Updating SNES emulators...
 #sudo ~/RetroPie-Setup/retropie_packages.sh pisnes
 #sudo ~/RetroPie-Setup/retropie_packages.sh snes9x
-#sudo ~/RetroPie-Setup/retropie_packages.sh armsnes
+sudo ~/RetroPie-Setup/retropie_packages.sh armsnes
 #sudo ~/RetroPie-Setup/retropie_packages.sh pocketsnes
-#sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
+sudo ~/RetroPie-Setup/retropie_packages.sh catsfc
 
 cowsay -f stegosaurus Updating DOS emulators...
 sudo ~/RetroPie-Setup/retropie_packages.sh rpix86
