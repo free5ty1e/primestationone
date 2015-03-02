@@ -3,8 +3,8 @@
 
 downloadLatestPrimestationOneSplashscreen.sh
 
-primestationVersion=$(cat ~/primestationone/version.txt)
-primestationVerColor=$(cat ~/primestationone/vercolor.txt)
+primestationVersion=$(cat ~/primestationone/reference/txt/version.txt)
+primestationVerColor=$(cat ~/primestationone/reference/txt/vercolor.txt)
 
 echo "PrimeStation One $primestationVersion updating splashscreen version text overlay with $primestationVersion in color $primestationVerColor..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
