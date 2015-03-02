@@ -7,7 +7,7 @@ pushd ~
 
 rm binsnroms_large.7z
 rm -rf binsnroms_large
-megadl 'https://mega.co.nz/#!JMsjHTYY!Ud2XNXNY4V7vcieMxNxvORaV-1hu90qdKk7gixp0OYg'
+megadl 'https://mega.co.nz/#!BU9z3Z6Y!lbkXTNwzf7EpiyK1WIKhgs7UxnuhxZ0zVIpqVciP7n8'
 echo Extracting 7z archive.....
 7z -d binsnroms_large.7z
 cd binsnroms_large
