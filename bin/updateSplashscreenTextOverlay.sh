@@ -21,8 +21,20 @@ echo "in color $colorOfLibRetroCores..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
 echo "......"
 
-convert -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" ~/splashscreenwithcontrolsandversiontemp.png ~/splashscreenwithcontrolsandversion.png
+convert -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" ~/splashscreenwithcontrolsandversiontemp.png ~/splashscreenwithcontrolsandversiontemp2.png
 
-rm -v ~/splashscreenwithcontrolsandversiontemp.png
+keysToQuitEmusList=$(cat ~/primestationone/reference/keysToQuitEmus.txt)
+colorKeysToQuitEmus=$(cat ~/primestationone/reference/keysToQuitEmusColor.txt)
+
+echo "PrimeStation One updating splashscreen non-mapped emulator quit key list text overlay with"
+echo "$keysToQuitEmusList"
+echo "in color $colorKeysToQuitEmus..."
+echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
+echo "......"
+
+convert -pointsize 18 -fill "$colorKeysToQuitEmus" -draw "text 760,245 \"$keysToQuitEmusList\"" ~/splashscreenwithcontrolsandversiontemp2.png ~/splashscreenwithcontrolsandversion.png
+
+
+rm -v ~/splashscreenwithcontrolsandversiontem*.png
 
 echo "Complete, if you didn't just see any errors."
