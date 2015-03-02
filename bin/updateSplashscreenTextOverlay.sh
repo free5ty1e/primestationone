@@ -32,8 +32,7 @@ echo "in color $colorKeysToQuitEmus..."
 echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
 echo "......"
 
-convert -pointsize 18 -fill "$colorKeysToQuitEmus" -draw "text 760,245 \"$keysToQuitEmusList\"" ~/splashscreenwithcontrolsandversiontemp2.png ~/splashscreenwithcontrolsandversion.png
-
+convert -pointsize 20 -font courier-bold -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" ~/splashscreenwithcontrolsandversiontemp2.png ~/splashscreenwithcontrolsandversion.png
 
 rm -v ~/splashscreenwithcontrolsandversiontem*.png
 
