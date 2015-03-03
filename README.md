@@ -70,7 +70,7 @@ Starting with v0.995, the lightweight 2GB SD card image will be as ready to go a
 
 1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `primeStationOneFirstTimeSetupAndReset.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?) -- Be warned, this step will require a good 20 + hours (possibly less if you also overclocked during the previous `sudo raspi-config` step) to complete, but you will end up with a fully functional PrimeStation One.  NOTE!  It may not be necessary for you to execute this step to fully enjoy your PrimeStation One; since v0.997 the 2GB image has gotten many more emulators closer to the 4GB image to reduce the gap.
+3. Execute `primeStationOneFirstTimeSetupAndReset.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?) -- Be warned, THIS step will require a good 20 + hours (possibly less if you also overclocked during the previous `sudo raspi-config` step) to complete, but you will end up with a fully functional PrimeStation One.  <3A>: NOTE!  It may not be necessary for you to execute this step to fully enjoy your PrimeStation One; since v0.997 the 2GB image has gotten many more features / updates / emulators closer to the 4GB image to reduce the gap.  You will still be missing LXDE / Windowed Mode and the latest Raspberry Pi firmware updates, for instance.  You should still at least run `quickUpdatePrimestationOneFiles.sh && quickResetPrimestationOne.sh` to ensure you get the latest updates and fixes, which will not take long -- a couple minutes.
 4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install the "binsnroms_large" PrimeStation One module (the smaller "binsnroms" package would have already been installed by this point, along with the "themePrimeStationOne" package) by typing `megaInstallBinsNRomsLarge.sh` 
 5. Optionally attach a wifi and / or a bluetooth dongle as both should be pretty well supported by this point
 6. Attach PS3 controller via USB (can pair via bluetooth from the Emulationstation Settings screen or by typing `sudo sixpair`)
@@ -87,13 +87,13 @@ sudo raspi-config
 #### Transferring your PrimeStation One SD root filesystem to a USB drive:
 ...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is normally less expensive and more available than SD card storage space.  USB storage will probably also last longer, as it was designed for more write cycles.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
 
-The PrimeStation One v0.951alpha introduces a new ```usbRootFilesystemSetup.sh``` script to handle this process almost completely for you, save for some instructed keystrokes.
+The PrimeStation One v0.951alpha introduces a new `usbRootFilesystemSetup.sh` script to handle this process almost completely for you, save for some instructed keystrokes.
 
-Yes.  Plug in your USB drive, and type ```usbRootFilesystemSetup.sh``` in order to start the guided process.  In some rare cases, you may find (by typing ```df -h```) that your USB drive has mounted twice, in both /media/usb0 and /media/usb1 for some reason.  In this case, you can type ```sudo umount /dev/sda1``` until it complains that ```sda1``` is not mounted anywhere.
+Yes.  Plug in your USB drive, and type `usbRootFilesystemSetup.sh` in order to start the guided process.  In some rare cases, you may find (by typing `df -h`) that your USB drive has mounted twice, in both `/media/usb0` and `/media/usb1` for some reason.  In this case, you can type `sudo umount /dev/sda1` until it complains that `sda1` is not mounted anywhere.
 
 This process takes about 20-30 minutes, depending on the speeds of your SD card and USB drive.  
 
-I heavily recommend starting with a fresh PrimeStationOne SD imaged with v0.951alpha or later, and transferring to USB first thing instead of expanding the filesystem on the SD card first for any reason (via the ```sudo raspi-config``` menu, only works for SD cards, DON'T do this if you are going to USB).  
+I heavily recommend starting with a fresh PrimeStationOne SD imaged with v0.951alpha or later, and transferring to USB first thing instead of expanding the filesystem on the SD card first for any reason (via the `sudo raspi-config` menu, only works for SD cards, DON'T do this if you are going to USB).  
 
 Part of the guided process is to expand the USB filesystem from the initial 4G to however large your USB drive is.  
 
@@ -111,8 +111,9 @@ The PrimeStation One's modules are now released through mega.co.nz's awesome clo
 
 First, type `installMegaTools.sh` to handle building and installation of the very handy MegaTools, which are required for any module installations.
 
-Then, type any or all of the following (`megaInstallAllModules.sh` will go through and install them all for you if you are lazy):
+Then, type any or all of the following (`megaInstallAllModules.sh` will go through and install them all for you if you are lazy.  Always update your Primestation One first by typing `quickUpdatePrimestationOneFiles` before trying to install a Mega Module, since the contents and mega download links in the scripts change all the time!):
 ```
+megaInstallLibretrocoresBinaries.sh
 megaInstallBinsNRoms.sh
 megaInstallBinsNRomsLarge.sh
 megaInstallThemePrimeStationOne.sh
@@ -134,36 +135,16 @@ The important thing to remember is that dispmanx MUST be disabled for the uae4al
 As of v0.976, a handy netplay configuration / enable / disable script is provided on the EmulationStation settings page!
 Or, you can type `netplayConfigForRetroArchLibretrocoreEmulators.sh` to launch from the terminal.
 
-From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators (here's a list as of v0.976 / 2015.02.18):
-```
-NeoGeo
-MSX
-GameBoy
-GameBoy Color
-GameGear
-Atari Lynx
-MAME
-TurboGrafx16
-Nintendo
-Super Nintendo
-N64
-Sega Master System
-Sega Genesis
-Sega CD
-Sega 32x
-Playstation 1
-Atari 2600
-Atari 7800
-Vectrex 
-3D0
-```
+From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators, a list of which is located in the repository here: [!ListOfNetplayEmus](blob/master/reference/txt/listOfLibRetroCores.txt)
 
-##### IMPORTANT:
-When launching an emulator capable of netplay, you must hit the `x` key pretty much immediately after emulationstation's interface dissappears; there is a brief prompt asking you to press this key for options.  You need to go to this menu and choose the `Launch with netplay support` (or hotkey `z`) then `ENTER` to actually launch the emulator with your netplay settings enabled.  
+##### NETPLAY -- IMPORTANT!:
+When launching an emulator capable of NETPLAY, you must hit the `x` key pretty much immediately after emulationstation's interface dissappears; there is a brief prompt asking you to press this key for options.  You need to go to this menu and choose the `Launch with netplay support` (or hotkey `z`) then `ENTER` to actually launch the emulator with your netplay settings enabled.  
 
-If you start in Host mode, your emulator will appear to *freeze* until a Client connects.
+If you start in Host mode, your emulator will appear to *freeze* during startup until a Client connects.
 
 Start your host first, then start the client(s).  You can watch them connect and the screens sync up.  Awesome!!
+
+There is also a button combination mapped on the controller to allow you to swap netplayers, though this is experimental.  Look for it on the splashscreen / quick reference screen (also above) and try it out!
 
 ### Troubleshooting
 Some of the previous versions of the PrimeStation One may or may not have inadvertently caused some ownership issues in the user file structure, and / or left unused or outdated scripts lying around where they can cause confusion.  The best way to ensure that things are really set as they should be, and that you have the absolute best starting point to move forward, you should run the following script.  Be prepared to lose your cached gamelists, custom emulationstation input adjustments and general settings:
