@@ -39,21 +39,21 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 
 ####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
 ```
-        pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2m of=/dev/disk1
+        pv --size 2048000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2m of=/dev/disk1
 ```
 ...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
 ```
-        sudo dd bs=2m if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
+        sudo dd bs=2m if=primeStationOne2gSdV0.960alpha.img of=/dev/disk1
 ```
 
 
 ####Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
 ```
-        pv --size 2000000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2M of=/dev/disk1
+        pv --size 2048000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2M of=/dev/sdb
 ```
 ...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
 ```
-        sudo dd bs=2M if=primeStationOne4gSdV0.951alpha.img of=/dev/sdb
+        sudo dd bs=2M if=primeStationOne2gSdV0.960alpha.img of=/dev/sdb
 ```
 
 
