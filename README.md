@@ -127,15 +127,13 @@ The goal here is, after installing all modules, you should have a theme for ever
 Since v0.962, usage of the megaInstallBinsNRoms.sh script will also install a special WORKING version of the Amiga emulator (uae4all) from the following post on the Raspberry Pi forums:
 http://www.raspberrypi.org/forums/viewtopic.php?f=78&t=80602
 
-Installing the Amiga emulator from RetroPie (or updating RetroPie binaries) will overwrite this installation, and you will need to run the megaInstallBinsNRoms.sh script again in order to get it back (although it will be removed at some point when RetroPie's version is fixed).
-
 The important thing to remember is that dispmanx MUST be disabled for the uae4all emulator in order for this emulator to function!  You can do this from the RetroPie Setup menu (available through the Settings page in EmulationStation).
 
 #### Netplay for RetroArch / LibRetroCore-enabled emulators
 As of v0.976, a handy netplay configuration / enable / disable script is provided on the EmulationStation settings page!
 Or, you can type `netplayConfigForRetroArchLibretrocoreEmulators.sh` to launch from the terminal.
 
-From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators, a list of which is located in the repository here: [!ListOfNetplayEmus](blob/master/reference/txt/listOfLibRetroCores.txt)
+From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators, a list of which is located in the repository here: [!ListOfNetplayEmus](http://raw.githubusercontent.com/free5ty1e/primestationone/master/reference/txt/listOfLibRetroCores.txt)
 
 ##### NETPLAY -- IMPORTANT!:
 When launching an emulator capable of NETPLAY, you must hit the `x` key pretty much immediately after emulationstation's interface dissappears; there is a brief prompt asking you to press this key for options.  You need to go to this menu and choose the `Launch with netplay support` (or hotkey `z`) then `ENTER` to actually launch the emulator with your netplay settings enabled.  
