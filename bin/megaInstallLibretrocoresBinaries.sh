@@ -6,7 +6,7 @@ echo Requires 12MB for archive plus 64MB total for binaries, some will be overwr
 
 pushd /opt/retropie
 sudo rm libretrocores.7z
-sudo megadl 'https://mega.co.nz/#!EU9jEAyJ!3XZoDTmV_ZUwqMv98C6J_ftpUFQ3k9Gs0sWRnAGtnAs'
+sudo megadl 'https://mega.co.nz/#!pNMgGb6T!JFDqnFzg7IsaIhZLsnEb4hGq4u6qRrNZhfTVa-mmFVs'
 echo Extracting 7z archive and installing.....
 sudo 7z -d libretrocores.7z
 rm libretrocores.7z
