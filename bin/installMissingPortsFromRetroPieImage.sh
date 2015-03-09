@@ -105,7 +105,8 @@ cowsay -f stegosaurus Installing LXDE windowed mode - startx...
 installWindowedModeLxde.sh
 
 cowsay -f stegosaurus Updating PS3 controller driver...
-sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
+#sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
+installPs3BluetoothDaemon.sh
 
 cowsay -f stegosaurus Updating PS3 RetroNetPlay...
 sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
