@@ -1,20 +1,19 @@
-MAPPED EMUS:
+* MAPPED EMUS:
 < = Rewindable
-NeoGeo, MSX
-GameBoy <
-GameBoy Color <
-GameGear <
-Atari 2600 / 7800
-Atari Lynx
-Vectrex, Odyssey 2
-3D0, MAME
-TurboGrafx16
-Nintendo NES <
-Super NES, N64
-SegaMasterSystem <
-Sega Genesis / CD 
-Sega 32x
-Playstation 1
+*NeoGeo, *MSX
+*GameBoy <
+*GameBoy Color <
+*GameGear <
+*Atari 2600 / 7800
+*Atari Lynx
+*Vectrex, *Odyssey 2
+*3D0, *MAME
+*TurboGrafx16
+*Nintendo NES <
+*Super NES, *N64
+*SegaMasterSystem <
+*Sega Genesis / CD 
+*Sega 32x
+*Playstation 1
 CaveStory, Doom
 Quake / Darkplaces
-Duke Nukem 3D
