@@ -13,7 +13,7 @@ cd QtSixA-1.5.1/sixad
 #cp ~/primestationone/reference/qtsixad/compilation_sid.patch .
 #patch -Np1 -i compilation_sid.patch
 #patch -Np1 -i ../sixad.pi.patch
-sudo make
+#sudo make
 sudo make install
 sudo mkdir -p /var/lib/sixad/profiles
 #sudo checkinstall -y
@@ -22,5 +22,5 @@ sudo mkdir -p /var/lib/sixad/profiles
 #sudo sixad --start
 sudo update-rc.d sixad defaults
 cd ../..
-sudo rm -rf QtSixA-1.5.1
+#sudo rm -rf QtSixA-1.5.1
 popd
