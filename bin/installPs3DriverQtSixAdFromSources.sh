@@ -16,7 +16,7 @@ sudo gcc -o sixpair sixpair.c -lusb
 pushd QtSixA-1.5.1/sixad
 sudo make clean
 sudo make CXX="g++-4.6" CXXFLAGS="-O2"
-sudo make install
+#sudo make install
 sudo mkdir -p /var/lib/sixad/profiles
 sudo checkinstall -y --fstrans=no
 sudo update-rc.d sixad defaults
