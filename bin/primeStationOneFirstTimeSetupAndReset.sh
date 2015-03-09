@@ -27,7 +27,7 @@ sudo ./rebuild.sh
 popd
 
 installMegaTools.sh
-megaInstallLibretrocoresBinaries.sh
+#megaInstallLibretrocoresBinaries.sh
 megaInstallBinsNRoms.sh
 megaInstallThemePrimeStationOne.sh
 
