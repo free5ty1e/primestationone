@@ -10,9 +10,9 @@ wget http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-sr
 tar xfvz QtSixA-1.5.1-src.tar.gz
 cd QtSixA-1.5.1/sixad
 ##wget https://bugs.launchpad.net/qtsixa/+bug/1036744/+attachment/3260906/+files/compilation_sid.patch
-##patch -Np1 -i compilation_sid.patch
+cp ~/primestationone/reference/qtsixad/compilation_sid.patch .
+patch -Np1 -i compilation_sid.patch
 #patch -Np1 -i ../sixad.pi.patch
-patch -Np1 -i ~/primestationone/reference/qtsixad/compilation_sid.patch
 sudo make
 sudo make install
 sudo mkdir -p /var/lib/sixad/profiles
