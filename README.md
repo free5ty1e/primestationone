@@ -113,11 +113,13 @@ First, type `installMegaTools.sh` to handle building and installation of the ver
 
 Then, type any or all of the following (`megaInstallAllModules.sh` will go through and install them all for you if you are lazy.  Always update your Primestation One first by typing `quickUpdatePrimestationOneFiles` before trying to install a Mega Module, since the contents and mega download links in the scripts change all the time!):
 ```
-megaInstallLibretrocoresBinaries.sh
+megaInstallEntireRetroPieFolderBinaries.sh
 megaInstallBinsNRoms.sh
 megaInstallBinsNRomsLarge.sh
 megaInstallThemePrimeStationOne.sh
 ```
+
+Note that the `megaInstallEntireRetroPieFolderBinaries.sh` module includes both `megaInstallLibretrocoresBinaries.sh` and `megaInstallOtherEmulatorsBinaries.sh`, which may also be installed individually if desired (but there is more than just these two modules contained within.)
 
 Installation of each module may take up to 20ish minutes, depending on your connection speed and overclock settings (7z max compression is a bit intensive on the Pi).  
 
