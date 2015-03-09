@@ -28,6 +28,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh o2em
 sudo ~/RetroPie-Setup/retropie_packages.sh cavestory
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-vecx
 sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
+sudo ~/RetroPie-Setup/retropie_packages.sh nestopia
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh fbalibretro
 #sudo ~/RetroPie-Setup/retropie_packages.sh fmsx-libretro
@@ -38,7 +39,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 #sudo ~/RetroPie-Setup/retropie_packages.sh mednafenpcefast
 #sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus-libretro
 #sudo ~/RetroPie-Setup/retropie_packages.sh neslibretro
-#sudo ~/RetroPie-Setup/retropie_packages.sh nestopia
 #sudo ~/RetroPie-Setup/retropie_packages.sh picodrive
 #sudo ~/RetroPie-Setup/retropie_packages.sh pocketsnes
 #sudo ~/RetroPie-Setup/retropie_packages.sh psxlibretro
