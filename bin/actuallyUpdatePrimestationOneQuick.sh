@@ -14,6 +14,8 @@ updateSplashscreenVersion.sh
 
 echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
 
+cleanupTempFiles.sh
+
 #echo Updating latest RetroPie-Setup files from git repo...
 #cd ~/RetroPie-Setup
 #sudo git pull
