@@ -36,8 +36,18 @@ sudo install -v -m644 src/main.conf /etc/bluetooth/main.conf
 
 echo Installing init script and set to enable at startup...
 sudo cp -v ~/primestationone/reference/etc/init.d/bluetooth /etc/init.d/
-chmod +x /etc/init.d/bluetooth
+sudo chmod +x /etc/init.d/bluetooth
 sudo update-rc.d bluetooth defaults
 sudo dpkg --configure -a --force-confold
+
+sudo cat > /etc/udev/rules.d/10-local.rules << _EOF_
+# Set bluetooth power up
+ACTION=="add", KERNEL=="hci0", RUN+="/usr/bin/hciconfig hci0 up"
+_EOF_
+
+sudo /etc/init.d/bluetooth start
+
+ps3TrustUsbControllerForBluezBluetooth.sh
+
 
 popd
