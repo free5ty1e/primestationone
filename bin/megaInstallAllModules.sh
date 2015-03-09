@@ -6,7 +6,7 @@ echo =====================> Installing all mega modules and mega tools...
 clearFoldersThatMayHaveOldBinsNRoms.sh
 
 installMegaTools.sh
-megaInstallLibretrocoresBinaries.sh
+megaInstallEntireRetroPieFolderBinaries.sh
 megaInstallBinsNRoms.sh
 megaInstallBinsNRomsLarge.sh
 megaInstallThemePrimeStationOne.sh
