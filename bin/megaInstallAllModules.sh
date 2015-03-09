@@ -7,6 +7,7 @@ clearFoldersThatMayHaveOldBinsNRoms.sh
 
 installMegaTools.sh
 megaInstallEntireRetroPieFolderBinaries.sh
+megaInstallPs3DriverQtSixAd151.sh
 megaInstallBinsNRoms.sh
 megaInstallBinsNRomsLarge.sh
 megaInstallThemePrimeStationOne.sh
