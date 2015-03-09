@@ -3,8 +3,8 @@
 #echo Setting current PS3 controller on USB to pair to this primestation one...
 #sudo sixpair
 
-echo Ensuring bluetooth is up and scanning for PS3 controllers...
-sudo hciconfig hci0 up piscan
+#echo Ensuring bluetooth is up and scanning for PS3 controllers...
+#sudo hciconfig hci0 up piscan
 
 es_bin="/opt/retropie/supplementary/emulationstation/emulationstation"
 
