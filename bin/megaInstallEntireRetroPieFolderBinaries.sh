@@ -6,7 +6,7 @@ echo Requires 117MB for archive plus 292MB total for binaries, some will be over
 
 pushd /opt
 sudo rm retropie.7z
-sudo megadl 'https://mega.co.nz/#!0AcDjYhS!FbYW-J7Ct8HTmvSUDPBsOBiGo2VD-sq8iLRLFETHO0w'
+sudo megadl 'https://mega.co.nz/#!UcN1FbZY!7TXBHyjqhI4bpod1GX7Rbc0EC08xoZAND4R0mF_KeaA'
 echo Extracting 7z archive and installing.....
 sudo 7z -d retropie.7z
 rm retropie.7z
