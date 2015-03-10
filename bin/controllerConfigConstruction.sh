@@ -14,6 +14,7 @@ for file in ~/primestationone/reference/opt/retropie/emulators/retroarch/configs
     echo "Constructed new controller config file: $filename.cfg with contents: "
     cat "$filename.cfg"
 done
-popd
 echo Installing constructed controller configs to RetroArch autoconfig folder...
 sudo cp -vr ~/temp/*.cfg /opt/retropie/emulators/retroarch/configs/
+rm ~/temp/*.cfg
+popd
