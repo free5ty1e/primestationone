@@ -41,7 +41,7 @@ echo "Installing init script for $BLUEZ_FILE and set to enable at startup..."
 sudo cp -v ~/primestationone/reference/etc/init.d/bluetooth /etc/init.d/
 sudo chmod +x /etc/init.d/bluetooth
 sudo update-rc.d bluetooth defaults
-#sudo dpkg --configure -a --force-confold
+sudo dpkg --configure -a --force-confold
 
 sudo bash -c 'cat > /etc/udev/rules.d/10-local.rules << _EOF_
 # Set bluetooth power up and p/i scan enabled
