@@ -1,14 +1,13 @@
 #!/bin/bash
 
+BLUEZ_FILE="bluez-5.28"
+
 cowsay -f calvin Building Bluez with PS3 sixaxis autopairing driver...
 sudo apt-get update
 #sudo apt-get -y upgrade
 sudo apt-get -y install libusb-dev libdbus-1-dev libglib2.0-dev libusb-dev libdbus-1-dev libglib2.0-dev automake libudev-dev libical-dev libreadline-dev
 cleanupTempFiles.sh
 
-#wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.19.tar.xz
-#tar xJvf bluez-5.19.tar.xz
-#cd bluez-5.19
 pushd ~
 
 echo Disabling sixad if installed on startup so the two sixaxis drivers dont interfere...
@@ -17,9 +16,8 @@ sudo update-rc.d -f sixad remove
 echo Removing old Bluez...
 sudo apt-get -y remove --purge bluez
 
-#BLUEZ_FILE="bluez-5.28"
-#5.28 appears to not want to set the info / trust file up!  Trying 5.27...
-BLUEZ_FILE="bluez-5.27"
+echo Stopping any current Bluez 5.x...
+sudo /etc/init.d/bluetooth stop
 
 echo "Downloading new $BLUEZ_FILE..."
 rm "$BLUEZ_FILE.tar.xz"
@@ -52,6 +50,6 @@ _EOF_'
 
 sudo /etc/init.d/bluetooth start
 
-ps3TrustUsbControllerForBluezBluetooth.sh
+trustAllEncounteredPs3ControllersBluez5.sh
 
 popd
