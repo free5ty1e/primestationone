@@ -1,23 +1,23 @@
 Hold 0 to Enable:
 0  : * HOLD TO ENABLE
-1  : Analog DPad Toggle
-2  : Screenshot
+1  : Screenshot
+2  : Record/End Movie
 3  : Pause Emulator
-4  : 
-5  : Next State
-6  : Record Movie
-7  : Prev State
+4  : Reset
+5  : Disc Next
+6  : Analog DPad Toggle
+7  : Disc Eject
 8  : Flip NetPlayers
-9  : Toggle FastFwd
-10 : Load State
-11 : Save State
-12 : Menu 
-13 : Disc Next
-14 : Reset
-15 : Disc Eject
+9  : Prev State
+10 : Menu
+11 : Next State
+12 : Autofire on/off
+13 : Toggle FastFwd
+14 : Load State
+15 : Save State
 16 : Exit Emulator
-X1-:  
-X1+: 
+X1-: 
+X1+:  
 Y1-: Volume+
 Y1+: Volume-
 X2-: Hold Rewind < 
