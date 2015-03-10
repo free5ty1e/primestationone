@@ -5,4 +5,5 @@ echo Now mass-trusting all PS3 controllers encountered and saved in this Primest
 sudo bash -c 'for file in $(grep -l "Name=PLAYSTATION(R)3 Controller" /var/lib/bluetooth/*/*/info); do
     sed -i "s/Trusted=false/Trusted=true/g" $file
 done
-/etc/init.d/bluetooth restart'
+/etc/init.d/bluetooth restart
+hciconfig hci0 up piscan'
