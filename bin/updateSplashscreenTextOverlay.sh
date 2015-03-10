@@ -35,5 +35,6 @@ echo "......"
 convert -pointsize 20 -font courier-bold -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" ~/splashscreenwithcontrolsandversiontemp2.png ~/splashscreenwithcontrolsandversion.png
 
 rm -v ~/splashscreenwithcontrolsandversiontem*.png
+rm -v ~/splashscreenversion.png
 
 echo "Complete, if you didn't just see any errors."
