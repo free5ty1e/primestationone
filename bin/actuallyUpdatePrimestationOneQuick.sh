@@ -3,18 +3,21 @@ cowsay -f stimpy Quick-updating the PrimeStation One!
 cd ~/primestationone
 echo Installing PrimeStationOne files to their proper locations....
 bin/installPrimeStationOneFiles.sh
-echo Ensuring all required apt packages are installed...
 
 echo Applying various APT fixes just in case there is a problem in the package manager...
 sudo apt-get -fy install
 sudo dpkg --configure -a
 
+echo Ensuring all required apt packages are installed...
 installAptRuntimePackages.sh
 updateSplashscreenVersion.sh
 
-echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
+controllerConfigConstruction.sh
 
 cleanupTempFiles.sh
+
+echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
+
 
 #echo Updating latest RetroPie-Setup files from git repo...
 #cd ~/RetroPie-Setup
