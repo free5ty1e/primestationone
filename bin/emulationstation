@@ -3,6 +3,8 @@
 #echo Setting current PS3 controller on USB to pair to this primestation one...
 #sudo sixpair
 
+trustAllEncounteredPs3ControllersBluez5.sh
+
 echo Ensuring bluetooth is up and scanning for PS3 controllers...
 sudo hciconfig hci0 up piscan
 
