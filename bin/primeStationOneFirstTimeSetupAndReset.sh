@@ -28,7 +28,7 @@ popd
 
 installMegaTools.sh
 #megaInstallLibretrocoresBinaries.sh
-megaInstallBinsNRoms.sh
+#megaInstallBinsNRoms.sh
 megaInstallThemePrimeStationOne.sh
 
 read -p "Press any key to restart or CTRL-C to cancel..." -n1 -s
