@@ -6,8 +6,9 @@ mkdir temp
 cd temp
 for file in ~/primestationone/reference/opt/retropie/emulators/retroarch/configs/*.header.cfg; do
     filename=$(basename "$file")
-    extension="${filename##*.}"
-    filename="${filename%.*}"
+    cfgextension="${filename##*.}"
+    headerfilename="${filename%.*}"
+    filename="${headerfilename%.*}"
     cat "$file" > "$filename.cfg"
     cat ~/primestationone/reference/opt/retropie/emulators/retroarch/configs/PS3Controller.master.cfg >> "$filename.cfg"
     echo "Constructed new controller config file: $filename.cfg with contents: "
