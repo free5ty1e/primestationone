@@ -17,6 +17,9 @@ sudo update-rc.d -f sixad remove
 echo Removing old Bluez...
 sudo apt-get -y remove --purge bluez
 
+echo Stopping any current Bluez 5.x...
+sudo /etc/init.d/bluetooth stop
+
 #BLUEZ_FILE="bluez-5.28"
 #5.28 appears to not want to set the info / trust file up!  Trying 5.27...
 BLUEZ_FILE="bluez-5.27"
