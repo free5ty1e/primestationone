@@ -33,7 +33,7 @@ sudo ldconfig
 echo Cleaning up...
 cd ..
 rm -rf megatools-1.9.94
-rm m megatools-1.9.94.tar.gz
+rm megatools-1.9.94.tar.gz
 
 echo MegaTools should now be installed, if there are no errors above.
 echo !!!Note: Remeber to surround each megadl link with single quotes, and you can download several at once as parameters!
