@@ -30,6 +30,8 @@ primeStationOne images / installations older than v0.951alpha can not be automat
 ```
 ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.
 
+### NOTE: Bluetooth utilities package "Bluez" updated from 4.99 to 5.28 as of Primestation v0.999 beta.  This brings native sixaxis support and some much better autopairing.  The same script, `pair_ps3_controller_currently_on_usb.sh`, from the Emulationstation Settings page, will now guide you through the process of introducing your particular PS3 controller to this Primestation One and current bluetooth interface.  Once this introduction / trust relationship has been built, the Primestation will always remember and autopair your controller.  If you use your controller on a real PS3 and it takes over the pairing, simply connect the controller to the Primestation via USB, wait 5 seconds, then unplug it and you should be able to connect wirelessly again.
+
 ## BASIC USAGE
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
 
