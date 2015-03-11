@@ -6,15 +6,16 @@ cowsay -f calvin Building Bluez with PS3 sixaxis autopairing driver...
 sudo apt-get update
 #sudo apt-get -y upgrade
 sudo apt-get -y install libusb-dev libdbus-1-dev libglib2.0-dev libusb-dev libdbus-1-dev libglib2.0-dev automake libudev-dev libical-dev libreadline-dev
-cleanupTempFiles.sh
-
-pushd ~
 
 echo Disabling sixad if installed on startup so the two sixaxis drivers dont interfere...
 sudo update-rc.d -f sixad remove
 
 echo Removing old Bluez...
 sudo apt-get -y remove --purge bluez
+
+cleanupTempFiles.sh
+
+pushd ~
 
 echo Stopping any current Bluez 5.x...
 sudo /etc/init.d/bluetooth stop
