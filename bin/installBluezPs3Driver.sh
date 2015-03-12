@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BLUEZ_FILE="bluez-5.28"
+BLUEZ_FILE="bluez-5.29"
 
 cowsay -f calvin Building Bluez with PS3 sixaxis autopairing driver...
 sudo apt-get update
