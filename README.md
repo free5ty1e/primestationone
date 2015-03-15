@@ -15,6 +15,8 @@ http://verilyshare.circuitstatic.com/video00.mov
 ![Video](http://verilyshare.circuitstatic.com/video01.mov)
 http://verilyshare.circuitstatic.com/video01.mov
 
+#### PrimeStation One theme for EmulationStation github repo:
+https://github.com/free5ty1e/primestationone-estheme
 
 ## NOTE:
 primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later:
