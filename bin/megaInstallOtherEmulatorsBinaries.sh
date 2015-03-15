@@ -6,7 +6,7 @@ echo Requires 34MB for archive plus 153MB total for binaries, some will be overw
 
 pushd /opt/retropie
 sudo rm emulators.7z
-sudo megadl 'https://mega.co.nz/#!JB8QwJbY!lSMXsQ2S9ghMpiS7gn0FmSIZHC3NL7Q4lq1gWh_leP4'
+sudo megadl 'https://mega.co.nz/#!kF9RyL4I!FK-4tmJnalpZRb9CH_lC4u5ghmSTWZScUMMxbaN-PCM'
 echo Extracting 7z archive and installing.....
 sudo 7z -d emulators.7z
 rm emulators.7z
