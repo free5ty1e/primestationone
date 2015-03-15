@@ -108,7 +108,7 @@ installWindowedModeLxde.sh
 #sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
 #Installing our PS3 controller driver just in case the RetroPie one is still busted...
 #installPs3BluetoothDaemon.sh
-installBluezPs3Driver.sh
+#installBluezPs3Driver.sh
 
 cowsay -f stegosaurus Updating PS3 RetroNetPlay...
 sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
