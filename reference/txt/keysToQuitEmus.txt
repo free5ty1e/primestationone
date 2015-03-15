@@ -1,5 +1,5 @@
 QUITTING OTHER EMUS:
-DOSBOX:        CTRL-F9
+DOSBOX/At800:  CTRL-F9
 Amstrad CPC:   F6
 Intellivision: F1
 Apple ][:      F10
