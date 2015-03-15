@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo Installing PrimeStation One main files into their proper locations....
 cd ~/primestationone
 #sudo mkdir ~/RetroPie/roms/settings
 sudo cp -v bin/* /usr/local/bin/

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo =====================> Obtaining latest Primestation One startup video..
+echo Obtaining latest Primestation One startup video..
 
 pushd ~
 rm -f video*

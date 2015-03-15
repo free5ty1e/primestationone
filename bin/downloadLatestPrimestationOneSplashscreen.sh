@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo =====================> Obtaining latest Primestation One splashscreen image...
+echo Obtaining latest Primestation One splashscreen image...
 
 pushd ~
 cp ~/splashscreen.png ~/backup_splashscreen.png
