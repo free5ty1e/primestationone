@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo Updating to latest PrimeStation One files and theme, press CTRL-C to cancel and continue on to emulationstation...
+reallyQuickUpdatePrimestationFilesAndTheme.sh
+
 echo Setting current PS3 controller on USB to pair to this primestation one...
 sudo sixpair
 
