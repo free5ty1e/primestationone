@@ -6,7 +6,8 @@ function pause()
 }
 
 cowsay -f eyes Ensuring all files here are actually owned by the Pi user!
-sudo chown -R pi /home/pi/
+#sudo chown -R pi /home/pi/
+sudo chown -hR pi:pi /home/pi/
 
 removeUnneededAndOutdatedAptPackages.sh
 
