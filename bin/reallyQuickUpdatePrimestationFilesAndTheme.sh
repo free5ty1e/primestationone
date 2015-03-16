@@ -7,3 +7,4 @@ bin/installPrimeStationOneFiles.sh
 popd
 controllerConfigConstruction.sh
 installThemePrimestationOne.sh
+updateSplashscreenTextOverlay.sh
