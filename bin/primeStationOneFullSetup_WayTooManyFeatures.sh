@@ -8,7 +8,7 @@ function pause()
 echo PrimeStationOne Setup script - to be run on the PI after copying the PrimeStationOne files on top of a functional RetroPie image.
 echo Run the primeStationOneCopyFilesToPi script first from the installing computer after setting up an SSH key for passwordless SCP transfers... or just clone the github repo directly onto the Pi, easier...
 
-echo =====================> Making sure things are up to date...
+echo Making sure things are up to date...
 sudo apt-get -y update
 sudo apt-get -y check
 sudo apt-get -y dist-upgrade
@@ -16,13 +16,13 @@ echo =========Now you should probably choose your time zone.  Pacific New is cor
 sudo dpkg-reconfigure tzdata
 sudo apt-get -y upgrade
 
-echo =====================> Updating Pi firmware!  If this happens, you probably have to reboot...
+echo Updating Pi firmware!  If this happens, you probably have to reboot...
 sudo rpi-update
 
 ~/primestationone/bin/installAptPackages
 
 cowsay Installing and updating RetroPie-Setup...
-echo =====================> Now getting the latest RetroPie-Setup script.
+echo Now getting the latest RetroPie-Setup script.
 cd ~
 git clone --depth=0 git://github.com/petrockblog/RetroPie-Setup.git
 cd ~/RetroPie-Setup
@@ -32,24 +32,24 @@ chmod +x retropie_setup.sh
 cd ~
 
 cowsay -f vader Installing PrimeStationOne...
-echo =====================> Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
+echo Beginning install process of custom stuffs and installation of scripts and executables to their correct locations
 ~/primestationone/bin/quickUpdatePrimestationOneFiles.sh
 
-echo =====================> Installing corrected blank gamelist.xml files...
+echo Installing corrected blank gamelist.xml files...
 installBlankGamelists
 
-echo =====================> Building hello_pi example and utility projects
+echo Building hello_pi example and utility projects
 pushd /opt/vc/src/hello_pi
 sudo ./rebuild.sh
 popd
 
-echo =====================> Updating PrimestationOne Specific RetroPie packages
+echo Updating PrimestationOne Specific RetroPie packages
 updatePrimestationSpecificRetroPiePackages
 
 #checkinstall -y libusb-dev libbluetooth-dev joystick
 
 #cowsay Installing PS3 Pairing
-#echo =====================> Installing sixpair to /usr/bin
+#echo Installing sixpair to /usr/bin
 #wget http://www.pabr.org/sixlinux/sixpair.c
 #gcc -o sixpair sixpair.c -lusb
 #sudo cp ./sixpair /usr/bin
@@ -62,7 +62,7 @@ installLinuxJoystickMapper.sh
 installPs3BluetoothDaemon.sh
 
 cowsay Installing mySQL stuffs...
-echo =====================> Installing mySQL server and client, which may prompt for passwords.  I recommend you set the passwords match the Pi user password, which is raspberry
+echo Installing mySQL server and client, which may prompt for passwords.  I recommend you set the passwords match the Pi user password, which is raspberry
 sudo apt-get install -y mysql-server mysql-client
 
 cowsay -f vader Installing LAMP server and Webmin...
