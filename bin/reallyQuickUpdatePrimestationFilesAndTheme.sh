@@ -5,5 +5,5 @@ pushd ~/primestationone
 git pull
 bin/installPrimeStationOneFiles.sh
 popd
-installThemePrimestationOne.sh
+updateThemePrimestationOne.sh
 updateSplashscreenTextOverlay.sh
