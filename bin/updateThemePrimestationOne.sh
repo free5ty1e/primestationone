@@ -9,7 +9,7 @@ if [ -d "/etc/emulationstation/themes/primestation" ] && [ -d "/home/pi/primesta
     echo Theme is already installed!  Checking to see if any changes exist upstream that need installing...
     pushd ~/primestationone-estheme
 
-    if [[ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]]; then
+    if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ] then
         echo Changes detected upstream!  Updating...
         git pull
         ./installToPrimestationOne.sh
