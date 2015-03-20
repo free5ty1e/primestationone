@@ -2,6 +2,7 @@
 cowsay -f eyes Initiating a REALLY quick-update of the PrimeStation One and theme...
 echo Initiating a REALLY quick-update of the PrimeStation One and theme...
 pushd ~/primestationone
+git fetch
 headsha=$(git rev-parse HEAD)
 upstreamsha=$(git rev-parse @{u})
 if [ "$headsha" != "$upstreamsha" ]
