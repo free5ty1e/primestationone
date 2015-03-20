@@ -6,7 +6,7 @@ function pause()
 }
 
 cowsay Nuking and Fresh-Installing and Updating RetroPie-Setup...
-echo =====================> Now getting the latest RetroPie-Setup script.
+echo Now getting the latest RetroPie-Setup script.
 pushd ~
 sudo rm -rf RetroPie-Setup
 #git clone --depth=0 git://github.com/petrockblog/RetroPie-Setup.git
