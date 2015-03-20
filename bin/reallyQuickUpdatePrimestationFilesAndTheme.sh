@@ -1,6 +1,9 @@
 #!/bin/bash
-cowsay -f eyes Initiating a REALLY quick-update of the PrimeStation One and theme...
-echo Initiating a REALLY quick-update of the PrimeStation One and theme...
+
+message="Initiating a REALLY quick-update of the PrimeStation One and theme..."
+echo "$message"
+cowsay -f eyes "$message"
+
 pushd ~/primestationone
 git fetch
 headsha=$(git rev-parse HEAD)
