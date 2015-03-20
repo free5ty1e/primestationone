@@ -90,8 +90,10 @@ if [ -d "$md_build/udev" ]; then
         remap_hotkeys_retroarchautoconf "$file"
     done
 
-
-
+    #Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as "Sony Computer Entertainment Wireless Controller" so I'm erring on the side of I want PS3 controllers to work on the Primestation One
+    rm /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
+    cp /opt/retropie/emulators/retroarch/configs/PS3Controller.cfg /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
+    iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "/opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
