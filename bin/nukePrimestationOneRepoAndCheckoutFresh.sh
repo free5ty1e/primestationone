@@ -10,5 +10,5 @@ cowsay "$message"
 pushd ~
 sudo rm -rf primestationone
 git clone https://github.com/free5ty1e/primestationone.git
-bin/installPrimeStationOneFiles.sh
+primestationone/bin/installPrimeStationOneFiles.sh
 popd
