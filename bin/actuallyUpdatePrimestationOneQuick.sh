@@ -1,34 +1,60 @@
 #!/bin/bash
-cowsay -f stimpy Quick-updating the PrimeStation One!
-cd ~/primestationone
-echo Installing PrimeStationOne files to their proper locations....
-bin/installPrimeStationOneFiles.sh
 
-echo Applying various APT fixes just in case there is a problem in the package manager...
-sudo apt-get -fy install
-sudo dpkg --configure -a
+function update_primestation() {
+    echo Installing PrimeStationOne files to their proper locations....
+    bin/installPrimeStationOneFiles.sh
 
-echo Ensuring all required apt packages are installed...
-installAptRuntimePackages.sh
-updateSplashscreenVersion.sh
+    updateSplashscreenVersion.sh
 
-controllerConfigConstruction.sh
+    controllerConfigConstruction.sh
 
-cleanupTempFiles.sh
+    updateThemePrimestationOne.sh
 
-echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
+    cleanupTempFiles.sh
 
+    echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
 
-#echo Updating latest RetroPie-Setup files from git repo...
-#cd ~/RetroPie-Setup
-#sudo git pull
-#cd ~
+    #echo Updating latest RetroPie-Setup files from git repo...
+    #cd ~/RetroPie-Setup
+    #sudo git pull
+    #cd ~
 
-#echo =====================> Launching mplayer config 4 pi script...
-#mplayerConfigForPi.sh
+    #echo Launching mplayer config 4 pi script...
+    #mplayerConfigForPi.sh
 
-#echo =====================> Installing system status page auto updater cronjob...
-#installCronUpdateForSysStatusHomepage.sh
+    #echo Installing system status page auto updater cronjob...
+    #installCronUpdateForSysStatusHomepage.sh
 
-#echo =====================> Installing PrimeStation One onReboot autoupdater cronjob...
-#installCronRebootAutoQuickUpdatePrimeStationOne.sh
+    #echo Installing PrimeStation One onReboot autoupdater cronjob...
+    #installCronRebootAutoQuickUpdatePrimeStationOne.sh
+}
+
+message="QuickUpdating the Primestation One!!"
+echo "$message"
+cowsay -f stimpy "$message"
+
+echo Checking to see if the repo exists locally, if not we will retrieve it!
+if [ -d "~/primestationone" ]
+then
+    echo Primestation One local git repository now exists!  Checking to see if any changes exist upstream that need installing...
+    pushd ~/primestationone
+    headsha=$(git rev-parse HEAD)
+    upstreamsha=$(git rev-parse @{u})
+    if [ "$headsha" != "$upstreamsha" ]
+    then
+        echo Changes detected upstream!  Updating...
+        git pull
+        update_primestation
+    else
+        echo No changes exist upstream, no need to perform any update operations!
+    fi
+    popd
+else
+    pushd ~
+    git clone https://github.com/free5ty1e/primestationone.git
+    popd
+    pushd ~/primestationone
+    update_primestation
+    popd
+fi
+
