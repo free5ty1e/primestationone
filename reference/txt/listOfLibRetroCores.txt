@@ -8,12 +8,12 @@
 *Atari Lynx
 *Vectrex, *Odyssey 2
 *3D0, *MAME
-*TurboGrafx16
+*TurboGrafx16 <
 *Nintendo NES <
-*Super NES, *N64
+*Super NES <, *N64
 *SegaMasterSystem <
-*Sega Genesis / CD 
-*Sega 32x
+*Sega Genesis <  
+*Sega CD & 32x
 *Playstation 1
 CaveStory, Doom
 Quake / Darkplaces
