@@ -49,7 +49,7 @@ function remap_hotkeys_retroarchautoconf() {
         'input_slowmotion input_r_y_plus'
         'input_netplay_flip_players input_l2'
         'input_volume_up input_l_y_minus'
-        'input_volume_down_axis input_l_y_plus'
+        'input_volume_down input_l_y_plus'
         'input_turbo_btn input_x'
     )
 
