@@ -4,4 +4,4 @@ message="Enabling SNES emulation rewind feature which may cause massive slowdown
 echo "$message"
 cowsay -f eyes "$message"
 
-sudo cp -vf ~/primestationone/reference/opt/retropie/emulators/snes/retroarch.rewindEnabled.cfg /opt/retropie/emulators/snes/retroarch.cfg
+sudo cp -vf ~/primestationone/reference/opt/retropie/configs/snes/retroarch.rewindEnabled.cfg /opt/retropie/configs/snes/retroarch.cfg
