@@ -1,0 +1,2 @@
+#!/bin/bash
+megaInstallGenesisRoms.sh
