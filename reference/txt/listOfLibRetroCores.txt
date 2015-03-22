@@ -4,7 +4,7 @@
 *GameBoy <
 *GameBoy Color <
 *GameGear <
-*Atari 2600 / 7800
+*Atari 2600 
 *Atari Lynx
 *Vectrex, *Odyssey 2
 *3D0, *MAME
