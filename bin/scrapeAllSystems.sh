@@ -5,7 +5,7 @@ echo "$message"
 cowsay -f flaming-sheep "$message"
 
 echo Installing python imaging library PIL for boxart resizing operations...
-sudo apt-get -y install python-imaging"
+sudo apt-get -y install python-imaging
 
 pushd ~
 
