@@ -17,13 +17,20 @@ git clone https://github.com/thadmiller/ES-scraper.git
 
 cd ES-scraper
 
-echo Scraping arcade...
+echo Scraping arcade via crc...
 #Remove -l to choose each rom manually
+python scraper.py -pisize -l -crc -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
+
+echo Scraping arcade via filename...
 python scraper.py -pisize -l -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
 
-echo Scraping nes...
+
+echo Scraping nes via crc...
+python scraper.py -pisize -l -crc -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
+
+echo Scraping nes via filename...
 python scraper.py -pisize -l -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
 
-echo Complete, hopefully!
 
+echo Complete, hopefully!
 popd
