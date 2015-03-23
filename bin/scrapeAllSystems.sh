@@ -31,22 +31,22 @@ git clone https://github.com/chugcup/ES-scraper.git "$crcScraper"
 
 #echo "Scraping arcade via $crcScraper"
 #pushd "$crcScraper"
-#python "$crcScraper/scraper.py" -pisize -l -crc -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
+#python scraper.py -pisize -l -crc -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
 #popd
 
 echo "Scraping arcade via $filenameScraper"
 pushd "$filenameScraper"
-python "$filenameScraper/scraper.py" -pisize -l -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
+python scraper.py -pisize -l -rompath /home/pi/RetroPie/roms/mame -name MAMElrmame4all -platform arcade -ext ".zip .ZIP"
 popd
 
 #echo Scraping nes via crc...
 #pushd "$crcScraper"
-#python "$crcScraper/scraper.py" -pisize -l -crc -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
+#python scraper.py -pisize -l -crc -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
 #popd
 
 echo Scraping nes via filename...
 pushd "$filenameScraper"
-python "$filenameScraper/scraper.py" -pisize -l -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
+python scraper.py -pisize -l -rompath /home/pi/RetroPie/roms/nes -name nes -platform nes -ext ".zip .ZIP"
 popd
 
 echo Complete, hopefully!
