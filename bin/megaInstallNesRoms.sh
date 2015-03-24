@@ -9,20 +9,7 @@ cowsay -f flaming-sheep "$message"
 pushd ~
 
 echo Downloading archive from Mega and decompressing it on the fly...
-#tar xvz < <(megadl --path - 'https://mega.co.nz/#!00gBgDrZ!c39s9Zaa1RRdDnULIdx3WG0xqwioE6BybnD99KCfmnw')
-#7z -d < <(megadl --path - 'https://mega.co.nz/#!YxxQSLoS!sCHIZnsR3ouWfM46Ve30cv3GR6vl7cGz08Zep-e7yvs')
-#megadl --path - 'https://mega.co.nz/#!00gBgDrZ!c39s9Zaa1RRdDnULIdx3WG0xqwioE6BybnD99KCfmnw' | tar xz
-#megadl --path - 'https://mega.co.nz/#!YxxQSLoS!sCHIZnsR3ouWfM46Ve30cv3GR6vl7cGz08Zep-e7yvs' | 7z -d
-
-megadl --no-progress --path=- 'https://mega.co.nz/#!19IWGZ6K!bccA3KQDURnM3-NB8BnfzDIGo0RdnK9xJ81RH5CAV60' | tar xj
-
-#rm "$archivename.7z"
-#megadl --path - 'https://mega.co.nz/#!YxxQSLoS!sCHIZnsR3ouWfM46Ve30cv3GR6vl7cGz08Zep-e7yvs'
-#echo Extracting 7z archive.....
-#7z -d "$archivename.7z"
-#
-#echo Cleaning up...
-#rm "$archivename.7z"
+megadl --no-progress --path=- 'https://mega.co.nz/#!Q5QE2BQB!Yl_mYx42Ia0cj7mb0FJTvynBa_lz5Qw19TWjLO2c_n0' | pv -p -s 1279761914 | tar xvj
 
 echo Resetting permissions on roms and BIOS folders...
 sudo chmod -R 777 ~/RetroPie
