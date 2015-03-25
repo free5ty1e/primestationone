@@ -45,12 +45,12 @@ function remap_hotkeys_retroarchautoconf() {
         'input_hold_fast_forward input_r_x_plus'
         'input_toggle_fast_forward input_a'
         'input_pause_toggle input_start'
-        'input_frame_advance input_r_y_minus'
+        'input_frame_advance input_x'
         'input_slowmotion input_r_y_plus'
         'input_netplay_flip_players input_l2'
         'input_volume_up input_l_y_minus'
         'input_volume_down input_l_y_plus'
-        'input_turbo_btn input_x'
+        'input_turbo input_r_y_minus'
     )
 
     for mapping in "${mappings[@]}"; do
