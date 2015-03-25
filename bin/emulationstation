@@ -19,4 +19,13 @@ if [[ $nb_lock_files -ne 0 ]]; then
     exit 1
 fi
 
-$es_bin "$@"
+#$es_bin "$@"
+
+#Now we loop and restart emulationstation in 5 seconds unless a key is pressed, confirming the desire to drop to a command prompt... this is far more useful for end users just wanting to restart emulationstation for one reason or another
+key=""
+while [[ -z "$key" ]]; do
+
+    $es_bin "$@"
+    echo "EmulationStation will restart in 5 seconds. Press a key to exit back to console."
+    IFS= read -s -t 5 -N 1 key
+done
