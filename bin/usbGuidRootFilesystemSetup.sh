@@ -13,6 +13,7 @@ sudo umount /dev/sda1
 
 echo Installing gdisk to handle GUID partition table initialization...
 sudo apt-get -y install gdisk rsync
+cleanupTempFiles.sh
 
 echo Now we need to remove all partitions on the USB drive.
 echo List partitions by typing p ENTER
@@ -29,7 +30,8 @@ echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbPart1Gui
 sed "s/\${partitionguid}/$usbPart1Guid/" ~/primestationone/reference/boot/cmdlineForGuidUsb.txt > ~/cmdline.txt
 sudo cp /boot/cmdline.txt ~/cmdline.txt.bak
 sudo rm /boot/cmdline.txt
-sudo mv ~/cmdline.txt /boot/cmdline.txt
+sudo cp ~/cmdline.txt /boot/cmdline.txt
+rm ~/cmdline.txt
 
 echo Now continuing with ext4 filesystem setup and formatting...
 sudo mke2fs -t ext4 -L rootfs /dev/sda1
@@ -50,7 +52,8 @@ echo Now modifying /etc/fstab to mount our UUID as the root mount point upon sta
 sed "s/\${partitionuuid}/$usbPart1FilesystemUuid/" ~/primestationone/reference/etc/fstabForUsbGuid > ~/fstab
 sudo cp /etc/fstab ~/fstab.bak
 sudo rm /etc/fstab
-sudo mv ~/fstab /etc/fstab
+sudo cp ~/fstab /etc/fstab
+rm ~/fstab
 
 echo Removing USB copyroms service...
 sudo rm /etc/usbmount/mount.d/01_retropie_copyroms
