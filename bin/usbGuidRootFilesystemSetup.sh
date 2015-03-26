@@ -7,9 +7,9 @@ ls /media/usb0
 echo "See http://www.raspberrypi.org/forums/viewtopic.php?f=29&t=44177 for more information on this procedure..."
 read -p "Press any key to continue -- DO NOT RUN THIS IF YOU ALREADY ARE RUNNING YOUR PI ROOT FROM USB! -- or CTRL-C to cancel using /dev/sda1... " -n1 -s
 
-echo Unmounting USB drive...
+echo Unmounting USB drive, which can be mounted twice in some cases...
 sudo umount /dev/sda1
-
+sudo umount /dev/sda1
 
 echo Installing gdisk to handle GUID partition table initialization...
 sudo apt-get -y install gdisk rsync
