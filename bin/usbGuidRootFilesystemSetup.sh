@@ -50,13 +50,13 @@ echo "USB Partition 1 Filesystem UUID retrieved: $usbPart1FilesystemUuid"
 
 echo Now modifying /etc/fstab to mount our UUID as the root mount point upon startup...
 sed "s/\${partitionuuid}/$usbPart1FilesystemUuid/" ~/primestationone/reference/etc/fstabForUsbGuid > ~/fstab
-sudo cp /etc/fstab ~/fstab.bak
-sudo rm /etc/fstab
-sudo cp ~/fstab /etc/fstab
+sudo cp /mnt/etc/fstab ~/fstab.bak
+sudo rm /mnt/etc/fstab
+sudo cp ~/fstab /mnt/etc/fstab
 rm ~/fstab
 
 echo Removing USB copyroms service...
-sudo rm /etc/usbmount/mount.d/01_retropie_copyroms
+sudo rm /mnt/etc/usbmount/mount.d/01_retropie_copyroms
 
 #echo Checking new root filesystem...press enter to auto fix any issues that you are prompted for...
 #sudo e2fsck -f /dev/sda1
