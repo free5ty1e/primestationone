@@ -5,8 +5,8 @@
 =============
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/gk5RmF4.png)
-http://i.imgur.com/6ORZA0x.png 
+![SplashScreen](http://i.imgur.com/OBJCkNj.png)
+http://i.imgur.com/OBJCkNj.png
 
 #### Demo / startup splash videos:
 ![Video](http://verilyshare.circuitstatic.com/video00.mov)
