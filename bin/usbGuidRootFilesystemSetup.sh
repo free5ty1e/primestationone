@@ -33,6 +33,10 @@ sudo rm /boot/cmdline.txt
 sudo cp ~/cmdline.txt /boot/cmdline.txt
 rm ~/cmdline.txt
 
+echo Ensuring USB drive is unmounted again...
+sudo umount /dev/sda1
+sudo umount /dev/sda1
+
 echo Now continuing with ext4 filesystem setup and formatting...
 sudo mke2fs -t ext4 -L rootfs /dev/sda1
 
