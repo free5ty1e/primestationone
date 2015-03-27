@@ -24,8 +24,12 @@ echo Cloning new manual filename based scraper...
 git clone https://github.com/thadmiller/ES-scraper.git "$filenameScraper"
 
 echo Cloning new manual crc based scraper...
-git clone https://github.com/chugcup/ES-scraper.git "$crcScraper"
-
+#git clone https://github.com/chugcup/ES-scraper.git "$crcScraper"
+#git clone https://github.com/sselph/scraper.git "$crcScraper"
+mkdir "$crcScraper"
+cd "$crcScraper"
+wget https://github.com/sselph/scraper/releases/download/v0.7.2-beta/scraper_rpi.zip
+unzip scraper_rpi.zip
 
 #Remove -l to choose each rom manually
 
