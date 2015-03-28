@@ -2,7 +2,7 @@ QUITTING OTHER EMUS:
 ScummVM:       ESC
 Intellivision: F1
 Amstrad CPC:   F6
-DOSBOX/At800:  CTRL-F9
+DOS/At800&5200:CTRL-F9
 Apple ][:      F10
 C64 (vice):    F12 menu
 AMIGA:         TAB+Q ?
