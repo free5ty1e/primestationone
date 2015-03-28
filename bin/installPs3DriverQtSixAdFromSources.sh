@@ -9,6 +9,7 @@ cleanupTempFiles.sh
 
 mkdir temp
 cd temp
+sudo chown -R pi:pi .
 mkdir ps3driver
 cd ps3driver
 wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "sixpair.c"
