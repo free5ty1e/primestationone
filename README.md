@@ -206,6 +206,10 @@ So far mainly tested with the RetroPie image v2.3 downloaded from their site and
 * Menu system to handle running services, both for the current session and for all future sessions (services enabled / disabled upon startup).  The PrimeStation One can do a lot, and sometimes its nice to turn some unused features off!
 * Add START + SELECT to request a soft reboot of the Pi for panic / crash situations.  This might just end up pressing CTRL-ALT-DEL if we continue to find this actually does work like we think it does...
 * Add new Pi port `https://github.com/adventuregamestudio/ags` Adventure Game Studio
+* Add Descent 1 & Descent 2 to Ports
+* Add Frets On Fire X (FoFiX - my old project) to Ports
+* Add Starcraft to Ports (may be armv7 / pi 2 only)
+* Add Random to emus: 1) Choose evenly weighted random system, then random game in that system, mapped emus only; or 2) All emus, mapped or not, included
 
 Comments / suggestions / contributions to the code welcome!  
 
