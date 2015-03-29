@@ -1,2 +1,2 @@
 #!/bin/bash
-alsamixer
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 alsamixer
