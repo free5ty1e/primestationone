@@ -19,7 +19,8 @@ tar xvzf d1x-rebirth_v0.58.1-src.tar.gz
 cd d1x-rebirth_v0.58.1-src
 #wget http://www-user.tu-chemnitz.de/~heinm/tmp/d1x-rebirth-rpi.diff.gz
 #zcat d1x-rebirth-rpi.diff.gz | patch -p1
-scons raspberrypi=1
+scons -c
+scons raspberrypi=1 debug=1
 
 cd ~
 
@@ -41,6 +42,7 @@ tar xvzf d2x-rebirth_v0.58.1-src.tar.gz
 cd d2x-rebirth_v0.58.1-src
 #wget http://www-user.tu-chemnitz.de/~heinm/tmp/d2x-rebirth-rpi.diff.gz
 #zcat d2x-rebirth-rpi.diff.gz | patch -p1
+scons -c
 scons raspberrypi=1
 
 cd ~
