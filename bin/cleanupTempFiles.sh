@@ -13,5 +13,12 @@ rm ~/RetroPie/roms/settings/install_mega_module_entire_retropie_binaries_folder.
 rm ~/RetroPie/roms/settings/install_mega_module_mapped_emulator_binaries.sh
 rm ~/RetroPie/roms/settings/install_mega_module_other_emulator_binaries.sh
 rm ~/RetroPie/roms/settings/install_mega_tools_for_module_installs.sh
+rm ~/RetroPie/roms/settings/install_mega_module_entire_retropie_binaries_folder.sh
+rm ~/RetroPie/roms/settings/install_mega_module_other_emulator_binaries.sh
+rm ~/RetroPie/roms/settings/install_mega_module_mapped_emulator_binaries.sh
+
+sudo rm /usr/local/bin/megaInstallEntireRetroPieFolderBinaries.sh
+sudo rm /usr/local/bin/megaInstallLibretrocoresBinaries.sh
+sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
 
 df -h
