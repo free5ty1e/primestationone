@@ -40,7 +40,8 @@ function rsync_with_progress() {
 
     #echo "Executing dry-run to see how many files must be transferred..."
     #TODO=$(${RSYNC} --dry-run ${RSYNC_ARGS} ${SOURCES} ${TARGET}|grep "^Number of files transferred"|awk '{print $5}')
-    TODO=$(sudo find ${SOURCES} | wc -l)
+    TODO=$(find ${SOURCES} | wc -l)
+    echo "$TODO files counted to sync..."
 
-    sudo ${RSYNC} ${RSYNC_ARGS} ${SOURCES} ${TARGET} | pv -l -e -p -s "$TODO"
+    ${RSYNC} ${RSYNC_ARGS} ${SOURCES} ${TARGET} | pv -l -e -p -s "$TODO"
 }
