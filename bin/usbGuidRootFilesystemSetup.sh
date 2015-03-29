@@ -15,22 +15,26 @@ echo Installing gdisk to handle GUID partition table initialization...
 sudo apt-get -y install gdisk rsync
 cleanupTempFiles.sh
 
+#echo Now to zap all partitioning tables currently on the USB drive...
+#echo Type x ENTER to get to the eXperts menu
+#echo Type Z ENTER y ENTER y ENTER to zap all partitioning tables...
+#sudo gdisk /dev/sda
+echo Zapping existing MBR and GPT partition tables on USB drive...
+sudo sgdisk -Z /dev/sda
 
-echo Now to zap all partitioning tables currently on the USB drive...
-echo Type x ENTER to get to the eXperts menu
-echo Type Z ENTER y ENTER y ENTER to zap all partitioning tables...
-sudo gdisk /dev/sda
-
-echo Now we need to create an appropriate partition on the USB drive.
-echo Type n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
-sudo gdisk /dev/sda
+#echo Now we need to create an appropriate partition on the USB drive.
+#echo Type n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
+#sudo gdisk /dev/sda
 #echo Type i to see info after this to view GUID and note this value... then q to quit once you have it.
-usbDiskGuid=$(sudo gdisk -l /dev/sda | grep GUID | awk '{print $4}')
-echo "USB device GUID retrieved: $usbDiskGuid"
+echo Creating new largest possible primary partition on USB drive...
+sudo sgdisk --largest-new=1 /dev/sda
+
+usbRootPartGuid=$(sudo sgdisk -i=1 /dev/sda | grep "Partition unique GUID:" | awk '{print $4}')
+echo "USB rootfs partition 1 GUID retrieved: $usbRootPartGuid"
 
 echo Here is where we need to set the /boot/cmdline.txt to point to root=PARTUUID=partitionguidhere along with rootdelay=5 at the end...
-echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbDiskGuid..."
-sed "s/\${partitionguid}/$usbDiskGuid/" ~/primestationone/reference/boot/cmdlineForGuidUsb.txt > ~/cmdline.txt
+echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbRootPartGuid..."
+sed "s/\${partitionguid}/$usbRootPartGuid/" ~/primestationone/reference/boot/cmdlineForGuidUsb.txt > ~/cmdline.txt
 sudo cp /boot/cmdline.txt ~/cmdline.txt.bak
 sudo rm /boot/cmdline.txt
 sudo cp ~/cmdline.txt /boot/cmdline.txt
