@@ -19,9 +19,17 @@ cd d1x-rebirth_v0.58.1-src
 #wget http://www-user.tu-chemnitz.de/~heinm/tmp/d1x-rebirth-rpi.diff.gz
 #zcat d1x-rebirth-rpi.diff.gz | patch -p1
 scons raspberrypi=1
-cd ..
-cd ..
 
+cd ~
+
+echo Retrieving Descent 1 shareware content...
+mkdir .d1x-rebirth
+cd .d1x-rebirth
+wget http://www.dxx-rebirth.com/download/dxx/content/descent-pc-shareware.zip
+unzip descent-pc-shareware.zip
+rm descent-pc-shareware.zip
+
+cd ~
 
 echo Descent 2...
 mkdir descent2
@@ -32,7 +40,14 @@ cd d2x-rebirth_v0.58.1-src
 #wget http://www-user.tu-chemnitz.de/~heinm/tmp/d2x-rebirth-rpi.diff.gz
 #zcat d2x-rebirth-rpi.diff.gz | patch -p1
 scons raspberrypi=1
-cd ..
-cd ..
+
+cd ~
+
+echo Retrieving Descent 2 shareware content...
+mkdir .d2x-rebirth
+cd .d2x-rebirth
+wget http://www.dxx-rebirth.com/download/dxx/content/descent2-pc-demo.zip
+unzip descent2-pc-demo.zip
+rm descent2-pc-demo.zip
 
 popd
