@@ -16,24 +16,21 @@ sudo apt-get -y install gdisk rsync
 cleanupTempFiles.sh
 
 
-echo Now we need to create a GPT partitioned USB drive...
-echo Type r ENTER to get to the recovery-transformation menu
-echo Then type f ENTER y ENTER to convert SDA to a GPT USB disk
-echo Then type m ENTER to return to the main menu
-echo .
-echo Then we need to remove all partitions on the USB drive.
-echo List partitions by typing p ENTER
-echo Then delete all partitions in reverse order as necessary, full delete commands are:
-echo d ENTER 4 ENTER d ENTER 3 ENTER d ENTER 2 ENTER d ENTER
-echo Then press n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
+echo Now to zap all partitioning tables currently on the USB drive...
+echo Type x ENTER to get to the eXperts menu
+echo Type Z ENTER y ENTER y ENTER to zap all partitioning tables...
+sudo gdisk /dev/sda
+
+echo Now we need to create an appropriate partition on the USB drive.
+echo Type n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
 sudo gdisk /dev/sda
 #echo Type i to see info after this to view GUID and note this value... then q to quit once you have it.
-usbPart1Guid=$(sudo gdisk -l /dev/sda1 | grep GUID | awk '{print $4}')
-echo "USB Partition 1 GUID retrieved: $usbPart1Guid"
+usbDiskGuid=$(sudo gdisk -l /dev/sda | grep GUID | awk '{print $4}')
+echo "USB device GUID retrieved: $usbDiskGuid"
 
 echo Here is where we need to set the /boot/cmdline.txt to point to root=PARTUUID=partitionguidhere along with rootdelay=5 at the end...
-echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbPart1Guid..."
-sed "s/\${partitionguid}/$usbPart1Guid/" ~/primestationone/reference/boot/cmdlineForGuidUsb.txt > ~/cmdline.txt
+echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbDiskGuid..."
+sed "s/\${partitionguid}/$usbDiskGuid/" ~/primestationone/reference/boot/cmdlineForGuidUsb.txt > ~/cmdline.txt
 sudo cp /boot/cmdline.txt ~/cmdline.txt.bak
 sudo rm /boot/cmdline.txt
 sudo cp ~/cmdline.txt /boot/cmdline.txt
