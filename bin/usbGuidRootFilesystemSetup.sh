@@ -1,4 +1,7 @@
 #!/bin/bash
+
+source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
+
 cowsay -f eyes Configuring first USB stick to be our new root filesystem!  Using /dev/sda1 with GUID partition table...
 ls /dev/sd*
 df -h
@@ -51,7 +54,8 @@ echo Mounting new USB filesystem...
 sudo mount /dev/sda1 /mnt
 
 echo Transferring root filesystem to USB drive...
-sudo rsync -axi / /mnt | pv -les $(df -i / | perl -ane 'print $F[2] if $F[5] =~ m:^/:') >/dev/null
+#sudo rsync -axi / /mnt | pv -les $(df -i / | perl -ane 'print $F[2] if $F[5] =~ m:^/:') >/dev/null
+rsync_with_progress / /mnt
 
 echo Now we need to get a unique identifier for the fstab drive information...
 echo Note the Filesystem UUID in the below info for usage in the fstab...
