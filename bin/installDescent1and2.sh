@@ -13,6 +13,7 @@ pushd ~
 echo Descent 1...
 mkdir descent1
 cd descent1
+rm d1x-rebirth_v0.58.1-src.tar.gz
 wget http://www.dxx-rebirth.com/download/dxx/d1x-rebirth_v0.58.1-src.tar.gz
 tar xvzf d1x-rebirth_v0.58.1-src.tar.gz
 cd d1x-rebirth_v0.58.1-src
@@ -34,6 +35,7 @@ cd ~
 echo Descent 2...
 mkdir descent2
 cd descent2
+rm d2x-rebirth_v0.58.1-src.tar.gz
 wget http://www.dxx-rebirth.com/download/dxx/d2x-rebirth_v0.58.1-src.tar.gz
 tar xvzf d2x-rebirth_v0.58.1-src.tar.gz
 cd d2x-rebirth_v0.58.1-src
