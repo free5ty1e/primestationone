@@ -15,11 +15,17 @@ echo Installing gdisk to handle GUID partition table initialization...
 sudo apt-get -y install gdisk rsync
 cleanupTempFiles.sh
 
-echo Now we need to remove all partitions on the USB drive.
+
+echo Now we need to create a GPT partitioned USB drive...
+echo Type r ENTER to get to the recovery-transformation menu
+echo Then type f ENTER y ENTER to convert SDA to a GPT USB disk
+echo Then type m ENTER to return to the main menu
+echo .
+echo Then we need to remove all partitions on the USB drive.
 echo List partitions by typing p ENTER
 echo Then delete all partitions in reverse order as necessary, full delete commands are:
 echo d ENTER 4 ENTER d ENTER 3 ENTER d ENTER 2 ENTER d ENTER
-echo Then press n ENTER ENTER ENTER ENTER ENTER w ENTER to write changes...
+echo Then press n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
 sudo gdisk /dev/sda
 #echo Type i to see info after this to view GUID and note this value... then q to quit once you have it.
 usbPart1Guid=$(sudo gdisk -l /dev/sda1 | grep GUID | awk '{print $4}')
