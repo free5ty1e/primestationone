@@ -35,7 +35,7 @@ function rsync_with_progress() {
     echo "rsync with progress by file count, local filesystems only..."
     RSYNC="ionice -c3 rsync"
     # don't use --progress
-    RSYNC_ARGS="-xvrltD --delete --stats --human-readable"
+    RSYNC_ARGS="-axv --stats --human-readable"
     SOURCES="$1"
     TARGET="$2"
 
