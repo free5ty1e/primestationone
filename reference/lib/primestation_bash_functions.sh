@@ -39,7 +39,7 @@ function rsync_with_progress() {
     SOURCES="$1"
     TARGET="$2"
 
-    echo "Executing dry-run to see how many files must be transferred, only for remote rsync operations..."
+    echo "Executing dry-run to see how many files must be transferred..."
     TODO=$(${RSYNC} --dry-run ${RSYNC_ARGS} ${SOURCES} ${TARGET}|grep "^Number of files transferred"|awk '{print $5}')
     #TODO=$(find ${SOURCES} | wc -l)
     echo "$TODO files counted to sync..."
