@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo n64AudioOutToAnalog.sh
+n64AudioOutToAnalog.sh
