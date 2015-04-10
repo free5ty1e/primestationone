@@ -70,6 +70,9 @@ gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconf
 echo Checking to ensure clone was successful before proceeding....
 if [ -d "$md_build/udev" ]; then
 
+    echo Mapping any non-libretrocore emulators that we know how...
+    n64SetupPs3Controls.sh
+
     echo Wiping out any existing controller autoconfigs
     sudo rm -rf "$emudir/retroarch/configs"
 
