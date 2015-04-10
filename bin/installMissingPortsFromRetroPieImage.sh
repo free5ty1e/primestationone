@@ -121,6 +121,17 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-o2em
 sudo ~/RetroPie-Setup/retropie_packages.sh libretro-vecx
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-tyrquake
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-virtualjaguar
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-snes9x-next
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prosystem
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-mgba
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-vb
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-gpsp
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-stella
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed
 
 echo Installing CaveStory NXEngine...
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-nxengine
@@ -195,6 +206,8 @@ sudo ~/RetroPie-Setup/retropie_packages.sh darkplaces
 sudo ~/RetroPie-Setup/retropie_packages.sh xbmc
 cowsay -f stegosaurus Updating Minecraft...
 sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
+sudo ~/RetroPie-Setup/retropie_packages.sh limelight
+sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 
 cowsay -f stegosaurus Installing LXDE windowed mode - startx...
 installWindowedModeLxde.sh
