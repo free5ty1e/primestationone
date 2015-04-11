@@ -13,6 +13,7 @@ then
     echo Changes detected upstream!  Updating...
     git pull
     bin/installPrimeStationOneFiles.sh
+    quickCreateFoldersAndLinksAndRemoveOldFiles.sh
     updateSplashscreenTextOverlay.sh
 else
     echo No changes exist upstream, no need to perform any update operations for this repo!
