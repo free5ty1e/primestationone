@@ -12,6 +12,7 @@ sudo cp -vr var /
 cp -vr RetroPie/* ~/RetroPie/
 chmod +x ~/RetroPie/roms/settings/*.sh
 cp -vr .emulationstation/* ~/.emulationstation/
+cp -vr .vice ~/
 cp -v .* ~/
 #cp -v *.gz ~/
 
