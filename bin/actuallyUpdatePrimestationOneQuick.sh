@@ -12,6 +12,8 @@ function update_primestation() {
 
     cleanupTempFiles.sh
 
+    quickCreateFoldersAndLinksAndRemoveOldFiles.sh
+
     echo To update RetroPie-Setup stuffs, do it from the retropie_setup.sh menu as it is not just a simple git pull...
 
     #echo Updating latest RetroPie-Setup files from git repo...

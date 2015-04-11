@@ -8,10 +8,4 @@ p7zip -d uae4all.7z
 mkdir ~/RetroPie/emulators
 cp -rv uae4all ~/RetroPie/emulators/
 
-echo Creating symbolic links for BIOS files...
-sudo ln -sv /home/pi/RetroPie/BIOS/gba_bios.bin /opt/retropie/emulators/gpsp/gba_bios.bin
-sudo ln -sv /home/pi/RetroPie/BIOS/kick12.rom /opt/retropie/emulators/uae4all/kickstarts/kick12.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/kick13.rom /opt/retropie/emulators/uae4all/kickstarts/kick13.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/kick20.rom /opt/retropie/emulators/uae4all/kickstarts/kick20.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/kick31.rom /opt/retropie/emulators/uae4all/kickstarts/kick31.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/Doukutsu.exe /opt/retropie/libretrocores/cavestory/datafiles/Doukutsu.exe
+quickCreateFoldersAndLinksAndRemoveOldFiles.sh
