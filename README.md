@@ -217,6 +217,8 @@ Credits:
 * Chris "Prime" Paiano (Founder, Lead Developer) - Twitter: @ChrisPaiano
 * "Circuit Static" (User Experience, Quality, Development & Marketing) - Twitter: @CircuitStatic
 
+....
+
 Standing on the Shoulders of Giants:
 * RetroPie project (https://github.com/petrockblog/RetroPie-Setup)
 * XRDP project (https://github.com/kx499/xrdp)
