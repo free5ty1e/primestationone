@@ -8,13 +8,6 @@
 ![SplashScreen](http://i.imgur.com/OBJCkNj.png)
 http://i.imgur.com/OBJCkNj.png
 
-#### Demo / startup splash videos:
-![Video](http://verilyshare.circuitstatic.com/video00.mov)
-http://verilyshare.circuitstatic.com/video00.mov
-
-![Video](http://verilyshare.circuitstatic.com/video01.mov)
-http://verilyshare.circuitstatic.com/video01.mov
-
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
 
