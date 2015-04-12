@@ -17,9 +17,6 @@ sudo /etc/init.d/dphys-swapfile start
 #sudo SKIP_BACKUP=1 rpi-update
 #helloPiBuild.sh
 
-installAptRuntimePackages.sh
-installFirstRunFiles.sh
-quickUpdatePrimestationOneFiles.sh
 installMissingPortsFromRetroPieImage.sh
 df -h
 
