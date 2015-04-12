@@ -98,6 +98,37 @@ if [ -d "$md_build/udev" ]; then
     cp -v /opt/retropie/emulators/retroarch/configs/PS3Controller.cfg /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
     iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "/opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
+
+    echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Circle for B which is asinine...
+    local emulatorsToButtonSwap=(
+        'nes'
+        'gb'
+        'gbc'
+        'n64'
+        'mastersystem'
+        'gamegear'
+        'pcengine'
+    )
+
+    for emu in "${emulatorsToButtonSwap[@]}"; do
+        emu=($emu)
+        source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
+        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+        iniSet "input_player1_y_btn" "13"
+        iniSet "input_player1_a_btn" "14"
+        iniSet "input_player1_b_btn" "15"
+        iniSet "input_player2_y_btn" "13"
+        iniSet "input_player2_a_btn" "14"
+        iniSet "input_player2_b_btn" "15"
+        iniSet "input_player3_y_btn" "13"
+        iniSet "input_player3_a_btn" "14"
+        iniSet "input_player3_b_btn" "15"
+        iniSet "input_player4_y_btn" "13"
+        iniSet "input_player4_a_btn" "14"
+        iniSet "input_player4_b_btn" "15"
+    done
+
+
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
 fi
