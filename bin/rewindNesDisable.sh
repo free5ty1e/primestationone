@@ -4,4 +4,8 @@ message="Disabling NES emulation rewind feature which may cause slowdown just be
 echo "$message"
 cowsay -f eyes "$message"
 
-sudo cp -vf ~/primestationone/reference/opt/retropie/configs/nes/retroarch.rewindDisabled.cfg /opt/retropie/configs/nes/retroarch.cfg
+source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
+iniConfig " = " "" "/opt/retropie/configs/nes/retroarch.cfg"
+iniSet "rewind_enable" "false"
+iniSet "rewind_buffer_size" "20"
+iniSet "rewind_granularity" "2"
