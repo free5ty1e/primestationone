@@ -17,6 +17,4 @@ cp -vr .vice ~/
 
 cp -v .* ~/
 
-quickCreateFoldersAndLinksAndRemoveOldFiles.sh
-
 cd ~
