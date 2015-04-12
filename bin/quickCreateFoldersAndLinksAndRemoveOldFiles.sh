@@ -35,4 +35,5 @@ sudo ln -sv /home/pi/RetroPie/BIOS/kick12.rom /opt/retropie/emulators/uae4all/ki
 sudo ln -sv /home/pi/RetroPie/BIOS/kick13.rom /opt/retropie/emulators/uae4all/kickstarts/kick13.rom
 sudo ln -sv /home/pi/RetroPie/BIOS/kick20.rom /opt/retropie/emulators/uae4all/kickstarts/kick20.rom
 sudo ln -sv /home/pi/RetroPie/BIOS/kick31.rom /opt/retropie/emulators/uae4all/kickstarts/kick31.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/Doukutsu.exe /opt/retropie/libretrocores/cavestory/datafiles/Doukutsu.exe
+mkdir /opt/retropie/libretrocores/lr-nxengine/datafiles
+sudo ln -sv /home/pi/RetroPie/BIOS/Doukutsu.exe /opt/retropie/libretrocores/lr-nxengine/datafiles/Doukutsu.exe
