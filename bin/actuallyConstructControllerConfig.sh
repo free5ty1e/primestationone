@@ -100,7 +100,9 @@ if [ -d "$md_build/udev" ]; then
 
 
     echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Circle for B which is asinine...
-    local emulatorsToButtonSwap=(
+    #local
+    #above keyword only for when below is in its own function:
+    emulatorsToButtonSwap=(
         'nes'
         'gb'
         'gbc'
