@@ -11,4 +11,4 @@ cp -v ~/primestationone/reference/.emulationstation/es_input.cfg ~/.emulationsta
 cp -v ~/primestationone/reference/.bashrc ~/
 cp -v ~/primestationone/reference/.megarc ~/
 cp -v ~/primestationone/reference/.basilisk_ii_prefs ~/
-sudo cp -vr /home/pi/primestationone/reference/opt/retropie/configs /opt/retropie/
+#sudo cp -vr /home/pi/primestationone/reference/opt/retropie/configs /opt/retropie/
