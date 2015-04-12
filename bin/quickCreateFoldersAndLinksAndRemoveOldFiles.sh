@@ -20,6 +20,8 @@ rm ~/RetroPie/roms/settings/first_run_and_reset_primestation_one_not_quick.sh
 rm ~/RetroPie/roms/settings/pair_ps3_controller_currently_on_usb.sh
 rm ~/RetroPie/roms/settings/start_windowed_mode_startx.sh
 rm ~/RetroPie/roms/settings/install_mega_module_theme_primestationone_emulationstation.sh
+rm ~/RetroPie/BIOS/Doukutsu.exe
+sudo rm -rf /opt/retropie/libretrocores/lr-nxengine/datafiles
 
 sudo rm /usr/local/bin/megaInstallEntireRetroPieFolderBinaries.sh
 sudo rm /usr/local/bin/megaInstallLibretrocoresBinaries.sh
@@ -28,7 +30,6 @@ sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
 echo Creating required folders...
 mkdir ~/temp
 mkdir ~/.vice
-sudo mkdir /opt/retropie/libretrocores/lr-nxengine/datafiles
 
 echo Creating symbolic links for BIOS files...
 sudo ln -sv /home/pi/RetroPie/BIOS/gba_bios.bin /opt/retropie/emulators/gpsp/gba_bios.bin
@@ -36,4 +37,4 @@ sudo ln -sv /home/pi/RetroPie/BIOS/kick12.rom /opt/retropie/emulators/uae4all/ki
 sudo ln -sv /home/pi/RetroPie/BIOS/kick13.rom /opt/retropie/emulators/uae4all/kickstarts/kick13.rom
 sudo ln -sv /home/pi/RetroPie/BIOS/kick20.rom /opt/retropie/emulators/uae4all/kickstarts/kick20.rom
 sudo ln -sv /home/pi/RetroPie/BIOS/kick31.rom /opt/retropie/emulators/uae4all/kickstarts/kick31.rom
-sudo ln -sv /home/pi/RetroPie/BIOS/Doukutsu.exe /opt/retropie/libretrocores/lr-nxengine/datafiles/Doukutsu.exe
+sudo ln -sv /home/pi/RetroPie/BIOS/cavestory /opt/retropie/libretrocores/lr-nxengine/datafiles
