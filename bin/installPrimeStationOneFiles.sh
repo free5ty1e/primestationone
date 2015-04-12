@@ -13,7 +13,8 @@ cp -vr .emulationstation/* ~/.emulationstation/
 cp -v .* ~/
 
 echo Removing c64 emulator profile symlink because we want to put configuration files there and have them in the home/pi/.vice folder...
-rm .vice
-cp -vr .vice/* ~/*
+rm ~/.vice
+mkdir ~/.vice
+cp -vr .vice/* ~/.vice/
 
 cd ~
