@@ -29,4 +29,6 @@ source "$scriptdir/scriptmodules/helpers.sh"
 source "$scriptdir/scriptmodules/packages.sh"
 source "$scriptdir/scriptmodules/admin/setup.sh"
 
+setup_env
+
 binaries_setup
