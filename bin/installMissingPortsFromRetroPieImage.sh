@@ -93,7 +93,7 @@
 #901/setup               : GUI based setup for RetroPie               : depends configure
 #===================================================================================================================================
 
-installRetroPieBinaries.sh
+retroPieNukeAndCheckoutFresh.sh
 
 echo Installing experimental emulators and such that dont require prompting...
 
@@ -235,11 +235,23 @@ sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 cowsay -f stegosaurus Installing LXDE windowed mode - startx...
 installWindowedModeLxde.sh
 
-#cowsay -f stegosaurus Updating PS3 controller driver...
-#sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
-#Installing our PS3 controller driver just in case the RetroPie one is still busted...
-#installPs3BluetoothDaemon.sh
-#installBluezPs3Driver.sh
+cowsay Installing awesome PrimestationOne tools and ports...
+installMegaTools.sh
+installDescent1and2.sh
+
+cowsay -f stegosaurus Now installing things that will require your attention with prompting...
+
+cowsay Installing RetroPie binaries...
+installRetroPieBinaries.sh
 
 cowsay -f stegosaurus Updating PS3 RetroNetPlay...
 sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
+
+cowsay -f stegosaurus Installing Limelight streamer...
+sudo ~/RetroPie-Setup/retropie_packages.sh limelight
+
+cowsay -f stegosaurus Updating PS3 controller driver...
+sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
+#Installing our PS3 controller driver just in case the RetroPie one is still busted...
+#installPs3BluetoothDaemon.sh
+#installBluezPs3Driver.sh

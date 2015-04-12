@@ -8,6 +8,7 @@ cat /etc/dphys-swapfile
 sudo /etc/init.d/dphys-swapfile stop
 sudo /etc/init.d/dphys-swapfile start
 
+##TODO!  Below unnecessary except need to figure out how to get just the hello_pi source files from the rpi-update without actually doing the update
 #Below is now included in 2G image, no need...
 #sudo apt-get update
 #sudo apt-get -y dist-upgrade
@@ -16,10 +17,10 @@ sudo /etc/init.d/dphys-swapfile start
 #sudo SKIP_BACKUP=1 rpi-update
 #helloPiBuild.sh
 
-
-installWindowedModeLxde.sh
-installMegaTools.sh
-
+installAptRuntimePackages.sh
+installFirstRunFiles.sh
+quickUpdatePrimestationOneFiles.sh
+installMissingPortsFromRetroPieImage.sh
 df -h
 
 message="OK... you really should restart now by typing... wait for it... restart"
