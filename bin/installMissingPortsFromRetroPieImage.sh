@@ -118,7 +118,8 @@ sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
 sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 
 
-sudo ~/RetroPie-Setup/retropie_packages.sh inputstation
+#sudo ~/RetroPie-Setup/retropie_packages.sh inputstation
+
 
 #cowsay -f mech-and-cow Updating RetroPie packages specific to the PrimeStation One...
 #sudo ~/RetroPie-Setup/retropie_packages.sh aptpackages
