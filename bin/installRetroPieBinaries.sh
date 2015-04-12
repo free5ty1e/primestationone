@@ -31,4 +31,11 @@ source "$scriptdir/scriptmodules/admin/setup.sh"
 
 setup_env
 
+mkUserDir "$romdir"
+mkUserDir "$biosdir"
+
+rp_registerAllModules
+
+ensureFBModes
+
 binaries_setup
