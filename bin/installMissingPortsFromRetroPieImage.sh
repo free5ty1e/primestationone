@@ -95,6 +95,31 @@
 
 installRetroPieBinaries.sh
 
+echo Installing experimental emulators and such that dont require prompting...
+
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-vb
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-mgba
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-vba-next
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-virtualjaguar
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-snes9x-next
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prosystem
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus
+sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus
+sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus-testing
+sudo ~/RetroPie-Setup/retropie_packages.sh darkplaces
+sudo ~/RetroPie-Setup/retropie_packages.sh kodi
+sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
+sudo ~/RetroPie-Setup/retropie_packages.sh ags
+sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
+sudo ~/RetroPie-Setup/retropie_packages.sh reicast
+
+
+sudo ~/RetroPie-Setup/retropie_packages.sh inputstation
+
 #cowsay -f mech-and-cow Updating RetroPie packages specific to the PrimeStation One...
 #sudo ~/RetroPie-Setup/retropie_packages.sh aptpackages
 #cowsay -f elephant Installing required module packagerepository
