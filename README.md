@@ -5,8 +5,8 @@
 =============
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/OBJCkNj.png)
-http://i.imgur.com/OBJCkNj.png
+![SplashScreen](http://i.imgur.com/vfZnOiO.png)
+http://i.imgur.com/vfZnOiO.png
 
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
@@ -25,12 +25,7 @@ primeStationOne images / installations older than v0.951alpha can not be automat
 ```
 ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.
 
-#### NOTE: Bluetooth utilities package "Bluez" updated from 4.99 to 5.28 ONLY FOR Primestation v0.999 through v0.9993 beta.
-This brings native sixaxis support and some much better autopairing.  The same script, `pair_ps3_controller_currently_on_usb.sh`, from the Emulationstation Settings page, will now guide you through the process of introducing your particular PS3 controller to this Primestation One and current bluetooth interface.  Once this introduction / trust relationship has been built, the Primestation will always remember and autopair your controller.  If you use your controller on a real PS3 and it takes over the pairing, simply connect the controller to the Primestation via USB, wait 5 seconds, then unplug it and you should be able to connect wirelessly again.
-
-This new Bluez 5 was abandoned as of v0.9994 beta, for now, for intermittent reliability issues.  We have gone back to Bluez 4.99 and qtsixad to pair PS3 controllers over bluetooth.  There are still supporting scripts for Bluez 5 functionality, but they are currently unused until these issues can be isolated and worked out.  
-
-## BASIC USAGE
+## BASIC USAGE and DOWNLOADS
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
