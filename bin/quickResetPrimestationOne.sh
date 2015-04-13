@@ -6,7 +6,7 @@ function pause()
 }
 
 cowsay -f eyes Shrinking swap to 10MB to make room for a reset on a 2.1GB filesystem...
-sudo bash -c "echo CONF_SWAPSIZE=10 > /etc/dphys-swapfile"
+sudo bash -c "echo CONF_SWAPSIZE=1 > /etc/dphys-swapfile"
 cat /etc/dphys-swapfile
 sudo /etc/init.d/dphys-swapfile stop
 sudo /etc/init.d/dphys-swapfile start
