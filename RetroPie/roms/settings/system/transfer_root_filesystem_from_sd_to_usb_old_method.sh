@@ -1,0 +1,2 @@
+#!/bin/bash
+usbRootFilesystemSetup.sh
