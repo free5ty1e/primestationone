@@ -12,18 +12,12 @@ http://i.imgur.com/vfZnOiO.png
 https://github.com/free5ty1e/primestationone-estheme
 
 ## NOTE:
-primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later:
+primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later (This is also the same command sequence one should use to install the PrimeStation One over top of a fresh vanilla RetroPie image):
 ```
-        cd ~/RetroPie-Setup
-        sudo git reset --hard
-        cd ~
-        rm -rf primestationone
-        git clone https://github.com/free5ty1e/primestationone.git
-        cd primestationone
-        bin/installPrimeStationOneFiles.sh
-        quickUpdatePrimestationOneFiles.sh
+rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh
 ```
-ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.
+
+ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.  Using the above command sequence, you will end up with the Primestation One theme installed and selected.
 
 ## BASIC USAGE and DOWNLOADS
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
@@ -58,18 +52,14 @@ Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
 #### First time running PrimeStation One from ready-to-go 4GB SD card image
-Starting with v0.995, the full-featured 4GB SD card image is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!  Feel free to follow step 4 for additional roms if you have the space...
+Starting with v0.995, the full-featured 4GB SD card image (if available) is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!  Feel free to follow step 4 for additional roms if you have the space...
 
 #### First time running PrimeStation One from lightweight 2GB SD card image
 Starting with v0.995, the lightweight 2GB SD card image will be as ready to go as reasonably possible in the compact 2GB starter image, but some emulators / ports / features are not yet compiled or installed.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
 1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `primeStationOneFirstTimeSetupAndReset.sh` to actually initiate the install of the PrimeStation One now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?) -- Be warned, THIS step will require a good 20 + hours (possibly less if you also overclocked during the previous `sudo raspi-config` step) to complete, but you will end up with a fully functional PrimeStation One.  <3A>: NOTE!  It may not be necessary for you to execute this step to fully enjoy your PrimeStation One; since v0.997 the 2GB image has gotten many more features / updates / emulators closer to the 4GB image to reduce the gap.  You will still be missing LXDE / Windowed Mode and the latest Raspberry Pi firmware updates, for instance.  You should still at least run `quickUpdatePrimestationOneFiles.sh && quickResetPrimestationOne.sh` to ensure you get the latest updates and fixes, which will not take long -- a couple minutes.
-4. If you have at least another ~5GB free on your root filesystem, you may optionally auto install the "binsnroms_large" PrimeStation One module (the smaller "binsnroms" package would have already been installed by this point, along with the "themePrimeStationOne" package) by typing `megaInstallBinsNRomsLarge.sh` 
-5. Optionally attach a wifi and / or a bluetooth dongle as both should be pretty well supported by this point
-6. Attach PS3 controller via USB (can pair via bluetooth from the Emulationstation Settings screen or by typing `sudo sixpair`)
-7. Reboot, behold splashscreen and possibly videos (depending on what we have at the server had when you updated) during startup... and then Emulationstation themed for the Primestation One and a full list of active emulators.
+3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
