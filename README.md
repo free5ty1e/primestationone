@@ -24,25 +24,27 @@ ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
-Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.960 alpha release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 2GB SD card to begin using the PrimeStation One (although, in that form, it won't quite yet do all the things yet.  However, it's the quickest and simplest way to get started so here we go!):
+Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.9997 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 2.1GB SD card to begin using the PrimeStation One (although, in that form, it won't quite yet do all the things yet.  However, it's the quickest and simplest way to get started so here we go!)
 
-####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk1` with your SD card desingation (disk1, disk2, disk3...).
+NOTE that a standard 2GB SD card will fall just short of the minimum space requirements, so the most reasonable minimum SD card size you will probably be able to find is a 4GB card... so use at least a 4GB SD card...
+
+####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk2` with your SD card desingation (disk1, disk2, disk3...).
 ```
-        pv --size 2048000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2m of=/dev/disk1
+        pv --size 2095055360 primeStationOne2.1gSdV0.9997betaBasedOnRetroPie3.0.0beta2RPi2.img | sudo dd bs=2m of=/dev/disk2
 ```
 ...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
 ```
-        sudo dd bs=2m if=primeStationOne2gSdV0.960alpha.img of=/dev/disk1
+        sudo dd bs=2m if=primeStationOne2.1gSdV0.9997betaBasedOnRetroPie3.0.0beta2RPi2.img of=/dev/disk2
 ```
 
 
 ####Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
 ```
-        pv --size 2048000000 primeStationOne2gSdV0.960alpha.img | sudo dd bs=2M of=/dev/sdb
+        pv --size 2095055360 primeStationOne2.1gSdV0.9997betaBasedOnRetroPie3.0.0beta2RPi2.img | sudo dd bs=2M of=/dev/sdb
 ```
 ...or, I suppose you COULD do it without pv and just watch a blank cursor and guess how fast it is transferring and how far along it is and how much longer it will be, by typing:
 ```
-        sudo dd bs=2M if=primeStationOne2gSdV0.960alpha.img of=/dev/sdb
+        sudo dd bs=2M if=primeStationOne2.1gSdV0.9997betaBasedOnRetroPie3.0.0beta2RPi2.img of=/dev/sdb
 ```
 
 
