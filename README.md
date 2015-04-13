@@ -61,7 +61,7 @@ Starting with v0.995, the lightweight 2GB SD card image will be as ready to go a
 
 1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).
+3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).  You may also accomplish this step from within Emulationstation if you'd like: navigate to the first PS3 controller icon / left-facing 8-bit Professor page, look under `System` and choose the `upgrade_primestation_minimal_to_full.sh` script.
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
@@ -96,21 +96,9 @@ The PrimeStation One's modules are now released through mega.co.nz's awesome clo
 
 (NOTE: If any of these installation scripts ever fails on you, be sure you try running a `quickUpdatePrimestationOneFiles.sh` as this will ensure you have the very latest module version download links.)
 
-First, type `installMegaTools.sh` to handle building and installation of the very handy MegaTools, which are required for any module installations.
+First, type `installMegaTools.sh` to handle building and installation of the very handy MegaTools, which are required for any module installations.  Or look in Emulationstation on the first PS3 controller icon, the `Settings` page, under `Installs` to accomplish the same feat without command line.  
 
-Then, type any or all of the following (`megaInstallAllModules.sh` will go through and install them all for you if you are lazy.  Always update your Primestation One first by typing `quickUpdatePrimestationOneFiles` before trying to install a Mega Module, since the contents and mega download links in the scripts change all the time!):
-```
-megaInstallEntireRetroPieFolderBinaries.sh
-megaInstallBinsNRoms.sh
-megaInstallBinsNRomsLarge.sh
-megaInstallThemePrimeStationOne.sh
-```
-
-Note that the `megaInstallEntireRetroPieFolderBinaries.sh` module includes both `megaInstallLibretrocoresBinaries.sh` and `megaInstallOtherEmulatorsBinaries.sh`, which may also be installed individually if desired (but there is more than just these two modules contained within.)
-
-Installation of each module may take up to 20ish minutes, depending on your connection speed and overclock settings (7z max compression is a bit intensive on the Pi).  
-
-The goal here is, after installing all modules, you should have a theme for every emulator and at least one working thing for every emulator.  
+After this is complete, the available Primestation One Mega Modules may be chosen and installed at will from the same Emulationstation `Settings` page, under `MegaModules`.  Beware -- some of these, such as the complete SNES collection, are quite large!  (over 50 GB for this one!).  The `binsnroms` archive contains the widest spread of usefulness, and also enables many things that would otherwise require much manual intervention on your part... highly recommended.
 
 #### Amiga emulator (uae4all) on the PrimeStation One:
 Since v0.962, usage of the megaInstallBinsNRoms.sh script will also install a special WORKING version of the Amiga emulator (uae4all) from the following post on the Raspberry Pi forums:
