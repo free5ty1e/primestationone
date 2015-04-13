@@ -26,6 +26,7 @@ sudo rm -rf /opt/retropie/libretrocores/lr-nxengine/datafiles
 sudo rm /usr/local/bin/megaInstallEntireRetroPieFolderBinaries.sh
 sudo rm /usr/local/bin/megaInstallLibretrocoresBinaries.sh
 sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
+sudo rm /usr/local/bin/emulationstation
 
 echo Creating required folders...
 mkdir ~/temp
