@@ -11,22 +11,22 @@ sudo hciconfig hci0 up pscan
 
 es_bin="/opt/retropie/supplementary/emulationstation/emulationstation"
 
-nb_lock_files=$(find /tmp -name ".X?-lock" | wc -l)
-if [[ $nb_lock_files -ne 0 ]]; then
-    echo "X is running. Please shut down X in order to mitigate problems with loosing keyboard input. For example, logout from LXDE."
+if [[ \$(id -u) -eq 0 ]]; then
+    echo "emulationstation should not be run as root. If you used 'sudo emulationstation' please run without sudo."
     exit 1
 fi
 
-#$es_bin "$@"
+if [[ -n "\$(pidof X)" ]]; then
+    echo "X is running. Please shut down X in order to mitigate problems with loosing keyboard input. For example, logout from LXDE."
+    exit 1
+fi
 
 #Now we loop and restart emulationstation in 5 seconds unless a key is pressed, confirming the desire to drop to a command prompt... this is far more useful for end users just wanting to restart emulationstation for one reason or another
 key=""
 while [[ -z "$key" ]]; do
     echo Updating to latest PrimeStation One files and theme, press CTRL-C to cancel and continue on to emulationstation...
     reallyQuickUpdatePrimestationFilesAndTheme.sh
-
-
     $es_bin "$@"
     echo "EmulationStation will restart in 5 seconds. Press a key to exit back to console."
-    IFS= read -s -t 5 -N 1 key
+    IFS= read -s -t 5 -N 1 key </dev/tty
 done
