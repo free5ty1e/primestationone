@@ -11,16 +11,6 @@ sudo hciconfig hci0 up pscan
 
 es_bin="/opt/retropie/supplementary/emulationstation/emulationstation"
 
-if [[ \$(id -u) -eq 0 ]]; then
-    echo "emulationstation should not be run as root. If you used 'sudo emulationstation' please run without sudo."
-    exit 1
-fi
-
-if [[ -n "\$(pidof X)" ]]; then
-    echo "X is running. Please shut down X in order to mitigate problems with loosing keyboard input. For example, logout from LXDE."
-    exit 1
-fi
-
 #Now we loop and restart emulationstation in 5 seconds unless a key is pressed, confirming the desire to drop to a command prompt... this is far more useful for end users just wanting to restart emulationstation for one reason or another
 key=""
 while [[ -z "$key" ]]; do
