@@ -61,7 +61,12 @@ Starting with v0.995, the lightweight 2GB SD card image will be as ready to go a
 
 1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).  You may also accomplish this step from within Emulationstation if you'd like: navigate to the first PS3 controller icon / left-facing 8-bit Professor page, look under `System` and choose the `upgrade_primestation_minimal_to_full.sh` script.
+3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).  You may also accomplish this step from within Emulationstation if you'd like: navigate to the first PS3 controller icon / left-facing 8-bit Professor page, look under `System` and choose the `upgrade_primestation_minimal_to_full.sh` script.  NOTE: This might take all night on a Pi 1!  
+4. TEMPORARY ADDITIONAL STEPS: Until the script is fixed to correctly automate installation of the RetroPie binaries and then rebuilding the primestation control configurations, follow these additional steps to ensure your Primestation is ready to go:
+5. Type `retroPieNukeAndCheckoutFresh.sh && retropiesetup.sh` to ensure you have the latest RetroPie setup scripts and to enter the RetroPie setup Menu
+6. Select "Install binaries" (the first option) and wait until complete, then exit the RetroPie Setup Menu
+7. Type `controllerConfigConstruction.sh` to force rebuilding controller configs, or select `retrieve_construct_enforce_latest_controller_configurations.sh` from the EmulationStation `Settings` page under `Controller`.
+8. Reboot or at least restart Emulationstation to ensure things are all still working well.
 
 #### Expanding your SD filesystem to fill your SD card > 2GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
