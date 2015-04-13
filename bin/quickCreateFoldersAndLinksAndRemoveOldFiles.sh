@@ -20,6 +20,13 @@ rm ~/RetroPie/roms/settings/first_run_and_reset_primestation_one_not_quick.sh
 rm ~/RetroPie/roms/settings/pair_ps3_controller_currently_on_usb.sh
 rm ~/RetroPie/roms/settings/start_windowed_mode_startx.sh
 rm ~/RetroPie/roms/settings/install_mega_module_theme_primestationone_emulationstation.sh
+rm ~/RetroPie/roms/settings/raspberry_pi_configurator_menu.sh
+rm ~/RetroPie/roms/settings/reset_primestation_one_quick.sh
+rm ~/RetroPie/roms/settings/retro_pie_setup_menu.sh
+rm ~/RetroPie/roms/settings/retropie_setup_repo_nuke_and_checkout_fresh.sh
+rm ~/RetroPie/roms/settings/show_primestation_one_version.sh
+rm ~/RetroPie/roms/settings/update_primestation_one_files_quick.sh
+
 rm ~/RetroPie/BIOS/Doukutsu.exe
 sudo rm -rf /opt/retropie/libretrocores/lr-nxengine/datafiles
 
