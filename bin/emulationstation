@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo Setting current PS3 controller on USB to pair to this primestation one...
-sudo sixpair
+#echo Setting current PS3 controller on USB to pair to this primestation one...
+#sudo sixpair
 
 #trustAllEncounteredPs3ControllersBluez5.sh
 
