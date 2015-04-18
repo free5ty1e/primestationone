@@ -1,2 +1,2 @@
 #!/bin/bash
-megaInstallBinariesPi1.sh
+sudo megaInstallBinariesPi1.sh

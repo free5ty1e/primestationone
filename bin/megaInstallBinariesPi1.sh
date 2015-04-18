@@ -1,15 +1,8 @@
 #!/bin/bash
-
-cowsay -f elephant Installing entire RetroPie folder binaries archive...
-echo Installing entire RetroPie folder binaries archive...
-echo Requires 127MB for archive plus 345MB total for binaries, some will be overwritten...
-
-pushd /opt
-sudo rm retropie.7z
-sudo megadl 'https://mega.co.nz/#!1QsRFYyT!blCjLb2zxgJU3okSXSYl9PSDGU4Xd_xYGSe1K-wL-90'
-echo Extracting 7z archive and installing.....
-sudo 7z -d retropie.7z
-rm retropie.7z
-popd
-
-echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
+echo "Must be run with sudo!!"
+source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
+download_install_mega_module_on_the_fly retropie /opt/retropie 214755784 'https://mega.co.nz/#!sJdlFBzT!kaTeZNoQ_I22aeoYiepmbyBB6flNiWZYgUBnviM-Mi4'
+quickCreateFoldersAndLinksAndRemoveOldFiles.sh
+controllerConfigConstruction.sh
+rewindGlobalEnable.sh
+rewindGlobalLongerCoarseBuffer.sh
