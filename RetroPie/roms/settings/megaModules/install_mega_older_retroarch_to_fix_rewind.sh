@@ -1,2 +1,2 @@
 #!/bin/bash
-megaFixRewindWithOlderRetroArch.sh
+sudo megaFixRewindWithOlderRetroArch.sh
