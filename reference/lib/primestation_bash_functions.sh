@@ -15,6 +15,7 @@ function download_install_mega_module_on_the_fly() {
     echo "$message"
     cowsay -f flaming-sheep "$message"
 
+    mkdir -p "$installLocation"
     pushd "$installLocation"
 
     echo Downloading archive from Mega and decompressing it on the fly...
