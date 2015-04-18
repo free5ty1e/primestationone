@@ -26,6 +26,7 @@ rm ~/RetroPie/roms/settings/retro_pie_setup_menu.sh
 rm ~/RetroPie/roms/settings/retropie_setup_repo_nuke_and_checkout_fresh.sh
 rm ~/RetroPie/roms/settings/show_primestation_one_version.sh
 rm ~/RetroPie/roms/settings/update_primestation_one_files_quick.sh
+rm ~/RetroPie/roms/settings/install_mega_older_retroarch_to_fix_rewind.sh
 
 rm ~/RetroPie/BIOS/Doukutsu.exe
 sudo rm -rf /opt/retropie/libretrocores/lr-nxengine/datafiles
@@ -33,6 +34,7 @@ sudo rm -rf /opt/retropie/libretrocores/lr-nxengine/datafiles
 sudo rm /usr/local/bin/megaInstallEntireRetroPieFolderBinaries.sh
 sudo rm /usr/local/bin/megaInstallLibretrocoresBinaries.sh
 sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
+sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArch.sh
 
 echo Creating required folders...
 mkdir ~/temp
