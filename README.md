@@ -26,12 +26,13 @@ It is important to note that as much automation was integrated as was possible..
 
 This makes it extremely easy to use PS3 controllers via bluetooth; just like a real PS3, to pair a new controller to the Primestation One, just plug it in via USB while the system is powered on.
 
-If you have no compatible bluetooth adapter or need to use a PS3 controller (or several) via USB, here are some important tips:
+If you have no compatible bluetooth adapter, your USB PS3 connection should work just fine. 
 
-1. The act of automatically pairing for bluetooth upon plugging in a PS3 controller via USB has the side effect of deactivating the USB PS3 driver for that port.
-2. This means that, if you want to actually use the PS3 controller through the USB connection instead of the bluetooth connection, you will have to connect it while the power is off (or reboot the Primestation after connecting it).  When the system powers on normally and already has a USB PS3 controller connected, it does not perform the auto bluetooth pairing procedure.
-3. Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
-4. If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
+If you have a bluetooth adapter but want to use PS3 controllers over USB anyway, you will need to remove your bluetooth adapter anyway to stop the aggressive automatic PS3 bluetooth first-time pairing procedure; when plugging a controller in via USB, the Primestation tells that controller to pair with the Primestation (just like the PS3 handles controllers).  It is currently not easy to mix bluetooth and USB PS3 controller connections on the same Primestation simultaneously (you'd have to manually disable the PS3 USB connection rule).
+
+Some additional tips for USB PS3'ing:
+* Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
+* If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
 
 ## BASIC USAGE and DOWNLOADS
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
