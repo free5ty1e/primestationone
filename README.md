@@ -19,6 +19,17 @@ rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/pr
 
 ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.  Using the above command sequence, you will end up with the Primestation One theme installed and selected.
 
+##NOTE ABOUT USING PS3 CONTROLLERS VIA USB
+It is important to note that as much automation was integrated as was possible... this includes the automatic PS3 bluetooth controller pairing procedure that fires at the moment a PS3 controller is plugged in via USB while the system is powered on.  
+
+This makes it extremely easy to use PS3 controllers via bluetooth; just like a real PS3, to pair a new controller to the Primestation One, just plug it in via USB while the system is powered on.
+
+If you have no compatible bluetooth adapter or need to use a PS3 controller (or several) via USB, here are some important tips:
+1. The act of automatically pairing for bluetooth upon plugging in a PS3 controller via USB has the side effect of deactivating the USB PS3 driver for that port.
+2. This means that, if you want to actually use the PS3 controller through the USB connection instead of the bluetooth connection, you will have to connect it while the power is off (or reboot the Primestation after connecting it).  When the system powers on normally and already has a USB PS3 controller connected, it does not perform the auto bluetooth pairing procedure.
+3. Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
+4. If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
+
 ## BASIC USAGE and DOWNLOADS
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
 
