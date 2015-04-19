@@ -89,6 +89,18 @@ sudo raspi-config
 
 As of v0.9997, a newer, safer, and fully-automated `usbGuidRootFilesystemSetup.sh` script was created to handle transferring the root filesystem to a USB drive, set up with a GPT partition table and unique GUID to boot from.  This method will NOT cause issues with USB mount order upon startup if you, for example, wanted to use your PrimeStation One as a SAMBA fileserver in the background to serve up terabytes of USB storage... this is now possible without having to physically reconnect them in a certain order after every startup.
 
+Then, as an added bonus, you now only need an SD card with `50 MB` capacity... so if you would like to free up your larger SD card (which you just transferred the root filesystem from) for other uses, and have a smaller SD card lying around you would like to use to boot your USB-based PrimeStation, here is what to do:
+
+1. Shut down the PrimeStation and remove the SD card
+2. Insert SD card into a Linux or Mac / BSD computer via a USB or larger SD card adapter, so you can read the "BOOT" volume (don't worry, it's FAT and should be visible without any special drivers.  Windows should probably work too since FAT doesn't have any special permissions or ownership that needs preservation).
+3. Create a folder called `PiBoot` on your desktop and copy all the files and folders from the SD card's "BOOT" volume over to the `PiBoot` folder.
+4. Safely eject / remove the SD card from your computer, and insert the smaller SD card you'd like to utilize to boot the Primestation
+5. Format this smaller SD card to its full capacity (you will just end up with more free space on the `/boot` volume which you can use if you wish), as FAT16 or FAT32 as appropriate (if > 2GB, requires FAT32)
+6. Copy all the files and folders from your `PiBoot` folder over to the root of this SD card
+7. Safely eject / remove SD card from computer, insert into Pi
+8. Boot Pi from your new smaller SD card!   
+
+
 OLDER METHOD:
 The PrimeStation One v0.951alpha introduces a new `usbRootFilesystemSetup.sh` script to handle this process almost completely for you, save for some instructed keystrokes.
 
