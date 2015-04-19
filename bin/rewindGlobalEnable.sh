@@ -1,6 +1,6 @@
 #!/bin/bash
 
-message="Disabling global emulation rewind feature which may cause massive slowdown just being on for certain games and emus..."
+message="Enabling global emulation rewind feature which may cause massive slowdown just being on for certain games and emus..."
 echo "$message"
 cowsay -f eyes "$message"
 
