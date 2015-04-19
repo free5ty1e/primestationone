@@ -68,21 +68,14 @@ Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
 #### First time running PrimeStation One from ready-to-go 4GB SD card image
-Starting with v0.995, the full-featured 4GB SD card image (if available) is ready to use!  Just follow steps 1 and 2 in the below "First time running PrimeStation One from lightweight 2GB SD card image" and you will be good to go!  Feel free to follow step 4 for additional roms if you have the space...
+Starting with v0.9998, the full-featured 4GB SD card image (if available) is ready to use (and also the only way to go now)!  
 
-#### First time running PrimeStation One from lightweight 2GB SD card image
-Starting with v0.995, the lightweight 2GB SD card image will be as ready to go as reasonably possible in the compact 2GB starter image, but some emulators / ports / features are not yet compiled or installed.  First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
+First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
-1. Either expand SD filesystem to fill your >2GB SD card (`sudo raspi-config` -> Expand Filesystem) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
+1. Either expand SD filesystem to fill your >4GB SD card (`sudo raspi-config` -> Expand Filesystem, also feel free to Overclock your Pi here if you have heat sinks or fans) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
-3. Execute `upgrade2gMinPrimestationToFull.sh` to actually initiate the install of all PrimeStation One components now that we have enough space to proceed (you DID transfer to a 4+GB SD or 4+GB USB, didn't you?).  You may also accomplish this step from within Emulationstation if you'd like: navigate to the first PS3 controller icon / left-facing 8-bit Professor page, look under `System` and choose the `upgrade_primestation_minimal_to_full.sh` script.  NOTE: This might take all night on a Pi 1!  
-4. TEMPORARY ADDITIONAL STEPS: Until the script is fixed to correctly automate installation of the RetroPie binaries and then rebuilding the primestation control configurations, follow these additional steps to ensure your Primestation is ready to go:
-5. Type `retroPieNukeAndCheckoutFresh.sh && retropiesetup.sh` to ensure you have the latest RetroPie setup scripts and to enter the RetroPie setup Menu
-6. Select "Install binaries" (the first option) and wait until complete, then exit the RetroPie Setup Menu
-7. Type `controllerConfigConstruction.sh` to force rebuilding controller configs, or select `retrieve_construct_enforce_latest_controller_configurations.sh` from the EmulationStation `Settings` page under `Controller`.
-8. Reboot or at least restart Emulationstation to ensure things are all still working well.
 
-#### Expanding your SD filesystem to fill your SD card > 2GB
+#### Expanding your SD filesystem to fill your SD card > 4GB
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
 ```
 sudo raspi-config
@@ -93,6 +86,9 @@ sudo raspi-config
 #### Transferring your PrimeStation One SD root filesystem to a USB drive:
 ...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is normally less expensive and more available than SD card storage space.  USB storage will probably also last longer, as it was designed for more write cycles.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
 
+As of v0.9997, a newer, safer, and fully-automated `usbGuidRootFilesystemSetup.sh` script was created to handle transferring the root filesystem to a USB drive, set up with a GPT partition table and unique GUID to boot from.  This method will NOT cause issues with USB mount order upon startup if you, for example, wanted to use your PrimeStation One as a SAMBA fileserver in the background to serve up terabytes of USB storage... this is now possible without having to physically reconnect them in a certain order after every startup.
+
+OLDER METHOD:
 The PrimeStation One v0.951alpha introduces a new `usbRootFilesystemSetup.sh` script to handle this process almost completely for you, save for some instructed keystrokes.
 
 Yes.  Plug in your USB drive, and type `usbRootFilesystemSetup.sh` in order to start the guided process.  In some rare cases, you may find (by typing `df -h`) that your USB drive has mounted twice, in both `/media/usb0` and `/media/usb1` for some reason.  In this case, you can type `sudo umount /dev/sda1` until it complains that `sda1` is not mounted anywhere.
