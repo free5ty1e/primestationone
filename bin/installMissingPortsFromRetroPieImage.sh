@@ -95,6 +95,11 @@
 
 retroPieNukeAndCheckoutFresh.sh
 
+cowsay -f stegosaurus Now installing one thing that will require your attention with prompting at the end...
+
+cowsay Installing RetroPie binaries...
+installRetroPieBinaries.sh
+
 echo Installing experimental emulators and such that dont require prompting...
 
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
@@ -240,9 +245,6 @@ installMegaTools.sh
 installDescent1and2.sh
 
 cowsay -f stegosaurus Now installing things that will require your attention with prompting...
-
-cowsay Installing RetroPie binaries...
-installRetroPieBinaries.sh
 
 cowsay -f stegosaurus Updating PS3 RetroNetPlay...
 sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
