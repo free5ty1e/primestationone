@@ -1,6 +1,8 @@
 # PrimeStation One
 ## A Set of Scripts and Tools For a "Ready-To-Go" RetroPie (for Raspberry Pi, model B+ recommended) with PS3 controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations.
 
+The point of the Primestation One is to be able to massively retrogame from the comfort of your couch, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
+
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
