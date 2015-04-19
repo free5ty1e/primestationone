@@ -25,6 +25,7 @@ It is important to note that as much automation was integrated as was possible..
 This makes it extremely easy to use PS3 controllers via bluetooth; just like a real PS3, to pair a new controller to the Primestation One, just plug it in via USB while the system is powered on.
 
 If you have no compatible bluetooth adapter or need to use a PS3 controller (or several) via USB, here are some important tips:
+
 1. The act of automatically pairing for bluetooth upon plugging in a PS3 controller via USB has the side effect of deactivating the USB PS3 driver for that port.
 2. This means that, if you want to actually use the PS3 controller through the USB connection instead of the bluetooth connection, you will have to connect it while the power is off (or reboot the Primestation after connecting it).  When the system powers on normally and already has a USB PS3 controller connected, it does not perform the auto bluetooth pairing procedure.
 3. Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
@@ -186,24 +187,18 @@ So far mainly tested with the RetroPie image v2.3 downloaded from their site and
 
 
 ## FUTURE
-* Add the `opt/vc/src/hello_pi/*` demos to the Settings / Tools menu, or even a new Demos menu as these are neat to show off and why not?
-* Menu system to handle running services, both for the current session and for all future sessions (services enabled / disabled upon startup).  The PrimeStation One can do a lot, and sometimes its nice to turn some unused features off!
-* Add START + SELECT to request a soft reboot of the Pi for panic / crash situations.  This might just end up pressing CTRL-ALT-DEL if we continue to find this actually does work like we think it does...
-* Add new Pi port `https://github.com/adventuregamestudio/ags` Adventure Game Studio
-* Add Descent 1 & Descent 2 to Ports
-* Add Frets On Fire X (FoFiX - my old project) to Ports
-* Add Starcraft to Ports (may be armv7 / pi 2 only)
-* Add Random to emus: 1) Choose evenly weighted random system, then random game in that system, mapped emus only; or 2) All emus, mapped or not, included
+All plans for future enhancements are now documented as individual Primestation One issues, labeled as `Enhancements` and prefixed with `FEATURE:` 
 
 Comments / suggestions / contributions to the code welcome!  
 
-Credits: 
+### CREDITS
 * Chris "Prime" Paiano (Founder, Lead Developer) - Twitter: @ChrisPaiano
 * "Circuit Static" (User Experience, Quality, Development & Marketing) - Twitter: @CircuitStatic
 
 ....
 
-Standing on the Shoulders of Giants:
+#### Standing on the Shoulders of Giants 
+(Wouldn't have been possible, or at least nearly this easy, without the following...)
 * RetroPie project (https://github.com/petrockblog/RetroPie-Setup)
 * XRDP project (https://github.com/kx499/xrdp)
 * QtSixA project (http://qtsixa.sourceforge.net/)
