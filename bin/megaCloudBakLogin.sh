@@ -1,10 +1,12 @@
 #!/bin/bash
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 
-ask_for_user_input_and_store_result "LOGIN TO MEGA.CO.NZ" "EMAIL: For existing users of mega.co.nz" "Please enter your email address to login to Mega.co.nz (one that already has an account with them)" 8 60
+isPassword=0
+ask_for_user_input_and_store_result "LOGIN TO MEGA.CO.NZ" "EMAIL: For existing users of mega.co.nz" "Please enter your email address to login to Mega.co.nz (one that already has an account with them)" $isPassword 8 60
 email="$RESULT"
 
-ask_for_user_input_and_store_result "LOGIN TO MEGA.CO.NZ" "PASSWORD: For existing users of mega.co.nz" "Please enter your password to login to Mega.co.nz for user with email $email" 8 60
+isPassword=1
+ask_for_user_input_and_store_result "LOGIN TO MEGA.CO.NZ" "PASSWORD: For existing users of mega.co.nz" "Please enter your password to login to Mega.co.nz for user with email $email" $isPassword 8 60
 password="$RESULT"
 
 create_megarc_login_file "$email" "$password"
