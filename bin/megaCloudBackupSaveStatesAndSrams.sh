@@ -20,6 +20,12 @@ compressBz2.sh "$SAVEFILE.tar"
 echo "Creating cloud folder $CLOUDFOLDER..."
 megamkdir "/Root/$CLOUDFOLDER"
 
+echo Removing existing cloud save archive backup slot...
+megarm "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2.bak"
+
+echo Moving existing cloud save archive to backup slot...
+megamv "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2" "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2.bak"
+
 echo Uploading your save archive to your cloud storage...
 megaput --path "/Root/$CLOUDFOLDER/" "$SAVEFILE.tar.bz2"
 
