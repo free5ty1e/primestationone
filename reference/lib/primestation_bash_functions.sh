@@ -51,26 +51,41 @@ function rsync_with_progress() {
 
 function ask_for_user_input_and_store_result() {
     echo Parameters for this function are, in order:
-    echo Title Backtitle InputBoxTitle optionalHeight optionalWidth
+    echo Title Backtitle InputBoxTitle optionalIsPassword optionalHeight optionalWidth
     echo The result will be stored in the global variable named RESULT
     echo The user selection code will be stored in the global variable SEL if needed
+
     if [ -z "$4" ]
     then
-        echo "No height supplied, using autoheight 0"
-        height=0
+        echo "No optionalIsPassword supplied, defaulting to isNotPassword 0"
+        isPassword=0
     else
-        height=$4
+        isPassword=$4
     fi
 
     if [ -z "$5" ]
     then
+        echo "No height supplied, using autoheight 0"
+        height=0
+    else
+        height=$5
+    fi
+
+    if [ -z "$6" ]
+    then
         echo "No width supplied, using autowidth 0"
         width=0
     else
-        width=$5
+        width=$6
     fi
 
-    dialog --title "$1" --backtitle "$2" --inputbox "$3" $height $width 2>/tmp/input.$$
+    if [ $isPassword -eq 1 ]
+    then
+        dialog --title "$1" --backtitle "$2" --passwordbox "$3" $height $width 2>/tmp/input.$$
+    else
+        dialog --title "$1" --backtitle "$2" --inputbox "$3" $height $width 2>/tmp/input.$$
+    fi
+
     SEL=$?
     RESULT=`cat /tmp/input.$$`
     case $SEL in
