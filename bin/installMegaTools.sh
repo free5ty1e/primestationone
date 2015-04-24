@@ -8,7 +8,7 @@ megatoolsfilename="megatools-1.9.95"
 pushd ~
 
 echo Installing required depedencies for wheezy MegaTools...
-sudo apt-get update && sudo apt-get install -y glib-networking fuse curl wget build-essential libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev p7zip pv
+sudo apt-get update && sudo apt-get install -y glib-networking gobject-introspection fuse curl wget build-essential libglib2.0-dev libssl-dev libcurl4-openssl-dev libgirepository1.0-dev libcurl4-gnutls-dev p7zip pv
 
 #echo Installing 32-bit wheezy version of MegaTools...
 #cd /tmp
