@@ -140,6 +140,20 @@ Or, you can type `netplayConfigForRetroArchLibretrocoreEmulators.sh` to launch f
 
 From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators, a list of which is located in the repository here: [!ListOfNetplayEmus](http://raw.githubusercontent.com/free5ty1e/primestationone/master/reference/txt/listOfLibRetroCores.txt)
 
+
+### Playing Mario Paint on SNES with the Mouse
+...can be achieved, but only on a Pi2 as it requires the `*Super Nintendo - SNES9xNextPi2` emulator (4th Super Nintendo emulator listed when pressing `left` to browse from the starting point).  
+
+1. Navigate to this SNES emulator, find your Mario Paint ROM, and launch it.
+2. Bring up the RetroArch menu (On PS3 controller: hold `SELECT` and press `L1`, on keyboard should just be `F1`)
+3. Press the `CIRCLE` button on the PS3 controller to continue
+4. Navigate to `Settings` and press `CIRCLE` to continue
+5. Navigate to `Input Settings - Joypad Mapping` and press `CIRCLE` to continue
+6. Navigate to `User 1 Device Type` and press `right` to change `SNES Joypad` to `SNES Mouse`.  
+7. Exit the RetroArch menu (On PS3 controller: hold `SELECT` and press `L1`, on keyboard should just be `F1`)
+8. You should now have SNES Mouse control over Mario Paint!!  You are welcome.   --Prime
+
+
 ##### NETPLAY -- IMPORTANT!:
 When launching an emulator capable of NETPLAY, you must hit the `x` key pretty much immediately after emulationstation's interface dissappears; there is a brief prompt asking you to press this key for options.  You need to go to this menu and choose the `Launch with netplay support` (or hotkey `z`) then `ENTER` to actually launch the emulator with your netplay settings enabled.  
 
