@@ -3,6 +3,8 @@
 cowsay -f hellokitty Installing MEGA.co.nz cloud tools megacmd...
 echo Installing MEGA.co.nz cloud tools megacmd...
 
+megatoolsfilename="megatools-1.9.95"
+
 pushd ~
 
 echo Installing required depedencies for wheezy MegaTools...
@@ -20,9 +22,9 @@ sudo apt-get update && sudo apt-get install -y glib-networking fuse curl wget bu
 
 echo Downloading megatools and building from source...
 
-wget http://megatools.megous.com/builds/megatools-1.9.94.tar.gz
-tar -x -f megatools-1.9.94.tar.gz
-cd megatools-1.9.94
+wget "http://megatools.megous.com/builds/$megatoolsfilename.tar.gz"
+tar -x -f "$megatoolsfilename.tar.gz"
+cd "$megatoolsfilename"
 ./configure
 make
 make check
@@ -32,8 +34,8 @@ sudo ldconfig
 
 echo Cleaning up...
 cd ..
-rm -rf megatools-1.9.94
-rm megatools-1.9.94.tar.gz
+rm -rf "$megatoolsfilename"
+rm "$megatoolsfilename.tar.gz"
 
 echo MegaTools should now be installed, if there are no errors above.
 echo !!!Note: Remeber to surround each megadl link with single quotes, and you can download several at once as parameters!
