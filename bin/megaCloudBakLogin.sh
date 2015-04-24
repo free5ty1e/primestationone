@@ -1,13 +1,12 @@
 #!/bin/bash
+
+#TODO: Refactor out some reasonable functions into our library below to simplify this sort of dialog capture task
 #source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 
-
-
-OUTPUT="~/temp/megatemp.txt"
+OUTPUT="/home/pi/temp/megatemp.txt"
 
 echo Creating empty temp file...
-rm $OUTPUT
-touch $OUTPUT
+>$OUTPUT
 
 dialog --title "LOGIN TO MEGA.CO.NZ" --backtitle "EMAIL: For existing users of mega.co.nz" --inputbox "Please enter your email address to login to Mega.co.nz (one that already has an account with them)" 0 0>$OUTPUT
 # get response
@@ -17,8 +16,7 @@ email=$(<$OUTPUT)
 echo "email address captured: $email, response was $response"
 
 echo Creating empty temp file...
-rm $OUTPUT
-touch $OUTPUT
+>$OUTPUT
 
 dialog --title "LOGIN TO MEGA.CO.NZ" --backtitle "PASSWORD: For existing users of mega.co.nz" --inputbox "Please enter your password to login to Mega.co.nz for user with email $email" 0 0>$OUTPUT
 # get response
@@ -28,7 +26,6 @@ password=$(<$OUTPUT)
 echo "password captured: $password, response was $response"
 
 cat > /home/pi/.megarc << _EOF_
-#!/bin/bash
 [Login]
 Username = $email
 Password = $password
