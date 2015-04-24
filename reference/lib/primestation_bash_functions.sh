@@ -48,3 +48,46 @@ function rsync_with_progress() {
     ${RSYNC} ${RSYNC_ARGS} ${SOURCES} ${TARGET} | pv -l -e -p -s "$TODO"
     #ionice -c3 rsync -xvrltD --delete --stats --human-readable "$1" "$2" | pv -l -e -p -s "$TODO"
 }
+
+function ask_for_user_input_and_store_result() {
+    echo Parameters for this function are, in order:
+    echo Title Backtitle InputBoxTitle optionalHeight optionalWidth
+    echo The result will be stored in the global variable named RESULT
+    echo The user selection code will be stored in the global variable SEL if needed
+    height=$4
+    if [ -z $4 ]
+    then
+        echo "No height supplied, using autoheight 0"
+        height=0
+    fi
+
+    width=$5
+    if [ -z $5 ]
+    then
+        echo "No width supplied, using autowidth 0"
+        width=0
+    fi
+
+    dialog --title "$1" --backtitle "$2" --inputbox "$3" $4 $5 2>/tmp/input.$$
+    SEL=$?
+    RESULT=`cat /tmp/input.$$`
+    case $SEL in
+        0) echo "RESULT obtained: $RESULT" ;;
+        1) echo "Cancel pressed" ;;
+        255) echo "[ESCAPE] key pressed" ;;
+    esac
+    rm -f /tmp/input.$$
+
+}
+
+function create_megarc_login_file() {
+    echo Parameters for this function are: email password
+    email="$1"
+    password="$2"
+    echo "Creating your .megarc file from provided email $email and password $password..."
+    cat > /home/pi/.megarc << _EOF_
+[Login]
+Username = $email
+Password = $password
+_EOF_
+}
