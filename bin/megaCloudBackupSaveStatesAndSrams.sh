@@ -25,10 +25,10 @@ echo Removing existing cloud save archive backup slot...
 megarm "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2.bak"
 
 echo Moving existing cloud save archive to backup slot...
-megamv "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2" "/Root/$CLOUDFOLDER/$FILENAME.bak"
+megamv "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2.bak" "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2"
 
 echo Uploading your save archive to your cloud storage...
-megaput --path "/Root/$CLOUDFOLDER/" "$SAVEFILE.tar.bz2"
+megaput --path "/Root/$CLOUDFOLDER" "$SAVEFILE.tar.bz2"
 
 megals /Root/PrimestationCloud
 megadf
