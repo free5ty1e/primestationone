@@ -11,7 +11,7 @@ rm "$SAVEFILE.tar.bz2"
 rm "$SAVEFILE.tar.bz2.bak"
 
 echo Retrieving current cloud save archive to backup before we replace it...
-megaget "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2"
+megaget "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2"
 mv "$SAVEFILE.tar.bz2" "$SAVEFILE.tar.bz2.bak"
 
 echo Finding and updating your archove of save states and SRAM files...
