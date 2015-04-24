@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Clearing out your mega.co.nz stored login credentials and unlinking this Primestation to that particular account...
+rm ~/.megarc
