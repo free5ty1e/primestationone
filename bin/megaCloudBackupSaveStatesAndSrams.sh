@@ -5,7 +5,7 @@ SAVEFILE="/home/pi/PrimeStationSaveArchive"
 
 echo Finding and updating your archove of save states and SRAM files...
 for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
-    echo "Archiving saveStateFile $saveState..."
+    echo "Archiving saveStateFile $saveStateFile..."
     tar --append --file="$SAVEFILE.tar" "$saveStateFile"
 done
 
@@ -23,5 +23,5 @@ megamkdir "/Root/$CLOUDFOLDER"
 echo Uploading your save archive to your cloud storage...
 megaput --path "/Root/$CLOUDFOLDER/" "$SAVEFILE.tar.bz2"
 
-#megals
+megals /Root/PrimestationCloud
 megadf
