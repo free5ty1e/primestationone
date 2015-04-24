@@ -101,7 +101,7 @@ function create_megarc_login_file() {
     echo Parameters for this function are: email password
     email="$1"
     password="$2"
-    echo "Creating your .megarc file from provided email $email and password $password..."
+    echo "Creating your .megarc file from provided email $email and not printing your password out of courtesy, you are welcome..."
     cat > /home/pi/.megarc << _EOF_
 [Login]
 Username = $email
