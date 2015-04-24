@@ -6,7 +6,9 @@
 OUTPUT="~/temp/megatemp.txt"
 
 echo Creating empty temp file...
->$OUTPUT
+rm $OUTPUT
+touch $OUTPUT
+
 dialog --title "LOGIN TO MEGA.CO.NZ" --backtitle "EMAIL: For existing users of mega.co.nz" --inputbox "Please enter your email address to login to Mega.co.nz (one that already has an account with them)" 0 0>$OUTPUT
 # get response
 response=$?
@@ -15,7 +17,9 @@ email=$(<$OUTPUT)
 echo "email address captured: $email, response was $response"
 
 echo Creating empty temp file...
->$OUTPUT
+rm $OUTPUT
+touch $OUTPUT
+
 dialog --title "LOGIN TO MEGA.CO.NZ" --backtitle "PASSWORD: For existing users of mega.co.nz" --inputbox "Please enter your password to login to Mega.co.nz for user with email $email" 0 0>$OUTPUT
 # get response
 response=$?
@@ -23,7 +27,7 @@ response=$?
 password=$(<$OUTPUT)
 echo "password captured: $password, response was $response"
 
-cat > "~/.megarc" << _EOF_
+cat > /home/pi/.megarc << _EOF_
 #!/bin/bash
 [Login]
 Username = $email
