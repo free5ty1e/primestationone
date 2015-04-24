@@ -9,7 +9,12 @@ for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
     tar --append --file="$SAVEFILE.tar" "$saveStateFile"
 done
 
-echo "Compressing your saveStateFile $saveStateFile.tar..."
+for SRAMFile in /home/pi/RetroPie/roms/*/*.srm; do
+    echo "Archiving SRAMFile $SRAMFile..."
+    tar --append --file="$SAVEFILE.tar" "$SRAMFile"
+done
+
+echo "Compressing your save file $SAVEFILE.tar..."
 compressBz2.sh "$SAVEFILE.tar"
 
 echo "Creating cloud folder $CLOUDFOLDER..."
