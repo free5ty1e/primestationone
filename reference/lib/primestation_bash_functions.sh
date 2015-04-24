@@ -11,6 +11,15 @@ function download_install_mega_module_on_the_fly() {
     echo "Mega DL link: $4"
     megaLink="$4"
 
+    if [ -z "$5" ]
+    then
+        echo "No stripComponentCount supplied, defaulting to stripComponentCount 0"
+        stripComponentCount=0
+    else
+        stripComponentCount=$5
+    fi
+    echo "Stripping Component Count: $stripComponentCount"
+
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
     echo "$message"
     cowsay -f flaming-sheep "$message"
@@ -19,7 +28,13 @@ function download_install_mega_module_on_the_fly() {
     pushd "$installLocation"
 
     echo Downloading archive from Mega and decompressing it on the fly...
-    megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj
+
+    if [ $stripComponentCount -gt 0 ]
+    then
+        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj --strip-components=$stripComponentCount
+    else
+        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj
+    fi
 
     popd
     echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
@@ -108,3 +123,43 @@ Username = $email
 Password = $password
 _EOF_
 }
+
+function download_install_mega_archive_from_cloud_storage_on_the_fly() {
+    echo "Function download_install_mega_archive_from_cloud_storage_on_the_fly() with parameters:"
+    echo "Mega module / archive name: $1"
+    archiveName="$1"
+    echo "Install location: $2"
+    installLocation="$2"
+    echo "Archive size in bytes: $3"
+    archiveSize="$3"
+    echo "Mega file location: $4"
+    megaLink="$4"
+
+    if [ -z "$5" ]
+    then
+        echo "No stripComponentCount supplied, defaulting to stripComponentCount 0"
+        stripComponentCount=0
+    else
+        stripComponentCount=$5
+    fi
+    echo "Stripping Component Count: $stripComponentCount"
+
+    message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
+    echo "$message"
+    cowsay -f flaming-sheep "$message"
+
+    mkdir -p "$installLocation"
+    pushd "$installLocation"
+
+    echo Downloading archive from Mega and decompressing it on the fly...
+
+    if [ $stripComponentCount -gt 0 ]
+    then
+        megaget --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj --strip-components=$stripComponentCount
+    else
+        megaget --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj
+    fi
+
+    popd
+}
+
