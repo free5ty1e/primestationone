@@ -140,9 +140,21 @@ Or, you can type `netplayConfigForRetroArchLibretrocoreEmulators.sh` to launch f
 
 From here, you can enable / disable and configure netplay functionality on libretrocore enabled emulators, a list of which is located in the repository here: [!ListOfNetplayEmus](http://raw.githubusercontent.com/free5ty1e/primestationone/master/reference/txt/listOfLibRetroCores.txt)
 
+### Cloud Save Game and Save State Backup
+As of v0.9999, the Primestation One has the capability to link to a Mega.co.nz cloud drive for save state and save game backup / restore purposes.  Never lose your precious saves again!
+
+In the EmulationStation `Settings` page (the start-up page), scroll down to the `cloudBackup` folder and look inside for the (hopefully self-explanatory) scripts you will need:
+
+```
+mega_cloud_login.sh
+mega_cloud_clear_login.sh
+mega_cloud_backup_all_savestates_and_srams.sh
+mega_cloud_restore_all_savestates_and_srams.sh
+```
+
 
 ### Playing Mario Paint on SNES with the Mouse
-...can be achieved, but only on a Pi2 as it requires the `*Super Nintendo - SNES9xNextPi2` emulator (4th Super Nintendo emulator listed when pressing `left` to browse from the starting point).  
+...can be achieved, but only on a Pi2 as it requires the `*Super Nintendo - SNES9xNextPi2` emulator (4th Super Nintendo emulator listed when pressing `right` to browse from the starting point).  
 
 1. Navigate to this SNES emulator, find your Mario Paint ROM, and launch it.
 2. Bring up the RetroArch menu (On PS3 controller: hold `SELECT` and press `L1`, on keyboard should just be `F1`)
