@@ -54,21 +54,23 @@ function ask_for_user_input_and_store_result() {
     echo Title Backtitle InputBoxTitle optionalHeight optionalWidth
     echo The result will be stored in the global variable named RESULT
     echo The user selection code will be stored in the global variable SEL if needed
-    height=$4
-    if [ -z $4 ]
+    if [ -z "$4" ]
     then
         echo "No height supplied, using autoheight 0"
         height=0
+    else
+        height=$4
     fi
 
-    width=$5
-    if [ -z $5 ]
+    if [ -z "$5" ]
     then
         echo "No width supplied, using autowidth 0"
         width=0
+    else
+        width=$5
     fi
 
-    dialog --title "$1" --backtitle "$2" --inputbox "$3" $4 $5 2>/tmp/input.$$
+    dialog --title "$1" --backtitle "$2" --inputbox "$3" $height $width 2>/tmp/input.$$
     SEL=$?
     RESULT=`cat /tmp/input.$$`
     case $SEL in
