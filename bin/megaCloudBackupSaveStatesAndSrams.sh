@@ -1,7 +1,8 @@
 #!/bin/bash
 #source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 CLOUDFOLDER="PrimestationCloud"
-SAVEFILE="/home/pi/PrimeStationSaveArchive"
+FILENAME="PrimeStationSaveArchive"
+SAVEFILE="/home/pi/$FILENAME"
 
 echo Finding and updating your archove of save states and SRAM files...
 for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
@@ -21,10 +22,10 @@ echo "Creating cloud folder $CLOUDFOLDER..."
 megamkdir "/Root/$CLOUDFOLDER"
 
 echo Removing existing cloud save archive backup slot...
-megarm "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2.bak"
+megarm "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2.bak"
 
 echo Moving existing cloud save archive to backup slot...
-megamv "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2" "/Root/$CLOUDFOLDER/$SAVEFILE.tar.bz2.bak"
+megamv "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2" "/Root/$CLOUDFOLDER/$FILENAME.bak"
 
 echo Uploading your save archive to your cloud storage...
 megaput --path "/Root/$CLOUDFOLDER/" "$SAVEFILE.tar.bz2"
