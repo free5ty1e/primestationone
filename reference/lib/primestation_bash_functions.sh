@@ -1,5 +1,17 @@
 #!/bin/bash
 
+function fancy_console_message() {
+#Parameters: consoleMessage optionalCowsayFile
+    consoleMessage="$1"
+    if [ -z "$2" ]
+    then
+        cowsay "$consoleMessage"
+    else
+        cowsay -f "$2" "$consoleMessage"
+    fi
+    echo "$consoleMessage"
+}
+
 function download_install_mega_module_on_the_fly() {
     echo "Function download_install_mega_module_on_the_fly() with parameters:"
     echo "Mega module / archive name: $1"
