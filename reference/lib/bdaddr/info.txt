@@ -1,0 +1,69 @@
+00:50:F2:7E:2F:9B My bluetooth dongle (old dongle from Microsoft keyboard/mouse)
+00:01:E3:64:DD:9B Siemens Gigaset SL2 Professional Dect phone
+
+First I scanned bluetooth devices around me:
+
+?
+1
+2
+3
+root@bt:/pentest/bluetooth/bluesmash/tools# hcitool scan
+Scanning ...
+        00:01:E3:64:DD:9B       ScriptKiddie
+00:01:E3:64:DD:9B aka SciptKiddie is my Siemens Gigaset SL Professional DECT phone.
+
+Then I run bdaddr to see does it find my bt dongle:
+
+?
+1
+2
+3
+root@bt:/pentest/bluetooth/bluesmash/tools# ./bdaddr
+Manufacturer:   Cambridge Silicon Radio (10)
+Device address: 00:50:F2:7E:2F:9B
+
+Yep. Seems to work ok.
+
+and now I change to my bluetooth dongle to same as my dect phone:
+
+?
+1
+2
+3
+4
+5
+6
+root@bt:/pentest/bluetooth/bluesmash/tools# ./bdaddr -i hci0 00:01:E3:64:DD:9B
+Manufacturer:   Cambridge Silicon Radio (10)
+Device address: 00:50:F2:7E:2F:9B
+New BD address: 00:01:E3:64:DD:9B
+ 
+Address changed - Reset device now
+after that you have to unplug and plug in your bluetooth device.
+after unplug/plug we can check our mac-address:
+
+?
+1
+2
+3
+4
+5
+6
+root@bt:/pentest/bluetooth/bluesmash/tools# ./bdaddr
+Manufacturer:   Cambridge Silicon Radio (10)
+Device address: 00:01:E3:64:DD:9B
+root@bt:/pentest/bluetooth/bluesmash/tools# hcitool dev
+Devices:
+        hci0    00:01:E3:64:DD:9B
+Yep. It’s changed to same as my dect phone. But I still wanted to test will it scan other devices:
+
+?
+1
+2
+3
+4
+root@bt:/pentest/bluetooth/bluesmash/tools# hcitool scan
+Scanning ...
+        00:01:E3:64:DD:9B       ScriptKiddie
+root@bt:/pentest/bluetooth/bluesmash/tools#
+Yep. It still seems to work perfectly.
