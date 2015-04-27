@@ -117,6 +117,6 @@ _EOF_
 sudo service sixad start
 
 echo Cleaning up...
-rm -rf "$md_build/qtsixa"
+sudo rm -rf "$md_build/qtsixa"
 
 popd
