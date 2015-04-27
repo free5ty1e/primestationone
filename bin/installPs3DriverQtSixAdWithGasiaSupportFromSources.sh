@@ -74,7 +74,7 @@ cat > "$md_inst/ps3pair.sh" << _EOF_
 #!/bin/bash
 if hciconfig | grep -q "BR/EDR"; then
 hciconfig hci0 pscan
-$md_inst/sixpair
+sixpair
 fi
 _EOF_
 

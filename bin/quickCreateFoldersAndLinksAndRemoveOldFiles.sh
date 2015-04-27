@@ -42,6 +42,7 @@ sudo rm /usr/local/bin/megaInstallEntireRetroPieFolderBinaries.sh
 sudo rm /usr/local/bin/megaInstallLibretrocoresBinaries.sh
 sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
 sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArch.sh
+sudo rm /usr/local/bin/sixpair
 
 echo Creating required folders...
 mkdir ~/temp
