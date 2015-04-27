@@ -4,7 +4,6 @@ source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 fancy_console_message "Installing PS3 driver QtSixAd fork with GASIA fake controller support and sixpair from sources..." "bud-frogs"
 
 sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
-cleanupTempFiles.sh
 
 sudo service sixad stop
 
@@ -14,6 +13,8 @@ sudo dpkg --configure -a
 
 echo Removing old driver...
 sudo dpkg --remove sixad
+
+cleanupTempFiles.sh
 
 echo Entering working folder to build in...
 md_build="/tmp"
@@ -112,6 +113,6 @@ enable_pos 0
 _EOF_
 
 # Start sixad daemon
-/etc/init.d/sixad start
+sudo service sixad start
 
 popd
