@@ -12,7 +12,7 @@ ask_for_user_input_and_store_result "EDIT BLUETOOTH ADAPTER MAC" "Edit your blue
 newDesiredBluetoothAdapterMacAddress="$RESULT"
 
 fancy_console_message "Writing desired new bluetooth adapter MAC address $newDesiredBluetoothAdapterMacAddress over old address $firstBluetoothAdapterMacAddress..." "gnu"
-bdaddr -i hci0 "$newDesiredBluetoothAdapterMacAddress"
+sudo bdaddr -i hci0 "$newDesiredBluetoothAdapterMacAddress"
 
 newFirstBluetoothAdapterMacAddress=$(bdaddr | grep address | awk '{print $3}')
 fancy_console_message "newFirstBluetoothAdapterMacAddress is $newFirstBluetoothAdapterMacAddress!  Hopefully that was successful in setting your desired address $newDesiredBluetoothAdapterMacAddress.  Hopefully, someday someone will enhance this script to check for success / failure, but that day is not today.  --Prime"
