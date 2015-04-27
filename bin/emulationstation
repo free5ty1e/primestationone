@@ -5,9 +5,9 @@
 
 #trustAllEncounteredPs3ControllersBluez5.sh
 
-echo Ensuring bluetooth is up and scanning for PS3 controllers...
-#sudo hciconfig hci0 up piscan
-sudo hciconfig hci0 up pscan
+#echo Ensuring bluetooth is up and scanning for PS3 controllers...
+##sudo hciconfig hci0 up piscan
+#sudo hciconfig hci0 up pscan
 
 es_bin="/opt/retropie/supplementary/emulationstation/emulationstation"
 
