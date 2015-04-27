@@ -13,6 +13,7 @@ sudo dpkg --configure -a
 
 echo Removing old driver...
 sudo dpkg --remove sixad
+sudo rm /usr/local/bin/sixpair
 
 cleanupTempFiles.sh
 
