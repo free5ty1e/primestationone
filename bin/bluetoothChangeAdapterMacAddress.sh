@@ -14,5 +14,4 @@ newDesiredBluetoothAdapterMacAddress="$RESULT"
 fancy_console_message "Writing desired new bluetooth adapter MAC address $newDesiredBluetoothAdapterMacAddress over old address $firstBluetoothAdapterMacAddress..." "gnu"
 sudo bdaddr -i hci0 "$newDesiredBluetoothAdapterMacAddress"
 
-newFirstBluetoothAdapterMacAddress=$(bdaddr | grep address | awk '{print $3}')
-fancy_console_message "newFirstBluetoothAdapterMacAddress is $newFirstBluetoothAdapterMacAddress!  Hopefully that was successful in setting your desired address $newDesiredBluetoothAdapterMacAddress.  Hopefully, someday someone will enhance this script to check for success / failure, but that day is not today.  --Prime"
+fancy_console_message "Hopefully that was successful in setting your desired address $newDesiredBluetoothAdapterMacAddress, which will not take effect until the bluetooth adapter resets.  The simplest way I know to do this is to restart.  So, I recommend you restart before proceeding.  Hopefully, someday someone will enhance this script to check for success / failure, but that day is not today.  --Prime"
