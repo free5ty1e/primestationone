@@ -8,7 +8,7 @@ installBluetoothMacAddressChanger.sh
 firstBluetoothAdapterMacAddress=$(bdaddr | grep address | awk '{print $3}')
 
 isPassword=0
-ask_for_user_input_and_store_result "LOGIN TO MEGA.CO.NZ" "EMAIL: For existing users of mega.co.nz" "Please enter your email address to login to Mega.co.nz (one that already has an account with them)" $isPassword 8 60 "$firstBluetoothAdapterMacAddress"
+ask_for_user_input_and_store_result "EDIT BLUETOOTH ADAPTER MAC" "Edit your bluetooth adapter's MAC address here, since many of the less expensive ones come with many of the same addresses!" "Please enter your desired bluetooth adapter's MAC address:" $isPassword 8 60 "$firstBluetoothAdapterMacAddress"
 newDesiredBluetoothAdapterMacAddress="$RESULT"
 
 fancy_console_message "Writing desired new bluetooth adapter MAC address $newDesiredBluetoothAdapterMacAddress over old address $firstBluetoothAdapterMacAddress..." "gnu"

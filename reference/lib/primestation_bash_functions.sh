@@ -113,9 +113,9 @@ function ask_for_user_input_and_store_result() {
 
     if [ $isPassword -eq 1 ]
     then
-        dialog --title "$1" --backtitle "$2" --passwordbox "$3" $height $width "$defaultValue" 2>/tmp/input.$$
+        dialog --title "$1" --backtitle "$2" --passwordbox "$3" $height $width 2>/tmp/input.$$
     else
-        dialog --title "$1" --backtitle "$2" --inputbox "$3" $height $width 2>/tmp/input.$$
+        dialog --title "$1" --backtitle "$2" --inputbox "$3" $height $width "$defaultValue" 2>/tmp/input.$$
     fi
 
     SEL=$?
