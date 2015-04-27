@@ -3,20 +3,30 @@
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 fancy_console_message "Installing PS3 driver QtSixAd fork with GASIA fake controller support and sixpair from sources..." "bud-frogs"
 
-source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
-prepare_to_directly_run_retropie_script_modules
-
-getDepends bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
+sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
 cleanupTempFiles.sh
 
+sudo service sixad stop
+
+echo Ensuring package management autofixes are applied if any are needed...
+sudo apt-get -fy install
+sudo dpkg --configure -a
+
+echo Removing old driver...
+sudo dpkg --remove sixad
+
 echo Entering working folder to build in...
+md_build="/tmp"
 pushd "$md_build"
 
-wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "$md_build/sixpair.c"
+echo Preparing target installation folder...
+md_inst="/home/pi/sixadgasia"
+mkdir -p "$md_inst"
+
+#wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "$md_build/sixpair.c"
 
 echo Obtaining sources...
 git clone https://github.com/mammo0/qtsixa.git
-cd qtsixa
 #wget -O- -q http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz | tar -xvz --strip-components=1
 
 #patch -p1 <<\_EOF_
@@ -39,15 +49,13 @@ cd qtsixa
 
 
 echo Compiling driver...
-gcc -o sixpair sixpair.c -lusb
-cd sixad
+cd qtsixa
 make clean
 make
 
 echo Installing driver...
-cd sixad
-checkinstall -y --fstrans=no
-update-rc.d sixad defaults
+sudo checkinstall -y --fstrans=no
+sudo update-rc.d sixad defaults
 
 # If a bluetooth dongle is connected set state up and enable pscan
 cat > "$md_inst/bluetooth.sh" << _EOF_
@@ -72,19 +80,19 @@ _EOF_
 chmod +x "$md_inst/ps3pair.sh"
 
 # udev rule for bluetooth dongle
-cat > "/etc/udev/rules.d/10-local.rules" << _EOF_
+sudo bash -c 'cat > /etc/udev/rules.d/10-local.rules' << _EOF_
 # Set bluetooth power up
 ACTION=="add", KERNEL=="hci0", RUN+="$md_inst/bluetooth.sh"
 _EOF_
 
 # udev rule for ps3 controller usb connection
-cat > "/etc/udev/rules.d/99-sixpair.rules" << _EOF_
+sudo bash -c 'cat > /etc/udev/rules.d/99-sixpair.rules' << _EOF_
 # Pair if PS3 controller is connected
 DRIVER=="usb", SUBSYSTEM=="usb", ATTR{idVendor}=="054c", ATTR{idProduct}=="0268", RUN+="$md_inst/ps3pair.sh"
 _EOF_
 
 # add default sixad settings
-cat > "/var/lib/sixad/profiles/default" << _EOF_
+sudo bash -c 'cat > /var/lib/sixad/profiles/default' << _EOF_
 enable_leds 1
 enable_joystick 1
 enable_input 0
@@ -105,9 +113,5 @@ _EOF_
 
 # Start sixad daemon
 /etc/init.d/sixad start
-
-md_ret_files=(
-'sixpair'
-)
 
 popd
