@@ -13,6 +13,7 @@ sudo service sixad stop
 
 echo Removing old driver...
 sudo dpkg --remove sixad
+sudo dpkg --remove qtsixa
 sudo rm /usr/local/bin/sixpair
 
 cleanupTempFiles.sh
@@ -45,10 +46,10 @@ git clone https://github.com/mammo0/qtsixa.git
 #    bool anim;
 #_EOF_
 #
-#sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/sixad/uinput.cpp"
-#sed -i 's/strcat(dev_name, mac);//g' "$md_build/sixad/uinput.cpp"
-#sed -i 's/strcat(dev_name, ")");//g' "$md_build/sixad/uinput.cpp"
-
+echo Altering uinput.cpp to not include the mac address in the controller name because that gets in the way of retroarch autoconfiguring matching controller names...
+sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/qtsixa/sixad/uinput.cpp"
+sed -i 's/strcat(dev_name, mac);//g' "$md_build/qtsixa/sixad/uinput.cpp"
+sed -i 's/strcat(dev_name, ")");//g' "$md_build/qtsixa/sixad/uinput.cpp"
 
 echo Compiling driver...
 cd qtsixa
