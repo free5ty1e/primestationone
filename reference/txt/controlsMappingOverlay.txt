@@ -24,3 +24,4 @@ X2-: Hold Rewind <
 X2+: Hold FastFwd
 Y2-: Autofire on/off
 Y2+: Slow Motion
+X2-&Y2+: Slow Rewind
