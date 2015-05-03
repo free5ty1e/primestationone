@@ -7,6 +7,7 @@ sudo chmod +x /usr/local/bin/*
 sudo cp -vr etc /
 #sudo cp -vr opt /
 sudo cp -vr var /
+sudo cp -v reference/opt/retropie/configs/snes/snesmouse.cfg /opt/retropie/configs/snes/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -v .* ~/
 cp -vr RetroPie/* ~/RetroPie/
