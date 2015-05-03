@@ -156,7 +156,7 @@ mega_cloud_restore_all_savestates_and_srams.sh
 ### Playing Mario Paint on SNES with the Mouse
 ...can be achieved, but only on a Pi2 as it requires the `*Super Nintendo - SNES9xNextPi2` emulator (4th Super Nintendo emulator listed when pressing `right` to browse from the starting point).
 
-Since V0.9999, the Snes Mouse has it's own emulation entry just for Mario Paint, to avoid having to do any of the below!
+Since V0.9999, the Snes Mouse has it's own emulation entry just for Mario Paint, to avoid having to do any of the below!  There is a new rom folder `~/RetroPie/roms/snesmouse` to place your Mario Paint and any other SNES Mouse roms in.  (Must put a ROM in the `snesmouse` folder before this new entry will show up in Emulationstation)
 
 1. Navigate to this SNES emulator, find your Mario Paint ROM, and launch it.
 2. Bring up the RetroArch menu (On PS3 controller: hold `SELECT` and press `L1`, on keyboard should just be `F1`)
