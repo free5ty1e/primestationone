@@ -8,7 +8,7 @@
 * Cloud save and save state backup to mega.co.nz
 * Support for the SNES Mouse / Mario Paint with easy launch
 * Easy pairing scripts for bluetooth keyboards and mice
-* Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or another PrimeStation is paired).  
+* Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
