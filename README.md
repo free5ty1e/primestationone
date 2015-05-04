@@ -1,5 +1,7 @@
 # PrimeStation One
-## A Set of Scripts and Tools For a "Ready-To-Go" RetroPie (for Raspberry Pi 1 and 2, Pi2 recommended for full compatibility) with PS3 controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations.
+## A Set of Scripts and Tools For a "Ready-To-Go" RetroPie 
+
+...(for Raspberry Pi 1 and 2, Pi2 recommended for full compatibility) with PS3 controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations, with save states, rewind, cloud save and save state backup to mega.co.nz, support for the SNES Mouse / Mario Paint, easy pairing scripts for bluetooth keyboards and mice, and automatic PS3-like pairing routine for controllers (plug in via USB for 5 seconds and then can connect via bluetooth).  
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
