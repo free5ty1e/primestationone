@@ -5,6 +5,8 @@
 ![SplashScreen](http://i.imgur.com/vfZnOiO.png)
 http://i.imgur.com/vfZnOiO.png
 
+The point of the Primestation One is to be able to massively retrogame from the comfort of your couch on minimal hardware, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
+
 * For Raspberry Pi 1 and 2, Pi2 recommended for full compatibility (N64 and PSX are unplayable on Pi1, several systems unavailable on Pi1 -- Dreamcast, Saturn, SNES Mouse, etc)
 * PS3 sixaxis controller controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations
 * 100 separate and easily-accessible save states per game
@@ -13,8 +15,6 @@ http://i.imgur.com/vfZnOiO.png
 * Support for the SNES Mouse / Mario Paint with easy launch
 * Easy pairing scripts for bluetooth keyboards and mice
 * Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
-
-The point of the Primestation One is to be able to massively retrogame from the comfort of your couch, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
 Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
 * Atari 800
