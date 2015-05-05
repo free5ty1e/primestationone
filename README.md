@@ -1,6 +1,10 @@
 # PrimeStation One
 ## A Set of Scripts and Tools For a "Ready-To-Go" RetroPie 
 
+### A Recent PS3 Controller Layout / Quick Reference: 
+![SplashScreen](http://i.imgur.com/vfZnOiO.png)
+http://i.imgur.com/vfZnOiO.png
+
 * For Raspberry Pi 1 and 2, Pi2 recommended for full compatibility (N64 and PSX are unplayable on Pi1, several systems unavailable on Pi1 -- Dreamcast, Saturn, SNES Mouse, etc)
 * PS3 sixaxis controller controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations
 * 100 separate and easily-accessible save states per game
@@ -63,10 +67,6 @@ The following are systems that are included but experimental on the PrimeStation
 
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
-
-### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/vfZnOiO.png)
-http://i.imgur.com/vfZnOiO.png
 
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
