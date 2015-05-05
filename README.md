@@ -12,6 +12,55 @@
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
+Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
+* Atari 800
+* Atari 2600
+* Atari 5200
+* Atari ST / Falcon
+* Atari Lynx
+* Nintendo Entertainment System (NES)
+* Game Boy and Game Boy Color
+* Super NES (SNES)
+* Super NES with SNES Mouse support for Mario Paint
+* Sony Playstation One (PSX / PS1)
+* Sega Master System
+* Sega SG-1000
+* Sega Genesis / Megadrive
+* Sega CD
+* Sega 32x
+* Commodore 64
+* Amiga
+* Neo Geo
+* MAME (specifically for older MAME 37b5 ROMS)
+* MSX
+* TurboGrafx-16 (PC-Engine)
+* DOS / IBM-PC / MS-DOS
+* Infocom ZMachine (Zork I, II, III)
+* SCUMMVM (for many DOS adventure games)
+* Apple ][
+* Apple Macintosh Classic (Up to OS 8)
+* Sinclair ZX Spectrum
+* Intellivision
+* Amstrad CPC
+
+Also included are the following Raspberry Pi native shareware / freeware games (ports):
+* Doom 
+* Quake
+* Quake 3 Arena
+* Duke Nukem 3D
+* Cave Story
+* Angband
+* Descent 1
+* Descent 2
+
+The following are systems that are included but experimental on the PrimeStation One (under development, not full speed on some or all games, etc):
+* Atari 7800 Prosystem
+* Nintendo 64
+* Sega Saturn
+* Sega Dreamcast
+
+
+
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
