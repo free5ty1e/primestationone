@@ -97,9 +97,7 @@ Some additional tips for USB PS3'ing:
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
-Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.9997 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 2.1GB SD card to begin using the PrimeStation One (although, in that form, it won't quite yet do all the things yet.  However, it's the quickest and simplest way to get started so here we go!)
-
-NOTE that a standard 2GB SD card will fall just short of the minimum space requirements, so the most reasonable minimum SD card size you will probably be able to find is a 4GB card... so use at least a 4GB SD card...
+Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.9997 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 4GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 4GB SD card for other uses.
 
 ####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk2` with your SD card desingation (disk1, disk2, disk3...).
 ```
