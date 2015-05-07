@@ -31,7 +31,10 @@ sudo cp -v reserve_js /usr/local/bin/
 sudo cp -v loadmap /usr/local/bin/
 
 echo Ensuring mapper is available upon startup...
-sudo awk '/exit 0/ { print; print "joystickMapperEnable.sh"; previous }1' /etc/rc.local
+#sudo awk '/exit 0/ { print; print "joystickMapperEnable.sh"; previous }1' /etc/rc.local
+#sed '$ i\joystickMapperEnable.sh' /etc/rc.local
+sudo bash -c "sed '$ i\joystickMapperEnable.sh' /etc/rc.local > /home/pi/temp/rc.local"
+sudo cp /home/pi/temp/rc.local /etc/rc.local
 
 joystickMapperEnable.sh
 
