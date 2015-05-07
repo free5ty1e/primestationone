@@ -27,8 +27,13 @@ echo Compiling...
 make
 
 echo Installing...
-sudo cp reserve_js /usr/local/bin/
-sudo cp loadmap /usr/local/bin/
+sudo cp -v reserve_js /usr/local/bin/
+sudo cp -v loadmap /usr/local/bin/
+
+echo Ensuring mapper is available upon startup...
+sudo awk '/exit 0/ { print; print "joystickMapperEnable.sh"; previous }1' /etc/rc.local
+
+joystickMapperEnable.sh
 
 echo Installation complete!
 
