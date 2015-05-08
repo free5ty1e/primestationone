@@ -192,13 +192,13 @@ function prepare_to_directly_run_retropie_script_modules() {
 
 function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     echo "Function download_install_mega_archive_from_cloud_storage_on_the_fly() with parameters:"
-    echo "Mega module / archive name: $1"
+    echo "1: Mega module / archive name: $1"
     archiveName="$1"
-    echo "Install location: $2"
+    echo "2: Install location: $2"
     installLocation="$2"
-    echo "Archive size in bytes: $3"
+    echo "3: Archive size in bytes: $3"
     archiveSize="$3"
-    echo "Mega file location: $4"
+    echo "4: Mega file location: $4"
     megaLink="$4"
 
     if [ -z "$5" ]
@@ -208,7 +208,7 @@ function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     else
         stripComponentCount=$5
     fi
-    echo "Stripping Component Count: $stripComponentCount"
+    echo "5: Stripping Component Count: $stripComponentCount"
 
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
     echo "$message"
@@ -227,5 +227,25 @@ function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     fi
 
     popd
+}
+
+function cloud_create_backup_archive {
+    echo "Function cloud_create_backup_archive() with parameters:"
+    echo "1: Full path to BACKUPARCHIVEFILE: $1"
+    BACKUPARCHIVEFILE="$1"
+
+    echo Finding and updating your archove of save states and SRAM files...
+    for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
+        echo "Archiving saveStateFile $saveStateFile..."
+        tar --append --file="$BACKUPARCHIVEFILE.tar" "$saveStateFile"
+    done
+
+    for SRAMFile in /home/pi/RetroPie/roms/*/*.srm; do
+        echo "Archiving SRAMFile $SRAMFile..."
+        tar --append --file="$BACKUPARCHIVEFILE.tar" "$SRAMFile"
+    done
+
+    echo "Compressing your save file $BACKUPARCHIVEFILE.tar to $BACKUPARCHIVEFILE.tar.bz2..."
+    compressBz2.sh "$BACKUPARCHIVEFILE.tar"
 }
 

@@ -14,19 +14,7 @@ echo Retrieving current cloud save archive to backup before we replace it...
 megaget "/Root/$CLOUDFOLDER/$FILENAME.tar.bz2"
 mv "$SAVEFILE.tar.bz2" "$SAVEFILE.tar.bz2.bak"
 
-echo Finding and updating your archove of save states and SRAM files...
-for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
-    echo "Archiving saveStateFile $saveStateFile..."
-    tar --append --file="$SAVEFILE.tar" "$saveStateFile"
-done
-
-for SRAMFile in /home/pi/RetroPie/roms/*/*.srm; do
-    echo "Archiving SRAMFile $SRAMFile..."
-    tar --append --file="$SAVEFILE.tar" "$SRAMFile"
-done
-
-echo "Compressing your save file $SAVEFILE.tar..."
-compressBz2.sh "$SAVEFILE.tar"
+cloud_create_backup_archive "$SAVEFILE"
 
 echo "Creating cloud folder $CLOUDFOLDER..."
 megamkdir "/Root/$CLOUDFOLDER"
