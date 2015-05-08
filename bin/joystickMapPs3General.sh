@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Loading PS3 general joymap...
+loadmap ~/.joymaps/general.ps3.joymap.cfg
