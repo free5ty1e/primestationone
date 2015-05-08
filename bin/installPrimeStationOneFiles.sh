@@ -9,6 +9,7 @@ sudo cp -vr etc /
 sudo cp -vr var /
 sudo cp -v reference/opt/retropie/configs/snes/snesmouse.cfg /opt/retropie/configs/snes/
 cp -vr .emulationstation/* ~/.emulationstation/
+cp -vr .joymaps ~/
 cp -v .* ~/
 cp -vr RetroPie/* ~/RetroPie/
 
