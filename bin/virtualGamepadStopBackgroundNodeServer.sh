@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Stopping virtual gamepad node server...
+sudo killall node
