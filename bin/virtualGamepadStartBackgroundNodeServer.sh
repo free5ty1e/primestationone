@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Starting virtual gamepad node server in background...
+sudo node ~/node-virtual-gamepads/main.js &
