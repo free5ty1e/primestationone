@@ -27,6 +27,7 @@ rm ~/RetroPie/roms/settings/retropie_setup_repo_nuke_and_checkout_fresh.sh
 rm ~/RetroPie/roms/settings/show_primestation_one_version.sh
 rm ~/RetroPie/roms/settings/update_primestation_one_files_quick.sh
 rm ~/RetroPie/roms/settings/install_mega_older_retroarch_to_fix_rewind.sh
+rm ~/RetroPie/roms/settings/display_splashscreen_quick_reference.sh
 
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi1.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi2.sh
