@@ -210,6 +210,10 @@ function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     fi
     echo "5: Stripping Component Count: $stripComponentCount"
 
+    echo "Checking for at least enough free space to contain the archive size * 1.5 average expansion factor..."
+    requiredDiskSpace=$(($archiveSize * 1.5))
+    confirmRequiredDiskSpaceMB $requiredDiskSpace
+
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
     echo "$message"
     cowsay -f flaming-sheep "$message"
@@ -249,3 +253,41 @@ function cloud_create_backup_archive {
     compressBz2.sh "$BACKUPARCHIVEFILE.tar"
 }
 
+function ask() {
+    echo -e -n "$@" '[y/n] ' ; read ans
+    case "$ans" in
+        y*|Y*) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+function confirmRequiredDiskSpaceMB() {
+    echo "Function confirmRequiredDiskSpaceMB(), parameters:"
+    echo "1: RequiredDiskSpaceInMB: $1"
+    required_MB=$1
+    echo "2: Optional location to check space on: $2"
+    if [ -z "$2" ]
+    then
+        rootdir="/opt/retropie"
+        echo "Optional location to check space on, defaulting to $rootdir"
+    else
+        rootdir="$2"
+    fi
+    local rootdirExists=0
+    if [[ ! -d "$rootdir" ]]; then
+        rootdirExists=1
+        mkdir -p $rootdir
+    fi
+    local __avail=$(df -P $rootdir | tail -n1 | awk '{print $4}')
+    if [[ $rootdirExists -eq 1 ]]; then
+        rmdir $rootdir
+    fi
+
+    available_MB=$((__avail/1024))
+
+    if [[ "$required_MB" -le "$available_MB" ]] || ask "Minimum recommended disk space ($required_MB MB) not available. Try 'sudo raspi-config' to resize partition to full size if you have not yet done so. Only $available_MB MB available at $rootdir continue anyway?"; then
+        return 0;
+    else
+        exit 0;
+    fi
+}
