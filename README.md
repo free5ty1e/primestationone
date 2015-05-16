@@ -141,7 +141,7 @@ sudo raspi-config
 
 
 #### Transferring your PrimeStation One SD root filesystem to a USB drive:
-...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is normally less expensive and more available than SD card storage space.  USB storage will probably also last longer, as it was designed for more write cycles.  This way, you'll only end up needing to dedicate an SD card with > 16MB (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
+...is typically faster depending on the USB drive itself vs the SD card you are using, and handy since USB storage space is normally less expensive and more available than SD card storage space.  USB storage will probably also last longer, as it was designed for more write cycles.  This way, you'll only end up needing to dedicate an SD card with > `50 MB` (yes, megabytes) of storage to your PrimeStation One and you can have all the roms you can cram onto your USB flash or hard drive.
 
 As of v0.9997, a newer, safer, and fully-automated `usbGuidRootFilesystemSetup.sh` script was created to handle transferring the root filesystem to a USB drive, set up with a GPT partition table and unique GUID to boot from.  This method will NOT cause issues with USB mount order upon startup if you, for example, wanted to use your PrimeStation One as a SAMBA fileserver in the background to serve up terabytes of USB storage... this is now possible without having to physically reconnect them in a certain order after every startup.
 
