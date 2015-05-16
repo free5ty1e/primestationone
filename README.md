@@ -268,6 +268,4 @@ Comments / suggestions / contributions to the code welcome!
 #### Standing on the Shoulders of Giants 
 (Wouldn't have been possible, or at least nearly this easy, without the following...)
 * RetroPie project (https://github.com/petrockblog/RetroPie-Setup)
-* XRDP project (https://github.com/kx499/xrdp)
 * QtSixA project (http://qtsixa.sourceforge.net/)
-* mammo0's QtSixA fork for sensible Gasia controller support (https://github.com/mammo0/qtsixa)
