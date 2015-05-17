@@ -14,7 +14,7 @@ function fancy_console_message() {
 
 function reset_permissions_bios_and_roms() {
     echo Resetting permissions on roms and BIOS folders...
-    sudo chmod -R 777 ~/RetroPie
+    sudo chmod -R 755 /home/pi/RetroPie
 }
 
 function rsync_with_progress() {
@@ -299,7 +299,7 @@ function generateControllerOverlay() {
     echo "1: Output file location: $1"
     if [ -z "$1" ]
     then
-        outputImageFile="~/splashscreenwithcontrolsandversion.png"
+        outputImageFile="/home/pi/splashscreenwithcontrolsandversion.png"
     else
         outputImageFile="$1"
     fi
@@ -307,27 +307,27 @@ function generateControllerOverlay() {
     echo "2: Controller Map text file location: $2"
     if [ -z "$2" ]
     then
-        controlMapFile="~/primestationone/reference/txt/controlsMappingOverlay.txt"
+        controlMapFile="/home/pi/primestationone/reference/txt/controlsMappingOverlay.txt"
     else
         controlMapFile="$2"
     fi
     controlsMappingOverlay=$(cat "$controlMapFile")
-    controlsMappingTextColor=$(cat ~/primestationone/reference/txt/controlsMappingTextColor.txt)
+    controlsMappingTextColor=$(cat /home/pi/primestationone/reference/txt/controlsMappingTextColor.txt)
 
     echo "3: Right text overlay text file location: $3"
     if [ -z "$3" ]
     then
-        rightTextFile="~/primestationone/reference/txt/listOfLibRetroCores.txt"
+        rightTextFile="/home/pi/primestationone/reference/txt/listOfLibRetroCores.txt"
     else
         rightTextFile="$3"
     fi
     listOfLibRetroCores=$(cat "$rightTextFile")
-    colorOfLibRetroCores=$(cat ~/primestationone/reference/txt/listOfLibRetroCoresColor.txt)
+    colorOfLibRetroCores=$(cat /home/pi/primestationone/reference/txt/listOfLibRetroCoresColor.txt)
 
-    primestationVersion=$(cat ~/primestationone/reference/txt/version.txt)
-    primestationVerColor=$(cat ~/primestationone/reference/txt/vercolor.txt)
-    keysToQuitEmusList=$(cat ~/primestationone/reference/txt/keysToQuitEmus.txt)
-    colorKeysToQuitEmus=$(cat ~/primestationone/reference/txt/keysToQuitEmusColor.txt)
+    primestationVersion=$(cat /home/pi/primestationone/reference/txt/version.txt)
+    primestationVerColor=$(cat /home/pi/primestationone/reference/txt/vercolor.txt)
+    keysToQuitEmusList=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmus.txt)
+    colorKeysToQuitEmus=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmusColor.txt)
     echo "PrimeStation One $primestationVersion updating splashscreen version text overlay with $primestationVersion in color $primestationVerColor..."
     echo "...and a $controlsMappingTextColor controlsMappingOverlay: "
     echo "$controlsMappingOverlay"
@@ -337,6 +337,6 @@ function generateControllerOverlay() {
     echo "$keysToQuitEmusList"
     echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
     echo "......"
-    convert -font courier-bold -pointsize 44 -fill "$primestationVerColor" -draw "text 1600,45 \"$primestationVersion\"" -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$controlsMappingOverlay\"" -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" -pointsize 20 -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" ~/splashscreen.png "$outputImageFile"
+    convert -font courier-bold -pointsize 44 -fill "$primestationVerColor" -draw "text 1600,45 \"$primestationVersion\"" -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$controlsMappingOverlay\"" -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" -pointsize 20 -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" /home/pi/splashscreen.png "$outputImageFile"
     echo "Complete, if you didn't just see any errors."
 }
