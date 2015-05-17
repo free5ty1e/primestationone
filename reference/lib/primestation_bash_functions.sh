@@ -245,6 +245,10 @@ function cloud_create_backup_archive {
     echo "1: Full path to BACKUPARCHIVEFILE: $1"
     BACKUPARCHIVEFILE="$1"
 
+    echo "Clearing any current archive with this name: $BACKUPARCHIVEFILE.tar and $BACKUPARCHIVEFILE.tar.bz2"
+    rm "$BACKUPARCHIVEFILE.tar"
+    rm "$BACKUPARCHIVEFILE.tar.bz2"
+
     echo Finding and updating your archove of save states and SRAM files...
     for saveStateFile in /home/pi/RetroPie/roms/*/*.state*; do
         echo "Archiving saveStateFile $saveStateFile..."
