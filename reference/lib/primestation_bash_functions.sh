@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function multiply() {
+    echo "Multiplying $1 x $2 with bc, storing in ANS"
+    ANS=$(echo "${1}*${2}" |bc)
+}
+
 function fancy_console_message() {
 #Parameters: consoleMessage optionalCowsayFile
     consoleMessage="$1"
@@ -169,8 +174,8 @@ function download_install_mega_module_on_the_fly() {
     echo "Stripping Component Count: $stripComponentCount"
 
     echo "Checking for at least enough free space to contain the archive size * 1.5 average expansion factor..."
-    requiredDiskSpace=$archiveSize*1.5
-    confirmRequiredDiskSpaceMB $requiredDiskSpace
+    multiply $archiveSize 1.5
+    confirmRequiredDiskSpaceMB $ANS
 
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
     echo "$message"
@@ -213,8 +218,8 @@ function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     echo "5: Stripping Component Count: $stripComponentCount"
 
     echo "Checking for at least enough free space to contain the archive size * 1.5 average expansion factor..."
-    requiredDiskSpace=$archiveSize*1.5
-    confirmRequiredDiskSpaceMB $requiredDiskSpace
+    multiply $archiveSize 1.5
+    confirmRequiredDiskSpaceMB $ANS
 
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
     echo "$message"
