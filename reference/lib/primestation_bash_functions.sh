@@ -12,48 +12,6 @@ function fancy_console_message() {
     echo "$consoleMessage"
 }
 
-function download_install_mega_module_on_the_fly() {
-    echo "Function download_install_mega_module_on_the_fly() with parameters:"
-    echo "Mega module / archive name: $1"
-    archiveName="$1"
-    echo "Install location: $2"
-    installLocation="$2"
-    echo "Archive size in bytes: $3"
-    archiveSize="$3"
-    echo "Mega DL link: $4"
-    megaLink="$4"
-
-    if [ -z "$5" ]
-    then
-        echo "No stripComponentCount supplied, defaulting to stripComponentCount 0"
-        stripComponentCount=0
-    else
-        stripComponentCount=$5
-    fi
-    echo "Stripping Component Count: $stripComponentCount"
-
-    message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
-    echo "$message"
-    cowsay -f flaming-sheep "$message"
-
-    mkdir -p "$installLocation"
-    pushd "$installLocation"
-
-    echo Downloading archive from Mega and decompressing it on the fly...
-
-    if [ $stripComponentCount -gt 0 ]
-    then
-        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj --strip-components=$stripComponentCount
-    else
-        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj
-    fi
-
-    popd
-    echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
-
-}
-
-
 function reset_permissions_bios_and_roms() {
     echo Resetting permissions on roms and BIOS folders...
     sudo chmod -R 777 ~/RetroPie
@@ -190,6 +148,50 @@ function prepare_to_directly_run_retropie_script_modules() {
 
 }
 
+function download_install_mega_module_on_the_fly() {
+    echo "Function download_install_mega_module_on_the_fly() with parameters:"
+    echo "Mega module / archive name: $1"
+    archiveName="$1"
+    echo "Install location: $2"
+    installLocation="$2"
+    echo "Archive size in bytes: $3"
+    archiveSize="$3"
+    echo "Mega DL link: $4"
+    megaLink="$4"
+
+    if [ -z "$5" ]
+    then
+        echo "No stripComponentCount supplied, defaulting to stripComponentCount 0"
+        stripComponentCount=0
+    else
+        stripComponentCount=$5
+    fi
+    echo "Stripping Component Count: $stripComponentCount"
+
+    echo "Checking for at least enough free space to contain the archive size * 1.5 average expansion factor..."
+    requiredDiskSpace=$archiveSize*1.5
+    confirmRequiredDiskSpaceMB $requiredDiskSpace
+
+    message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
+    echo "$message"
+    cowsay -f flaming-sheep "$message"
+
+    mkdir -p "$installLocation"
+    pushd "$installLocation"
+
+    echo Downloading archive from Mega and decompressing it on the fly...
+
+    if [ $stripComponentCount -gt 0 ]
+    then
+        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj --strip-components=$stripComponentCount
+    else
+        megadl --no-progress --path=- "$megaLink" | pv -p -s "$archiveSize" | tar xvj
+    fi
+
+    popd
+    echo If you saw any errors, you might consider running a quickUpdatePrimestationOneFiles.sh to ensure you have the latest mega dl link in this script...
+}
+
 function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     echo "Function download_install_mega_archive_from_cloud_storage_on_the_fly() with parameters:"
     echo "1: Mega module / archive name: $1"
@@ -211,7 +213,7 @@ function download_install_mega_archive_from_cloud_storage_on_the_fly() {
     echo "5: Stripping Component Count: $stripComponentCount"
 
     echo "Checking for at least enough free space to contain the archive size * 1.5 average expansion factor..."
-    requiredDiskSpace=$(($archiveSize * 1.5))
+    requiredDiskSpace=$archiveSize*1.5
     confirmRequiredDiskSpaceMB $requiredDiskSpace
 
     message="Downloading and installing $archiveName mega module on-the-fly with no archive or temp files..."
