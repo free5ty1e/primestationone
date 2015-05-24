@@ -134,6 +134,7 @@ if [ -d "$md_build/udev" ]; then
     emulatorsToButtonSwapReverse=(
         'gamegear'
         'mastersystem'
+        'sg-1000'
     )
 
     for emu in "${emulatorsToButtonSwapReverse[@]}"; do
