@@ -130,6 +130,31 @@ if [ -d "$md_build/udev" ]; then
         iniSet "input_player4_b_btn" "15"
     done
 
+    echo Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine...
+    #local
+    #above keyword only for when below is in its own function:
+    emulatorsToButtonSwap=(
+        'mastersystem'
+    )
+
+    for emu in "${emulatorsToButtonSwap[@]}"; do
+        emu=($emu)
+        source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
+        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+        iniSet "input_player1_y_btn" "13"
+        iniSet "input_player1_a_btn" "15"
+        iniSet "input_player1_b_btn" "14"
+        iniSet "input_player2_y_btn" "13"
+        iniSet "input_player2_a_btn" "15"
+        iniSet "input_player2_b_btn" "14"
+        iniSet "input_player3_y_btn" "13"
+        iniSet "input_player3_a_btn" "15"
+        iniSet "input_player3_b_btn" "14"
+        iniSet "input_player4_y_btn" "13"
+        iniSet "input_player4_a_btn" "15"
+        iniSet "input_player4_b_btn" "14"
+    done
+
 
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
