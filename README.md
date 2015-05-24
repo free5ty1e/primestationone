@@ -1,5 +1,5 @@
 # PrimeStation One
-## A Set of Scripts and Tools For a "Ready-To-Go" RetroPie 
+## A Set of Scripts and Tools For a "Ready-To-Go" [RetroPie](https://github.com/petrockblog/RetroPie-Setup) 
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
 ![SplashScreen](http://i.imgur.com/vfZnOiO.png)
