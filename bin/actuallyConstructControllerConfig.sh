@@ -107,7 +107,6 @@ if [ -d "$md_build/udev" ]; then
         'gb'
         'gbc'
         'n64'
-        'gamegear'
         'pcengine'
     )
 
@@ -133,6 +132,7 @@ if [ -d "$md_build/udev" ]; then
     #local
     #above keyword only for when below is in its own function:
     emulatorsToButtonSwapReverse=(
+        'gamegear'
         'mastersystem'
     )
 
