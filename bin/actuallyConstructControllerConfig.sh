@@ -107,7 +107,6 @@ if [ -d "$md_build/udev" ]; then
         'gb'
         'gbc'
         'n64'
-        'mastersystem'
         'gamegear'
         'pcengine'
     )
@@ -133,11 +132,11 @@ if [ -d "$md_build/udev" ]; then
     echo Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine...
     #local
     #above keyword only for when below is in its own function:
-    emulatorsToButtonSwap=(
+    emulatorsToButtonSwapReverse=(
         'mastersystem'
     )
 
-    for emu in "${emulatorsToButtonSwap[@]}"; do
+    for emu in "${emulatorsToButtonSwapReverse[@]}"; do
         emu=($emu)
         source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
         iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
