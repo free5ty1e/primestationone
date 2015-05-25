@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Loading PS3 Descent Rebirth 1 and 2 joymap...
+loadmap ~/.joymaps/descent.ps3.joymap.cfg
