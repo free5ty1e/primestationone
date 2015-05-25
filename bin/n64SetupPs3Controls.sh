@@ -22,7 +22,7 @@ iniSet "Joy Mapping Increment Slot" "\"J0B0\""
 iniSet "Joy Mapping Screenshot" "\"\""
 
 ## Joystick event string for pausing the emulator
-iniSet "oy Mapping Pause" "\"\""
+iniSet "Joy Mapping Pause" "\"\""
 
 ## Joystick event string for muting/unmuting the sound
 iniSet "Joy Mapping Mute" "\"\""
