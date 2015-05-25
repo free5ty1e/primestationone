@@ -4,7 +4,7 @@ Hold 0 to Enable:
 2  : Record/End Movie
 3  : Pause Emulator
 4  : Reset
-5  : Disc Next
+5  : 
 6  : Analog DPad Toggle
 7  : Disc Eject
 8  : Flip NetPlayers
@@ -16,8 +16,8 @@ Hold 0 to Enable:
 14 : Load State
 15 : Save State
 16 : Exit Emulator
-X1-: 
-X1+:  
+X1-: Disc Previous
+X1+: Disc Next
 Y1-: Volume+
 Y1+: Volume-
 X2-: Hold Rewind < 
