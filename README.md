@@ -59,6 +59,7 @@ Also included are the following Raspberry Pi native shareware / freeware games (
 
 The following are systems that are included but experimental on the PrimeStation One (under development, not full speed on some or all games, etc):
 * Atari 7800 Prosystem
+* Atari Jaguar
 * Nintendo 64
 * Sega Saturn
 * Sega Dreamcast
