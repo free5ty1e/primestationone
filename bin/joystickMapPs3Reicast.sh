@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Loading PS3 Reicast Dreamcast Emulator joymap...
+loadmap ~/.joymaps/reicast.ps3.joymap.cfg
