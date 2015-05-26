@@ -1,0 +1,27 @@
+Descent 1 & 2
+---------------------
+0  : Automap (TAB)
+1  : Rear View (R)
+2  : 
+3  : Enter
+4  : 
+5  : Cycle Secndry (.)
+6  : 
+7  : Cycle Primary (,)
+8  : Fire Secndry(SPC)
+9  : Fire Primary(CTL)
+10 : 
+11 : Slide On (LALT)
+12 : Fire Flare (F)
+13 : Drop Bomb (B)
+14 : Forward (A)
+15 : Reverse (Z)
+16 : Abort (ESC)
+X1-: Turn Left (LArr)
+X1+: Turn Right (RArr)
+Y1-: Pitch Fwd (UArr)
+Y1+: Pitch Bak (DArr)
+X2-: Bank Left (PAD7)
+X2+: Bank Rt (PAD9)
+Y2-: 
+Y2+: 
