@@ -100,13 +100,14 @@ if [ -d "$md_build/udev" ]; then
     iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "/opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
 
-    echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Circle for B which is asinine...
+    echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine...
     #local
     #above keyword only for when below is in its own function:
     emulatorsToButtonSwap=(
         'nes'
         'gb'
         'gbc'
+        'gba'
         'n64'
         'pcengine'
     )
