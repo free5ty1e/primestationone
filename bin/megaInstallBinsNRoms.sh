@@ -1,6 +1,6 @@
 #!/bin/bash
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
-download_install_mega_module_on_the_fly binsnroms ~ 110596400 'https://mega.co.nz/#!klJUCLbQ!9EHZ9EyHGByMg-g8G2gJh82U5dQrq6n8yZzCtsyNgYk'
+download_install_mega_module_on_the_fly binsnroms ~ 120630338 'https://mega.co.nz/#!dlY23DoL!UHj_Kqhce11ubjN9BLjOoju0Ny0ZWIO6PYmQKABmvoM'
 reset_permissions_bios_and_roms
 
 cd ~/archive
