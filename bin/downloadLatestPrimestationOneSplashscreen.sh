@@ -7,7 +7,7 @@ cp ~/splashscreen.png ~/backup_splashscreen.png
 rm -f splashscreen*
 
 echo Downloading base splashscreen from imgur...
-wget --output-document=splashscreen.png http://i.imgur.com/UnMdAZX.png
+wget --output-document=splashscreen.png http://i.imgur.com/17aeRJl.png
 
 #If that didn't work, grab the backup splashscreen from verilyshare:
 if [ ! -f splashscreen.png ]; then
