@@ -4,62 +4,75 @@
 #Index/ID:                 Description:                                 List of available actions
 #-----------------------------------------------------------------------------------------------------------------------------------
 #100/advmame             : AdvanceMAME                                : depends sources build install configure
-#101/atari800            : Atari 800 emulator                         : depends sources build install configure
-#102/basilisk            : Macintosh emulator                         : depends sources build install configure
-#103/cpc                 : Amstrad CPC emulator                       : sources build install configure
-#104/dgen                : Megadrive/Genesis emulat. DGEN             : depends sources build install configure
-#105/dosbox              : DOS emulator                               : depends sources build install configure
-#106/fbzx                : ZXSpectrum emulator FBZX                   : sources build install configure
-#107/fuse                : ZX Spectrum emulator Fuse                  : depends sources build install configure
-#108/gngeopi             : NeoGeo emulator GnGeoPi                    : depends sources build install configure
-#109/gpsp                : GameBoy Advance emulator                   : depends sources build install configure
-#110/hatari              : Atari emulator Hatari                      : depends sources build install configure
-#111/jzintv              : Intellivision emulator                     : depends sources build install configure
-#112/linapple            : Apple 2 emulator Linapple                  : depends sources build install configure
-#113/mame4all            : MAME emulator MAME4All-Pi                  : depends sources build install configure
-#114/mupen64plus         : N64 emulator MUPEN64Plus                   : depends sources build install configure
-#115/mupen64plus-testing : N64 emulator MUPEN64Plus (Testing)         : depends sources build install configure
-#116/openmsx             : MSX emulator OpenMSX                       : depends sources build install configure
-#117/osmose              : Gamegear emulator Osmose                   : sources build install configure
-#118/pifba               : FBA emulator PiFBA                         : depends sources build install configure
-#119/pisnes              : SNES emulator PiSNES                       : sources build install configure
-#120/retroarch           : RetroArch                                  : depends sources build install configure
-#121/rpix86              : DOS Emulator rpix86                        : install configure
-#122/scummvm             : ScummVM                                    : depends sources build install configure
-#123/snes9x              : SNES emulator SNES9X-RPi                   : depends sources build install configure
-#124/stella              : Atari2600 emulator STELLA                  : install configure
-#125/uae4all             : Amiga emulator UAE4All                     : depends sources build install configure
-#126/vice                : C64 emulator VICE                          : depends sources build install configure
-#127/zmachine            : ZMachine                                   : install
+#101/ags                 : Adventure Game Studio - Adventure game engine : depends sources build install configure
+#102/atari800            : Atari 8-bit/800/5200 emulator              : depends sources build install configure
+#103/basilisk            : Macintosh emulator                         : depends sources build install configure
+#104/cpc                 : Amstrad CPC emulator                       : sources build install configure
+#105/dgen                : Megadrive/Genesis emulat. DGEN             : depends sources build install configure
+#106/dosbox              : DOS emulator                               : depends sources build install configure
+#107/fbzx                : ZXSpectrum emulator FBZX                   : sources build install configure
+#108/frotz               : Z-Machine Interpreter for Infocom games    : install configure
+#109/fuse                : ZX Spectrum emulator Fuse                  : depends sources build install configure
+#110/gngeopi             : NeoGeo emulator GnGeoPi                    : depends sources build install configure
+#111/gpsp                : GameBoy Advance emulator                   : depends sources build install configure
+#112/hatari              : Atari emulator Hatari                      : depends sources build install configure
+#113/jzintv              : Intellivision emulator                     : depends sources build install configure
+#114/linapple            : Apple 2 emulator LinApple                  : depends sources build install configure
+#115/mame4all            : MAME emulator MAME4All-Pi                  : depends sources build install configure
+#116/mupen64plus         : N64 emulator MUPEN64Plus                   : depends sources build install configure
+#117/mupen64plus-testing : N64 emulator MUPEN64Plus (Testing)         : depends sources build install configure
+#118/openmsx             : MSX emulator OpenMSX                       : depends sources build install configure
+#119/osmose              : Gamegear emulator Osmose                   : sources build install configure
+#120/pcsx-rearmed        : Playstation emulator - PCSX (arm optimised) : depends sources build install configure
+#121/pifba               : FBA emulator PiFBA                         : depends sources build install configure
+#122/pisnes              : SNES emulator PiSNES                       : sources build install configure
+#123/reicast             : Dreamcast emulator Reicast                 : depends sources build install configure
+#124/retroarch           : RetroArch                                  : depends sources build install configure
+#125/rpix86              : DOS Emulator rpix86                        : install configure
+#126/scummvm             : ScummVM                                    : depends sources build install configure
+#127/snes9x              : SNES emulator SNES9X-RPi                   : depends sources build install configure
+#128/stella              : Atari2600 emulator STELLA                  : install configure
+#129/uae4all             : Amiga emulator UAE4All                     : depends sources build install configure
+#130/vice                : C64 emulator VICE                          : depends sources build install configure
 #200/lr-4do              : 3DO emu - 4DO/libfreedo port for libretro  : sources build install configure
 #201/lr-armsnes          : SNES emu - forked from pocketsnes focused on performance : sources build install configure
-#202/lr-catsfc           : SNES emu - CATSFC based on Snes9x / NDSSFC / BAGSFC : sources build install configure
-#203/lr-fba              : Arcade emu - Final Burn Alpha port for libretro : depends sources build install configure
-#204/lr-fceu-next        : NES emu - FCEUmm / FCEUX NES port for libretro : sources build install configure
-#205/lr-fmsx             : MSX/MSX2 emu - fMSX port for libretro      : sources build install configure
-#206/lr-gambatte         : Gameboy Color emu - libgambatte port for libretro : sources build install configure
-#207/lr-genesis-plus-gx  : Sega 8/16 bit emu - Genesis Plus (enhanced) port for libretro : sources build install configure
-#208/lr-gpsp             : GBA emu - gpSP port for libretro           : sources build install configure
-#209/lr-handy            : Atari Lynx emulator - Handy port for libretro : sources build install configure
-#210/lr-imame4all        : Arcade emu - iMAME4all (based on MAME 0.37b5) port for libretro : sources build install configure
-#211/lr-mednafen-pce-fast: PCEngine emu - Mednafen PCE Fast port for libretro : sources build install configure
-#212/lr-mednafen-pce     : PCEngine emu - Mednafen PCE core port for libretro : sources build install configure
-#213/lr-mupen64plus      : N64 emu - Mupen64 Plus port for libretro   : sources build install configure
-#214/lr-nestopia         : NES emu - Nestopia (enhanced) port for libretro : sources build install configure
-#215/lr-nxengine         : Cave Story engine clone - NxEngine port for libretro : sources build install configure
-#216/lr-o2em             : Odyssey 2 emulator - O2EM port for libretro : sources build install configure
-#217/lr-pcsx-rearmed     : Playstation emulator - PCSX (arm optimised) port for libretro : depends sources build install configure
-#218/lr-picodrive        : Sega 8/16 bit emu - picodrive arm optimised libretro core : sources build install configure
-#219/lr-pocketsnes       : SNES emu - ARM based SNES emulator for libretro : sources build install configure
-#220/lr-prboom           : Doom/Doom II engine - PrBoom port for libretro : sources build install configure
-#222/lr-stella           : Atari 2600 emulator - Stella port for libretro : sources build install configure
-#223/lr-tyrquake         : Quake 1 engine - Tyrquake port for libretro : depends sources build install configure
-#225/lr-vecx             : Vectrex emulator - vecx port for libretro  : sources build install configure
+#202/lr-beetle-vb        : Virtual Boy emulator - Mednafen VB (optimised) port for libretro : sources build install configure
+#203/lr-catsfc           : SNES emu - CATSFC based on Snes9x / NDSSFC / BAGSFC : sources build install configure
+#204/lr-desmume          : NDS emu - DESMUME                          : sources build install configure
+#205/lr-fba              : Arcade emu - Final Burn Alpha port for libretro : depends sources build install configure
+#206/lr-fceumm           : NES emu - FCEUmm port for libretro         : sources build install configure
+#207/lr-fmsx             : MSX/MSX2 emu - fMSX port for libretro      : sources build install configure
+#208/lr-gambatte         : Gameboy Color emu - libgambatte port for libretro : sources build install configure
+#209/lr-genesis-plus-gx  : Sega 8/16 bit emu - Genesis Plus (enhanced) port for libretro : sources build install configure
+#210/lr-gpsp             : GBA emu - gpSP port for libretro           : sources build install configure
+#211/lr-handy            : Atari Lynx emulator - Handy port for libretro : sources build install configure
+#212/lr-imame4all        : Arcade emu - iMAME4all (based on MAME 0.37b5) port for libretro : sources build install configure
+#213/lr-mednafen-pce-fast: PCEngine emu - Mednafen PCE Fast port for libretro : sources build install configure
+#214/lr-mednafen-pce     : PCEngine emu - Mednafen PCE core port for libretro : sources build install configure
+#215/lr-mgba             : GBA emulator - MGBA (optimised) port for libretro : sources build install configure
+#216/lr-mupen64plus      : N64 emu - Mupen64 Plus port for libretro   : sources build install configure
+#217/lr-nestopia         : NES emu - Nestopia (enhanced) port for libretro : sources build install configure
+#218/lr-nxengine         : Cave Story engine clone - NxEngine port for libretro : sources build install configure
+#219/lr-o2em             : Odyssey 2 / Videopac emu - O2EM port for libretro : sources build install configure
+#220/lr-pcsx-rearmed     : Playstation emulator - PCSX (arm optimised) port for libretro : depends sources build install configure
+#221/lr-picodrive        : Sega 8/16 bit emu - picodrive arm optimised libretro core : sources build install configure
+#222/lr-pocketsnes       : SNES emu - ARM based SNES emulator for libretro : sources build install configure
+#223/lr-prboom           : Doom/Doom II engine - PrBoom port for libretro : sources build install configure
+#224/lr-prosystem        : Atari 7800 ProSystem emu - ProSystem port for libretro : sources build install configure
+#225/lr-snes9x-next      : SNES emulator - Snes9x 1.52+ (optimised) port for libretro : sources build install configure
+#226/lr-stella           : Atari 2600 emulator - Stella port for libretro : sources build install configure
+#227/lr-tgbdual          : Gameboy Color emu - TGB Dual port for libretro : sources build install configure
+#228/lr-tyrquake         : Quake 1 engine - Tyrquake port for libretro : depends sources build install configure
+#229/lr-vba-next         : GBA emulator - VBA-M (optimised) port for libretro : sources build install configure
+#230/lr-vecx             : Vectrex emulator - vecx port for libretro  : sources build install configure
+#231/lr-virtualjaguar    : Atari Jaguar emu - Virtual Jaguar (optimised) port for libretro : sources build install configure
+#232/lr-yabause          : Sega Saturn emu - Yabause (optimised) port for libretro : sources build install configure
 #250/darkplaces          : Darkplaces Quake                           : depends sources install configure
-#251/eduke32             : Duke3D Port                                : depends sources build install configure
-#252/kodi                : Install Kodi                               : depends install configure
-#253/minecraft           : Minecraft                                  : install configure
-#254/quake3              : Quake 3                                    : depends sources build install configure
+#251/dxx-rebirth         : DXX-Rebirth (Descent & Descent 2) build from source : depends sources build install configure
+#252/eduke32             : Duke3D Port                                : depends sources build install configure
+#253/kodi                : Install Kodi                               : depends install configure
+#254/minecraft           : Minecraft                                  : depends install configure
+#255/quake3              : Quake 3                                    : depends sources build install configure
 #300/aptpackages         : Update APT packages                        : install
 #301/audiosettings       : Configure audio settings                   : configure
 #302/autostartemustat    : Auto-start EmulationStation                : configure
@@ -67,28 +80,31 @@
 #304/disabletimeouts     : Disable system timeouts                    : install
 #305/dispmanx            : Configure emulators to use dispmanx SDL    : configure
 #306/emulationstation    : EmulationStation                           : depends sources build install configure
-#307/esthemesimple       : EmulationStation Theme Simple              : install
-#308/esconfig            : ES-Config                                  : sources build install configure
-#309/gamecondriver       : Gamecon driver                             : install configure
-#310/hotkey              : Change hotkey behaviour                    : configure
-#311/modules             : Modules UInput, Joydev, ALSA               : install
-#312/packagecleanup      : Remove raspbian packages that are not needed for RetroPie : configure
-#313/packagerepository   : Package Repository                         : install
-#314/ps3controller       : Install PS3 controller driver              : depends sources build install configure
-#315/resetromdirs        : Reset ownership/permissions of /home/pi/RetroPie/roms : configure
-#316/retroarchautoconf   : RetroArch-AutoConfigs                      : sources install configure
-#317/retroarchjoyconfig  : Register RetroArch controller              : configure
-#318/retronetplay        : RetroNetplay                               : configure
-#319/retropiemenu        : RetroPie configuration menu for EmulationStation : depends configure
-#320/runcommand          : Configure runcommand - Launch script       : install configure
-#321/sambashares         : Samba ROM Shares                           : install configure
-#322/sdl1                : SDL 1.2.15 with rpi fixes and dispmanx     : depends sources build install
-#323/sdl2                : SDL (Simple DirectMedia Layer) v2.x        : depends sources build install
-#324/snesdev             : SNESDev (Driver for the RetroPie GPIO-Adapter) : sources build install configure
-#325/splashscreen        : Configure Splashscreen                     : depends configure
-#326/usbromservice       : USB ROM Service                            : depends configure
-#327/xarcade2jstick      : Xarcade2Jstick                             : sources build install configure
-#328/xboxdrv             : Install XBox contr. 360 driver             : install
+#307/esthemecolorpi      : EmulationStation Theme Color Pi            : install
+#308/esthemesimple       : EmulationStation Theme Simple              : sources install
+#309/esconfig            : ES-Config                                  : sources build install configure
+#310/gamecondriver       : Gamecon & db9 drivers                      : install configure
+#311/hotkey              : Change hotkey behaviour                    : configure
+#312/limelight           : Limelight Game Streaming                   : depends sources install configure
+#313/modules             : Modules UInput, Joydev, ALSA               : install
+#314/packagecleanup      : Remove raspbian packages that are not needed for RetroPie : configure
+#315/packagerepository   : Package Repository                         : install
+#316/ps3controllerpairing: Pair PS3 controller                        : configure
+#317/ps3controller       : Install PS3 controller driver              : depends sources build install configure
+#318/resetromdirs        : Reset ownership/permissions of /home/pi/RetroPie/roms : configure
+#319/retroarchautoconf   : RetroArch-AutoConfigs                      : sources install configure
+#320/retroarchinput      : Configure input devices for RetroArch      : configure
+#321/retronetplay        : RetroNetplay                               : configure
+#322/retropiemenu        : RetroPie configuration menu for EmulationStation : depends configure
+#323/runcommand          : Configure runcommand - Launch script       : install configure
+#324/sambashares         : Samba ROM Shares                           : install configure
+#325/sdl1                : SDL 1.2.15 with rpi fixes and dispmanx     : depends sources build install
+#326/sdl2                : SDL (Simple DirectMedia Layer) v2.x        : depends sources build install
+#327/snesdev             : SNESDev (Driver for the RetroPie GPIO-Adapter) : sources build install configure
+#328/splashscreen        : Configure Splashscreen                     : depends configure
+#329/usbromservice       : USB ROM Service                            : depends configure
+#330/xarcade2jstick      : Xarcade2Jstick                             : sources build install configure
+#331/xboxdrv             : Install XBox contr. 360 driver             : install
 #900/createbinaries      : Create binary archives for distribution    : install
 #901/setup               : GUI based setup for RetroPie               : depends configure
 #===================================================================================================================================
@@ -109,6 +125,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-vba-next
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-virtualjaguar
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-desmume
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-snes9x-next
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prosystem
@@ -120,7 +137,11 @@ sudo ~/RetroPie-Setup/retropie_packages.sh kodi
 sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
 sudo ~/RetroPie-Setup/retropie_packages.sh ags
 sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
-sudo ~/RetroPie-Setup/retropie_packages.sh reicast
+sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth
+
+#sudo ~/RetroPie-Setup/retropie_packages.sh reicast
+installReicastPrimestationEdition.sh
+
 
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh inputstation
@@ -237,12 +258,12 @@ sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 #sudo ~/RetroPie-Setup/retropie_packages.sh limelight
 #sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 
-cowsay -f stegosaurus Installing LXDE windowed mode - startx...
-installWindowedModeLxde.sh
+#cowsay -f stegosaurus Installing LXDE windowed mode - startx...
+#installWindowedModeLxde.sh
 
 cowsay Installing awesome PrimestationOne tools and ports...
 installMegaTools.sh
-installDescent1and2.sh
+#installDescent1and2.sh
 
 cowsay -f stegosaurus Now installing things that will require your attention with prompting...
 
