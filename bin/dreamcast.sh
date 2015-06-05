@@ -8,7 +8,7 @@ sudo mount -t tmpfs none tmpfs/
 sudo cp -a * tmpfs/
 
 echo Reading your user VMUs into memory...
-sudo cp /home/pi/
+sudo cp /home/pi/.dcvmu/*.bin .
 
 cd tmpfs
 sudo aoss ./reicast.elf -config config:image="$1"
