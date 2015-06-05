@@ -20,7 +20,7 @@ mkdir /home/pi/.dcvmu
 cp *.bin /home/pi/.dcvmu/
 
 echo Freeing up memory...
-sudo unmount tmpfs
+sudo umount tmpfs
 sudo rm -rf tmpfs
 
 popd
