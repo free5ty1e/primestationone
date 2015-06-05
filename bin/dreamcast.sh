@@ -20,7 +20,7 @@ mkdir /home/pi/.dcvmu
 cp *.bin /home/pi/.dcvmu/
 
 echo Freeing up memory...
-sudo umount tmpfs
+sudo umount /opt/retropie/emulators/reicast/tmpfs
 sudo rm -rf tmpfs
 
 popd
