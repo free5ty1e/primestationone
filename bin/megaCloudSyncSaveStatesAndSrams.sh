@@ -20,7 +20,7 @@ megaCloudRestoreSaveStatesAndSrams.sh
 
 echo " 3) Restore the temp file local snapshot of latest save states and SRAMs, overwriting the older saves with the latest saves in place...."
 pushd ~
-tar xvj --strip-components=2 "$TEMPSAVEFILE.tar.bz2"
+tar xvjf "$TEMPFILENAME.tar.bz2" --strip-components=2
 #rm "$TEMPSAVEFILE.tar.bz2"
 popd
 
