@@ -12,7 +12,6 @@ function remap_hotkeys_retroarchautoconf() {
     local ini_value
     local input_exit_emu="input_start"
 
-
     [[ -z "$file" || ! -f "$file" ]] && return 1
 
 
@@ -114,7 +113,6 @@ if [ -d "$md_build/udev" ]; then
 
     for emu in "${emulatorsToButtonSwap[@]}"; do
         emu=($emu)
-        source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
         iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
         iniSet "input_player1_y_btn" "13"
         iniSet "input_player1_a_btn" "14"
@@ -141,7 +139,6 @@ if [ -d "$md_build/udev" ]; then
 
     for emu in "${emulatorsToButtonSwapReverse[@]}"; do
         emu=($emu)
-        source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
         iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
         iniSet "input_player1_y_btn" "13"
         iniSet "input_player1_a_btn" "15"
@@ -157,6 +154,8 @@ if [ -d "$md_build/udev" ]; then
         iniSet "input_player4_b_btn" "14"
     done
 
+    echo Configuring Dreamcast Reicast PS3 controls...
+    python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
 
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
