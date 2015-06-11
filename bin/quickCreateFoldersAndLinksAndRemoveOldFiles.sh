@@ -49,6 +49,7 @@ sudo rm /usr/local/bin/sixpair
 echo Creating required folders...
 mkdir ~/temp
 mkdir ~/.vice
+mkdir -p ~/.reicast/data
 
 echo Creating symbolic links for BIOS files...
 sudo ln -sv /home/pi/RetroPie/BIOS/gba_bios.bin /opt/retropie/emulators/gpsp/gba_bios.bin
