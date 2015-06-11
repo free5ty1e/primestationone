@@ -58,5 +58,5 @@ sudo ln -sv /home/pi/RetroPie/BIOS/kick20.rom /opt/retropie/emulators/uae4all/ki
 sudo ln -sv /home/pi/RetroPie/BIOS/kick31.rom /opt/retropie/emulators/uae4all/kickstarts/kick31.rom
 sudo ln -sv /home/pi/RetroPie/BIOS/cavestory /opt/retropie/libretrocores/lr-nxengine/datafiles
 sudo ln -sv /home/pi/RetroPie/roms/pc /opt/retropie/emulators/rpix86/games
-sudo ln -sv /home/pi/RetroPie/BIOS/dc_boot.bin /opt/retropie/emulators/reicast/data/dc_boot.bin
-sudo ln -sv /home/pi/RetroPie/BIOS/dc_flash.bin /opt/retropie/emulators/reicast/data/dc_flash.bin
+sudo ln -sv /home/pi/RetroPie/BIOS/dc_boot.bin /home/pi/.reicast/data/dc_boot.bin
+sudo ln -sv /home/pi/RetroPie/BIOS/dc_flash.bin /home/pi/.reicast/data/dc_flash.bin
