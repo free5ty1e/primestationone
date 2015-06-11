@@ -8,7 +8,7 @@ ps3ControlNamesToConfigureForDreamcast=['PLAYSTATION(R)3 Controller',
                                         'Sony PLAYSTATION(R)3 Controller',
                                         'Sony Computer Entertainment Wireless Controller']
 
-def set_ps3_controls_for_section(section_name)
+def set_ps3_controls_for_section(section_name):
     config.set(section_name, "button.0", "Btn_Z")
     config.set(section_name, "button.1", "Btn_C")
     config.set(section_name, "button.2", "Btn_D")
