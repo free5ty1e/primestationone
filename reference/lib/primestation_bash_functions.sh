@@ -260,10 +260,10 @@ function cloud_create_backup_archive {
         tar --append --file="$BACKUPARCHIVEFILE.tar" "$SRAMFile"
     done
 
-    echo Backing up any Dreamcast VMUs you may have...
-    for VMUFile in /home/pi/.dcvmu/*.bin; do
-        echo "Archiving VMUFile $VMUFile..."
-        tar --append --file="$BACKUPARCHIVEFILE.tar" "$VMUFile"
+    echo Backing up any Dreamcast VMUs and controller configs you may have...
+    for DcDataFile in /home/pi/.reicast/*; do
+        echo "Archiving DcDataFile $DcDataFile..."
+        tar --append --file="$BACKUPARCHIVEFILE.tar" "$DcDataFile"
     done
 
 #TODO: Handle Dreamcast VMU cloud backups as they are not in the same folder structure
