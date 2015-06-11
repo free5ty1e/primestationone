@@ -2,7 +2,8 @@
 
 import ConfigParser
 config = ConfigParser.ConfigParser()
-config.read("/home/pi/.reicast/emu.cfg")
+emu_cfg = '/home/pi/.reicast/emu.cfg'
+config.read(emu_cfg)
 
 ps3ControlNamesToConfigureForDreamcast=['PLAYSTATION(R)3 Controller',
                                         'Sony PLAYSTATION(R)3 Controller',
@@ -47,6 +48,10 @@ for section in config.sections():
 
 for name in ps3ControlNamesToConfigureForDreamcast:
     if name not in ps3ControllersAlreadyDefined:
+        print "Creating new section [%s]" % name
         config.add_section(name)
+    print "Setting PS3 controls for section [%s]" % name
     set_ps3_controls_for_section(name)
 
+with open(emu_cfg, 'wb') as configfile:
+        config.write(configfile)
