@@ -8,7 +8,7 @@ cd tmpfs
 sudo aoss ./reicast.elf -config config:homedir=/home/pi -config config:image="$1"
 cd ..
 echo Ensuring any freshly-created VMUs are owned by pi and not root...
-sudo chown -R pi:pi .reicast
+sudo chown -R pi:pi /home/pi/.reicast
 echo Freeing up memory...
 sudo umount /opt/retropie/emulators/reicast/tmpfs
 sudo rm -rf tmpfs
