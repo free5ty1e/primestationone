@@ -4,7 +4,7 @@ echo Installing node virtual gamepads...
 
 pushd ~
 
-sudo apt-get -y install node
+sudo apt-get -y install node npm
 git clone https://github.com/miroof/node-virtual-gamepads
 cd node-virtual-gamepads
 npm install
