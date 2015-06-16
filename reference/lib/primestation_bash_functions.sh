@@ -1,8 +1,9 @@
 #!/bin/bash
 
 function multiply() {
-    echo "Multiplying $1 x $2 with bc, storing in ANS"
-    ANS=$(echo "${1}*${2}" |bc)
+    echo "Multiplying $1 x $2 with bc, storing raw float value in ANS_FLOAT, storing rounded integer in ANS"
+    ANS_FLOAT=$(echo "${1}*${2}" |bc)
+    printf -v ANS %.0f "$ANS_FLOAT"
 }
 
 function fancy_console_message() {
