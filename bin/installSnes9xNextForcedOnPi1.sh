@@ -1,5 +1,5 @@
 #!/bin/bash
-moduleToModify="~/RetroPie-Setup/scriptmodules/libretrocores/lr-snes9x-next.sh"
+moduleToModify="/home/pi/RetroPie-Setup/scriptmodules/libretrocores/lr-snes9x-next.sh"
 echo "Temporarily modifying RetroPie module $moduleToModify so it will allow building on a Pi1..."
 sed -i.backup '/rp_module_flags/d' "$moduleToModify"
 
