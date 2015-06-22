@@ -1,2 +1,2 @@
 #!/bin/bash
-hdmiAudioFix.sh
+sudo hdmiAudioFix.sh
