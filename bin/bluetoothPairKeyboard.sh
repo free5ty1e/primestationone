@@ -6,6 +6,12 @@ echo Gonna pair the first discoverable bluetooth keyboard I find to this Primest
 echo Stopping sixad service since qtsixad DIRECTLY interferes with the standard bluetooth pairing process...
 sudo service sixad stop
 
+echo Ensuring bluetoothd is executable!
+sudo chmod +x /usr/sbin/bluetoothd
+
+echo Restarting the bluetooth service now that sixad has stopped
+sudo /etc/init.d/bluetooth restart
+
 echo Scanning for your keyboard... ensure it is discoverable!  Typically done by holding the Pair or Connect button until something flashes blue.  This is the part of the script where your bluetooth keyboard should have something flashing blue on it...
 echo Actually scanning twice so you can see the list of discoverable devices for troubleshooting purposes...
 hcitool scan
