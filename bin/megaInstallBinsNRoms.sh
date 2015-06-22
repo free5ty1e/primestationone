@@ -4,6 +4,7 @@ download_install_mega_module_on_the_fly binsnroms ~ 120630338 'https://mega.co.n
 reset_permissions_bios_and_roms
 
 cd ~/archive
+rm -rf uae4all
 p7zip -d uae4all.7z
 mkdir ~/RetroPie/emulators
 cp -rv uae4all ~/RetroPie/emulators/
