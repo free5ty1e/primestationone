@@ -1,2 +1,2 @@
 #!/bin/bash
-megaCloudBakLogin.sh
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 megaCloudBakLogin.sh
