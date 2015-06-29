@@ -109,7 +109,6 @@ if [ -d "$md_build/udev" ]; then
         'gba'
         'n64'
         'pcengine'
-        'mame-mame4all'
     )
 
     for emu in "${emulatorsToButtonSwap[@]}"; do
@@ -153,6 +152,72 @@ if [ -d "$md_build/udev" ]; then
         iniSet "input_player4_y_btn" "13"
         iniSet "input_player4_a_btn" "15"
         iniSet "input_player4_b_btn" "14"
+    done
+
+
+    echo Rearranging horribly wrong emulator button mappings for MAME to be more generally usable...
+    #local
+    #above keyword only for when below is in its own function:
+    emulatorsToRearrangeButtons=(
+        'mame-mame4all'
+    )
+
+    for emu in "${emulatorsToRearrangeButtons[@]}"; do
+        emu=($emu)
+        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+
+#Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
+#SF2 L punch = b_btn
+#SF2 M punch = a_btn
+#SF2 H punch = y_btn
+#SF2 L kick =  x_btn
+#SF2 M kick =  l_btn
+#SF2 H kick =  r_btn
+
+#MK2 L punch = x_btn
+#MK2 H punch = a_btn
+#MK2 Block = y_btn
+#MK2 L kick = l_btn
+#MK2 H kick = b_btn
+
+#ForgottenWorlds rotateCCW l_btn
+#ForgottenWorlds rotateCW r_btn
+
+#GenericGame Fire b_btn
+#GenericGame Jump a_btn
+#insert coin -> L3 instead of Select to avoid conflicts in some games
+        iniSet "input_player1_select_btn" "1"
+        iniSet "input_player1_l_btn" "10"
+        iniSet "input_player1_r_btn" "11"
+        iniSet "input_player1_x_btn" "12"
+        iniSet "input_player1_y_btn" "13"
+        iniSet "input_player1_a_btn" "14"
+        iniSet "input_player1_b_btn" "15"
+
+        iniSet "input_player2_select_btn" "1"
+        iniSet "input_player2_l_btn" "10"
+        iniSet "input_player2_r_btn" "11"
+        iniSet "input_player2_x_btn" "12"
+        iniSet "input_player2_y_btn" "13"
+        iniSet "input_player2_a_btn" "14"
+        iniSet "input_player2_b_btn" "15"
+
+        iniSet "input_player3_select_btn" "1"
+        iniSet "input_player3_l_btn" "10"
+        iniSet "input_player3_r_btn" "11"
+        iniSet "input_player3_x_btn" "12"
+        iniSet "input_player3_y_btn" "13"
+        iniSet "input_player3_a_btn" "14"
+        iniSet "input_player3_b_btn" "15"
+
+        iniSet "input_player4_select_btn" "1"
+        iniSet "input_player4_l_btn" "10"
+        iniSet "input_player4_r_btn" "11"
+        iniSet "input_player4_x_btn" "12"
+        iniSet "input_player4_y_btn" "13"
+        iniSet "input_player4_a_btn" "14"
+        iniSet "input_player4_b_btn" "15"
+
     done
 
     echo Configuring Dreamcast Reicast PS3 controls...
