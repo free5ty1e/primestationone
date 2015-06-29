@@ -109,6 +109,7 @@ if [ -d "$md_build/udev" ]; then
         'gba'
         'n64'
         'pcengine'
+        'mame-mame4all'
     )
 
     for emu in "${emulatorsToButtonSwap[@]}"; do
@@ -135,7 +136,6 @@ if [ -d "$md_build/udev" ]; then
         'gamegear'
         'mastersystem'
         'sg-1000'
-        'mame-mame4all'
     )
 
     for emu in "${emulatorsToButtonSwapReverse[@]}"; do
