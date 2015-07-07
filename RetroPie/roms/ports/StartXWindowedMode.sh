@@ -1,2 +1,2 @@
 #!/bin/bash
-/opt/retropie/supplementary/runcommand/runcommand.sh 0 startx
+sudo /opt/retropie/supplementary/runcommand/runcommand.sh 0 service lightdm start
