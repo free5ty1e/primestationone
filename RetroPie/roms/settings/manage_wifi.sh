@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo wicd-curses
+sudo /opt/retropie/supplementary/runcommand/runcommand.sh 0 wicd-curses
 
