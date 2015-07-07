@@ -30,6 +30,8 @@ rm ~/RetroPie/roms/settings/install_mega_older_retroarch_to_fix_rewind.sh
 rm ~/RetroPie/roms/settings/display_splashscreen_quick_reference.sh
 rm ~/RetroPie/roms/settings/audio_mixer_alsamixer.sh
 
+rm ~/RetroPie/roms/ports/StartXWindowedMode.sh
+
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi1.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi2.sh
 rm ~/RetroPie/roms/settings/megaModules/install_all_mega_modules.sh
