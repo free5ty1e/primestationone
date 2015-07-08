@@ -5,6 +5,9 @@ removeMacFilesFromFilesystem.sh
 sudo rm -rf RetroPie-Setup/tmp/*
 
 echo Cleaning up old and outdated scripts...
+
+rm ~/RetroPie/roms/ports/StartXWindowedMode_Login_pi_Password_raspberry.sh
+
 rm ~/RetroPie/roms/settings/install_all_mega_modules.sh
 rm ~/RetroPie/roms/settings/install_mega_module_binsnroms_large.sh
 rm ~/RetroPie/roms/settings/install_mega_module_binsnroms.sh
@@ -31,7 +34,7 @@ rm ~/RetroPie/roms/settings/display_splashscreen_quick_reference.sh
 rm ~/RetroPie/roms/settings/audio_mixer_alsamixer.sh
 rm ~/RetroPie/roms/settings/manage_wifi.sh
 
-rm ~/RetroPie/roms/ports/StartXWindowedMode_Login_pi_Password_raspberry.sh
+rm ~/RetroPie/roms/settings/system/upgrade_primestation_minimal_to_full.sh
 
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi1.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi2.sh
