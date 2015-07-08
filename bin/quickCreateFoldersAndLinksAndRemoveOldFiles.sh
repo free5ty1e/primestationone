@@ -29,6 +29,7 @@ rm ~/RetroPie/roms/settings/update_primestation_one_files_quick.sh
 rm ~/RetroPie/roms/settings/install_mega_older_retroarch_to_fix_rewind.sh
 rm ~/RetroPie/roms/settings/display_splashscreen_quick_reference.sh
 rm ~/RetroPie/roms/settings/audio_mixer_alsamixer.sh
+rm ~/RetroPie/roms/settings/manage_wifi.sh
 
 rm ~/RetroPie/roms/ports/StartXWindowedMode_Login_pi_Password_raspberry.sh
 
