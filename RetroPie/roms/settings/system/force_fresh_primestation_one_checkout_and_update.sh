@@ -1,2 +1,2 @@
 #!/bin/bash
-forceFreshCheckoutAndUpdatePrimestationAndRetroPieSetup.sh
+/opt/retropie/supplementary/runcommand/runcommand.sh 0 forceFreshCheckoutAndUpdatePrimestationAndRetroPieSetup.sh
