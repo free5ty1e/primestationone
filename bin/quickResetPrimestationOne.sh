@@ -46,3 +46,4 @@ rewindGamegearEnable.sh
 rewindGameboyEnable.sh
 rewindGameboyColorEnable.sh
 rewindMastersystemEnable.sh
+psxAnalogEnable.sh
