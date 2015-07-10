@@ -32,7 +32,7 @@ installFirstRunFiles.sh
 
 autoStartEmulationstationEnforce.sh
 
-retroPieNukeAndCheckoutFresh.sh
+nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
 quickUpdatePrimestationOneFiles.sh
 
