@@ -1,3 +1,2 @@
 #!/bin/bash
-nukePrimestationOneRepoAndCheckoutFresh.sh
-quickUpdatePrimestationOneFiles.sh
+forceFreshCheckoutAndUpdatePrimestationAndRetroPieSetup.sh
