@@ -1,2 +1,2 @@
 #!/bin/bash
-retroPieNukeAndCheckoutFresh.sh
+nukeRetroPieSetupRepoAndCheckoutFresh.sh
