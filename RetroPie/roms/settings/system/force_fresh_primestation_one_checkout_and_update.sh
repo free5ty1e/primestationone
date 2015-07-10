@@ -1,0 +1,3 @@
+#!/bin/bash
+nukePrimestationOneRepoAndCheckoutFresh.sh
+quickUpdatePrimestationOneFiles.sh
