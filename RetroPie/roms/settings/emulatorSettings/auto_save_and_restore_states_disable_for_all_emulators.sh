@@ -1,0 +1,2 @@
+#!/bin/bash
+autoSaveAndRestoreStatesDisableForAllEmulators.sh
