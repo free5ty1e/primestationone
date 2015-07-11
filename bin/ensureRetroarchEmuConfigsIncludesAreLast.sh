@@ -14,7 +14,7 @@ for configfile in /opt/retropie/configs/**/retroarch.cfg; do
         sed -i '/retroarch.cfg/d' "$configfile"
 
         echo "Stripping any trailing empty lines from the end of $configfile..."
-        sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$configfile"
+        sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$configfile"
 
         echo "Readding the master config include at the end of config file $configfile..."
         sudo sh -c "echo '#include \"/opt/retropie/configs/all/retroarch.cfg\"\n' >> $configfile"
