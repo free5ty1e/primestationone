@@ -3,9 +3,9 @@ echo Ensuring all RetroArch emulator individual cfg files have the master includ
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 PATH_TO_INCLUDED_CFG="/opt/retropie/configs/all/retroarch.cfg"
 
-for configfile in **/retroarch.cfg; do
-    if [ "$configfile" == "$PATH_TO_INCLUDED_CFG" ]
-    then
+shopt -s globstar
+for configfile in /opt/retropie/configs/**/retroarch.cfg; do
+    if [ "$configfile" == "$PATH_TO_INCLUDED_CFG" ]; then
         echo "$configfile matches the master config include, not touching this one!"
     else
         echo "$configfile appears to be an individual emu config, processing..."
