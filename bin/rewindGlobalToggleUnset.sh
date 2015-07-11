@@ -7,3 +7,4 @@ cowsay -f eyes "$message"
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 iniConfig " = " "" "/opt/retropie/configs/all/retroarch.cfg"
 iniUnset "rewind_enable" "false"
+ensureRetroarchEmuConfigsIncludesAreLast.sh

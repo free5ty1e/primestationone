@@ -8,3 +8,4 @@ iniUnset "input_libretro_device_p2" "5"
 iniConfig " = " "" "/opt/retropie/configs/all/retroarch-core-options.cfg"
 iniUnset "pcsx_rearmed_pad1type" "analog"
 iniUnset "pcsx_rearmed_pad2type" "analog"
+ensureRetroarchEmuConfigsIncludesAreLast.sh

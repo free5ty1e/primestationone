@@ -36,6 +36,9 @@ rm ~/RetroPie/roms/settings/manage_wifi.sh
 
 rm ~/RetroPie/roms/settings/system/upgrade_primestation_minimal_to_full.sh
 
+rm ~/RetroPie/roms/settings/rewind/rewind_enable_GLOBAL.sh
+rm ~/RetroPie/roms/settings/rewind/rewind_disable_GLOBAL.sh
+
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi1.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi2.sh
 rm ~/RetroPie/roms/settings/megaModules/install_all_mega_modules.sh
@@ -52,6 +55,8 @@ sudo rm /usr/local/bin/megaInstallOtherEmulatorsBinaries.sh
 sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArch.sh
 sudo rm /usr/local/bin/retroPieNukeAndCheckoutFresh.sh
 sudo rm /usr/local/bin/sixpair
+sudo rm /usr/local/bin/rewindGlobalDisable.sh
+sudo rm /usr/local/bin/rewindGlobalEnable.sh
 
 echo Creating required folders...
 mkdir ~/temp
@@ -68,3 +73,6 @@ sudo ln -sv /home/pi/RetroPie/BIOS/cavestory /opt/retropie/libretrocores/lr-nxen
 sudo ln -sv /home/pi/RetroPie/roms/pc /opt/retropie/emulators/rpix86/games
 sudo ln -sv /home/pi/RetroPie/BIOS/dc_boot.bin /home/pi/.reicast/data/dc_boot.bin
 sudo ln -sv /home/pi/RetroPie/BIOS/dc_flash.bin /home/pi/.reicast/data/dc_flash.bin
+
+echo Ensuring retroarch emu configs have their includes as the last line
+ensureRetroarchEmuConfigsIncludesAreLast.sh
