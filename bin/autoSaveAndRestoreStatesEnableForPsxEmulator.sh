@@ -1,6 +1,6 @@
 #!/bin/bash
-echo Enabling auto save and restore states for all emulators...
+echo Setting psx auto save and restore states enabled...
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
-iniConfig " = " "" "/opt/retropie/configs/all/retroarch.cfg"
+iniConfig " = " "" "/opt/retropie/configs/psx/retroarch.cfg"
 iniSet "savestate_auto_save" "true"
 iniSet "savestate_auto_load" "true"
