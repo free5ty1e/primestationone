@@ -69,6 +69,9 @@ The following are systems that are included but experimental on the PrimeStation
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
+#### PrimeStation One Control / Convenience App for Android github repo: 
+https://github.com/free5ty1e/primestationone-control-android
+
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
 
