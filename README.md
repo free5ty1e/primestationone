@@ -5,6 +5,12 @@
 ![SplashScreen](http://i.imgur.com/btXlz5e.png)
 http://i.imgur.com/btXlz5e.png
 
+#### PrimeStation One Control / Convenience App for Android github repo: [![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
+https://github.com/free5ty1e/primestationone-control-android
+
+#### PrimeStation One theme for EmulationStation github repo:
+https://github.com/free5ty1e/primestationone-estheme
+
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch on minimal hardware, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
 * For Raspberry Pi 1 and 2, Pi2 recommended for full compatibility (N64 and PSX are unplayable on Pi1, several systems unavailable on Pi1 -- Dreamcast, Saturn, SNES Mouse, etc)
@@ -69,11 +75,6 @@ The following are systems that are included but experimental on the PrimeStation
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
-#### PrimeStation One Control / Convenience App for Android github repo: 
-https://github.com/free5ty1e/primestationone-control-android
-
-#### PrimeStation One theme for EmulationStation github repo:
-https://github.com/free5ty1e/primestationone-estheme
 
 ## NOTE:
 primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later (This is also the same command sequence one should use to install the PrimeStation One over top of a fresh vanilla RetroPie image.  It is all in one line so it is easy to copy / paste into a terminal window SSH session):
