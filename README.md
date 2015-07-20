@@ -180,15 +180,6 @@ Plenty of space for ROMS now!!  xD
 sudo e2fsck -f /dev/sda1
 ```
 
-#### PrimeStation One MEGA.co.nz module auto-install scripts (as of V0.960alpha):
-The PrimeStation One's modules are now released through mega.co.nz's awesome cloud by running more automated scripts!
-
-(NOTE: If any of these installation scripts ever fails on you, be sure you try running a `quickUpdatePrimestationOneFiles.sh` as this will ensure you have the very latest module version download links.)
-
-First, type `installMegaTools.sh` to handle building and installation of the very handy MegaTools, which are required for any module installations.  Or look in Emulationstation on the first PS3 controller icon, the `Settings` page, under `Installs` to accomplish the same feat without command line.  
-
-After this is complete, the available Primestation One Mega Modules may be chosen and installed at will from the same Emulationstation `Settings` page, under `MegaModules`.  Beware -- some of these, such as the complete SNES collection, are quite large!  (over 50 GB for this one!).  The `binsnroms` archive contains the widest spread of usefulness, and also enables many things that would otherwise require much manual intervention on your part... highly recommended.
-
 #### Amiga emulator (uae4all) on the PrimeStation One:
 Since v0.962, usage of the megaInstallBinsNRoms.sh script will also install a special WORKING version of the Amiga emulator (uae4all) from the following post on the Raspberry Pi forums:
 http://www.raspberrypi.org/forums/viewtopic.php?f=78&t=80602
