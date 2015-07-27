@@ -5,8 +5,13 @@
 ![SplashScreen](http://i.imgur.com/btXlz5e.png)
 http://i.imgur.com/btXlz5e.png
 
-#### PrimeStation One Control / Convenience App for Android github repo: [![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
-https://github.com/free5ty1e/primestationone-control-android
+#### PrimeStation One Control / Convenience App for Android github repo: 
+*[![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
+* https://github.com/free5ty1e/primestationone-control-android
+* Download from the Play Store:
+* [![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
+* https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol
+
 
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
