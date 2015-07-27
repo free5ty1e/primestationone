@@ -109,7 +109,7 @@ If you have managed to obtain one of these releases, extract the .7z archive so 
 
 Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.9998 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 4GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 4GB SD card for other uses.
 
-####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, too bad for you.)   Replace the device `/dev/disk2` with your SD card designation (disk1, disk2, disk3...).
+####Install on Mac: (`brew install pv` if you don't have pv.  If you don't have Homebrew, go to http://brew.sh/ and follow the instructions)   Replace the device `/dev/disk2` with your SD card designation (disk1, disk2, disk3...).
 ```
         pv --size 3960734720 primeStationOne3.9gSdV0.9998betaBasedOnRetroPie3.0.0beta2RPi1.img | sudo dd bs=2m of=/dev/disk2
 ```
