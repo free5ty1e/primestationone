@@ -27,6 +27,11 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Easy pairing scripts for bluetooth keyboards and mice
 * Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
 
+Current recommended, reasonably-priced buildout through Amazon Prime (minus PS3 controller):
+1) http://amzn.com/B008XVAVAW - Raspberry Pi 2 complete starter kit
+2) http://amzn.com/B00JN5SLHC - Bluetooth adapter
+3) http://amzn.com/B00M55C0NS - 32GB SD card for maximum gameage
+
 Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
 * Atari 800
 * Atari 2600
