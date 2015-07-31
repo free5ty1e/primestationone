@@ -1,8 +1,8 @@
-## PrimeStation One FAQ:  
+## PrimeStation One FAQ: [![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
 * The PrimeStation One performs basic updates every time EmulationStation starts up, if an Internet connection is available.
 * There are many useful scripts under the first "emulator" marked with the PlayStation controller:
 * To set up your Wifi connection: `WIFI_NETWORKS` 
-* To force a more detailed update,  under `SYSTEM`, `UPDATE_PRIMESTATION_ONE_FILES_QUICK`
+* To force a more detailed update,  under `SYSTEM`, `UPDATE_PRIMESTATION_ONE_FILES_QUICK` 
 
 ##### Q: Why are there so many emulators?  Why do some have icons and some have text labels?
 * A: Each system *(such as Super Nintendo / SNES)* has a recommended emulator that tends to work the best on most games.  You may find that some games *(such as Final Fantasy 3)* have inaccurate sound on the recommended emulator, so you can try it out on the other SNES emulators *(FF3 plays best with the *Snes9xNext-Pi2 emulator, for example).*
@@ -19,8 +19,6 @@
 ##### Q: ....what can I do if the PrimeStation crashes or stops responding?
 * A: That's better.  If you have the PrimeStation One Control Android app installed (scan the QR code or search for `primestation` on the Play Store), you can force a graceful reset, shutdown, and several other handy functions.  
 * ...If none of these controls work, you might actually have to physically remove and replace power.  The PrimeStation should recover quite handily from even the nastiest crashes after a physical shutdown / restart cycle or two...
-
-[![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
 
 ##### Q: How do I shut down the PrimeStation One?
 * A: ....why would you want to do that?  It would only cost $25-ish dollars per year at absolute maximum (emulating DreamCast or PlayStation1 24/7 with two USB controllers and bluetooth and wifi) to leave the Pi 2 on, probably typically less than half that.
