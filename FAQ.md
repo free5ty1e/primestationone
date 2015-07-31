@@ -1,4 +1,4 @@
-## PrimeStation One FAQ: [![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
+## PrimeStation One FAQ: 
 * The PrimeStation One performs basic updates every time EmulationStation starts up, if an Internet connection is available.
 * There are many useful scripts under the first "emulator" marked with the PlayStation controller:
 * To set up your Wifi connection: `WIFI_NETWORKS` 
@@ -31,3 +31,5 @@
 * Choose the `BLUETOOTH` folder in this list.
 * Power up your bluetooth keyboard and put it in pairable / connect mode
 * Choose the script `PAIR_FIRST_DISCOVERABLE_KEYBOARD` to initiate pairing.  Watch the screen for a prompt, where you will need to enter a code on the USB keyboard (like `1234` followed by pressing `<ENTER>`) and then enter the same code on the bluetooth keyboard.
+
+[![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
