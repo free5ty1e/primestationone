@@ -27,13 +27,13 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Easy pairing scripts for bluetooth keyboards and mice
 * Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
 
-Current recommended, reasonably-priced buildout through Amazon Prime (minus *GENUINE* SONY PS3 controller):
+##### Current recommended, reasonably-priced buildout through Amazon Prime (minus *GENUINE* SONY PS3 controller):
 * http://amzn.com/B008XVAVAW - Raspberry Pi 2 complete starter kit
 * http://amzn.com/B00JN5SLHC - Bluetooth adapter
 * http://amzn.com/B00M55C0NS - 32GB SD card for maximum gameage
 * http://amzn.com/B00M55C1I2 - OR 64GB SD card for even more maximum gameage (PlayStation1 and Dreamcast ROMS are not small!)
 
-Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
+##### Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
 * Atari 800
 * Atari 2600
 * Atari 5200
@@ -64,7 +64,7 @@ Here is a list of all the officially supported systems on the PrimeStation One, 
 * Intellivision
 * Amstrad CPC
 
-Also included are the following Raspberry Pi native shareware / freeware games (ports):
+##### Also included are the following Raspberry Pi native shareware / freeware games (ports):
 * Doom 
 * Quake
 * Quake 3 Arena
@@ -74,7 +74,7 @@ Also included are the following Raspberry Pi native shareware / freeware games (
 * Descent 1
 * Descent 2
 
-The following are systems that are included but experimental on the PrimeStation One (under development, not full speed on some or all games, etc):
+##### The following are systems that are included but experimental on the PrimeStation One (under development, not full speed on some or all games, etc):
 * Atari 7800 Prosystem
 * Atari Jaguar
 * Nintendo 64
