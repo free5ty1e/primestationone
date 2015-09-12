@@ -6,3 +6,5 @@ rm Shoot\ Your\ Load\ \(PD\)\ \[b1\].smc.zip
 rm Sexy*
 rm Olivia*
 rm Cobra*
+
+rm ~/RetroPie/roms/atari2600/Custer*
