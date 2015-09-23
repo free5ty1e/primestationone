@@ -73,8 +73,12 @@ rm /home/pi/fstab
 echo Removing USB copyroms service...
 rm /mnt/etc/usbmount/mount.d/01_retropie_copyroms
 
+echo Ensuring USB drive is unmounted again...
+umount /dev/sda1
+umount /dev/sda1
+
 echo Checking new root filesystem...press enter to auto fix any issues that you are prompted for...
-sudo e2fsck -f /dev/sda1
+e2fsck -f /dev/sda1
 
 #echo Now going to auto expand your USB filesystem to fill the drive.  If you want to manually manage your partitions, or do not want to resize at this time, hit CTRL-C to cancel.
 #echo This is the last step before a reboot, so just reboot to finish if you skip this next step.
