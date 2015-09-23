@@ -38,7 +38,7 @@ echo "USB rootfs partition 1 GUID retrieved: $usbRootPartGuid"
 echo Here is where we need to set the /boot/cmdline.txt to point to root=PARTUUID=partitionguidhere along with rootdelay=5 at the end...
 echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbRootPartGuid..."
 sed "s/\${partitionguid}/$usbRootPartGuid/" /home/pi/primestationone/reference/boot/cmdlineForGuidUsb.txt > /home/pi/cmdline.txt
-cp /boot/cmdline.txt /home/pi/cmdline.txt.bak
+cp /boot/cmdline.txt /boot/cmdline.txt.bak
 rm /boot/cmdline.txt
 cp /home/pi/cmdline.txt /boot/cmdline.txt
 rm /home/pi/cmdline.txt
@@ -73,9 +73,9 @@ rm /home/pi/fstab
 echo Removing USB copyroms service...
 rm /mnt/etc/usbmount/mount.d/01_retropie_copyroms
 
-#echo Checking new root filesystem...press enter to auto fix any issues that you are prompted for...
-#sudo e2fsck -f /dev/sda1
-#
+echo Checking new root filesystem...press enter to auto fix any issues that you are prompted for...
+sudo e2fsck -f /dev/sda1
+
 #echo Now going to auto expand your USB filesystem to fill the drive.  If you want to manually manage your partitions, or do not want to resize at this time, hit CTRL-C to cancel.
 #echo This is the last step before a reboot, so just reboot to finish if you skip this next step.
 #usbSda1ExpandFilesystem.sh
