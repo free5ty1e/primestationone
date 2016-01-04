@@ -8,7 +8,7 @@ pushd ~
 echo "Procedure developed using below site as reference:"
 echo "http://owenashurst.com/?p=242"
 sudo apt-get remove --purge -y libmp3lame-dev libtool libssl-dev libaacplus-* libx264 libvpx librtmp ffmpeg
-sudo apt-get install -y libmp3lame-dev autoconf libtool checkinstall libssl-dev
+sudo apt-get install -y libmp3lame-dev autoconf libtool checkinstall libssl-dev libavcodec-dev
 
 mkdir src
 cd src

@@ -18,5 +18,6 @@ sudo rm /usr/local/bin/sixpair
 
 
 echo Now actually installing the recommended driver...
-sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
+#sudo ~/RetroPie-Setup/retropie_packages.sh ps3controller
 #installPs3DriverQtSixAdWithGasiaSupportFromSources.sh
+installPs3DriverQtSixAdWithFakeSupportFromSources.sh
