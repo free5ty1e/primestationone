@@ -52,9 +52,11 @@ cd /home/pi/src
 git clone --depth 1 git://git.videolan.org/ffmpeg
 cd ffmpeg
 echo "disabled: --enable-libaacplus"
-./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree --enable-librtmp --enable-libmp3lame
+./configure --prefix=/opt/ffmpeg --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree --enable-librtmp --enable-libmp3lame
 make
 sudo make install
+
+installRetroArchWithMpegRecordingEnabled.sh
 
 echo "Please reboot, then type ffmpeg and ensure you get some sort of sensible output to confirm installation!"
 
