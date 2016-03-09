@@ -51,7 +51,8 @@ echo "Downloading & Compiling FFMPEG (Latest Version)..."
 cd /home/pi/src
 git clone --depth 1 git://git.videolan.org/ffmpeg
 cd ffmpeg
-./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree --enable-libaacplus --enable-librtmp --enable-libmp3lame
+echo "disabled: --enable-libaacplus"
+./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree --enable-librtmp --enable-libmp3lame
 make
 sudo make install
 
