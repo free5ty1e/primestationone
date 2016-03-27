@@ -4,6 +4,7 @@ cowsay -f stegosaurus Updating C64 emulators...
 pushd ~
 sudo ~/RetroPie-Setup/retropie_packages.sh vice remove
 source "/home/pi/primestationone/lib/helpers.sh"
+source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 
 sudo apt-get -y install vim libice-dev libreadline-dev libsdl1.2-dev libxt-dev libxmu-dev libxaw7-dev libx11-dev libgtkglext1
 

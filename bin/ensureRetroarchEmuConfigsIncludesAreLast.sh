@@ -1,6 +1,7 @@
 #!/bin/bash
 echo Ensuring all RetroArch emulator individual cfg files have the master include line as the last line and nowhere else...
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
+source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 PATH_TO_INCLUDED_CFG="/opt/retropie/configs/all/retroarch.cfg"
 
 shopt -s globstar
