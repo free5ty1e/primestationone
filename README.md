@@ -2,8 +2,8 @@
 ## A Set of Scripts and Tools For a "Ready-To-Go" [RetroPie](https://github.com/petrockblog/RetroPie-Setup) 
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/btXlz5e.png)
-http://i.imgur.com/btXlz5e.png
+![SplashScreen](http://i.imgur.com/a9siluP.png)
+http://i.imgur.com/a9siluP.png
 
 #### PrimeStation One Control / Convenience App for Android github repo: 
 *[![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
@@ -88,6 +88,11 @@ The point of the Primestation One is to be able to massively retrogame from the 
 
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
+
+## New features v1.0000alpha 2016.03.26: (Pi1, Pi2 images will be released soon, and Pi3 support coming soon as well!)
+
+* Later model / 2015+ Generic "ShanWan" PS3 controllers now supported via Bluetooth
+* Swapped SELECT and PS3 buttons; now hold the PS3 button to enable the other hotkeys instead of SELECT.  This enables SELECT as a usable button in games again, and enables many nice things (like screenshotting without having to emulator-pause to avoid advancing the game with SELECT, as in FF2)
 
 
 ## NOTE:
