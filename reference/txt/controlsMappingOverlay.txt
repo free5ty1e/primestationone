@@ -1,5 +1,5 @@
-Hold 0 to Enable:
-0  : * HOLD TO ENABLE
+Hold 16 to Enable:
+0  : Exit Emulator
 1  : Screenshot
 2  : Record/End Movie
 3  : Pause Emulator
@@ -15,7 +15,7 @@ Hold 0 to Enable:
 13 : Toggle FastFwd
 14 : Load State
 15 : Save State
-16 : Exit Emulator
+16 : * HOLD TO ENABLE
 X1-: Disc Previous
 X1+: Disc Next
 Y1-: Volume+

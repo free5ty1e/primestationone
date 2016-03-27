@@ -27,8 +27,8 @@ function remap_hotkeys_retroarchautoconf() {
 
     iniConfig " = " "\""
     local mappings=(
-        'input_enable_hotkey input_select'
-        'input_exit_emulator '$input_exit_emu
+        'input_enable_hotkey input_ps'
+        'input_exit_emulator input_select'
         'input_menu_toggle input_l'
         'input_load_state input_b'
         'input_save_state input_y'
