@@ -223,6 +223,9 @@ if [ -d "$md_build/udev" ]; then
     echo Configuring Dreamcast Reicast PS3 controls...
     python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
 
+    echo "Adding configs to support newer (2015+) ShanWan generic PS3 controllers too..."
+    sudo cp /home/pi/primestationone/reference/opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad*.cfg /opt/retropie/emulators/retroarch/configs/
+
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
 fi
