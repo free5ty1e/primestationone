@@ -3,6 +3,7 @@ echo Constructing the controller configs en masse to ALL match the splashscreen 
 echo This will also enable non-PS3 controllers to map closely to the splashscreen instead of being way off...
 
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
+source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 
 md_build="/home/pi/temp/joypadautoconfig"
 emudir="/opt/retropie/emulators"
