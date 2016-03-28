@@ -9,3 +9,6 @@ installPs3RecommendedDriver.sh
 
 quickUpdatePrimestationOneFiles.sh
 controllerConfigConstruction.sh
+
+sudo ~/RetroPie-Setup/retropie_packages.sh bashwelcometweak remove
+sudo ~/RetroPie-Setup/retropie_packages.sh bashwelcometweak install
