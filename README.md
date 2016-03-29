@@ -5,6 +5,9 @@
 ![SplashScreen](http://i.imgur.com/a9siluP.png)
 http://i.imgur.com/a9siluP.png
 
+#### Primestation pre-built image downloads: 
+http://goo.gl/RPKAr1
+
 #### PrimeStation One Control / Convenience App for Android github repo: 
 *[![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
 * https://github.com/free5ty1e/primestationone-control-android
