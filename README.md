@@ -2,8 +2,8 @@
 ## A Set of Scripts and Tools For a "Ready-To-Go" [RetroPie](https://github.com/petrockblog/RetroPie-Setup) 
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/a9siluP.png)
-http://i.imgur.com/a9siluP.png
+![SplashScreen](http://i.imgur.com/QzpV4K9.png)
+http://i.imgur.com/QzpV4K9.png
 
 #### Primestation pre-built image downloads (details and instructions below): 
 http://goo.gl/RPKAr1
@@ -94,6 +94,13 @@ The point of the Primestation One is to be able to massively retrogame from the 
 
 #### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
+
+## New features v1.0000beta 2016.04.01: (Pi1, Pi2 images being prepared...)
+
+* Most generic "ShanWan" as well as "Gasia" PS3 controllers are now supported via Bluetooth, and of course coexist with genuine Sony controllers.  Most will even rumble and show the LED animation during connection.  All the controllers pictured here can now be utilized with the Primestation: 
+![SupportedGenericControllers](http://i.imgur.com/51iynW9.png)
+* Experimental FFMPEG-based RetroArch emulator recording is now possible; an experimental NESTOPIA menu entry has been added to emulate and record MPG videos of you playing games, although you will probably have to disable rewind in order to play the game at a reasonable framerate while this is occurring.  The video produced looks something like this, so far no audio configured:
+https://mega.nz/#!PIdHBLhC!WkaSX4_9otzCO74-7Qz1xQEBJetxHiWDKJ_Y2h09rXY
 
 ## New features v1.0000alpha 2016.03.26: (Pi1, Pi2 images released 2016.03.28, and Pi3 support is under development...)
 
