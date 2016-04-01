@@ -22,7 +22,7 @@ https://github.com/free5ty1e/primestationone-estheme
 #### PrimeStation One Quick Setup and Gaming Montage video:
 https://www.youtube.com/watch?v=70sQS6AAMNU
 
-#### PrimeStation One fork of qtsixad PS3 controller driver source code:
+##### PrimeStation One fork of qtsixad PS3 controller driver source code:
 https://github.com/free5ty1e/qtsixa
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch on minimal hardware, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
