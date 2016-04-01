@@ -90,9 +90,10 @@ if [ -d "$md_build/udev" ]; then
     echo Mapping special functions to match Primestation splashscreen...
     printMsgs "console" "Remapping controller hotkeys"
 
-    for file in "$emudir/retroarch/configs/"*; do
-        remap_hotkeys_retroarchautoconf "$file"
-    done
+    find "$emudir/retroarch/configs/" -print0 | while read -d $'\0' file
+        do
+            remap_hotkeys_retroarchautoconf "$file"
+        done
 
     echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
     rm -v /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
