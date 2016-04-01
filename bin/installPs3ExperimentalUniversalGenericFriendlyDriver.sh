@@ -1,9 +1,9 @@
 #!/bin/bash
-
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
-fancy_console_message "Installing PS3 driver QtSixAd fork with GASIA fake controller support and sixpair from sources..." "bud-frogs"
+uninstallPs3Driver.sh
+fancy_console_message "Installing PS3 driver QtSixAd fork with fake controller support and sixpair from sources..." "bud-frogs"
 
-sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
+sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick pyqt4-dev-tools
 
 cleanupTempFiles.sh
 
@@ -17,8 +17,9 @@ mkdir -p "$md_inst"
 
 #wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "$md_build/sixpair.c"
 
-echo Obtaining sources...
-git clone https://github.com/mammo0/qtsixa.git
+echo "Obtaining Chris Prime's Primestation One SixAxis driver sources..."
+git clone -b feature/also-support-new-gasia-ps3-controllers https://github.com/free5ty1e/qtsixa.git
+#git clone https://github.com/yonirom/qtsixa.git
 #wget -O- -q http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz | tar -xvz --strip-components=1
 
 #patch -p1 <<\_EOF_
@@ -35,10 +36,11 @@ git clone https://github.com/mammo0/qtsixa.git
 #    bool anim;
 #_EOF_
 #
-echo Altering uinput.cpp to not include the mac address in the controller name because that gets in the way of retroarch autoconfiguring matching controller names...
-sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/qtsixa/sixad/uinput.cpp"
-sed -i 's/strcat(dev_name, mac);//g' "$md_build/qtsixa/sixad/uinput.cpp"
-sed -i 's/strcat(dev_name, ")");//g' "$md_build/qtsixa/sixad/uinput.cpp"
+
+#echo Altering uinput.cpp to not include the mac address in the controller name because that gets in the way of retroarch autoconfiguring matching controller names...
+#sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/qtsixa/sixad/uinput.cpp"
+#sed -i 's/strcat(dev_name, mac);//g' "$md_build/qtsixa/sixad/uinput.cpp"
+#sed -i 's/strcat(dev_name, ")");//g' "$md_build/qtsixa/sixad/uinput.cpp"
 
 echo Compiling driver...
 cd qtsixa

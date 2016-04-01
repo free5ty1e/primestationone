@@ -57,6 +57,9 @@ sudo rm /usr/local/bin/retroPieNukeAndCheckoutFresh.sh
 sudo rm /usr/local/bin/sixpair
 sudo rm /usr/local/bin/rewindGlobalDisable.sh
 sudo rm /usr/local/bin/rewindGlobalEnable.sh
+sudo rm /usr/local/bin/installPs3DriverQtSixAdWithFakeSupportFromSources.sh
+sudo rm /usr/local/bin/installPs3DriverQtSixAdWithGasiaSupportFromSources.sh
+
 
 echo Creating required folders...
 mkdir ~/temp

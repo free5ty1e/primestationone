@@ -1,7 +1,7 @@
 #!/bin/bash
-
+uninstallPs3Driver.sh
 cowsay -f bud-frogs Installing PS3 driver QtSixAd and sixpair from sources...
-echo Installing Sixad PS3 sixaxis controller bluetooth pairing daemon qtsixad and compatible bluez from apt...
+echo "Installing Sixad PS3 sixaxis controller bluetooth pairing daemon qtsixad and compatible bluez from apt..."
 pushd ~
 
 sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
@@ -29,13 +29,13 @@ wget -O- -q http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1
 #bool anim;
 #_EOF_
 
-echo Building ps3 driver...
+echo "Building ps3 driver..."
 gcc -o sixpair sixpair.c -lusb
 cd sixad
 make clean
 make
 
-echo Instaling ps3 driver...
+echo "Instaling ps3 driver..."
 sudo mkdir -p /var/lib/sixad/profiles
 sudo cp -v ~/primestationone/reference/var/lib/sixad/profiles/* /var/lib/sixad/profiles/
 sudo checkinstall -y --fstrans=no
