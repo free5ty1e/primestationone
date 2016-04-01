@@ -59,6 +59,9 @@ sudo rm /usr/local/bin/rewindGlobalDisable.sh
 sudo rm /usr/local/bin/rewindGlobalEnable.sh
 sudo rm /usr/local/bin/installPs3DriverQtSixAdWithFakeSupportFromSources.sh
 sudo rm /usr/local/bin/installPs3DriverQtSixAdWithGasiaSupportFromSources.sh
+sudo rm /usr/local/bin/installPs3GenericFriendlyDriver.sh
+sudo rm /usr/local/bin/installPs3ExperimentalGasiaDriver.sh
+sudo rm /usr/local/bin/installPs3ExperimentalUniversalGenericFriendlyDriver.sh
 
 
 echo Creating required folders...

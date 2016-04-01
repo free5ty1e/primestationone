@@ -18,7 +18,8 @@ mkdir -p "$md_inst"
 #wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "$md_build/sixpair.c"
 
 echo "Obtaining Chris Prime's Primestation One SixAxis driver sources..."
-git clone -b feature/also-support-new-gasia-ps3-controllers https://github.com/free5ty1e/qtsixa.git
+git clone -b master https://github.com/free5ty1e/qtsixa.git
+#git clone -b feature/also-support-new-gasia-ps3-controllers https://github.com/free5ty1e/qtsixa.git
 #git clone https://github.com/yonirom/qtsixa.git
 #wget -O- -q http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz | tar -xvz --strip-components=1
 
