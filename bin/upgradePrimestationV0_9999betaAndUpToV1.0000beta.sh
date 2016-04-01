@@ -4,7 +4,6 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 retroPieNukeAndCheckoutFresh.sh
 quickUpdatePrimestationOneFiles.sh
-controllerConfigConstruction.sh
 
 installPs3RecommendedDriver.sh
 installMpegRecordingCapability.sh
