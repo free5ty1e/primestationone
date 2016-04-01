@@ -125,7 +125,7 @@ If you have no compatible bluetooth adapter, your USB PS3 connection should work
 
 If you have a bluetooth adapter but want to use PS3 controllers over USB anyway, you will need to remove your bluetooth adapter anyway to stop the aggressive automatic PS3 bluetooth first-time pairing procedure; when plugging a controller in via USB, the Primestation tells that controller to pair with the Primestation (just like the PS3 handles controllers).  It is currently not easy to mix bluetooth and USB PS3 controller connections on the same Primestation simultaneously (you'd have to manually disable the PS3 USB connection rule).
 
-Some additional tips for USB PS3'ing:
+##### Some additional tips for USB PS3'ing:
 * Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
 * If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
 
@@ -262,10 +262,17 @@ Start your host first, then start the client(s).  You can watch them connect and
 There is also a button combination mapped on the controller to allow you to swap netplayers, though this is experimental.  Look for it on the splashscreen / quick reference screen (also above) and try it out!
 
 ### Troubleshooting
+
+
 Some of the previous versions of the PrimeStation One may or may not have inadvertently caused some ownership issues in the user file structure, and / or left unused or outdated scripts lying around where they can cause confusion.  The best way to ensure that things are really set as they should be, and that you have the absolute best starting point to move forward, you should run the following script.  Be prepared to lose your cached gamelists, custom emulationstation input adjustments and general settings:
 ```
 quickResetPrimestationOne.sh
 ```
+
+##### PS3 controller connection troubleshooting
+
+Sometimes it might take a couple tries of connecting the controller via USB for ~10 seconds to the Primestation, then disconnect and press PS3 button to attempt connection before (especially generic) controllers might start actually trying to pair to the Primestation.  Even once connected, they may not respond without reconnecting a couple more times and possibly restarting the Primestation.  This only seems to occur when connecting many different types of controllers, as I did during testing...
+
 
 
 #### Building emulators from source / downloading binaries (RetroPie)
