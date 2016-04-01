@@ -17,8 +17,9 @@ mkdir -p "$md_inst"
 
 #wget -nv http://www.pabr.org/sixlinux/sixpair.c -O "$md_build/sixpair.c"
 
-echo Obtaining sources...
-git clone https://github.com/yonirom/qtsixa.git
+echo "Obtaining sources..."
+git clone https://github.com/free5ty1e/qtsixa.git
+#git clone https://github.com/yonirom/qtsixa.git
 #wget -O- -q http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz | tar -xvz --strip-components=1
 
 #patch -p1 <<\_EOF_
@@ -35,10 +36,11 @@ git clone https://github.com/yonirom/qtsixa.git
 #    bool anim;
 #_EOF_
 #
-echo Altering uinput.cpp to not include the mac address in the controller name because that gets in the way of retroarch autoconfiguring matching controller names...
-sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/qtsixa/sixad/uinput.cpp"
-sed -i 's/strcat(dev_name, mac);//g' "$md_build/qtsixa/sixad/uinput.cpp"
-sed -i 's/strcat(dev_name, ")");//g' "$md_build/qtsixa/sixad/uinput.cpp"
+
+#echo Altering uinput.cpp to not include the mac address in the controller name because that gets in the way of retroarch autoconfiguring matching controller names...
+#sed -i 's/strcpy(dev_name, "PLAYSTATION(R)3 Controller (");/strcpy(dev_name, "PLAYSTATION(R)3 Controller");/g' "$md_build/qtsixa/sixad/uinput.cpp"
+#sed -i 's/strcat(dev_name, mac);//g' "$md_build/qtsixa/sixad/uinput.cpp"
+#sed -i 's/strcat(dev_name, ")");//g' "$md_build/qtsixa/sixad/uinput.cpp"
 
 echo Compiling driver...
 cd qtsixa
