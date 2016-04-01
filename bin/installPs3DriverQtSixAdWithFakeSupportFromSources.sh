@@ -45,7 +45,7 @@ git clone https://github.com/free5ty1e/qtsixa.git
 echo Compiling driver...
 cd qtsixa
 make clean
-make
+GASIA_GAMEPAD_HACKS=true make
 
 echo Installing driver...
 sudo checkinstall -y --fstrans=no
