@@ -14,3 +14,6 @@ echo "Restoring original RetroPie-Setup state..."
 pushd ~/RetroPie-Setup
 git reset --hard
 popd
+
+echo "Testing to see if the ffmpeg feature is enabled in RetroArch..."
+/opt/retropie/emulators/retroarch/bin/retroarch --features | grep FFmpeg --after 1
