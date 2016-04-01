@@ -4,9 +4,13 @@
 
 echo "Requesting a build through official RetroPie calls with the FFMPEG location set..."
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
-PKG_CONFIG_PATH=/opt/ffmpeg/lib/pkgconfig sudo ~/RetroPie-Setup/retropie_packages.sh retroarch
 
-#echo "Restoring original RetroPie-Setup state..."
-#pushd ~/RetroPie-Setup
-#git reset --hard
-#popd
+echo "Temporarily modifying the retroarch build script to enable ffmpeg..."
+sed -i -e 's/--disable-ffmpeg/--enable-ffmpeg/g' /home/pi/RetroPie-Setup/scriptmodules/emulators/retroarch.sh
+sed -i -e 's/.\/configure/PKG_CONFIG_PATH=\/opt\/ffmpeg\/lib\/pkgconfig .\/configure/g' /home/pi/RetroPie-Setup/scriptmodules/emulators/retroarch.sh
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarch
+
+echo "Restoring original RetroPie-Setup state..."
+pushd ~/RetroPie-Setup
+git reset --hard
+popd

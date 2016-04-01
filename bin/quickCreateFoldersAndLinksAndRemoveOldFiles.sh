@@ -62,6 +62,7 @@ sudo rm /usr/local/bin/installPs3DriverQtSixAdWithGasiaSupportFromSources.sh
 sudo rm /usr/local/bin/installPs3GenericFriendlyDriver.sh
 sudo rm /usr/local/bin/installPs3ExperimentalGasiaDriver.sh
 sudo rm /usr/local/bin/installPs3ExperimentalUniversalGenericFriendlyDriver.sh
+sudo rm /usr/local/bin/installPs3ShanWanAndSonyFriendlyDriver.sh
 
 
 echo Creating required folders...
