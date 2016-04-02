@@ -112,6 +112,11 @@ https://twitter.com/ChrisPrimeish/status/716110179507437568
 * Swapped SELECT and PS3 buttons; now hold the PS3 button to enable the other hotkeys instead of SELECT.  This enables SELECT as a usable button in games again, and enables many nice things (like screenshotting without having to emulator-pause to avoid advancing the game with SELECT, as in FF2)
 
 
+#### Installing on a fresh RetroPie image
+```
+rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && installPs3RecommendedDriver.sh
+```
+
 ## NOTE:
 primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later (This is also the same command sequence one should use to install the PrimeStation One over top of a fresh vanilla RetroPie image.  It is all in one line so it is easy to copy / paste into a terminal window SSH session):
 ```
