@@ -3,7 +3,8 @@ source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 uninstallPs3Driver.sh
 fancy_console_message "Installing PS3 driver QtSixAd fork with fake controller support and sixpair from sources..." "bud-frogs"
 
-sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick pyqt4-dev-tools
+sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump #separated for Jessie safe failure fallback
+sudo apt-get -y install checkinstall libusb-dev libbluetooth-dev joystick pyqt4-dev-tools
 
 cleanupTempFiles.sh
 
