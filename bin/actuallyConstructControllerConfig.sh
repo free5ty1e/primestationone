@@ -93,161 +93,168 @@ if [ -d "$md_build/udev" ]; then
 #    sudo rm -rf "$configdir"
 
     for whichconfigdir in "${configdirs[@]}"; do
-        echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
-        sudo mkdir -p "$whichconfigdir/"
+        if [ -d "$whichconfigdir" ]; then
+            echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
+            sudo mkdir -p "$whichconfigdir/"
 
-        echo Stripping CRs from the autoconfigs....
-        cd "$md_build/udev/"
-        for file in *; do
-            sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
-            sudo chown $user:$user "$whichconfigdir/$file"
-        done
-
-        echo Mapping special functions to match Primestation splashscreen...
-        printMsgs "console" "Remapping controller hotkeys"
-
-        find "$whichconfigdir/" -print0 | while read -d $'\0' file
-            do
-                remap_hotkeys_retroarchautoconf "$file"
+            echo Stripping CRs from the autoconfigs....
+            cd "$md_build/udev/"
+            for file in *; do
+                sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
+                sudo chown $user:$user "$whichconfigdir/$file"
             done
 
-        echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
-        rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
-        cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
-        iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+            echo Mapping special functions to match Primestation splashscreen...
+            printMsgs "console" "Remapping controller hotkeys"
 
-        echo "Adding configs to support ShanWan generic PS3 controllers too..."
-        sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
-        iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
+            find "$whichconfigdir/" -print0 | while read -d $'\0' file
+                do
+                    remap_hotkeys_retroarchautoconf "$file"
+                done
 
-        sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
-        iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+            echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
+            rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+            cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+            iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+
+            echo "Adding configs to support ShanWan generic PS3 controllers too..."
+            sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
+            iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
+
+            sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
+            iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+        else
+            echo "$whichconfigdir does not exist, skipping!"
+        fi
     done
 
     for whichemuconfigdir in "${emuconfigdirs[@]}"; do
+        if [ -d "$whichemuconfigdir" ]; then
+            echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
+            #local
+            #above keyword only for when below is in its own function:
+            emulatorsToButtonSwap=(
+                'nes'
+                'gb'
+                'gbc'
+                'gba'
+                'n64'
+                'pcengine'
+            )
 
-        echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
-        #local
-        #above keyword only for when below is in its own function:
-        emulatorsToButtonSwap=(
-            'nes'
-            'gb'
-            'gbc'
-            'gba'
-            'n64'
-            'pcengine'
-        )
+            for emu in "${emulatorsToButtonSwap[@]}"; do
+                emu=($emu)
+                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+                iniSet "input_player1_y_btn" "13"
+                iniSet "input_player1_a_btn" "14"
+                iniSet "input_player1_b_btn" "15"
+                iniSet "input_player2_y_btn" "13"
+                iniSet "input_player2_a_btn" "14"
+                iniSet "input_player2_b_btn" "15"
+                iniSet "input_player3_y_btn" "13"
+                iniSet "input_player3_a_btn" "14"
+                iniSet "input_player3_b_btn" "15"
+                iniSet "input_player4_y_btn" "13"
+                iniSet "input_player4_a_btn" "14"
+                iniSet "input_player4_b_btn" "15"
+            done
 
-        for emu in "${emulatorsToButtonSwap[@]}"; do
-            emu=($emu)
-            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_y_btn" "13"
-            iniSet "input_player1_a_btn" "14"
-            iniSet "input_player1_b_btn" "15"
-            iniSet "input_player2_y_btn" "13"
-            iniSet "input_player2_a_btn" "14"
-            iniSet "input_player2_b_btn" "15"
-            iniSet "input_player3_y_btn" "13"
-            iniSet "input_player3_a_btn" "14"
-            iniSet "input_player3_b_btn" "15"
-            iniSet "input_player4_y_btn" "13"
-            iniSet "input_player4_a_btn" "14"
-            iniSet "input_player4_b_btn" "15"
+            echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
+            #local
+            #above keyword only for when below is in its own function:
+            emulatorsToButtonSwapReverse=(
+                'gamegear'
+                'mastersystem'
+                'sg-1000'
+            )
+
+            for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+                emu=($emu)
+                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+                iniSet "input_player1_y_btn" "13"
+                iniSet "input_player1_a_btn" "15"
+                iniSet "input_player1_b_btn" "14"
+                iniSet "input_player2_y_btn" "13"
+                iniSet "input_player2_a_btn" "15"
+                iniSet "input_player2_b_btn" "14"
+                iniSet "input_player3_y_btn" "13"
+                iniSet "input_player3_a_btn" "15"
+                iniSet "input_player3_b_btn" "14"
+                iniSet "input_player4_y_btn" "13"
+                iniSet "input_player4_a_btn" "15"
+                iniSet "input_player4_b_btn" "14"
+            done
+
+
+            echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
+            #local
+            #above keyword only for when below is in its own function:
+            emulatorsToRearrangeButtons=(
+                'mame-mame4all'
+            )
+
+            for emu in "${emulatorsToRearrangeButtons[@]}"; do
+                emu=($emu)
+                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+
+                #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
+                #SF2 L punch = b_btn
+                #SF2 M punch = a_btn
+                #SF2 H punch = y_btn
+                #SF2 L kick =  x_btn
+                #SF2 M kick =  l_btn
+                #SF2 H kick =  r_btn
+
+                #MK2 L punch = x_btn
+                #MK2 H punch = a_btn
+                #MK2 Block = y_btn
+                #MK2 L kick = l_btn
+                #MK2 H kick = b_btn
+
+                #ForgottenWorlds rotateCCW l_btn
+                #ForgottenWorlds rotateCW r_btn
+
+                #GenericGame Fire b_btn
+                #GenericGame Jump a_btn
+                #insert coin -> L3 instead of Select to avoid conflicts in some games
+
+                iniSet "input_player1_select_btn" "1"
+                iniSet "input_player1_l_btn" "10"
+                iniSet "input_player1_r_btn" "11"
+                iniSet "input_player1_x_btn" "12"
+                iniSet "input_player1_y_btn" "13"
+                iniSet "input_player1_a_btn" "14"
+                iniSet "input_player1_b_btn" "15"
+
+                iniSet "input_player2_select_btn" "1"
+                iniSet "input_player2_l_btn" "10"
+                iniSet "input_player2_r_btn" "11"
+                iniSet "input_player2_x_btn" "12"
+                iniSet "input_player2_y_btn" "13"
+                iniSet "input_player2_a_btn" "14"
+                iniSet "input_player2_b_btn" "15"
+
+                iniSet "input_player3_select_btn" "1"
+                iniSet "input_player3_l_btn" "10"
+                iniSet "input_player3_r_btn" "11"
+                iniSet "input_player3_x_btn" "12"
+                iniSet "input_player3_y_btn" "13"
+                iniSet "input_player3_a_btn" "14"
+                iniSet "input_player3_b_btn" "15"
+
+                iniSet "input_player4_select_btn" "1"
+                iniSet "input_player4_l_btn" "10"
+                iniSet "input_player4_r_btn" "11"
+                iniSet "input_player4_x_btn" "12"
+                iniSet "input_player4_y_btn" "13"
+                iniSet "input_player4_a_btn" "14"
+                iniSet "input_player4_b_btn" "15"
+
+            done
+        else
+            echo "$whichemuconfigdir does not exist, skipping!"
+        fi
         done
-
-        echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
-        #local
-        #above keyword only for when below is in its own function:
-        emulatorsToButtonSwapReverse=(
-            'gamegear'
-            'mastersystem'
-            'sg-1000'
-        )
-
-        for emu in "${emulatorsToButtonSwapReverse[@]}"; do
-            emu=($emu)
-            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_y_btn" "13"
-            iniSet "input_player1_a_btn" "15"
-            iniSet "input_player1_b_btn" "14"
-            iniSet "input_player2_y_btn" "13"
-            iniSet "input_player2_a_btn" "15"
-            iniSet "input_player2_b_btn" "14"
-            iniSet "input_player3_y_btn" "13"
-            iniSet "input_player3_a_btn" "15"
-            iniSet "input_player3_b_btn" "14"
-            iniSet "input_player4_y_btn" "13"
-            iniSet "input_player4_a_btn" "15"
-            iniSet "input_player4_b_btn" "14"
-        done
-
-
-        echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
-        #local
-        #above keyword only for when below is in its own function:
-        emulatorsToRearrangeButtons=(
-            'mame-mame4all'
-        )
-
-        for emu in "${emulatorsToRearrangeButtons[@]}"; do
-            emu=($emu)
-            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-
-    #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
-    #SF2 L punch = b_btn
-    #SF2 M punch = a_btn
-    #SF2 H punch = y_btn
-    #SF2 L kick =  x_btn
-    #SF2 M kick =  l_btn
-    #SF2 H kick =  r_btn
-
-    #MK2 L punch = x_btn
-    #MK2 H punch = a_btn
-    #MK2 Block = y_btn
-    #MK2 L kick = l_btn
-    #MK2 H kick = b_btn
-
-    #ForgottenWorlds rotateCCW l_btn
-    #ForgottenWorlds rotateCW r_btn
-
-    #GenericGame Fire b_btn
-    #GenericGame Jump a_btn
-    #insert coin -> L3 instead of Select to avoid conflicts in some games
-            iniSet "input_player1_select_btn" "1"
-            iniSet "input_player1_l_btn" "10"
-            iniSet "input_player1_r_btn" "11"
-            iniSet "input_player1_x_btn" "12"
-            iniSet "input_player1_y_btn" "13"
-            iniSet "input_player1_a_btn" "14"
-            iniSet "input_player1_b_btn" "15"
-
-            iniSet "input_player2_select_btn" "1"
-            iniSet "input_player2_l_btn" "10"
-            iniSet "input_player2_r_btn" "11"
-            iniSet "input_player2_x_btn" "12"
-            iniSet "input_player2_y_btn" "13"
-            iniSet "input_player2_a_btn" "14"
-            iniSet "input_player2_b_btn" "15"
-
-            iniSet "input_player3_select_btn" "1"
-            iniSet "input_player3_l_btn" "10"
-            iniSet "input_player3_r_btn" "11"
-            iniSet "input_player3_x_btn" "12"
-            iniSet "input_player3_y_btn" "13"
-            iniSet "input_player3_a_btn" "14"
-            iniSet "input_player3_b_btn" "15"
-
-            iniSet "input_player4_select_btn" "1"
-            iniSet "input_player4_l_btn" "10"
-            iniSet "input_player4_r_btn" "11"
-            iniSet "input_player4_x_btn" "12"
-            iniSet "input_player4_y_btn" "13"
-            iniSet "input_player4_a_btn" "14"
-            iniSet "input_player4_b_btn" "15"
-
-        done
-    done
-
     echo "Configuring Dreamcast Reicast PS3 controls..."
     python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
 
