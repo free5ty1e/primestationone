@@ -106,15 +106,15 @@ if [ -d "$md_build/udev" ]; then
 
         echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
         rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg
-        cp -v "$whichconfigdir/PS3Controller.cfg $allconfigsdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+        cp -v "$whichconfigdir/PS3Controller.cfg $whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
         iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/ Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
         echo "Adding configs to support ShanWan generic PS3 controllers too..."
-        sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad.cfg
-        iniSet "input_device" "ShanWan PS(R) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
+        sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
+        iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
 
-        sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad2.cfg
-        iniSet "input_device" "ShanWan PS(R) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+        sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
+        iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
     done
 
 
