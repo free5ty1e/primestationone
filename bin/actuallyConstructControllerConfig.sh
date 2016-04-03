@@ -85,7 +85,7 @@ if [ -d "$md_build/udev" ]; then
 #    echo Wiping out any existing controller autoconfigs
 #    sudo rm -rf "$configdir"
 
-    for whichconfigdir in configdirs; do
+    for whichconfigdir in "${configdirs[@]}"; do
         echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
         sudo mkdir -p "$whichconfigdir/"
 
