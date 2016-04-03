@@ -105,7 +105,7 @@ if [ -d "$md_build/udev" ]; then
             done
 
         echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
-        rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg
+        rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
         cp -v "$whichconfigdir/PS3Controller.cfg $whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
         iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/ Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
@@ -118,7 +118,7 @@ if [ -d "$md_build/udev" ]; then
     done
 
 
-    echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine...
+    echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
     #local
     #above keyword only for when below is in its own function:
     emulatorsToButtonSwap=(
@@ -147,7 +147,7 @@ if [ -d "$md_build/udev" ]; then
         iniSet "input_player4_b_btn" "15"
     done
 
-    echo Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine...
+    echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
     #local
     #above keyword only for when below is in its own function:
     emulatorsToButtonSwapReverse=(
@@ -174,7 +174,7 @@ if [ -d "$md_build/udev" ]; then
     done
 
 
-    echo Rearranging horribly wrong emulator button mappings for MAME to be more generally usable...
+    echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
     #local
     #above keyword only for when below is in its own function:
     emulatorsToRearrangeButtons=(
@@ -239,11 +239,11 @@ if [ -d "$md_build/udev" ]; then
 
     done
 
-    echo Configuring Dreamcast Reicast PS3 controls...
+    echo "Configuring Dreamcast Reicast PS3 controls..."
     python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
 
 else
-    echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
+    echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
 fi
 
 
