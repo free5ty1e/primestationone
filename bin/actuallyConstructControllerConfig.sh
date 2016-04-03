@@ -6,14 +6,21 @@ source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 
 md_build="/home/pi/temp/joypadautoconfig"
-emudir="/opt/retropie/emulators"
+retropiebase="/opt/retropie"
+emudir="$retropiebase/emulators"
 configdir="$emudir/retroarch/configs"
 legacyconfigsdir="$configdir"
-allconfigsdir="$configdir/all/retroarch-joypads"
+newretropieconfigsdir="$retropiebase/configs"
+allconfigsdir="$newretropieconfigsdir/all/retroarch-joypads"
 
 configdirs=(
     "$legacyconfigsdir"
     "$allconfigsdir"
+)
+
+emuconfigdirs=(
+    "$legacyconfigsdir"
+    "$newretropieconfigsdir"
 )
 
 function remap_hotkeys_retroarchautoconf() {
@@ -117,126 +124,128 @@ if [ -d "$md_build/udev" ]; then
         iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
     done
 
+    for whichemuconfigdir in "${emuconfigdirs[@]}"; do
 
-    echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
-    #local
-    #above keyword only for when below is in its own function:
-    emulatorsToButtonSwap=(
-        'nes'
-        'gb'
-        'gbc'
-        'gba'
-        'n64'
-        'pcengine'
-    )
+        echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToButtonSwap=(
+            'nes'
+            'gb'
+            'gbc'
+            'gba'
+            'n64'
+            'pcengine'
+        )
 
-    for emu in "${emulatorsToButtonSwap[@]}"; do
-        emu=($emu)
-        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
-        iniSet "input_player1_y_btn" "13"
-        iniSet "input_player1_a_btn" "14"
-        iniSet "input_player1_b_btn" "15"
-        iniSet "input_player2_y_btn" "13"
-        iniSet "input_player2_a_btn" "14"
-        iniSet "input_player2_b_btn" "15"
-        iniSet "input_player3_y_btn" "13"
-        iniSet "input_player3_a_btn" "14"
-        iniSet "input_player3_b_btn" "15"
-        iniSet "input_player4_y_btn" "13"
-        iniSet "input_player4_a_btn" "14"
-        iniSet "input_player4_b_btn" "15"
-    done
+        for emu in "${emulatorsToButtonSwap[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+            iniSet "input_player1_y_btn" "13"
+            iniSet "input_player1_a_btn" "14"
+            iniSet "input_player1_b_btn" "15"
+            iniSet "input_player2_y_btn" "13"
+            iniSet "input_player2_a_btn" "14"
+            iniSet "input_player2_b_btn" "15"
+            iniSet "input_player3_y_btn" "13"
+            iniSet "input_player3_a_btn" "14"
+            iniSet "input_player3_b_btn" "15"
+            iniSet "input_player4_y_btn" "13"
+            iniSet "input_player4_a_btn" "14"
+            iniSet "input_player4_b_btn" "15"
+        done
 
-    echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
-    #local
-    #above keyword only for when below is in its own function:
-    emulatorsToButtonSwapReverse=(
-        'gamegear'
-        'mastersystem'
-        'sg-1000'
-    )
+        echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToButtonSwapReverse=(
+            'gamegear'
+            'mastersystem'
+            'sg-1000'
+        )
 
-    for emu in "${emulatorsToButtonSwapReverse[@]}"; do
-        emu=($emu)
-        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
-        iniSet "input_player1_y_btn" "13"
-        iniSet "input_player1_a_btn" "15"
-        iniSet "input_player1_b_btn" "14"
-        iniSet "input_player2_y_btn" "13"
-        iniSet "input_player2_a_btn" "15"
-        iniSet "input_player2_b_btn" "14"
-        iniSet "input_player3_y_btn" "13"
-        iniSet "input_player3_a_btn" "15"
-        iniSet "input_player3_b_btn" "14"
-        iniSet "input_player4_y_btn" "13"
-        iniSet "input_player4_a_btn" "15"
-        iniSet "input_player4_b_btn" "14"
-    done
+        for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+            iniSet "input_player1_y_btn" "13"
+            iniSet "input_player1_a_btn" "15"
+            iniSet "input_player1_b_btn" "14"
+            iniSet "input_player2_y_btn" "13"
+            iniSet "input_player2_a_btn" "15"
+            iniSet "input_player2_b_btn" "14"
+            iniSet "input_player3_y_btn" "13"
+            iniSet "input_player3_a_btn" "15"
+            iniSet "input_player3_b_btn" "14"
+            iniSet "input_player4_y_btn" "13"
+            iniSet "input_player4_a_btn" "15"
+            iniSet "input_player4_b_btn" "14"
+        done
 
 
-    echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
-    #local
-    #above keyword only for when below is in its own function:
-    emulatorsToRearrangeButtons=(
-        'mame-mame4all'
-    )
+        echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToRearrangeButtons=(
+            'mame-mame4all'
+        )
 
-    for emu in "${emulatorsToRearrangeButtons[@]}"; do
-        emu=($emu)
-        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
+        for emu in "${emulatorsToRearrangeButtons[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
 
-#Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
-#SF2 L punch = b_btn
-#SF2 M punch = a_btn
-#SF2 H punch = y_btn
-#SF2 L kick =  x_btn
-#SF2 M kick =  l_btn
-#SF2 H kick =  r_btn
+    #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
+    #SF2 L punch = b_btn
+    #SF2 M punch = a_btn
+    #SF2 H punch = y_btn
+    #SF2 L kick =  x_btn
+    #SF2 M kick =  l_btn
+    #SF2 H kick =  r_btn
 
-#MK2 L punch = x_btn
-#MK2 H punch = a_btn
-#MK2 Block = y_btn
-#MK2 L kick = l_btn
-#MK2 H kick = b_btn
+    #MK2 L punch = x_btn
+    #MK2 H punch = a_btn
+    #MK2 Block = y_btn
+    #MK2 L kick = l_btn
+    #MK2 H kick = b_btn
 
-#ForgottenWorlds rotateCCW l_btn
-#ForgottenWorlds rotateCW r_btn
+    #ForgottenWorlds rotateCCW l_btn
+    #ForgottenWorlds rotateCW r_btn
 
-#GenericGame Fire b_btn
-#GenericGame Jump a_btn
-#insert coin -> L3 instead of Select to avoid conflicts in some games
-        iniSet "input_player1_select_btn" "1"
-        iniSet "input_player1_l_btn" "10"
-        iniSet "input_player1_r_btn" "11"
-        iniSet "input_player1_x_btn" "12"
-        iniSet "input_player1_y_btn" "13"
-        iniSet "input_player1_a_btn" "14"
-        iniSet "input_player1_b_btn" "15"
+    #GenericGame Fire b_btn
+    #GenericGame Jump a_btn
+    #insert coin -> L3 instead of Select to avoid conflicts in some games
+            iniSet "input_player1_select_btn" "1"
+            iniSet "input_player1_l_btn" "10"
+            iniSet "input_player1_r_btn" "11"
+            iniSet "input_player1_x_btn" "12"
+            iniSet "input_player1_y_btn" "13"
+            iniSet "input_player1_a_btn" "14"
+            iniSet "input_player1_b_btn" "15"
 
-        iniSet "input_player2_select_btn" "1"
-        iniSet "input_player2_l_btn" "10"
-        iniSet "input_player2_r_btn" "11"
-        iniSet "input_player2_x_btn" "12"
-        iniSet "input_player2_y_btn" "13"
-        iniSet "input_player2_a_btn" "14"
-        iniSet "input_player2_b_btn" "15"
+            iniSet "input_player2_select_btn" "1"
+            iniSet "input_player2_l_btn" "10"
+            iniSet "input_player2_r_btn" "11"
+            iniSet "input_player2_x_btn" "12"
+            iniSet "input_player2_y_btn" "13"
+            iniSet "input_player2_a_btn" "14"
+            iniSet "input_player2_b_btn" "15"
 
-        iniSet "input_player3_select_btn" "1"
-        iniSet "input_player3_l_btn" "10"
-        iniSet "input_player3_r_btn" "11"
-        iniSet "input_player3_x_btn" "12"
-        iniSet "input_player3_y_btn" "13"
-        iniSet "input_player3_a_btn" "14"
-        iniSet "input_player3_b_btn" "15"
+            iniSet "input_player3_select_btn" "1"
+            iniSet "input_player3_l_btn" "10"
+            iniSet "input_player3_r_btn" "11"
+            iniSet "input_player3_x_btn" "12"
+            iniSet "input_player3_y_btn" "13"
+            iniSet "input_player3_a_btn" "14"
+            iniSet "input_player3_b_btn" "15"
 
-        iniSet "input_player4_select_btn" "1"
-        iniSet "input_player4_l_btn" "10"
-        iniSet "input_player4_r_btn" "11"
-        iniSet "input_player4_x_btn" "12"
-        iniSet "input_player4_y_btn" "13"
-        iniSet "input_player4_a_btn" "14"
-        iniSet "input_player4_b_btn" "15"
+            iniSet "input_player4_select_btn" "1"
+            iniSet "input_player4_l_btn" "10"
+            iniSet "input_player4_r_btn" "11"
+            iniSet "input_player4_x_btn" "12"
+            iniSet "input_player4_y_btn" "13"
+            iniSet "input_player4_a_btn" "14"
+            iniSet "input_player4_b_btn" "15"
 
+        done
     done
 
     echo "Configuring Dreamcast Reicast PS3 controls..."
