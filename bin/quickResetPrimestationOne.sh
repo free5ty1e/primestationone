@@ -5,11 +5,11 @@ function pause()
     read -p "$*"
 }
 
-cowsay -f eyes Shrinking swap to 10MB to make room for a reset on a 2.1GB filesystem...
-sudo bash -c "echo CONF_SWAPSIZE=1 > /etc/dphys-swapfile"
-cat /etc/dphys-swapfile
-sudo /etc/init.d/dphys-swapfile stop
-sudo /etc/init.d/dphys-swapfile start
+#cowsay -f eyes Shrinking swap to 10MB to make room for a reset on a 2.1GB filesystem...
+#sudo bash -c "echo CONF_SWAPSIZE=1 > /etc/dphys-swapfile"
+#cat /etc/dphys-swapfile
+#sudo /etc/init.d/dphys-swapfile stop
+#sudo /etc/init.d/dphys-swapfile start
 
 echo Applying various APT fixes just in case there is a problem in the package manager...
 sudo apt-get -fy install
@@ -48,7 +48,6 @@ rewindGameboyColorEnable.sh
 rewindMastersystemEnable.sh
 psxAnalogEnable.sh
 
-installMegaTools.sh
 quickUpdatePrimestationOneFiles.sh
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
 controllerConfigConstruction.sh
