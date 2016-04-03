@@ -47,3 +47,9 @@ rewindGameboyEnable.sh
 rewindGameboyColorEnable.sh
 rewindMastersystemEnable.sh
 psxAnalogEnable.sh
+
+installMegaTools.sh
+quickUpdatePrimestationOneFiles.sh
+sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
+controllerConfigConstruction.sh
+reinstallBashWelcomeTweak.sh

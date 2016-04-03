@@ -7,6 +7,14 @@ source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 
 md_build="/home/pi/temp/joypadautoconfig"
 emudir="/opt/retropie/emulators"
+configdir="$emudir/retroarch/configs"
+legacyconfigsdir="$configdir"
+allconfigsdir="$configdir/all/retroarch-joypads"
+
+configdirs=(
+    "$legacyconfigsdir"
+    "$allconfigsdir"
+)
 
 function remap_hotkeys_retroarchautoconf() {
     local file="$1"
@@ -74,31 +82,40 @@ if [ -d "$md_build/udev" ]; then
     echo Mapping any non-libretrocore emulators that we know how...
     n64SetupPs3Controls.sh
 
-    echo Wiping out any existing controller autoconfigs
-    sudo rm -rf "$emudir/retroarch/configs"
+#    echo Wiping out any existing controller autoconfigs
+#    sudo rm -rf "$configdir"
 
-    echo Installing retroarch joypad base autoconfigs...
-    sudo mkdir -p "$emudir/retroarch/configs/"
+    for whichconfigdir in configdirs; do
+        echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
+        sudo mkdir -p "$whichconfigdir/"
 
-    echo Stripping CRs from the autoconfigs....
-    cd "$md_build/udev/"
-    for file in *; do
-        sudo tr -d '\015' <"$file" >"$emudir/retroarch/configs/$file"
-        sudo chown $user:$user "$emudir/retroarch/configs/$file"
-    done
-
-    echo Mapping special functions to match Primestation splashscreen...
-    printMsgs "console" "Remapping controller hotkeys"
-
-    find "$emudir/retroarch/configs/" -print0 | while read -d $'\0' file
-        do
-            remap_hotkeys_retroarchautoconf "$file"
+        echo Stripping CRs from the autoconfigs....
+        cd "$md_build/udev/"
+        for file in *; do
+            sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
+            sudo chown $user:$user "$whichconfigdir/$file"
         done
 
-    echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
-    rm -v /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
-    cp -v /opt/retropie/emulators/retroarch/configs/PS3Controller.cfg /opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg
-    iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "/opt/retropie/emulators/retroarch/configs/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+        echo Mapping special functions to match Primestation splashscreen...
+        printMsgs "console" "Remapping controller hotkeys"
+
+        find "$whichconfigdir/" -print0 | while read -d $'\0' file
+            do
+                remap_hotkeys_retroarchautoconf "$file"
+            done
+
+        echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
+        rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg
+        cp -v "$whichconfigdir/PS3Controller.cfg $allconfigsdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+        iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/ Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+
+        echo "Adding configs to support newer (2015+) ShanWan generic PS3 controllers too..."
+        sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad.cfg
+        iniSet "input_device" "ShanWan PS(R) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
+
+        sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad2.cfg
+        iniSet "input_device" "ShanWan PS(R) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+    done
 
 
     echo Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine...
@@ -115,7 +132,7 @@ if [ -d "$md_build/udev" ]; then
 
     for emu in "${emulatorsToButtonSwap[@]}"; do
         emu=($emu)
-        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
         iniSet "input_player1_y_btn" "13"
         iniSet "input_player1_a_btn" "14"
         iniSet "input_player1_b_btn" "15"
@@ -141,7 +158,7 @@ if [ -d "$md_build/udev" ]; then
 
     for emu in "${emulatorsToButtonSwapReverse[@]}"; do
         emu=($emu)
-        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
         iniSet "input_player1_y_btn" "13"
         iniSet "input_player1_a_btn" "15"
         iniSet "input_player1_b_btn" "14"
@@ -166,7 +183,7 @@ if [ -d "$md_build/udev" ]; then
 
     for emu in "${emulatorsToRearrangeButtons[@]}"; do
         emu=($emu)
-        iniConfig " = " "" "/opt/retropie/configs/$emu/retroarch.cfg"
+        iniConfig " = " "" "$configdir/$emu/retroarch.cfg"
 
 #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
 #SF2 L punch = b_btn
@@ -224,13 +241,6 @@ if [ -d "$md_build/udev" ]; then
 
     echo Configuring Dreamcast Reicast PS3 controls...
     python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
-
-    echo "Adding configs to support newer (2015+) ShanWan generic PS3 controllers too..."
-    sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad.cfg
-    iniSet "input_device" "ShanWan PS(R) Ga\`epad" "/opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad.cfg" >/dev/null
-
-    sudo cp -v /opt/retropie/emulators/retroarch/configs/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg /opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad2.cfg
-    iniSet "input_device" "ShanWan PS(R) Gamepad" "/opt/retropie/emulators/retroarch/configs/ShanWanPS3Gamepad2.cfg" >/dev/null
 
 else
     echo Clone unsuccessful!  Unable to proceed with joypad autoconfig update....
