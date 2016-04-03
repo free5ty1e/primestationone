@@ -33,7 +33,7 @@ The point of the Primestation One is to be able to massively retrogame from the 
 
 ##### PrimeStation One Quick Setup and Gaming Montage (extremely amateur) video: https://www.youtube.com/watch?v=70sQS6AAMNU
 
-##### Other helpful links / organized documentation
+##### Other helpful links / organized documentation:
 * PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
 * PrimeStation One fork of qtsixad PS3 controller driver source code:
