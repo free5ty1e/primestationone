@@ -114,7 +114,7 @@ if [ -d "$md_build/udev" ]; then
         echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
         rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
         cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
-        iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/ Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+        iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
         echo "Adding configs to support ShanWan generic PS3 controllers too..."
         sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
