@@ -184,8 +184,8 @@ All plans for future enhancements are now documented as individual Primestation 
 Comments / suggestions / contributions to the code welcome!  
 
 ### CREDITS
-* Chris "Prime" Paiano (Founder, Lead Developer) - Twitter: @ChrisPaiano
-* "Circuit Static" (User Experience, Quality, Development & Marketing) - Twitter: @CircuitStatic
+* Chris "Prime" Paiano (Founder, Lead Developer) - Twitter: @ChrisPaiano https://twitter.com/ChrisPrimeish
+* "Circuit Static" (User Experience, Quality, Development & Marketing) - Twitter: @circuitStatic https://twitter.com/circuitStatic
 
 ....
 
