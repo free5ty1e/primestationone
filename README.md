@@ -38,8 +38,8 @@ The point of the Primestation One is to be able to massively retrogame from the 
 https://github.com/free5ty1e/primestationone-estheme
 * PrimeStation One fork of qtsixad PS3 controller driver source code:
 https://github.com/free5ty1e/qtsixa
-* Installing fresh and / or building from sources: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/installfresh.md
 * Transferring Primestation to run directly on USB instead of SD: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/usbinstall.md
+* Installing fresh and / or building from sources: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/installfresh.md
 * Changelog: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/changelog.md
 * TROUBLESHOOTING: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/troubleshooting.md
 
