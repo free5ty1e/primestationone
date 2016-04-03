@@ -63,6 +63,7 @@ sudo rm /usr/local/bin/installPs3GenericFriendlyDriver.sh
 sudo rm /usr/local/bin/installPs3ExperimentalGasiaDriver.sh
 sudo rm /usr/local/bin/installPs3ExperimentalUniversalGenericFriendlyDriver.sh
 sudo rm /usr/local/bin/installPs3ShanWanAndSonyFriendlyDriver.sh
+sudo rm /usr/local/bin/upgradePrimestationV1_0000betaAndUpToV1.10beta.sh
 
 
 echo Creating required folders...
