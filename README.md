@@ -15,7 +15,6 @@ http://goo.gl/RPKAr1
 * [![QR Code For Play Store](https://raw.githubusercontent.com/free5ty1e/primestationone-control-android/master/app/src/main/res/drawable-nodpi/qrcode.png)](https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol)
 * https://play.google.com/store/apps/details?id=com.chrisprime.primestationonecontrol
 
-
 #### PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
 
@@ -27,7 +26,7 @@ https://github.com/free5ty1e/qtsixa
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch on minimal hardware, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
-* For Raspberry Pi 1 and 2, Pi2 recommended for full compatibility (N64 and PSX are unplayable on Pi1, several systems unavailable on Pi1 -- Dreamcast, Saturn, SNES Mouse, etc)
+* For Raspberry Pi 1,2, and 3 - minimum Pi2 recommended for full compatibility (N64 and PSX are unplayable on Pi1, several systems unavailable on Pi1 -- Dreamcast, Saturn, SNES Mouse, etc)
 * PS3 sixaxis controller controls ready and configured to work with Bluetooth or USB on multiple games and game system emulations
 * 100 separate and easily-accessible save states per game
 * Rewind feature turns all retro games into Braid or Prince Of Persia: Sands of Time and is togglable per system
@@ -43,32 +42,21 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * http://amzn.com/B00M55C1I2 - OR 64GB SD card for even more maximum gameage (PlayStation1 and Dreamcast ROMS are not small!)
 
 ##### Here is a list of all the officially supported systems on the PrimeStation One, running full speed:
-* Atari 800
-* Atari 2600
-* Atari 5200
-* Atari ST / Falcon
-* Atari Lynx
+* Atari 800, 2600, 5200, ST / Falcon, Lynx
 * Nintendo Entertainment System (NES)
 * Game Boy and Game Boy Color
-* Super NES (SNES)
-* Super NES with SNES Mouse support for Mario Paint
+* Super NES (SNES), including Mario Paint with USB mouse support
 * Sony Playstation One (PSX / PS1)
-* Sega Master System
-* Sega SG-1000
-* Sega Genesis / Megadrive
-* Sega CD
-* Sega 32x
-* Commodore 64
-* Amiga
+* Sega Master System, SG-1000, Genesis / Megadrive, Sega CD, 32x
+* Commodore 64, Amiga 500 / 1000 / 1500 / etc
 * Neo Geo
 * MAME (specifically for older MAME 37b5 ROMS)
 * MSX
 * TurboGrafx-16 (PC-Engine)
 * DOS / IBM-PC / MS-DOS
 * Infocom ZMachine (Zork I, II, III)
-* SCUMMVM (for many DOS adventure games)
-* Apple ][
-* Apple Macintosh Classic (Up to OS 8)
+* SCUMMVM (for many DOS adventure games such as Day of the Tentacle)
+* Apple ][, Macintosh Classic (Up to OS 8)
 * Sinclair ZX Spectrum
 * Intellivision
 * Amstrad CPC
@@ -91,61 +79,24 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Sega Dreamcast
 
 
-
-#### Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
+=============
+####Please Note: The PrimeStation One's main driving force is to do ALL THE THINGS!
 =============
 
-## New features v1.0000beta 2016.04.01: (Pi1, Pi2 images released 2016.04.01)
-Release tweet:
-https://twitter.com/ChrisPrimeish/status/716110179507437568
-
-* Most generic "ShanWan" as well as "Gasia" PS3 controllers are now supported via Bluetooth, and of course coexist with genuine Sony controllers.  Most will even rumble and show the LED animation during connection.  All the controllers pictured here can now be utilized with the Primestation: 
-![SupportedGenericControllers](http://i.imgur.com/51iynW9.png)
-* Experimental FFMPEG-based RetroArch emulator recording is now possible; an experimental NESTOPIA menu entry has been added to emulate and record MPG videos of you playing games, although you will probably have to disable rewind in order to play the game at a reasonable framerate while this is occurring.  The video produced looks something like this, so far no audio configured:
-https://mega.nz/#!PIdHBLhC!WkaSX4_9otzCO74-7Qz1xQEBJetxHiWDKJ_Y2h09rXY
-
-## New features v1.0000alpha 2016.03.26: (Pi1, Pi2 images released 2016.03.28, and Pi3 support is under development...)
-Release tweet:
-https://twitter.com/ChrisPrimeish/status/716110179507437568
-
-* Later model / 2015+ Generic "ShanWan" PS3 controllers now supported via Bluetooth
-* Swapped SELECT and PS3 buttons; now hold the PS3 button to enable the other hotkeys instead of SELECT.  This enables SELECT as a usable button in games again, and enables many nice things (like screenshotting without having to emulator-pause to avoid advancing the game with SELECT, as in FF2)
-
-
-#### Installing on a fresh RetroPie image (Pi1, Pi2):
+####Installing over a fresh RetroPie image:
 ```
-rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && installPs3SonyOnlyDriver.sh
+rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && installPs3SonyOnlyDriver.sh && finishPrimestationInstall.sh
 ```
 
 ...you will end up on the RetroPie PS3 driver installation menu, choose your driver here.  The normal driver works great with Sony controllers.  My fork of qtsixad does not work on Jessie yet, so I am experimenting with this.
 
-##### Installing on a fresh RetroPie image (Pi3):
+#####Installing on a fresh RetroPie image (Pi3):
 Perform the above command, and then:
 ```
 finishPrimestationInstallPi3.sh
 ```
 
-
-## NOTE:
-primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later (This is also the same command sequence one should use to install the PrimeStation One over top of a fresh vanilla RetroPie image.  It is all in one line so it is easy to copy / paste into a terminal window SSH session):
-```
-rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && sudo service dphys-swapfile stop && sudo rm /var/swap && installDescent1and2.sh && upgrade2gMinPrimestationToFull.sh
-```
-
-ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.  Using the above command sequence, you will end up with the Primestation One theme installed and selected.
-
-##NOTE ABOUT USING PS3 CONTROLLERS VIA USB
-It is important to note that as much automation was integrated as was possible... this includes the automatic PS3 bluetooth controller pairing procedure that fires at the moment a PS3 controller is plugged in via USB while the system is powered on.  
-
-This makes it extremely easy to use PS3 controllers via bluetooth; just like a real PS3, to pair a new controller to the Primestation One, just plug it in via USB while the system is powered on.
-
-If you have no compatible bluetooth adapter, your USB PS3 connection should work just fine. 
-
-If you have a bluetooth adapter but want to use PS3 controllers over USB anyway, you will need to remove your bluetooth adapter anyway to stop the aggressive automatic PS3 bluetooth first-time pairing procedure; when plugging a controller in via USB, the Primestation tells that controller to pair with the Primestation (just like the PS3 handles controllers).  It is currently not easy to mix bluetooth and USB PS3 controller connections on the same Primestation simultaneously (you'd have to manually disable the PS3 USB connection rule).
-
-##### Some additional tips for USB PS3'ing:
-* Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
-* If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
+Changelog: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/changelog.md
 
 ## BASIC USAGE and DOWNLOADS
 ###  Download the latest primeStationOne image archive (and any other modules / tools you are interested in) from the following MEGA (mega.co.nz) share: http://goo.gl/RPKAr1
@@ -179,15 +130,29 @@ Here are the commands to write the image file on Mac and Linux with a progress b
 Go here for Windows install instructions
 http://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
-#### First time running PrimeStation One from ready-to-go 4GB SD card image
-Starting with v0.9998, the full-featured 4GB SD card image (if available) is ready to use (and also the only way to go now)!  
+###NOTE ABOUT USING PS3 CONTROLLERS VIA USB
+It is important to note that as much automation was integrated as was possible... this includes the automatic PS3 bluetooth controller pairing procedure that fires at the moment a PS3 controller is plugged in via USB while the system is powered on.  
+
+This makes it extremely easy to use PS3 controllers via bluetooth; just like a real PS3, to pair a new controller to the Primestation One, just plug it in via USB while the system is powered on.
+
+If you have no compatible bluetooth adapter, your USB PS3 connection should work just fine. 
+
+If you have a bluetooth adapter but want to use PS3 controllers over USB anyway, you will need to remove your bluetooth adapter anyway to stop the aggressive automatic PS3 bluetooth first-time pairing procedure; when plugging a controller in via USB, the Primestation tells that controller to pair with the Primestation (just like the PS3 handles controllers).  It is currently not easy to mix bluetooth and USB PS3 controller connections on the same Primestation simultaneously (you'd have to manually disable the PS3 USB connection rule).
+
+##### Some additional tips for USB PS3'ing:
+* Keep in mind that while a PS3 controller is connected via USB, it will draw a good 500+mA of current from your Raspberry Pi's precious power source!  If you only have a 1.5A or less, you probably don't have this much to spare - and the result will be the entire USB bus will be shut down!  
+* If you have several PS3 controllers plugged in via USB, it's best to have either a beefy power supply for the Pi or a powered USB 2.0 hub to connect them through in order to avoid glitchy power supply issues.
+
+
+#### First time running PrimeStation One from ready-to-go 8GB SD card image
+Starting with v1.0000alpha, the full-featured 8GB SD card image (if available) is ready to use (and also the only way to go now)!  
 
 First, decide if you want to run the PrimeStation One from the SD card only or do you have a USB drive you'd like to dedicate to the system?  
 
-1. Either expand SD filesystem to fill your >4GB SD card (`sudo raspi-config` -> Expand Filesystem, also feel free to Overclock your Pi here if you have heat sinks or fans) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
+1. Either expand SD filesystem to fill your SD card (`sudo raspi-config` -> Expand Filesystem, also feel free to Overclock your Pi here if you have heat sinks or fans) or transfer root filesystem to USB (`usbRootFilesystemSetup.sh` and follow the instructions when prompted)
 2. Reboot
 
-#### Expanding your SD filesystem to fill your SD card > 4GB
+#### Expanding your SD filesystem to fill your SD card
 ...this is the "normal" method of running a Raspberry Pi, directly and only from an SD card.  SD card space is typically slower and more expensive when compared to USB storage, and it's great to have more space for ROMs, so we recommend you follow the next section and transfer your root filesystem to a dedicated USB drive.  However, if you'd prefer to run off SD only, simply run the following command:
 ```
 sudo raspi-config
@@ -292,8 +257,16 @@ quickResetPrimestationOne.sh
 Sometimes it might take a couple tries of connecting the controller via USB for ~10 seconds to the Primestation, then disconnect and press PS3 button to attempt connection before (especially generic) controllers might start actually trying to pair to the Primestation.  Even once connected, they may not respond without reconnecting a couple more times and possibly restarting the Primestation.  This only seems to occur when connecting many different types of controllers, as I did during testing...
 
 
+######NOTE:
+primeStationOne images / installations older than v0.951alpha can not be automatically updated to the latest by simply running the quick update script.  They must run the following commands to purge and recreate the git repository, since it has been recreated on GitHub for v0.951alpha and later (This is also the same command sequence one should use to install the PrimeStation One over top of a fresh vanilla RetroPie image.  It is all in one line so it is easy to copy / paste into a terminal window SSH session):
+```
+rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && sudo service dphys-swapfile stop && sudo rm /var/swap && installDescent1and2.sh && upgrade2gMinPrimestationToFull.sh
+```
 
-#### Building emulators from source / downloading binaries (RetroPie)
+ADDITIONALLY, with v0.951alpha comes the decoupling of the primestationone theme from the repo.  The theme will be available separately in the same share as the PrimeStationOne image (below).  The theme no longer overwrites the Simple theme, there is a Primestation theme to select in the EmulationStation menu now.  Using the above command sequence, you will end up with the Primestation One theme installed and selected.
+
+
+### Building emulators from source / downloading binaries (RetroPie)
 Type the follwing to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source:
 
 ```
