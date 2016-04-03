@@ -114,7 +114,7 @@ https://twitter.com/ChrisPrimeish/status/716110179507437568
 
 #### Installing on a fresh RetroPie image (Pi1, Pi2):
 ```
-rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installMegaTools.sh && installPs3RecommendedDriver.sh && reinstallBashWelcomeTweak.sh
+rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && quickResetPrimestationOne.sh && installPs3SonyOnlyDriver.sh
 ```
 
 ##### Installing on a fresh RetroPie image (Pi3):
