@@ -14,6 +14,7 @@ fancy_console_message "Generating splashscreen ANSI art..." unipony
 ansize splashscreen.png splashscreen.ansi 160
 
 fancy_console_message "Generating Beavis and Butthead ANSI art..." unipony
+rm beavis_butthead.jpg
 wget https://pbs.twimg.com/profile_images/2221189782/beavis_butthead.jpg
 ansize beavis_butthead.jpg beavis_butthead.ansi 160
 
