@@ -14,6 +14,7 @@ else
     echo "export GOPATH=$HOME/gocode" >> "$HOME/.bash_profile"
 fi
 
+export "GOPATH=$HOME/gocode"
 go get github.com/nfnt/resize
 go get github.com/jhchen/ansize
 

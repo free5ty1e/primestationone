@@ -15,6 +15,7 @@ function install_go_and_ansize() {
         echo "export GOPATH=$HOME/gocode" >> "$HOME/.bash_profile"
     fi
 
+    export "GOPATH=$HOME/gocode"
     go get github.com/nfnt/resize
     go get github.com/jhchen/ansize
 
@@ -61,7 +62,7 @@ then
     echo "createAnsiFontText.sh <filenamePrefix> <text1size> <text1color> <text1font> <text1> <text2size> <text2color> <text2font> <text2> <text3size> <text3color> <text3font> <text3> <text4size> <text4color> <text4font> <text4> [ansiWidthInChars] [backgroundColor] [marginSquash]"
     echo ""
     echo "Example:"
-    echo "createAnsiFontText.sh primestationfancytextimage 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00' 160 'black' 35"
+    echo "createAnsiFontText.sh primestationfancytextimage 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00' 'black' 35 160"
     echo "...will create a primestationfancytextimage.png and a primestationfancytextimage.ansi (160 characters wide) on a black background with the specified 4 lines of text in the specified colors all sized at 200pt and a marginsquash of 35pt (larger = less vertical space between text, possibly overlapping)"
     echo "."
     echo ""
