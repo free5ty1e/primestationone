@@ -157,46 +157,46 @@ else
     echo "Text2: $text2"
 
     #Text Line 3:
-    size3=$10
+    size3=${10}
     echo "Size3: $size3 pt."
-    color3="$11"
+    color3="${11}"
     echo "Color3: $color3"
-    font3="$12"
+    font3="${12}"
     echo "Font3: $font3"
-    text3="$13"
+    text3="${13}"
     echo "Text3: $text3"
 
     #Text Line 4:
-    size4=$14
+    size4=${14}
     echo "Size4: $size4 pt."
-    color4="$15"
+    color4="${15}"
     echo "Color4: $color4"
-    font4="$16"
+    font4="${16}"
     echo "Font4: $font4"
-    text4="$17"
+    text4="${17}"
     echo "Text4: $text4"
 
-    if [ -z "$18" ]
+    if [ -z "${18}" ]
     then
         canvasbackgroundcolor='black'
     else
-        canvasbackgroundcolor="$18"
+        canvasbackgroundcolor="${18}"
     fi
     echo "CanvasBackgroundColor: $canvasbackgroundcolor"
 
-    if [ -z "$19" ]
+    if [ -z "${19}" ]
     then
         marginsquash=35
     else
-        marginsquash=$19
+    marginsquash=${19}
     fi
     echo "MarginSquash: $marginsquash"
 
-    if [ -z "$20" ]
+    if [ -z "${20}" ]
     then
         ansicharwidth=160
     else
-        ansicharwidth=$20
+        ansicharwidth=${20}
     fi
     echo "AnsiCharacterWidth: $ansicharwidth"
 
