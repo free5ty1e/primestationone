@@ -18,5 +18,5 @@ wget https://pbs.twimg.com/profile_images/2221189782/beavis_butthead.jpg
 ansize beavis_butthead.jpg beavis_butthead.ansi 160
 
 primestationversion=$(cat /home/pi/primestationone/reference/txt/version.txt)
-createAnsiFontText.sh primestationfancytextimage 'black' 35 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' "$primestationversion"
+createAnsiFontText.sh primestationfancytextimage 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' "$primestationversion"
 popd
