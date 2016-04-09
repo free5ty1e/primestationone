@@ -137,45 +137,44 @@ then
             echo "Font2: $font2"
             text2="$3"
             echo "Text2: $text2"
-        fi
 
-        #Optional Text Line 3:
-        if [ -z "$4" ]
-        then
-            echo "No text3!"
+            #Optional Text Line 3:
+            if [ -z "$4" ]
+            then
+                echo "No text3!"
 
-            totalheight=$((size1+$size2-$marginsquash-$marginsquash+$fudgepixels))
-            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
-            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" canvas.png "$filenameprefix.png"
+                totalheight=$((size1+$size2-$marginsquash-$marginsquash+$fudgepixels))
+                convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+                convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" canvas.png "$filenameprefix.png"
 
-        else
-            echo "Size3: $size3 pt."
-            echo "Color3: $color3"
-            echo "Font3: $font3"
-            text2="$4"
-            echo "Text3: $text3"
-        fi
+            else
+                echo "Size3: $size3 pt."
+                echo "Color3: $color3"
+                echo "Font3: $font3"
+                text2="$4"
+                echo "Text3: $text3"
 
-        #Optional Text Line 4:
-        if [ -z "$5" ]
-        then
-            echo "No text4!"
+                #Optional Text Line 4:
+                if [ -z "$5" ]
+                then
+                    echo "No text4!"
 
-            totalheight=$((size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
-            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
-            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" canvas.png "$filenameprefix.png"
+                    totalheight=$((size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
+                    convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+                    convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" canvas.png "$filenameprefix.png"
 
-        else
-            echo "Size4: $size4 pt."
-            echo "Color4: $color4"
-            echo "Font4: $font4"
-            text2="$5"
-            echo "Text4: $text4"
+                else
+                    echo "Size4: $size4 pt."
+                    echo "Color4: $color4"
+                    echo "Font4: $font4"
+                    text2="$5"
+                    echo "Text4: $text4"
 
-            totalheight=$((size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
-            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
-            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" -pointsize $size4 -fill "$color4" -draw "text 0,$(($size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash)) \"$text4\"" -font "$font4" canvas.png "$filenameprefix.png"
-
+                    totalheight=$((size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
+                    convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+                    convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" -pointsize $size4 -fill "$color4" -draw "text 0,$(($size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash)) \"$text4\"" -font "$font4" canvas.png "$filenameprefix.png"
+                fi
+            fi
         fi
         ansize "$filenameprefix.png" "$filenameprefix.ansi" $ansicharwidth
     fi
