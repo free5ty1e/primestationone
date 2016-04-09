@@ -152,7 +152,7 @@ then
                 echo "Size3: $size3 pt."
                 echo "Color3: $color3"
                 echo "Font3: $font3"
-                text2="$4"
+                text3="$4"
                 echo "Text3: $text3"
 
                 #Optional Text Line 4:
@@ -168,7 +168,7 @@ then
                     echo "Size4: $size4 pt."
                     echo "Color4: $color4"
                     echo "Font4: $font4"
-                    text2="$5"
+                    text4="$5"
                     echo "Text4: $text4"
 
                     totalheight=$((size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
