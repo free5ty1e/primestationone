@@ -97,7 +97,8 @@ then
         color4=${colors[$RANDOM % ${#colors[@]} ]}
 
         echo "Selecting random fonts..."
-        fonts=("Helvetica-BoldOblique" "URW-Palladio-L-Bold" "Bitstream-Charter-Bold" "Liberation-Mono-Bold" "DejaVu-Sans-Bold" "FreeSerif-Bold" "brown" "turquoise" "SlateGrey")
+        #TODO: Auto construct list of fonts from actual "convert -list font" call instead of hard-coding below
+        fonts=("Helvetica-BoldOblique" "URW-Palladio-L-Bold" "Bitstream-Charter-Bold" "Liberation-Mono-Bold" "DejaVu-Sans-Bold" "FreeSerif-Bold" "Courier-Bold" "Helvetica-BoldOblique" "NewCenturySchlbk-Bold" "Palatino-Bold")
         font1=${fonts[$RANDOM % ${#fonts[@]} ]}
         font2=${fonts[$RANDOM % ${#fonts[@]} ]}
         font3=${fonts[$RANDOM % ${#fonts[@]} ]}
