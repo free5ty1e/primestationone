@@ -120,12 +120,16 @@ convert -list font | grep Font:
 
 if [ -z "$19" ]
 then
-    echo "Usage: all 19 arguments are required!"
-    echo "createAnsiFontText.sh <filenamePrefix> <backgroundColor> <marginSquash> <text1size> <text1color> <text1font> <text1> <text2size> <text2color> <text2font> <text2> <text3size> <text3color> <text3font> <text3> <text4size> <text4color> <text4font> <text4>"
+    echo ""
+    echo "."
+    echo "Usage: the first 19 arguments are <required>!  The last 1 is [optional]."
+    echo "createAnsiFontText.sh <filenamePrefix> <backgroundColor> <marginSquash> <text1size> <text1color> <text1font> <text1> <text2size> <text2color> <text2font> <text2> <text3size> <text3color> <text3font> <text3> <text4size> <text4color> <text4font> <text4> [ansiWidthInChars]"
     echo ""
     echo "Example:"
-    echo "createAnsiFontText.sh primestationfancytextimage 'black' 35 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00'"
-    echo "...will create a primestationfancytextimage.png and a primestationfancytextimage.ansi on a black background with the specified 4 lines of text in the specified colors all sized at 200pt and a marginsquash of 35pt (larger = less vertical space between text, possibly overlapping)"
+    echo "createAnsiFontText.sh primestationfancytextimage 'black' 35 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00' 160"
+    echo "...will create a primestationfancytextimage.png and a primestationfancytextimage.ansi (160 characters wide) on a black background with the specified 4 lines of text in the specified colors all sized at 200pt and a marginsquash of 35pt (larger = less vertical space between text, possibly overlapping)"
+    echo "."
+    echo ""
 else
     fancy_console_message "Generating fancy text ANSI art..." unipony
 
@@ -178,12 +182,20 @@ else
     text4="$19"
     echo "Text4: $text4"
 
+    if [ -z "$20" ]
+    then
+        ansicharwidth=160
+    else
+        ansicharwidth=$20
+    fi
+    echo "AnsiCharacterWidth: $ansicharwidth"
+
     rm canvas.png
     fudgepixels=4
     totalheight=$((size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
     convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
-    convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" -pointsize $size4 -fill "$color4" -draw "text 0,$(($size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash)) \"$text4\"" -font "$font4" canvas.png primestationonetext.png
-    ansize primestationonetext.png primestationonetext.ansi $textsize
+    convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" -pointsize $size4 -fill "$color4" -draw "text 0,$(($size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash)) \"$text4\"" -font "$font4" canvas.png "$filenameprefix.png"
+    ansize "$filenameprefix.png" "$filenameprefix.ansi" $ansicharwidth
 fi
 
 popd
