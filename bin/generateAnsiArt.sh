@@ -18,6 +18,11 @@ rm beavis_butthead.jpg
 wget https://pbs.twimg.com/profile_images/2221189782/beavis_butthead.jpg
 ansize beavis_butthead.jpg beavis_butthead.ansi 160
 
+rm cornholio.jpg
+wget http://i.imgur.com/vHCzBxU.jpg
+mv vHCzBxU.jpg cornholio.jpg
+ansize cornholio.jpg cornholio.ansi 180
+
 #Listing fonts by calling without arguments:
 createAnsiFontText.sh
 #Font: AvantGarde-Book
