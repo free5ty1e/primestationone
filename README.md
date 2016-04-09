@@ -91,7 +91,7 @@ https://github.com/free5ty1e/qtsixa
 
 If you have managed to obtain one of these releases, extract the .7z archive so you have the .img file.  
 
-Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v0.9998 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 4GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 4GB SD card for other uses.
+Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v1.0000 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 8GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 8GB SD card for other uses.
 
 ####Install on Mac: 
 (`brew install pv` if you don't have pv.  If you don't have Homebrew, go to http://brew.sh/ and follow the instructions)   Replace the device `/dev/disk2` with your SD card designation (disk1, disk2, disk3...), and of course the image filename with the appropriate one (ending in `RPi1.img`, `RPi2.img`, or `RPi3.img`).
