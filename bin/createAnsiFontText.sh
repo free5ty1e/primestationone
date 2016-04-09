@@ -1,6 +1,54 @@
 #!/bin/bash
+
+function install_go_and_ansize() {
+    echo "Installing Go language and ANSIze image to ANSI converter..."
+
+    install_package_universal golang
+
+    mkdir "$HOME/gocode"
+
+    if [ -f "$HOME/.bashrc" ]; then
+        echo ".bashrc found, modifying..."
+        echo "export GOPATH=$HOME/gocode" >> "$HOME/.bashrc"
+    else
+        echo "no .bashrc, guessing .bash_profile, modifying..."
+        echo "export GOPATH=$HOME/gocode" >> "$HOME/.bash_profile"
+    fi
+
+    go get github.com/nfnt/resize
+    go get github.com/jhchen/ansize
+
+    sudo cp "$GOPATH/bin/ansize" /usr/local/bin/
+    ansize
+}
+
+function install_package_universal() {
+    echo "Installing package $1 on all known package managers because: why not..."
+
+    echo "CentOS / RedHat (yum) install, in case this be you..."
+    sudo yum -y install "$1"
+
+    echo "Debian (apt-get) install, in case this be you..."
+    sudo apt-get install -y "$1"
+
+    echo "Cygwin (pacman) install, in case this be you..."
+    sudo pacman -y install "$1"
+
+    echo "Mac OSX (brew) install, in case this be you..."
+    brew install "$1"
+}
+
+
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
-pushd ~
+pushd "$HOME"
+
+if [ ! -f "/usr/bin/convert" ]; then
+    install_package_universal imagemagick
+fi
+
+if [ ! -f "/usr/local/bin/ansize" ]; then
+    install_go_and_ansize
+fi
 
 if [ -z "${17}" ]
 then
