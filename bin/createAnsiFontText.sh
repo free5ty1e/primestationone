@@ -39,6 +39,27 @@ function install_package_universal() {
     brew install "$1"
 }
 
+function show_usage() {
+    echo "****Possible fonts are as follows..."
+    convert -list font | grep Font:
+
+    echo ""
+    echo "."
+    echo "****Usage: either the first 2-5 arguments are <required>, or the first 17 arguments are <required>!  The last 3 are [optional]."
+    echo ""
+    echo "**Syntax for 17-20 argument call:"
+    echo "createAnsiFontText.sh <filenamePrefix> <text1size> <text1color> <text1font> <text1> <text2size> <text2color> <text2font> <text2> <text3size> <text3color> <text3font> <text3> <text4size> <text4color> <text4font> <text4> [ansiWidthInChars] [backgroundColor] [marginSquash]"
+    echo ""
+    echo "**Syntax for 2-5 argument call: (will result in random font and random color for each text line, all sized @ 200pt && marginsquash of 35 && black background)"
+    echo "createAnsiFontText.sh <filenamePrefix> <text1> [text2] [text3] [text4]"
+    echo ""
+    echo "Example:"
+    echo "createAnsiFontText.sh primestationfancytextimage 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00' 'black' 35 160"
+    echo "...will create a primestationfancytextimage.png and a primestationfancytextimage.ansi (160 characters wide) on a black background with the specified 4 lines of text in the specified colors all sized at 200pt and a marginsquash of 35pt (larger = less vertical space between text, possibly overlapping)"
+    echo "."
+    echo ""
+}
+
 
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 pushd "$HOME"
@@ -53,21 +74,113 @@ fi
 
 if [ -z "${17}" ]
 then
-    echo "Possible fonts are as follows..."
-    convert -list font | grep Font:
+    if [ -z "$2" ]
+    then
+        show_usage
+    else    #if parameter 17 is empty but parameter 2 is not, then assume we want to just pass in the filenameprefix and up to 4 strings
+        fancy_console_message "Generating fancy text ANSI art from short-form call..." vader
+        sizeall=200
+        filenameprefix="$1"
+        echo "Filename prefix: $filenameprefix"
 
-    echo ""
-    echo "."
-    echo "Usage: the first 17 arguments are <required>!  The last 3 are [optional]."
-    echo "createAnsiFontText.sh <filenamePrefix> <text1size> <text1color> <text1font> <text1> <text2size> <text2color> <text2font> <text2> <text3size> <text3color> <text3font> <text3> <text4size> <text4color> <text4font> <text4> [ansiWidthInChars] [backgroundColor] [marginSquash]"
-    echo ""
-    echo "Example:"
-    echo "createAnsiFontText.sh primestationfancytextimage 200 'white' 'Helvetica-BoldOblique' '.P.R.I.M.E.' 200 'yellow' 'URW-Palladio-L-Bold' '.S.T.A.T.I.O.N.' 200 'blue' 'Bitstream-Charter-Bold' '.O.N.E.' 200 'green' 'Liberation-Mono-Bold' 'v1.00' 'black' 35 160"
-    echo "...will create a primestationfancytextimage.png and a primestationfancytextimage.ansi (160 characters wide) on a black background with the specified 4 lines of text in the specified colors all sized at 200pt and a marginsquash of 35pt (larger = less vertical space between text, possibly overlapping)"
-    echo "."
-    echo ""
+        echo "Setting default sizes..."
+        size1=$sizeall
+        size2=$sizeall
+        size3=$sizeall
+        size4=$sizeall
+
+        echo "Selecting random colors..."
+        colors=("white" "yellow" "orange" "red" "green" "blue" "brown" "turquoise" "SlateGrey")
+        color1=${colors[$RANDOM % ${#colors[@]} ]}
+        color2=${colors[$RANDOM % ${#colors[@]} ]}
+        color3=${colors[$RANDOM % ${#colors[@]} ]}
+        color4=${colors[$RANDOM % ${#colors[@]} ]}
+
+        echo "Selecting random fonts..."
+        fonts=("Helvetica-BoldOblique" "URW-Palladio-L-Bold" "Bitstream-Charter-Bold" "Liberation-Mono-Bold" "DejaVu-Sans-Bold" "FreeSerif-Bold" "brown" "turquoise" "SlateGrey")
+        font1=${fonts[$RANDOM % ${#fonts[@]} ]}
+        font2=${fonts[$RANDOM % ${#fonts[@]} ]}
+        font3=${fonts[$RANDOM % ${#fonts[@]} ]}
+        font4=${fonts[$RANDOM % ${#fonts[@]} ]}
+
+        canvasbackgroundcolor='black'
+        echo "CanvasBackgroundColor: $canvasbackgroundcolor"
+
+        marginsquash=35
+        echo "MarginSquash: $marginsquash"
+
+        ansicharwidth=160
+        echo "AnsiCharacterWidth: $ansicharwidth"
+
+        rm canvas.png
+        fudgepixels=4
+
+        #Text Line 1:
+        echo "Size1: $size1 pt."
+        echo "Color1: $color1"
+        echo "Font1: $font1"
+        text1="$2"
+        echo "Text1: $text1"
+
+        #Optional Text Line 2:
+        if [ -z "$3" ]
+        then
+            echo "No text2!"
+
+            totalheight=$((size1-$marginsquash+$fudgepixels))
+            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" canvas.png "$filenameprefix.png"
+
+        else
+            echo "Size2: $size2 pt."
+            echo "Color2: $color2"
+            echo "Font2: $font2"
+            text2="$3"
+            echo "Text2: $text2"
+        fi
+
+        #Optional Text Line 3:
+        if [ -z "$4" ]
+        then
+            echo "No text3!"
+
+            totalheight=$((size1+$size2-$marginsquash-$marginsquash+$fudgepixels))
+            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" canvas.png "$filenameprefix.png"
+
+        else
+            echo "Size3: $size3 pt."
+            echo "Color3: $color3"
+            echo "Font3: $font3"
+            text2="$4"
+            echo "Text3: $text3"
+        fi
+
+        #Optional Text Line 4:
+        if [ -z "$5" ]
+        then
+            echo "No text4!"
+
+            totalheight=$((size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
+            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" canvas.png "$filenameprefix.png"
+
+        else
+            echo "Size4: $size4 pt."
+            echo "Color4: $color4"
+            echo "Font4: $font4"
+            text2="$5"
+            echo "Text4: $text4"
+
+            totalheight=$((size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash+$fudgepixels))
+            convert -size "1920x$totalheight" xc:"$canvasbackgroundcolor" canvas.png
+            convert -pointsize $size1 -fill "$color1" -draw "text 0,$(($size1-$marginsquash)) \"$text1\"" -font "$font1" -pointsize $size2 -fill "$color2" -draw "text 0,$(($size1+$size2-$marginsquash-$marginsquash)) \"$text2\"" -font "$font2" -pointsize $size3 -fill "$color3" -draw "text 0,$(($size1+$size2+$size3-$marginsquash-$marginsquash-$marginsquash)) \"$text3\"" -font "$font3" -pointsize $size4 -fill "$color4" -draw "text 0,$(($size1+$size2+$size3+$size4-$marginsquash-$marginsquash-$marginsquash-$marginsquash)) \"$text4\"" -font "$font4" canvas.png "$filenameprefix.png"
+
+        fi
+        ansize "$filenameprefix.png" "$filenameprefix.ansi" $ansicharwidth
+    fi
 else
-    fancy_console_message "Generating fancy text ANSI art..." unipony
+    fancy_console_message "Generating fancy text ANSI art from long-form call..." unipony
 
     filenameprefix="$1"
     echo "Filename prefix: $filenameprefix"
