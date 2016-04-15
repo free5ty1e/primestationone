@@ -1,6 +1,12 @@
 ####Installing over a fresh RetroPie image:
+
+You'll probably first want to run `sudo raspi-config`, update the raspi-config tool itself from Advanced, and set up things like your memory split, overclock, and internationalization options.  (Probably also reboot after this.)
+
+Then, run `sudo ~/RetroPie-Setup/retropie_setup.sh` and navigate the menu to update the RetroPie script, install the appropriate PS3 driver(s) for your needs, set up your wifi connection if needed (ethernet really is recommended), and configure your system the way you'd like.  (Probably also reboot after this.)
+
+Then, make sure you are connected to the Internet, and copy / paste the following command into your Pi via a nice handy SSH session (or type it, whatever):
 ```
-rm -rf ~/primestationone && pushd ~ && git clone https://github.com/free5ty1e/primestationone.git && popd && ~/primestationone/bin/installPrimeStationOneFiles.sh && finishPrimestationInstall.sh
+pushd ~ && rm -rf primestationone && git clone https://github.com/free5ty1e/primestationone.git && primestationone/bin/installPrimeStationOneFiles.sh && popd && finishPrimestationInstall.sh
 ```
 
 ...you will end up on the RetroPie PS3 driver installation menu, choose your driver here.  The normal driver works great with Sony controllers.  My fork of qtsixad does not work on Jessie yet, so I am experimenting with this.
