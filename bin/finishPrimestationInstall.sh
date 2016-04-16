@@ -52,11 +52,13 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame2010
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
 
-installWindowedModeLxde.sh
 
 #PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
+
+installMpegRecordingCapability.sh
+installWindowedModeLxde.sh
 
 #TODO: Fix reicast install!!!
 #installReicastPrimestationEdition.sh
