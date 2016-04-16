@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#PrimestationPrep:
-quickResetPrimestationOne.sh
-installMegaTools.sh
-installReicastPrimestationEdition.sh
-#installDescent1and2.sh
-
 #Setup all available RetroPie binaries:
 sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 
@@ -58,7 +52,17 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame2010
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
 
-#TODO: Windowed mode / LXDE
+installWindowedModeLxde.sh
+
+#PrimestationPrep:
+quickResetPrimestationOne.sh
+installMegaTools.sh
+
+#TODO: Fix reicast install!!!
+#installReicastPrimestationEdition.sh
+#sudo ~/RetroPie-Setup/retropie_packages.sh reicast
+
+#installDescent1and2.sh
 
 #TODO: Fix qtsixa Primestation edition universal driver instead of using this:
 installPs3SonyOnlyDriver.sh
