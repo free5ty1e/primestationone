@@ -56,9 +56,9 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
 #PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
-installRainbowstream.sh
 
 installWindowedModeLxde.sh
+installRainbowstream.sh
 installMpegRecordingCapability.sh
 
 #TODO: Fix reicast install!!!
