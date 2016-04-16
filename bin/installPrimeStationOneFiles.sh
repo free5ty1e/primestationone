@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Installing PrimeStation One main files into their proper locations....
+echo "Installing PrimeStation One main files into their proper locations...."
 pushd ~/primestationone
 sudo cp -v bin/* /usr/local/bin/
 sudo chmod +x /usr/local/bin/*
@@ -13,13 +13,15 @@ cp -vr .joymaps ~/
 cp -v .* ~/
 cp -vr RetroPie/* ~/RetroPie/
 
-echo Ensuring executable bits set on all scripts in roms...
+echo "Ensuring executable bits set on all scripts in roms..."
 find /home/pi/RetroPie/roms -name '*.sh' -print0 | xargs -0 chmod --verbose 755
 
-echo Resetting permissions on sometimes troublesome folders...
+echo "Fixing permissions on your home and local folders just in case!"
 sudo chown pi:pi /home/pi/temp
+sudo chown -R pi ~
+sudo chown -R pi /usr/local
 
-echo Removing c64 emulator profile symlink because we want to put configuration files there and have them in the home/pi/.vice folder...
+echo "Removing c64 emulator profile symlink because we want to put configuration files there and have them in the home/pi/.vice folder..."
 rm ~/.vice
 mkdir ~/.vice
 cp -vr .vice/* ~/.vice/
