@@ -52,12 +52,14 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame2010
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
 
+#   Misc:
+sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 
-#PrimestationPrep:
+
+#   PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
-
-installWindowedModeLxde.sh
+#installWindowedModeLxde.sh
 installRainbowstream.sh
 installMpegRecordingCapability.sh
 
