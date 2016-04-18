@@ -24,7 +24,7 @@ echo "Error : Not an image file, or file doesn't exist"
 exit
 fi
 
-loopback=/dev/loop2
+loopback=/dev/loop3
 echo "Mounting $1 as loopback device $loopback..."
 losetup -P "$loopback" $1
 
@@ -32,7 +32,7 @@ losetup -P "$loopback" $1
 echo "Please type the following twice to proceed:"
 echo "i"
 echo "<ENTER>"
-partinfo=`parted -m /dev/loop2 unit B print`
+partinfo=`parted -m $loopback unit B print`
 
 echo "Partition info for $loopback:"
 echo "$partinfo"
@@ -40,7 +40,7 @@ partnumber=`echo "$partinfo" | grep ext4 | awk -F: ' { print $1 } '`
 #partnumber=2
 echo "ext4 partition found, partition number is $partnumber"
 #loopextpart="$loopbackp$partnumber"
-loopextpart=/dev/loop2p2
+loopextpart=/dev/loop3p2
 echo "ext4 partition loopback device constructed: $loopextpart"
 partstart=`echo "$partinfo" | grep ext4 | awk -F: ' { print substr($2,0,length($2)) } '`
 #partstart=`echo "$partinfo" | grep ext4 | awk -F: ' { print substr($2,0,length($2)-1) } '`
@@ -51,7 +51,16 @@ echo "Press enter to continue if you have valid data above..."
 read	#pause
 
 echo "This next step might complain about superblock or partition table corruption, answer N to the abort prompt if it comes up:"
+
+echo "Unmounting partitions..."
+#umount /dev/loop3p1
+umount /dev/loop3p2
+
 e2fsck -f $loopextpart
+
+#echo "Remounting $1 as loopback device $loopback..."
+#losetup -d $loopback
+#losetup -P "$loopback" $1
 
 minsize=`resize2fs -P $loopextpart | awk -F': ' ' { print $2 } '`
 echo "Minimum size of ext4 partition determined to be $minsize"
@@ -80,8 +89,11 @@ echo "Creating new shrunken ext4 partition table entry..."
 part2=`parted --script "$loopback" unit B mkpart primary $partstart $newpartend`
 endresult=`parted --script --machine "$loopback" unit B print free | tail -1 | awk -F: ' { print substr($2,0,length($2)-1) } '`
 
+echo "Unmounting partitions..."
+umount /dev/loop3p1
+umount /dev/loop3p2
+
 losetup -d $loopback
-umount /dev/loop2p1
 echo "Disconnected and unmounted $loopback!"
 
 echo "About to truncate $endresult bytes from $1 after shrinking ext4 partition..."
