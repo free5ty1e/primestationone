@@ -1,4 +1,16 @@
-#####New features v1.00 beta2 2016.04.03: (Pi1, Pi2, Pi3 images being constructed...)
+#####v1.00 beta5:
+* Generic ShanWan PS3 controller support for Jessie (still no Gasia yet without breaking other things)
+* FFMPEG / RetroArch movie recording capabilities are back
+* Dreamcast fixed, PS3 controller mapped
+* N64 non-libretrocore PS3 controller mapped
+
+#####v1.00 beta4 2016.04.17: 
+* Based on RetroPie release 3.7.0
+* Pi2/Pi3 combo image
+* Auto-expand filesystem on first boot
+* Emulator fixes
+
+#####New features v1.00 beta2 2016.04.03: 
 * Now based on / supports the current RetroPie release 3.6.0 (we were using 3.0.0beta2)
 * Pi3 support!
 * May have lost some features in the upgrade madness - these will be addressed in short order!
