@@ -256,12 +256,15 @@ if [ -d "$md_build/udev" ]; then
         fi
         done
     echo "Configuring Dreamcast Reicast PS3 controls..."
-    python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
+    #python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
+    sudo cp -vr opt/retropie/configs/dreamcast/emu.cfg opt/retropie/configs/dreamcast/
+
+    echo "Configuring N64 non-libretrocore PS3 controls..."
+    sudo cp -vr opt/retropie/configs/n64/InputAutoCfg.ini opt/retropie/configs/n64/
 
 else
     echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
 fi
-
 
 
 #pushd ~
