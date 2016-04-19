@@ -58,18 +58,22 @@ sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 #   Reasserting the playstation1 emulator binaries, as this appears to fix it crashing as of 2016.04.17
 sudo RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed install_bin
 
+#   Reasserting Dreamcast emulator binaries just in case:
+sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
+#installReicastPrimestationEdition.sh
+
 #   PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
 #installWindowedModeLxde.sh
-installRainbowstream.sh
+#installRainbowstream.sh
 installMpegRecordingCapability.sh
-
-#TODO: Fix reicast install!!!
-#installReicastPrimestationEdition.sh
-#sudo ~/RetroPie-Setup/retropie_packages.sh reicast
 
 #installDescent1and2.sh
 
 #TODO: Fix qtsixa Primestation edition universal driver instead of using this:
+#For now, closest we have is to ensure driver is cleared, then install Shanwan support version - supports >2 player && shanwan && sony
+sudo killall sixad
+sudo service sixad stop
+sudo RetroPie-Setup/retropie_packages.sh ps3controller remove
 installPs3SonyOnlyDriver.sh
