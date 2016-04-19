@@ -56,7 +56,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 
 #   Reasserting the playstation1 emulator binaries, as this appears to fix it crashing as of 2016.04.17
-sudo RetroPie-Setup/retropie_packages.sh raspbiantools lr-pcsx-rearmed install_bin
+sudo RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed install_bin
 
 #   PrimestationPrep:
 quickResetPrimestationOne.sh

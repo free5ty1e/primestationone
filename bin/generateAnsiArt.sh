@@ -21,7 +21,7 @@ ansize beavis_butthead.jpg beavis_butthead.ansi 160
 rm cornholio.jpg
 wget http://i.imgur.com/vHCzBxU.jpg
 mv vHCzBxU.jpg cornholio.jpg
-ansize cornholio.jpg cornholio.ansi 180
+ansize cornholio.jpg cornholio.ansi 160
 
 #Listing fonts by calling without arguments:
 createAnsiFontText.sh
