@@ -33,6 +33,9 @@ rm ~/RetroPie/roms/settings/install_mega_older_retroarch_to_fix_rewind.sh
 rm ~/RetroPie/roms/settings/display_splashscreen_quick_reference.sh
 rm ~/RetroPie/roms/settings/audio_mixer_alsamixer.sh
 rm ~/RetroPie/roms/settings/manage_wifi.sh
+rm ~/RetroPie/roms/settings/update_primestation_one_files_quick.sh
+rm ~/RetroPie/roms/settings/wifi_networks.sh
+rm ~/RetroPie/roms/settings/z.sh
 
 rm ~/RetroPie/roms/settings/system/upgrade_primestation_minimal_to_full.sh
 
@@ -65,6 +68,7 @@ sudo rm /usr/local/bin/installPs3ExperimentalUniversalGenericFriendlyDriver.sh
 sudo rm /usr/local/bin/installPs3ShanWanAndSonyFriendlyDriver.sh
 sudo rm /usr/local/bin/upgradePrimestationV1_0000betaAndUpToV1.10beta.sh
 sudo rm /usr/local/bin/emulationstation
+
 
 echo Creating required folders...
 mkdir ~/temp
