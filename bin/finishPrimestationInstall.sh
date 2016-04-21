@@ -51,7 +51,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-gw
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame2010
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia install_bin
 
 #   Misc:
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
