@@ -77,4 +77,5 @@ controllerConfigConstruction.sh
 
 #installDescent1and2.sh
 
+installAptRuntimePackages.sh
 installPs3RecommendedDriver.sh
