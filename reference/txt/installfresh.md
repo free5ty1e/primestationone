@@ -9,7 +9,9 @@ Then, make sure you are connected to the Internet, and copy / paste the followin
 pushd ~ && rm -rf primestationone && git clone https://github.com/free5ty1e/primestationone.git && primestationone/bin/installPrimeStationOneFiles.sh && popd && finishPrimestationInstall.sh
 ```
 
-...you will end up in the audio mixer `alsamixer`, in which I recommend you crank your volume up from 40% to 100% with the `UP` arrow before pressing `ESC` to exit and save.
+...You will end up in a RetroPie dialog about the PS3 controller, just press Enter to continue.
+
+Then, you might want to run the audio mixer `alsamixer` (either by typing that or choosing it in Emulationstation under Audio), in which I recommend you crank your volume up from 40% to 100% with the `UP` arrow before pressing `ESC` to exit and save.  Then probably turn your TV volume down before starting a game.  Wow, you have plenty of volume :o
 
 
 ### Building emulators from source / downloading binaries (RetroPie)
