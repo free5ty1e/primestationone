@@ -1,6 +1,10 @@
-#####v1.00 beta5:
-* Generic ShanWan PS3 controller support for Jessie (still no Gasia yet without breaking other things)
-* FFMPEG / RetroArch movie recording capabilities are back
+#####v1.00 beta6: 2016.04.20:
+* Generic ShanWan && GAsia as well as genuine Sony PS3 controllers are now *actually* supported!  Confirmed working >2 players, although I have experienced a crash in Emulationstation upon adding and fiddling with a 4th controller via USB...
+* Cranked up the default audio volume in alsamixer from 40% to 100%, baby!
+
+#####v1.00 beta5: 2016.04.19:
+* Generic ShanWan PS3 controller support for Jessie (still no Gasia yet without breaking other things) - actually was broken in the released image :o
+* FFMPEG / RetroArch movie recording capabilities are back - maybe?  This might have broken SEVERAL things in the image in hindsight...
 * Dreamcast fixed, PS3 controller mapped
 * N64 non-libretrocore PS3 controller mapped
 
