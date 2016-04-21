@@ -79,3 +79,8 @@ controllerConfigConstruction.sh
 
 installAptRuntimePackages.sh
 installPs3RecommendedDriver.sh
+
+
+alsamixer
+
+#autoExpandFilesystemNextBoot.sh
