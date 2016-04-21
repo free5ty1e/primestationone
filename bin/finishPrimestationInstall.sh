@@ -51,6 +51,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-gw
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame2010
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mame
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mess
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia
 
 #   Misc:
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
@@ -66,14 +67,14 @@ sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
 quickResetPrimestationOne.sh
 installMegaTools.sh
 #installWindowedModeLxde.sh
+
 #installRainbowstream.sh
-installMpegRecordingCapability.sh
+
+#installMpegRecordingCapability.sh
+sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
+controllerConfigConstruction.sh
+
 
 #installDescent1and2.sh
 
-#TODO: Fix qtsixa Primestation edition universal driver instead of using this:
-#For now, closest we have is to ensure driver is cleared, then install Shanwan support version - supports >2 player && shanwan && sony
-sudo killall sixad
-sudo service sixad stop
-sudo RetroPie-Setup/retropie_packages.sh ps3controller remove
-installPs3SonyOnlyDriver.sh
+installPs3RecommendedDriver.sh
