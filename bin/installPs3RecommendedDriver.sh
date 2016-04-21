@@ -1,4 +1,4 @@
-#!/bin/bash
-source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
-fancy_console_message "Installing recommended PS3 controller drivers..." "bud-frogs"
-installPs3RetroPieDriverCorrectly.sh
+#!/usr/bin/expect -f
+set timeout 360
+spawn installPs3RetroPieDriverCorrectly.sh
+expect "press the PS button to connect" { send "\r" }
