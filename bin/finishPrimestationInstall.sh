@@ -20,7 +20,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh wolf4sdl
 sudo ~/RetroPie-Setup/retropie_packages.sh xrick
 sudo ~/RetroPie-Setup/retropie_packages.sh zdoom
 sudo ~/RetroPie-Setup/retropie_packages.sh cannonball
-sudo ~/RetroPie-Setup/retropie_packages.sh px68k
+#sudo ~/RetroPie-Setup/retropie_packages.sh px68k   #Currently fails build on Pi3 so skipping anyway
 sudo ~/RetroPie-Setup/retropie_packages.sh coolcv
 sudo ~/RetroPie-Setup/retropie_packages.sh frotz
 sudo ~/RetroPie-Setup/retropie_packages.sh residualvm
