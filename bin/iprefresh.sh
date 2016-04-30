@@ -6,8 +6,8 @@ sudo dhclient -r
 sudo dhclient -r wlan0
 sudo dhclient -r eth0
 sudo systemctl daemon-reload
-sydo /etc/init.d/networking restart
-sudo dhclient
+sudo /etc/init.d/networking restart
+#sudo dhclient
 sudo dhclient eth0
 sudo dhclient wlan0
 ifconfig
