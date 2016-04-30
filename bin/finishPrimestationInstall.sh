@@ -38,7 +38,6 @@ sudo ~/RetroPie-Setup/retropie_packages.sh opentyrian
 sudo ~/RetroPie-Setup/retropie_packages.sh sdlpop
 sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 sudo ~/RetroPie-Setup/retropie_packages.sh uqm
-sudo ~/RetroPie-Setup/retropie_packages.sh zdoom
 
 #   Libretrocores:
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
