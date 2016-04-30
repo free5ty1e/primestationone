@@ -366,5 +366,14 @@ function generateControllerOverlay() {
 }
 
 function addLineToEndOfFileIfNOtExist() {
-grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
-}
+    LINE="$1"
+    FILE="$2"
+    if [ -z "$2" ]
+    then
+        echo "This function requires 2 parameters: LINE and FILE"
+        echo "...if LINE does not exist in FILE, insert LINE at end of FILE."
+    else
+        echo "If $LINE does not exist in $FILE, inserting $LINE at end of $FILE..."
+        grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+    fi
+
