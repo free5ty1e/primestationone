@@ -376,4 +376,4 @@ function addLineToEndOfFileIfNOtExist() {
         echo "If $LINE does not exist in $FILE, inserting $LINE at end of $FILE..."
         grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
     fi
-
+}
