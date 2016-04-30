@@ -78,6 +78,7 @@ controllerConfigConstruction.sh
 #installDescent1and2.sh
 
 installAptRuntimePackages.sh
+sudo apt-get -y purge wicd-curses
 installPs3RecommendedDriver.sh
 
 alsamixer
