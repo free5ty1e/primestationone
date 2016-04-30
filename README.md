@@ -94,6 +94,8 @@ If you have managed to obtain one of these releases, extract the .7z archive so 
 
 Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v1.0000 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 8GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 8GB SD card for other uses.
 
+NOTE: Upon the first boot of your Primestation One (starting with v1.00beta4ish), your SD card's filesystem will be auto-expanded to fill your SD card for maximum justice.  
+
 ####Install on Mac: 
 *UPDATE: You can totally use ApplePi Baker @ http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/ to write the Primestation image to your SD card directly from the `.7z` file!  Uber convenience, you guys!*
 
