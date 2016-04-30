@@ -1,5 +1,7 @@
 #!/bin/bash
 
+nukeRetroPieSetupRepoAndCheckoutFresh.sh
+
 #Setup all available RetroPie binaries:
 sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 
