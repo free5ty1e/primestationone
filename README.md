@@ -94,6 +94,9 @@ If you have managed to obtain one of these releases, extract the .7z archive so 
 Here are the commands to write the image file on Mac and Linux with a progress bar as well.  The v1.0000 beta release archive is used for this example, adjust accordingly if you have a different version.  You will need a minimum of a 8GB SD card to begin using the PrimeStation One.  Once (and if) you've transferred the root filesystem to USB, you can manually prepare a tiny SD card (any size above 50 MB will work) to act as a boot drive for the USB PrimeStation and free up your 8GB SD card for other uses.
 
 ####Install on Mac: 
+*UPDATE: You can totally use ApplePi Baker @ http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/ to write the Primestation image to your SD card directly from the `.7z` file!  Uber convenience, you guys!*
+
+..If ApplePi Baker is not your cup of tea, here's how to CLI that noise:
 (`brew install pv` if you don't have pv.  If you don't have Homebrew, go to http://brew.sh/ and follow the instructions)   Replace the device `/dev/disk2` with your SD card designation (disk1, disk2, disk3...), and of course the image filename with the appropriate one (ending in `RPi1.img`, `RPi2.img`, or `RPi3.img`).
 ```
         pv --size 7888437760 primeStationOne7.9gSdV1.0000betaBasedOnRetroPie3.0.0beta2RPi2.img | sudo dd bs=2m of=/dev/disk2
@@ -103,7 +106,6 @@ Here are the commands to write the image file on Mac and Linux with a progress b
         sudo dd bs=2m if=primeStationOne7.9gSdV1.0000betaBasedOnRetroPie3.0.0beta2RPi2.img of=/dev/disk2
 ```
 
-You may be able to use ApplePi Baker @ http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/ - but initial testing indicates this might not work quite right...
 
 ####Install on Linux: (`sudo apt-get install pv` if you don't have pv)  Replace the device `/dev/sdb` with your SD card designation (sda, sdb, sdc...).
 ```
