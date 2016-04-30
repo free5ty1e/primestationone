@@ -364,3 +364,7 @@ function generateControllerOverlay() {
     convert -font courier-bold -pointsize 44 -fill "$primestationVerColor" -draw "text 1600,45 \"$primestationVersion\"" -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$controlsMappingOverlay\"" -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" -pointsize 20 -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" /home/pi/splashscreen.png "$outputImageFile"
     echo "Complete, if you didn't just see any errors."
 }
+
+function addLineToEndOfFileIfNOtExist() {
+grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+}

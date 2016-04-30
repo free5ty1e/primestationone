@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
+
 function install_go_and_ansize() {
     echo "Installing Go language and ANSIze image to ANSI converter..."
 
@@ -9,10 +11,10 @@ function install_go_and_ansize() {
 
     if [ -f "$HOME/.bashrc" ]; then
         echo ".bashrc found, modifying..."
-        echo "export GOPATH=$HOME/gocode" >> "$HOME/.bashrc"
+        addLineToEndOfFileIfNOtExist "export GOPATH=$HOME/gocode" .bashrc
     else
         echo "no .bashrc, guessing .bash_profile, modifying..."
-        echo "export GOPATH=$HOME/gocode" >> "$HOME/.bash_profile"
+        addLineToEndOfFileIfNOtExist "export GOPATH=$HOME/gocode" .bash_profile
     fi
 
     export "GOPATH=$HOME/gocode"

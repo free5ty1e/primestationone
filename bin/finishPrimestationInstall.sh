@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
+
 nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
 #Setup all available RetroPie binaries:
@@ -81,6 +83,9 @@ controllerConfigConstruction.sh
 installAptRuntimePackages.sh
 networkFresh.sh
 installPs3RecommendedDriver.sh
+
+#Below is a workaround for allowing both Shanwan and Gasia to work alongside Sony genuine PS3 controllers via bluetooth, this ensures that sixad is actually started
+ps3ForceDriverRestartAfterStartup.sh
 
 alsamixer
 
