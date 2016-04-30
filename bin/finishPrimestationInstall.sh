@@ -80,7 +80,7 @@ controllerConfigConstruction.sh
 #installDescent1and2.sh
 
 installAptRuntimePackages.sh
-sudo apt-get -y purge wicd-curses
+networkFresh.sh
 installPs3RecommendedDriver.sh
 
 alsamixer
