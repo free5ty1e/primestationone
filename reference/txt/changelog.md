@@ -1,8 +1,14 @@
-#####v1.00 beta6: 2016.04.20: Err... broke networking startup somehow, regressing....
+#####v1.00 RC1 - 2016.05.06: Pi2and3 image released 
+* Fixed issues with broken networking and PS3 universal bluetooth connectivities upon startup
+* Genuine Sony PS3 controllers as well as newer GAsia and ShanWan controllers all now just work with this setup
+* Default keyboard locale set to US, enabled `CTRL+ALT+BACKSPACE` to kill the x server.
+* Should be ready to rock!
+
+#####v1.00 beta6 - 2016.04.20: Err... broke networking startup somehow, regressing....
 * Generic ShanWan && GAsia as well as genuine Sony PS3 controllers are now *actually* supported!  Confirmed working >2 players, although I have experienced a crash in Emulationstation upon adding and fiddling with a 4th controller via USB...
 * Cranked up the default audio volume in alsamixer from 40% to 100%, baby!
 
-#####v1.00 beta5: 2016.04.19:
+#####v1.00 beta5 - 2016.04.19:
 * Generic ShanWan PS3 controller support for Jessie (still no Gasia yet without breaking other things) - actually was broken in the released image :o
 * FFMPEG / RetroArch movie recording capabilities are back - maybe?  This might have broken SEVERAL things in the image in hindsight...
 * Dreamcast fixed, PS3 controller mapped
