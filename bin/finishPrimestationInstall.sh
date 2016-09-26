@@ -66,6 +66,9 @@ sudo RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed install_bin
 sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
 #installReicastPrimestationEdition.sh
 
+sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
+
+
 #   PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
@@ -81,7 +84,8 @@ controllerConfigConstruction.sh
 #installDescent1and2.sh
 
 installAptRuntimePackages.sh
-installPs3RecommendedDriver.sh
+#installPs3RecommendedDriver.sh
+sudo RetroPie-Setup/retropie_packages.sh ps3controller 
 
 #Below is a workaround for allowing both Shanwan and Gasia to work alongside Sony genuine PS3 controllers via bluetooth, this ensures that sixad is actually started
 ps3ForceDriverRestartAfterStartup.sh
