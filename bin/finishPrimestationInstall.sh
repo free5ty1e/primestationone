@@ -81,7 +81,6 @@ controllerConfigConstruction.sh
 #installDescent1and2.sh
 
 installAptRuntimePackages.sh
-networkFresh.sh
 installPs3RecommendedDriver.sh
 
 #Below is a workaround for allowing both Shanwan and Gasia to work alongside Sony genuine PS3 controllers via bluetooth, this ensures that sixad is actually started
