@@ -46,6 +46,8 @@ rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi1.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_binaries_pi2.sh
 rm ~/RetroPie/roms/settings/megaModules/install_all_mega_modules.sh
 rm ~/RetroPie/roms/settings/megaModules/megaInstallThemePrimeStationOne.sh
+rm ~/RetroPie/roms/settings/megaModules/install_mega_Pi1_older_retroarch_to_fix_rewind.sh
+rm ~/RetroPie/roms/settings/megaModules/install_mega_Pi2_older_retroarch_to_fix_rewind.sh
 
 rm ~/RetroPie/roms/settings/installs/first_run_and_reset_primestation_one_not_quick.sh
 
@@ -70,6 +72,10 @@ sudo rm /usr/local/bin/upgradePrimestationV1_0000betaAndUpToV1.10beta.sh
 sudo rm /usr/local/bin/emulationstation
 sudo rm /usr/local/bin/finishPrimestationInstallPi3.sh
 sudo rm /usr/local/bin/networkFresh.sh
+sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArchPi1.sh
+sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArchPi2.sh
+sudo rm /usr/local/bin/megaInstallBinariesPi1.sh
+sudo rm /usr/local/bin/megaInstallBinariesPi2.sh
 
 
 echo Creating required folders...
