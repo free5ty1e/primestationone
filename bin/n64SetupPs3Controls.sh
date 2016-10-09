@@ -39,3 +39,5 @@ iniSet "Joy Mapping Fast Forward" "\"J0B9\""
 
 ## Joystick event string for pressing the game shark button
 iniSet "Joy Mapping Gameshark" "\"\""
+
+cp /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
