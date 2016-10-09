@@ -7,6 +7,9 @@ nukeRetroPieSetupRepoAndCheckoutFresh.sh
 #Setup all available RetroPie binaries:
 sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh dosbox install_bin
+
 #Built from sources only:
 #   Ports
 # sudo ~/RetroPie-Setup/retropie_packages.sh kodi
@@ -42,12 +45,12 @@ sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 # sudo ~/RetroPie-Setup/retropie_packages.sh uqm
 
 # #   Libretrocores:
-# sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-vb
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-lynx
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-quicknes
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-virtualjaguar
-# sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-supergrafx
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-desmume
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-gw
@@ -63,7 +66,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 # sudo RetroPie-Setup/retropie_packages.sh lr-pcsx-rearmed install_bin
 
 # #   Reasserting Dreamcast emulator binaries just in case:
-# sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
+sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
 # #installReicastPrimestationEdition.sh
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
