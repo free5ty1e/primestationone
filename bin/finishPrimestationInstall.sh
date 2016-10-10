@@ -50,7 +50,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-lynx
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-quicknes
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-virtualjaguar
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-yabause
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-beetle-supergrafx
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-desmume
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-gw
