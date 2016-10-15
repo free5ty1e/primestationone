@@ -7,8 +7,24 @@ nukeRetroPieSetupRepoAndCheckoutFresh.sh
 #Setup all available RetroPie binaries:
 sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 
+#Fix n64
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus install_bin
+
+#Fix Dosbox
+sudo ~/RetroPie-Setup/retropie_packages.sh dosbox depends
 sudo ~/RetroPie-Setup/retropie_packages.sh dosbox install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh dosbox configure
+
+#Fix C64
+sudo ~/RetroPie-Setup/retropie_packages.sh vice depends
+sudo ~/RetroPie-Setup/retropie_packages.sh vice install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh vice configure
+
+#Fix Mac
+sudo ~/RetroPie-Setup/retropie_packages.sh basilisk depends
+sudo ~/RetroPie-Setup/retropie_packages.sh basilisk install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh basilisk configure
+
 
 #Built from sources only:
 #   Ports

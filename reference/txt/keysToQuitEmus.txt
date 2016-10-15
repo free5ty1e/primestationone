@@ -6,3 +6,4 @@ DOS/At800&5200:CTRL-F9
 Apple ][:      F10
 C64 (vice):    F12 menu
 AMIGA:         TAB+Q ?
+Macintosh      CTRL-ESC
