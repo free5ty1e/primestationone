@@ -14,6 +14,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh dosbox depends
 sudo ~/RetroPie-Setup/retropie_packages.sh dosbox install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh dosbox configure
+cp ~/primestationone/reference/opt/retropie/configs/pc/dosbox-SVN.conf /opt/retropie/configs/pc/
 
 #Fix C64
 sudo ~/RetroPie-Setup/retropie_packages.sh vice depends
