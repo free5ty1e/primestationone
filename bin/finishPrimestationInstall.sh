@@ -39,14 +39,26 @@ sudo ~/RetroPie-Setup/retropie_packages.sh linapple install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh linapple configure
 
 #Install Stratagus / *crafts:
+#install Stratagus 2.4 / latest:
 sudo ~/RetroPie-Setup/retropie_packages.sh stratagus depends
 sudo ~/RetroPie-Setup/retropie_packages.sh stratagus install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
+
+
+
 
 #Install Doom
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom configure
 
+
+#Install ARMSNES
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes configure
+
+#Install NESTopia
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
 
 
 #Built from sources only:
