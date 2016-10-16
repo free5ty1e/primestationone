@@ -33,6 +33,21 @@ sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm depends
 sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm configure
 
+#Fix Apple ][
+sudo ~/RetroPie-Setup/retropie_packages.sh linapple depends
+sudo ~/RetroPie-Setup/retropie_packages.sh linapple install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh linapple configure
+
+#Install Stratagus / *crafts:
+sudo ~/RetroPie-Setup/retropie_packages.sh stratagus depends
+sudo ~/RetroPie-Setup/retropie_packages.sh stratagus install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
+
+#Install Doom
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom configure
+
+
 
 #Built from sources only:
 #   Ports
