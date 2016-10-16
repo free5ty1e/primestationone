@@ -28,6 +28,11 @@ sudo ~/RetroPie-Setup/retropie_packages.sh basilisk depends
 sudo ~/RetroPie-Setup/retropie_packages.sh basilisk install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh basilisk configure
 
+#Fix Amiga
+sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm depends
+sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm configure
+
 
 #Built from sources only:
 #   Ports
