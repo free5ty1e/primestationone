@@ -1,6 +1,6 @@
 #!/bin/bash
-echo Constructing the controller configs en masse to ALL match the splashscreen quick reference image...
-echo This will also enable non-PS3 controllers to map closely to the splashscreen instead of being way off...
+echo "Constructing the controller configs en masse to ALL match the splashscreen quick reference image..."
+echo "This will also enable non-PS3 controllers to map closely to the splashscreen instead of being way off..."
 
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
@@ -34,7 +34,7 @@ function remap_hotkeys_retroarchautoconf() {
     printMsgs "console" "Processing $file"
 
     iniGet "input_device" "$file"
-    if [[ $ini_value == *"PLAYSTATION(R)3"* ]] 
+    if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
     then
         echo Controller with PS button detected!  Inserting missing PS button mapping...
         iniSet "input_ps_btn" "16" "$file" >/dev/null
