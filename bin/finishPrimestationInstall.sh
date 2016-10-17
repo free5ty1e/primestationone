@@ -51,6 +51,14 @@ sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom configure
 
+#Install Descent 1 && 2
+sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth depends
+sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth install_bin
+sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth configure
+# installDescent1and2.sh
+#Reassert latest binaries, maybe?  
+#sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth install_bin
+
 
 #Install ARMSNES
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes install_bin
