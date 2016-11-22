@@ -130,10 +130,10 @@ sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
 
-
 #   PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
+installNodeVirtualGamepads.sh
 #installWindowedModeLxde.sh
 
 #installRainbowstream.sh
