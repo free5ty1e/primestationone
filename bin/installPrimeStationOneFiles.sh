@@ -6,6 +6,7 @@ sudo cp -v bin/* /usr/local/bin/
 sudo chmod +x /usr/local/bin/*
 sudo cp -vr etc /
 #sudo cp -vr opt /
+sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/all/retroarch-joypads/
 sudo cp -vr var /
 mkdir /opt/retropie/configs/snesmouse
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
