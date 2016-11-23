@@ -71,7 +71,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
 
 #Built from sources only:
 #   Ports
-# sudo ~/RetroPie-Setup/retropie_packages.sh kodi
+sudo ~/RetroPie-Setup/retropie_packages.sh kodi
 # sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
 # sudo ~/RetroPie-Setup/retropie_packages.sh giana
 # sudo ~/RetroPie-Setup/retropie_packages.sh micropolis
