@@ -145,6 +145,7 @@ installNodeVirtualGamepads.sh
 sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
 controllerConfigConstruction.sh
 
+installKodi.sh
 
 #installDescent1and2.sh
 
