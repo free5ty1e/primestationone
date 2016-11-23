@@ -1,6 +1,6 @@
 #!/bin/bash
 cowsay -f calvin Installing node virtual gamepads...
-echo Installing node virtual gamepads...
+echo "Installing node virtual gamepads..."
 
 # pushd ~
 
@@ -13,4 +13,8 @@ echo Installing node virtual gamepads...
 
 # popd
 sudo ~/RetroPie-Setup/retropie_packages.sh virtualgamepad
+
+echo "Correcting Virtual Gamepads' horrible, horrible mistake in not null-terminating their name strings..."
+
+sed -i -- 's/\"Virtual gamepad\"/\"Virtual gamepad\\u0000\"/g' /opt/retropie/supplementary/virtualgamepad/app/virtual_gamepad.*
 
