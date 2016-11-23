@@ -130,6 +130,9 @@ sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
 
+#We probably don't want this USB copyroms service, kill:
+sudo rm /etc/usbmount/mount.d/01_retropie_copyroms 
+
 #   PrimestationPrep:
 quickResetPrimestationOne.sh
 installMegaTools.sh
