@@ -117,12 +117,17 @@ if [ -d "$md_build/udev" ]; then
             cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
             iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
-            echo "Adding configs to support ShanWan generic PS3 controllers too..."
+            echo "Adding configs to support other various known generic PS3 controllers too..."
+            echo "TODO: Refactor the below into a function instead of duplicating this code repeatedly..."
             sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
             iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
 
             sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
             iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+
+            sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg"
+            iniSet "input_device" "SZMY-POWER CO.,LTD. PLAYSTATION(R)3 Controller" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg" >/dev/null
+
         else
             echo "$whichconfigdir does not exist, skipping!"
         fi
