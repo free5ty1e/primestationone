@@ -11,10 +11,10 @@ iniSet "Joy Mapping Stop" "\"J0B16\""
 iniSet "Joy Mapping Fullscreen" "\"\""
 
 ## Joystick event string for saving the emulator state
-iniSet "Joy Mapping Save State" "\"J0B12\""
+iniSet "Joy Mapping Save State" "\"J0B2\""
 
 ## Joystick event string for loading the emulator state
-iniSet "Joy Mapping Load State" "\"J0B13\""
+iniSet "Joy Mapping Load State" "\"J0B1\""
 
 ## Joystick event string for advancing the save state slot
 iniSet "Joy Mapping Increment Slot" "\"J0B0\""
@@ -29,10 +29,10 @@ iniSet "Joy Mapping Pause" "\"\""
 iniSet "Joy Mapping Mute" "\"\""
 
 ## Joystick event string for increasing the volume
-iniSet "Joy Mapping Increase Volume" "\"J0B2\""
+iniSet "Joy Mapping Increase Volume" "\"\""
 
 ## Joystick event string for decreasing the volume
-iniSet "Joy Mapping Decrease Volume" "\"J0B1\""
+iniSet "Joy Mapping Decrease Volume" "\"\""
 
 ## Joystick event string for fast-forward
 iniSet "Joy Mapping Fast Forward" "\"J0B9\""
