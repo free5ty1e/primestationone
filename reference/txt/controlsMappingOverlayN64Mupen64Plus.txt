@@ -1,8 +1,8 @@
 N64: Mupen64Plus 
 ---------------------
 0  : Next state
-1  : Volume-
-2  : Volume+
+1  : Load State
+2  : Save State
 3  : Start button
 4  : D-Pad up 
 5  : D-Pad right
@@ -12,8 +12,8 @@ N64: Mupen64Plus
 9  : Fast Forward
 10 : L bumper
 11 : R bumper
-12 : Save state
-13 : Load state
+12 : C button Up
+13 : C button Down
 14 : A button
 15 : B button
 16 : Exit Emulator
