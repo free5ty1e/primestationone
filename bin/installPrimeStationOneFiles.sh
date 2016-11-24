@@ -11,6 +11,7 @@ sudo cp -vr var /
 mkdir /opt/retropie/configs/snesmouse
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 cp -vr .emulationstation/* ~/.emulationstation/
+cp -vr .kodi/* ~/.kodi/
 cp -vr .joymaps ~/
 cp -v .* ~/
 cp -vr RetroPie/* ~/RetroPie/
