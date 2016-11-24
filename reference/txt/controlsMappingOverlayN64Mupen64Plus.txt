@@ -1,8 +1,8 @@
 N64: Mupen64Plus 
 ---------------------
-0  : Next state
-1  : Load State
-2  : Save State
+0  : Save state
+1  : Increment State
+2  : Load State
 3  : Start button
 4  : D-Pad up 
 5  : D-Pad right
