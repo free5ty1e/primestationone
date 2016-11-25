@@ -13,7 +13,14 @@ case "$1" in
   start)
     log_daemon_msg "Starting resize2fs_once"
     ROOT_DEV=`grep -Eo 'root=[[:graph:]]+' /proc/cmdline | cut -d '=' -f 2-` &&
+    sgdisk /dev/mmcblk0 -p &&
+    log_daemon_msg "Recreating linux partition to maximum size..."
+    sgdisk /dev/mmcblk0 --delete=2 --mbrtogpt &&
+    sgdisk /dev/mmcblk0 --largest-new=2 &&
+    sgdisk /dev/mmcblk0 -p &&
+    log_daemon_msg "Resizing linux filesystem to maximum partition size..."
     resize2fs $ROOT_DEV &&
+    log_daemon_msg "This service shall self-destruct in 3... 2... 1... *boom*"
     update-rc.d resize2fs_once remove &&
     rm /etc/init.d/resize2fs_once &&
     log_end_msg $?
