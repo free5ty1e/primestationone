@@ -33,7 +33,7 @@ case "$1" in
     
     # w
     # EEOF
-    echo ",+," | sfdisk --force -N1 /dev/mmcblk0
+    echo ",+," | sfdisk --force -N2 /dev/mmcblk0
     partprobe
     # sgdisk /dev/mmcblk0 --delete=2 --mbrtogpt &&
     # sgdisk /dev/mmcblk0 --largest-new=2 &&
