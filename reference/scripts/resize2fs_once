@@ -16,24 +16,24 @@ case "$1" in
     # sgdisk /dev/mmcblk0 -p &&
     log_daemon_msg "Recreating linux partition to maximum size..."
 
-    fdisk /dev/mmcblk0 <<EEOF
-    n
+    # fdisk /dev/mmcblk0 <<EEOF
+    # n
 
 
 
 
-    d
-    2
-    n
+    # d
+    # 2
+    # n
 
 
 
 
-    d
+    # d
     
-    w
-    EEOF
-    
+    # w
+    # EEOF
+    echo ",+," | sfdisk -N1 /dev/mmcblk0p2
     partprobe
     # sgdisk /dev/mmcblk0 --delete=2 --mbrtogpt &&
     # sgdisk /dev/mmcblk0 --largest-new=2 &&
@@ -43,6 +43,8 @@ case "$1" in
     log_daemon_msg "This service shall self-destruct in 3... 2... 1... *boom*"
     update-rc.d resize2fs_once remove &&
     rm /etc/init.d/resize2fs_once &&
+    systemctl daemon-reload
+    df -h
     log_end_msg $?
     ;;
   *)
