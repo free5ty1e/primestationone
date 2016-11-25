@@ -33,7 +33,7 @@ case "$1" in
     
     # w
     # EEOF
-    echo ",+," | sfdisk -N1 /dev/mmcblk0p2
+    echo ",+," | sfdisk --force -N1 /dev/mmcblk0p2
     partprobe
     # sgdisk /dev/mmcblk0 --delete=2 --mbrtogpt &&
     # sgdisk /dev/mmcblk0 --largest-new=2 &&
@@ -43,6 +43,7 @@ case "$1" in
     log_daemon_msg "This service shall self-destruct in 3... 2... 1... *boom*"
     update-rc.d resize2fs_once remove &&
     rm /etc/init.d/resize2fs_once &&
+    log_daemon_msg "Reloading systemctl daemon now since one of the init.d scripts is gone..."
     systemctl daemon-reload
     df -h
     log_end_msg $?
