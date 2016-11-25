@@ -8,4 +8,4 @@ echo "Installing self-destructing auto-expand filesystem script to run first thi
 # ls /etc/profile.d -fl
 
 sudo cp -vf /home/pi/primestationone/reference/scripts/resize2fs_once /etc/init.d/
-sudo chmod -x /etc/init.d/resize2fs_once
+sudo chmod +x /etc/init.d/resize2fs_once
