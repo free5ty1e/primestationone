@@ -1,0 +1,168 @@
+[B]2.0.20[/B]
+- Updated indexers
+- Tweaked pagination of Trakt lists
+- Tweaked flatten of tv shows (for external addons and library)
+- Tweaked artwork of episode lists
+- Updated providers
+
+[B]2.0.18[/B]
+- Fixed issue with Trakt Progress (missing tv shows)
+- Tweaked metadata retrieval
+- Tweaked indexers
+- Updated providers
+
+[B]2.0.14[/B]
+- Tweaked metadata timeouts
+
+[B]2.0.13[/B]
+- Updated indexers
+- Added new providers
+- Updated existing providers
+- Added Polish translation
+- Added Portuguese translation
+
+[B]2.0.12[/B]
+- Fixed issue with Trakt Progress (hidden items)
+- Fixed issue with urlresolver's openload pair dialog
+- Tweaked search and caching of providers
+- Updated providers
+
+[B]2.0.11[/B]
+- Added openload to filehosts with captchas
+- NOTE: Filehosts witch captchas can be disabled
+- Updated existing providers
+- Added new providers
+
+[B]2.0.10[/B]
+- Updated existing providers
+- Added new providers
+
+[B]2.0.9[/B]
+- Updated providers
+
+[B]2.0.8[/B]
+- Updated providers
+
+[B]2.0.7[/B]
+- Updated indexers
+- Updated providers
+- Code cosmetics
+
+[B]2.0.6[/B]
+- Updated providers
+- Code cosmetics
+
+[B]2.0.5[/B]
+- Updated providers
+- Fixed issue with custom lists
+- Added Serbian (Cyrillic) translation
+- Added Hungarian translation
+
+[B]2.0.4[/B]
+- Updated providers
+- Fixed issue with networks
+- Added Croatian translation
+- Added Dutch translation
+- Added Hebrew translation
+- Added Slovenian translation
+- Code cosmetics
+
+[B]2.0.3[/B]
+- Fixed issue with movie listings
+- Fixed issue with tv show listings
+- Added French translation
+- Added German translation
+- Added Spanish translation
+- Updated existing providers
+- Removed dead providers
+- Added new providers
+
+[B]2.0.2[/B]
+- Code cosmetics
+
+[B]2.0.1[/B]
+- Code cosmetics
+
+[B]2.0.0[/B]
+- Tweaked all context menus
+- Tweaked all addon settings
+- Tweaked all translations
+- Tweaked resolvering
+- Re-work of addon for Krypton compatibility
+- Replaced My lists with My Movies and My TV shows
+- Added setting of viewtypes on tools section
+- Added languages movie section
+- Updated existing providers
+- Removed dead providers
+- Added new providers
+
+[B]1.3.7[/B]
+- Updated providers
+
+[B]1.3.4[/B]
+- Updated providers
+
+[B]1.3.3[/B]
+- Changed order of providers in addon settings
+- Updated existing providers
+- Removed dead providers
+- Added new providers
+
+[B]1.3.2[/B]
+- Updated providers
+
+[B]1.3.1[/B]
+- Updated indexers
+- Added season Trakt indicators
+- Tweaked Trakt indicators caching
+- Tweaked sorting of Trakt lists
+- Updated current providers
+- Added new debrid providers
+
+[B]1.3.0[/B]
+- Updated indexers
+- Re-work of Trakt lists
+- Better handling of Trakt accounts
+- Tweaked lists for the new default skin
+- Updated current providers
+- Added 6 new providers
+- Depend on URLresolver 3.0
+- Tweaked resolvering
+
+[B]1.2.2[/B]
+- Updated providers
+
+[B]1.2.1[/B]
+- Updated indexers
+- Updated providers
+- Tweaked mismatch handling
+- Tweaked resolvering
+- Re-work of Trakt authorization
+- Fixed issue with RealDebrid authorization
+- Added option for flatten TV show seasons
+- Added Exuary theme
+- Updated translations
+
+[B]1.2.0[/B]
+- Updated indexers
+- Updated providers
+- Tweaked mismatch handling
+- Fixed urlresolver compatibility
+- Tweaked Trakt episodes
+- Updated translations
+
+[B]1.1.1[/B]
+- Updated translations
+- Updated providers
+
+[B]1.1.0[/B]
+- Updated indexers
+- Tweaked Trakt progress
+- Updated translations
+- Updated providers
+
+[B]1.0.1[/B]
+- Code cosmetics
+
+[B]1.0.0[/B]
+- Initial version
