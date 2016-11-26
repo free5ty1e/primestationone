@@ -24,6 +24,12 @@ sudo chown pi:pi /home/pi/temp
 sudo chown -R pi ~
 sudo chown -R pi /usr/local
 
+echo "Installing auto-expand check script..."
+sudo cp -fv /home/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
+sudo chmod +x /etc/init.d/fsExpandCheck_jessie.sh
+sudo update-rc.d fsExpandCheck_jessie.sh defaults
+sudo rm /boot/NOCHECKUPDATE
+
 # echo "Removing c64 emulator profile symlink because we want to put configuration files there and have them in the home/pi/.vice folder..."
 # rm ~/.vice
 # mkdir ~/.vice

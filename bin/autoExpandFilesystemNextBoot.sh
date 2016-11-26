@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing self-destructing auto-expand filesystem script to run first thing upon next boot..."
+echo "Installing self-destructing auto-expand MODIFIED filesystem (from a SHRUNKEN image) script to run first thing upon next boot..."
 
 # sudo rm /etc/profile.d/01-expand.sh 
 # sudo cp -vf /home/pi/primestationone/reference/scripts/01-expand.sh /etc/profile.d/
