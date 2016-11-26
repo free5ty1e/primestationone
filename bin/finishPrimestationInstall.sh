@@ -151,6 +151,7 @@ controllerConfigConstruction.sh
 installKodi.sh
 
 #installDescent1and2.sh
+n64SetDefaultEmulator.sh
 
 installAptRuntimePackages.sh
 installPs3RecommendedDriver.sh
