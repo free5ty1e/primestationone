@@ -23,6 +23,8 @@ case "$1" in
     log_daemon_msg "Reloading systemctl daemon now since one of the init.d scripts is gone..."
     systemctl daemon-reload
     log_end_msg $?
+    log_daemon_msg "Restarting..."
+    sudo reboot
     ;;
   *)
     echo "Usage: $0 start" >&2
