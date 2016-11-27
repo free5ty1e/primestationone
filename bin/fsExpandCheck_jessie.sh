@@ -1,4 +1,5 @@
 #!/bin/sh
+
 #Jessie Expand
 #http://www.pghpunkid.com/2016/06/raspberry-pi-auto-expand-file-system-shell-script/
 #If a reboot loop occurs, can stop it by placing a blank file in /boot called NOCHECKUPDATE (on the fat32 partition)
@@ -76,7 +77,7 @@ cat <<EOF > /etc/init.d/resize2fs_once &&
 # Description:
 ### END INIT INFO
 
-. /lib/lsb/init-functions
+/lib/lsb/init-functions
 
 case "\$1" in
   start)
@@ -117,6 +118,7 @@ CURRENT=$(df | grep '/dev/root' | awk '{print $2}')
 PERCENT=$(echo $CURRENT $ACTUAL | awk '{printf "%d", $1/$2*100}')
 if [ $PERCENT -lt 90 ]
 		then
+echo "Hey, trying to expand the root fs!"
 				do_expand_rootfs
 				sync
 				reboot
