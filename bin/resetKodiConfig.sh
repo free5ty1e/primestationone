@@ -2,5 +2,5 @@
 
 
 echo "Configuring Kodi with default setup from image..."
-cp -vrf /home/pi/primestationone/reference/.kodi /home/pi/
+megaInstallKodiWithExodus.sh
 echo "Complete, if you didn't just see any errors."
