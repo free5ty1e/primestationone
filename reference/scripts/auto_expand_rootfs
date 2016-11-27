@@ -1,0 +1,31 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          auto_expand_rootfs
+# Required-Start:
+# Required-Stop:
+# Default-Start: 3
+# Default-Stop:
+# Short-Description: Resize the root filesystem to fill partition
+# Description:
+### END INIT INFO
+. /lib/lsb/init-functions
+case "$1" in
+  start)
+    log_daemon_msg "Starting auto_expand_rootfs"
+    ROOT_DEV=`grep -Eo 'root=[[:graph:]]+' /proc/cmdline | cut -d '=' -f 2-` &&
+    log_daemon_msg "Recreating linux partition to maximum size using handy raspi-config tool..."
+    raspi-config --expand-rootfs
+    log_daemon_msg "Will resize linux filesystem to maximum partition size upon next reboot..."
+    # resize2fs $ROOT_DEV &&
+    log_daemon_msg "This service shall self-destruct in 3... 2... 1... *boom*"
+    update-rc.d auto_expand_rootfs remove &&
+    rm /etc/init.d/auto_expand_rootfs &&
+    log_daemon_msg "Reloading systemctl daemon now since one of the init.d scripts is gone..."
+    systemctl daemon-reload
+    log_end_msg $?
+    ;;
+  *)
+    echo "Usage: $0 start" >&2
+    exit 3
+    ;;
+esac
