@@ -119,7 +119,8 @@ PERCENT=$(echo $CURRENT $ACTUAL | awk '{printf "%d", $1/$2*100}')
 if [ $PERCENT -lt 90 ]
 		then
 echo "Hey, trying to expand the root fs!"
-				do_expand_rootfs
-				sync
-				reboot
+  raspi-config --expand-rootfs
+				# do_expand_rootfs
+				# sync
+				# reboot
 fi
