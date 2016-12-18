@@ -74,37 +74,36 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
 
 #Built from sources only:
 #   Ports
-sudo ~/RetroPie-Setup/retropie_packages.sh kodi
-# sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
-# sudo ~/RetroPie-Setup/retropie_packages.sh giana
-# sudo ~/RetroPie-Setup/retropie_packages.sh micropolis
-# sudo ~/RetroPie-Setup/retropie_packages.sh solarus
-# sudo ~/RetroPie-Setup/retropie_packages.sh supertux
-# sudo ~/RetroPie-Setup/retropie_packages.sh uqm
-# sudo ~/RetroPie-Setup/retropie_packages.sh ags
+# sudo ~/RetroPie-Setup/retropie_packages.sh kodi
+sudo ~/RetroPie-Setup/retropie_packages.sh minecraft
+sudo ~/RetroPie-Setup/retropie_packages.sh giana
+sudo ~/RetroPie-Setup/retropie_packages.sh micropolis
+sudo ~/RetroPie-Setup/retropie_packages.sh solarus
+sudo ~/RetroPie-Setup/retropie_packages.sh supertux
+sudo ~/RetroPie-Setup/retropie_packages.sh uqm
+sudo ~/RetroPie-Setup/retropie_packages.sh ags
 # #sudo ~/RetroPie-Setup/retropie_packages.sh openmsx
-# sudo ~/RetroPie-Setup/retropie_packages.sh wolf4sdl
-# sudo ~/RetroPie-Setup/retropie_packages.sh xrick
-# sudo ~/RetroPie-Setup/retropie_packages.sh zdoom
-# sudo ~/RetroPie-Setup/retropie_packages.sh cannonball
+sudo ~/RetroPie-Setup/retropie_packages.sh wolf4sdl
+sudo ~/RetroPie-Setup/retropie_packages.sh xrick
+sudo ~/RetroPie-Setup/retropie_packages.sh zdoom
+sudo ~/RetroPie-Setup/retropie_packages.sh cannonball
 # #sudo ~/RetroPie-Setup/retropie_packages.sh px68k   #Currently fails build on Pi3 so skipping anyway
-# sudo ~/RetroPie-Setup/retropie_packages.sh coolcv
-# sudo ~/RetroPie-Setup/retropie_packages.sh frotz
-# sudo ~/RetroPie-Setup/retropie_packages.sh residualvm
+sudo ~/RetroPie-Setup/retropie_packages.sh coolcv
+sudo ~/RetroPie-Setup/retropie_packages.sh frotz
+sudo ~/RetroPie-Setup/retropie_packages.sh residualvm
 # sudo ~/RetroPie-Setup/retropie_packages.sh stratagus
-# sudo ~/RetroPie-Setup/retropie_packages.sh zesarux
-# sudo ~/RetroPie-Setup/retropie_packages.sh alephone
-# sudo ~/RetroPie-Setup/retropie_packages.sh cgenius
+sudo ~/RetroPie-Setup/retropie_packages.sh zesarux
+sudo ~/RetroPie-Setup/retropie_packages.sh alephone
+sudo ~/RetroPie-Setup/retropie_packages.sh cgenius
 # sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth
-# sudo ~/RetroPie-Setup/retropie_packages.sh gemrb
-# sudo ~/RetroPie-Setup/retropie_packages.sh lincity-ng
-# sudo ~/RetroPie-Setup/retropie_packages.sh love
-# sudo ~/RetroPie-Setup/retropie_packages.sh openbor
-# sudo ~/RetroPie-Setup/retropie_packages.sh openttd
-# sudo ~/RetroPie-Setup/retropie_packages.sh opentyrian
-# sudo ~/RetroPie-Setup/retropie_packages.sh sdlpop
-# sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
-# sudo ~/RetroPie-Setup/retropie_packages.sh uqm
+sudo ~/RetroPie-Setup/retropie_packages.sh gemrb
+sudo ~/RetroPie-Setup/retropie_packages.sh lincity-ng
+sudo ~/RetroPie-Setup/retropie_packages.sh love
+sudo ~/RetroPie-Setup/retropie_packages.sh openbor
+sudo ~/RetroPie-Setup/retropie_packages.sh openttd
+sudo ~/RetroPie-Setup/retropie_packages.sh opentyrian
+sudo ~/RetroPie-Setup/retropie_packages.sh sdlpop
+sudo ~/RetroPie-Setup/retropie_packages.sh tyrquake
 
 # #   Libretrocores:
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
@@ -140,9 +139,9 @@ sudo rm /etc/usbmount/mount.d/01_retropie_copyroms
 quickResetPrimestationOne.sh
 installMegaTools.sh
 installNodeVirtualGamepads.sh
-#installWindowedModeLxde.sh
+installWindowedModeLxde.sh
 
-#installRainbowstream.sh
+installRainbowstream.sh
 
 #installMpegRecordingCapability.sh
 sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
@@ -150,8 +149,9 @@ controllerConfigConstruction.sh
 
 installKodi.sh
 
-#installDescent1and2.sh
 n64SetDefaultEmulator.sh
+
+installDescent1and2.sh
 
 installAptRuntimePackages.sh
 installPs3RecommendedDriver.sh
