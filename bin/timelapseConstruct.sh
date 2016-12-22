@@ -16,7 +16,7 @@ else
 	echo "Timelapse video output location provided: $OUT"
 fi
 
-echo "Creating timelapse from JPGs in $TIMELAPSEPHOTOS to $TIMELAPSEPHOTOS/timelapse.mp4 ...."
+echo "Creating timelapse from JPGs in $TIMELAPSEPHOTOS to $OUT ...."
 
 cat "$TIMELAPSEPHOTOS"/*.jpg | avconv -r 30 -f image2pipe -codec:v mjpeg -i - -pix_fmt yuvj420p -r 30 -c:v libx264 -y "$OUT"
 
