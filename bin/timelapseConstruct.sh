@@ -9,7 +9,7 @@ else
 fi
 
 if [ -z "$2" ] ; then 
-	OUT="$TIMELAPSEPHOTOS/timelapse.mp4"
+	OUT="$TIMELAPSEPHOTOS.mp4"
 	echo "No timelapse video output location provided, defaulting to $OUT"
 else
 	OUT="$2"
