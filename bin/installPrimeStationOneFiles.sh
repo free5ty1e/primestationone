@@ -14,6 +14,7 @@ cp -vr .emulationstation/* ~/.emulationstation/
 cp -vr .kodi/* ~/.kodi/
 cp -vr .joymaps ~/
 cp -v .* ~/
+mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
 
 echo "Ensuring executable bits set on all scripts in roms..."
