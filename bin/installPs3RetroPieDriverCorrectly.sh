@@ -8,6 +8,7 @@ sudo killall sixpair
 sudo rm /usr/sbin/sixpair
 sudo killall sixad
 sudo RetroPie-Setup/retropie_packages.sh ps3controller remove
+sudo apt-get purge -y bluetooth
 sudo mkdir -p /var/lib/sixad/profiles
 sudo RetroPie-Setup/retropie_packages.sh ps3controller
 sudo RetroPie-Setup/retropie_packages.sh ps3controller pair shanwan
