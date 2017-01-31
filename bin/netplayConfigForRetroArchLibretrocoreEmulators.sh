@@ -3,4 +3,4 @@ listOfLibRetroCores=$(cat ~/primestationone/reference/txt/listOfLibRetroCores.tx
 echo "Netplay $listOfLibRetroCores\n"
 
 cowsay -f vader "Netplay should work for RetroArch / LibRetroCore emulators! $listOfLibRetroCores"
-sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
+sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay gui
