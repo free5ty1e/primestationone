@@ -12,6 +12,7 @@ mkdir /opt/retropie/configs/snesmouse
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -vr .kodi/* ~/.kodi/
+cp -vr .reicast/* ~/.reicast/
 cp -vr .joymaps ~/
 cp -v .* ~/
 mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
