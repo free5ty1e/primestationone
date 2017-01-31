@@ -35,6 +35,7 @@ The point of the Primestation One is to be able to massively retrogame from the 
 ##### PrimeStation One Quick Setup and Gaming Montage (extremely amateur) video: https://www.youtube.com/watch?v=70sQS6AAMNU
 
 ##### Other helpful links / organized documentation:
+* Streaming media with Kodi && Exodus: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/kodi.md
 * PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
 * WiFi configuration: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/wifi.md
