@@ -5,4 +5,5 @@ Amstrad CPC:   F6
 DOS/At800&5200:CTRL-F9
 Apple ][:      F10
 C64/AMIGA:     F12 menu
-Macintosh      CTRL-ESC
+Macintosh:     CTRL-ESC
+Dreamcast:     CTRL-C
