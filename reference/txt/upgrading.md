@@ -23,20 +23,4 @@ http://imgur.com/download/dqQICTM
 
 #######Step 4: Restart the Primestation by either typing `restart` into a terminal or Space menu -> Restart
 
-######Step 5: Locate the `SETTINGS` menu item and open it:
-(first PS3 controller icon, with Professor Farnsworth facing left)
-![UpgradeStep5](http://imgur.com/download/vPokkPd)
-http://imgur.com/download/vPokkPd
-
-######Step 6: Locate the `MEGAMODULES` item / submenu and open it:
-![UpgradeStep6](http://imgur.com/download/jYuIHju)
-http://imgur.com/download/jYuIHju
-
 ######At this point, you can optionally install the new Kodi with Exodus module and be ready to stream!
-
-######Step 7: Locate the `INSTALL_MEGA_MODULE_KODI_WITH_EXODUS` item / script and open it:  
-(Wait for the menu to come back up, this will take a couple minutes to process...)
-![UpgradeStep3](http://imgur.com/download/fYiCZEo)
-http://imgur.com/download/fYiCZEo
-
-#######Step 8: Restart the Primestation by either typing `restart` into a terminal or Space menu -> Restart
