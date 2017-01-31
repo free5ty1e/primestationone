@@ -1,3 +1,10 @@
+#####V1.10 RC1 - 2017.01.31: Fixed more emus broken since rebase
+* Dreamcast
+* Amiga
+* Mario Paint
+
+#####V1.10 beta - : Rebased on RetroPie 4.1.0
+
 #####v1.00 RC1 - 2016.05.06: Pi2and3 image released 
 * Fixed issues with broken networking and PS3 universal bluetooth connectivities upon startup
 * Genuine Sony PS3 controllers as well as newer GAsia and ShanWan controllers all now just work with this setup
