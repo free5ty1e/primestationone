@@ -14,5 +14,4 @@ http://imgur.com/download/oosz5uJ
 
 You should probably restart now.  (Spacebar menu -> Restart System, or type `off` into a terminal)
 
-#####Check if you are connected to the network:
-######Step 0: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/checknetwork.md
+
