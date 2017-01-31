@@ -16,11 +16,12 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Easy pairing scripts for bluetooth keyboards and mice
 * Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
 
-##### Current recommended, reasonably-priced buildout through Amazon Prime (minus *GENUINE* SONY PS3 controller):
-* http://amzn.com/B008XVAVAW - Raspberry Pi 2 complete starter kit
-* http://amzn.com/B00JN5SLHC - Bluetooth adapter
-* http://amzn.com/B00M55C0NS - 32GB SD card for maximum gameage
-* http://amzn.com/B00M55C1I2 - OR 64GB SD card for even more maximum gameage (PlayStation1 and Dreamcast ROMS are not small!)
+##### Current recommended, reasonably-priced buildout through Amazon Prime (PS3 controller(s)):
+* http://a.co/bRmn5QX - Raspberry Pi 3 starter kit (includes case, heatsinks, 2.5A power supply)
+* http://a.co/bXcSUlf - SanDisk 128GB Micro SD card for maximum gameage (can use as small as 8GB if you'd like but less games fit)
+* http://a.co/0Y9uBlb - PS3 controller charge && sync cable (USB A to USB Mini B Data Cable)
+* http://a.co/i3vkwzm - HDMI cable
+* http://a.co/bofBYoF - Genuine Sony PS3 controller.  Up to 4 supported simultaneously. (I have done my best to support generic PS3 controllers but no guarantees as there are so many different brands and firmware identification differences!!)
 
 #### Primestation pre-built image downloads (details and instructions below): http://goo.gl/RPKAr1
 
@@ -36,9 +37,8 @@ The point of the Primestation One is to be able to massively retrogame from the 
 ##### Other helpful links / organized documentation:
 * PrimeStation One theme for EmulationStation github repo:
 https://github.com/free5ty1e/primestationone-estheme
-* PrimeStation One fork of qtsixad PS3 controller driver source code:
-https://github.com/free5ty1e/qtsixa
-* PrimeStation One fork of the Dreamcast emulator, Reicast: https://github.com/free5ty1e/reicast-emulator
+* WiFi configuration: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/wifi.md
+* Upgrading from an older Primestation: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/upgrading.md
 * Transferring Primestation to run directly on USB instead of SD: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/usbinstall.md
 * Installing fresh and / or building from sources: https://github.com/free5ty1e/primestationone/blob/master/reference/txt/installfresh.md
 * First Run / Expanding your SD filesystem to fill your SD card (outdated): https://github.com/free5ty1e/primestationone/blob/master/reference/txt/expandfilesystem.md 
