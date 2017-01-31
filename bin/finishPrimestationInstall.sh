@@ -128,6 +128,8 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-4do
 
 # #   Reasserting Dreamcast emulator binaries just in case:
 sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
+sudo RetroPie-Setup/retropie_packages.sh reicast configure
+cp -vf ~/primestationone/reference/.reicast/vmu*.bin ~/.reicast/
 # #installReicastPrimestationEdition.sh
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
