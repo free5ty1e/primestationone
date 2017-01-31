@@ -10,6 +10,7 @@ sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/a
 sudo cp -vr var /
 mkdir /opt/retropie/configs/snesmouse
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
+cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -vr .kodi/* ~/.kodi/
 cp -vr .reicast/* ~/.reicast/
