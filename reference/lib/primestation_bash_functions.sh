@@ -28,7 +28,6 @@ function reset_permissions_bios_and_roms() {
 function rsync_with_progress() {
     echo "rsync with progress by file count, local filesystems only..."
     RSYNC="ionice -c3 rsync"
-    # don't use --progress
     RSYNC_ARGS="-axv --stats --human-readable"
     SOURCES="$1"
     TARGET="$2"
@@ -38,7 +37,8 @@ function rsync_with_progress() {
     #TODO=$(find ${SOURCES} | wc -l)
     echo "$TODO files counted to sync..."
 
-    ${RSYNC} ${RSYNC_ARGS} ${SOURCES} ${TARGET} | pv -l -e -p -s "$TODO"
+    ${RSYNC} ${RSYNC_ARGS} --progress ${SOURCES} ${TARGET} 
+    #| pv -l -e -p -s "$TODO"
     #ionice -c3 rsync -xvrltD --delete --stats --human-readable "$1" "$2" | pv -l -e -p -s "$TODO"
 }
 
