@@ -15,9 +15,13 @@ sudo apt-get update
 sudo apt-get -yf upgrade
 sudo apt-get -yf dist-upgrade
 
+cleanupTempFiles.sh
+
 echo "Changing apt sources to point to jessie instead of wheezy..."
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
 sudo sed -i 's/deb http:\/\/archive.raspberrypi.org\/debian jessie main/#deb http:\/\/archive.raspberrypi.org\/debian jessie main/g' /etc/apt/sources.list
+
+
 
 echo "Upgrading to Raspbian Jessie..."
 sudo apt-get update
