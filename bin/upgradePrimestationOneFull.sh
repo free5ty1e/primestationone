@@ -2,6 +2,8 @@
 
 pushd ~
 
+nukeRetroPieSetupRepoAndCheckoutFresh.sh
+
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
 #TODO: Need to reboot and have the next steps continue after reboot as a one-shot init?  Maybe, maybe not...
