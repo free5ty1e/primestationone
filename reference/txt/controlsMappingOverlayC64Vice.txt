@@ -1,21 +1,21 @@
 Commodore64: VICE
 ---------------------
-0  : 
-1  : 
-2  : Volume Control
-3  : 
+0  : Swap joysticks 1 and 2
+1  : Volume control
+2  : Map current menu item...
+3  : Enter
 4  : 
 5  : 
 6  : 
 7  : 
-8  : 
-9  : 
+8  : Change disk
+9  : Menu
 10 : 
-11 : 
-12 : 
-13 : 
+11 : Warp speed toggle
+12 : Virtual keyboard
+13 : Menu
 14 : 
-15 : 
+15 : Space
 16 : Exit Emulator
 X1-: 
 X1+:  
