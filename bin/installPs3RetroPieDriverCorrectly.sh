@@ -13,6 +13,9 @@ sudo mkdir -p /var/lib/sixad/profiles
 sudo RetroPie-Setup/retropie_packages.sh ps3controller
 sudo RetroPie-Setup/retropie_packages.sh ps3controller pair shanwan
 
+#just in case...
+sudo apt-get purge -y bluetooth
+
 #Below is a workaround for allowing both Shanwan and Gasia to work alongside Sony genuine PS3 controllers via bluetooth, this ensures that sixad is actually started
 ps3ForceDriverRestartAfterStartup.sh
 
