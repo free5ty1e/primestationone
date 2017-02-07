@@ -4,6 +4,7 @@ enable_input 0
 enable_remote 0
 enable_rumble 1
 enable_timeout 1
+timeout_mins 5
 led_n_auto 1
 led_n_number 0
 led_anim 1
@@ -14,4 +15,4 @@ enable_accel 0
 enable_accon 0
 enable_speed 0
 enable_pos 0
-enable_safety_timeout 0
+enable_safety_timeout 1
