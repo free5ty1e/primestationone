@@ -76,6 +76,7 @@ sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArchPi1.sh
 sudo rm /usr/local/bin/megaFixRewindWithOlderRetroArchPi2.sh
 sudo rm /usr/local/bin/megaInstallBinariesPi1.sh
 sudo rm /usr/local/bin/megaInstallBinariesPi2.sh
+sudo rm /usr/local/bin/upgrade2gMinPrimestationToFull.sh
 
 
 echo Creating required folders...
