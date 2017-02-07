@@ -1,6 +1,6 @@
 # VICE hotkey mapping file
 #
-# A hotkey map is read in as patch to the current map.
+# A hotkey map is read in as a patch to the current map.
 #
 # File format:
 # - comment lines start with '#'
