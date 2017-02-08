@@ -11,14 +11,14 @@ rm -rfv ~/RetroPie/roms/dreamcast/P*
 rm -rfv ~/RetroPie/roms/msx/*
 
 echo "Upgrading Wheezy to the latest first if we are still on wheezy..."
-sudo apt-get update
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" update
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" upgrade
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 cleanupTempFiles.sh
-sudo apt-get -y -f install
-sudo dpkg --configure -a
-sudo apt-get -y -f install
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
+sudo dpkg --configure -a --force-confnew
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
 echo "Changing apt sources to point to jessie instead of wheezy..."
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
@@ -29,25 +29,25 @@ sudo sed -i 's/deb http:\/\/archive.raspberrypi.org\/debian jessie main/#deb htt
 
 
 echo "Upgrading to Raspbian Jessie..."
-sudo apt-get update
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" update
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" upgrade
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
 cleanupTempFiles.sh
-sudo apt-get -y -f install
-sudo dpkg --configure -a
-sudo apt-get -y -f install
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
+sudo dpkg --configure -a --force-confnew
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
 #TODO: Need to reboot and have the next steps continue after reboot as a one-shot init?  Maybe, maybe not...
 
 cleanupTempFiles.sh
-sudo apt-get -y -f install
-sudo dpkg --configure -a
-sudo apt-get -y -f install
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
+sudo dpkg --configure -a --force-confnew
+sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
 sudo RetroPie-Setup/retropie_packages.sh setup update_packages
 
