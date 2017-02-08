@@ -18,6 +18,7 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 cleanupTempFiles.sh
 sudo apt-get -y -f install
 sudo dpkg --configure -a
+sudo apt-get -y -f install
 
 echo "Changing apt sources to point to jessie instead of wheezy..."
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
@@ -37,6 +38,7 @@ nukeRetroPieSetupRepoAndCheckoutFresh.sh
 cleanupTempFiles.sh
 sudo apt-get -y -f install
 sudo dpkg --configure -a
+sudo apt-get -y -f install
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
@@ -45,6 +47,7 @@ sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 cleanupTempFiles.sh
 sudo apt-get -y -f install
 sudo dpkg --configure -a
+sudo apt-get -y -f install
 
 sudo RetroPie-Setup/retropie_packages.sh setup update_packages
 
