@@ -16,6 +16,8 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" upgrade
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 cleanupTempFiles.sh
+sudo apt-get -y -f install
+sudo dpkg --configure -a
 
 echo "Changing apt sources to point to jessie instead of wheezy..."
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list
@@ -32,9 +34,17 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
+cleanupTempFiles.sh
+sudo apt-get -y -f install
+sudo dpkg --configure -a
+
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
 #TODO: Need to reboot and have the next steps continue after reboot as a one-shot init?  Maybe, maybe not...
+
+cleanupTempFiles.sh
+sudo apt-get -y -f install
+sudo dpkg --configure -a
 
 sudo RetroPie-Setup/retropie_packages.sh setup update_packages
 
