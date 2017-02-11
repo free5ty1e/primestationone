@@ -9,6 +9,11 @@ echo "Making some room... you may have to reinstall some mega modules..."
 rm -rfv ~/RetroPie/roms/segacd/*
 rm -rfv ~/RetroPie/roms/dreamcast/P*
 rm -rfv ~/RetroPie/roms/msx/*
+rm -rfv ~/RetroPie/roms/3do/*
+rm -rfv ~/RetroPie/roms/psx/*
+rm -rfv ~/RetroPie/roms/atarijaguar/*
+rm -rfv ~/RetroPie/roms/macintosh/*
+
 
 echo "Upgrading Wheezy to the latest first if we are still on wheezy..."
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" update
@@ -60,6 +65,10 @@ quickUpdatePrimestationOneFiles.sh
 installKodi.sh
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools package_cleanup 
+cleanupTempFiles.sh
+
+echo "Reinstalling some of the stuff we removed to make room for the upgrade..."
+megaInstallBinsNRoms.sh
 
 popd
 
