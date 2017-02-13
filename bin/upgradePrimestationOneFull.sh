@@ -54,13 +54,20 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 sudo dpkg --configure -a --force-confnew
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
+#TODO: Remove limelight package before this happens, it stalls the installation with its geforce pc hunt...
+
 sudo RetroPie-Setup/retropie_packages.sh setup update_packages
 
-installPs3RecommendedDriver.sh
+installWindowedModeLxde.sh
 
 nukePrimestationOneRepoAndCheckoutFresh.sh
 
+installAptRuntimePackages.sh
+
 quickUpdatePrimestationOneFiles.sh
+
+#TODO: Below on upgrade from v0.9999beta results in an "expect" error, bad interpreter, command not found..?
+installPs3RecommendedDriver.sh
 
 installKodi.sh
 
