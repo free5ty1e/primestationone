@@ -32,6 +32,8 @@ sudo sed -i 's/deb http:\/\/archive.raspberrypi.org\/debian jessie main/#deb htt
 sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/raspi.list
 sudo sed -i 's/deb http:\/\/archive.raspberrypi.org\/debian jessie main/#deb http:\/\/archive.raspberrypi.org\/debian jessie main/g' /etc/apt/sources.list.d/raspi.list
 
+sudo sed -i 's/wheezy/jessie/g' /etc/apt/sources.list.d/collabora.list 
+sudo sed -i 's/deb http:\/\/archive.raspberrypi.org\/debian jessie main/#deb http:\/\/archive.raspberrypi.org\/debian jessie main/g' /etc/apt/sources.list.d/collabora.list 
 
 echo "Upgrading to Raspbian Jessie..."
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" update
@@ -47,14 +49,13 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
-#TODO: Need to reboot and have the next steps continue after reboot as a one-shot init?  Maybe, maybe not...
-
 cleanupTempFiles.sh
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 sudo dpkg --configure -a --force-confnew
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
-#TODO: Remove limelight package before this happens, it stalls the installation with its geforce pc hunt...
+echo "Removing limelight package before this happens, it stalls the installation with its geforce pc hunt..."
+sudo RetroPie-Setup/retropie_packages.sh limelight remove
 
 sudo RetroPie-Setup/retropie_packages.sh setup update_packages
 
@@ -66,7 +67,6 @@ installAptRuntimePackages.sh
 
 quickUpdatePrimestationOneFiles.sh
 
-#TODO: Below on upgrade from v0.9999beta results in an "expect" error, bad interpreter, command not found..?
 installPs3RecommendedDriver.sh
 
 installKodi.sh
