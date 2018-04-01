@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function initPackageList {
+function initPackageCommandLists {
 	RETROPIE_PACKAGE_COMMAND_NAMES=(
 		#Upgrade / management commands:
     	setup
@@ -16,7 +16,7 @@ function initPackageList {
 
 function iterateThroughRetroPiePackageCommandsAndInstall {
     #Iterate through the templates and install them: 
-    initPackageList
+    initPackageCommandLists
     for index in ${!RETROPIE_PACKAGE_COMMAND_NAMES[*]}; do
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_COMMAND_NAMES[$index]}"
         CURRENT_PACKAGE_COMMAND="${RETROPIE_PACKAGE_COMMANDS[$index]}"
@@ -25,5 +25,5 @@ function iterateThroughRetroPiePackageCommandsAndInstall {
     done
 }
 
-echo Installing experimental emulators and such that dont require prompting...
+echo "Iterating through retro pie packages that have specified commands in our lists..."
 iterateThroughRetroPiePackageCommandsAndInstall
