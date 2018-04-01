@@ -130,6 +130,7 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-snes9x-next
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-prosystem
 sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus
+sudo ~/RetroPie-Setup/retropie_packages.sh lr-dosbox
 sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus
 sudo ~/RetroPie-Setup/retropie_packages.sh mupen64plus-testing
 sudo ~/RetroPie-Setup/retropie_packages.sh darkplaces
