@@ -2,11 +2,12 @@
 
 retroPieNukeAndCheckoutFresh.sh
 
-cowsay -f stegosaurus Now installing one thing that will require your attention with prompting at the end...
+cowsay -f stegosaurus "Now installing one thing that will require your attention with prompting at the end..."
 
-cowsay Installing RetroPie binaries...
+cowsay "Installing RetroPie binaries..."
 installRetroPieBinaries.sh
 
+updateRetroPiePackagesAndOtherSetupCommands.sh
 updateAndInstallRetroPiePackages.sh
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh reicast
@@ -134,13 +135,13 @@ cowsay Installing awesome PrimestationOne tools and ports...
 installMegaTools.sh
 #installDescent1and2.sh
 
-cowsay -f stegosaurus Now installing things that will require your attention with prompting...
+cowsay -f stegosaurus "Now installing things that will require your attention with prompting..."
 
-cowsay -f stegosaurus Updating PS3 RetroNetPlay...
+cowsay -f stegosaurus "Updating PS3 RetroNetPlay..."
 sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
 
 # cowsay -f stegosaurus Installing Limelight streamer...
 # sudo ~/RetroPie-Setup/retropie_packages.sh limelight
 
-cowsay -f stegosaurus Updating PS3 controller driver...
+cowsay -f stegosaurus "Updating PS3 controller driver..."
 installPs3RecommendedDriver.sh
