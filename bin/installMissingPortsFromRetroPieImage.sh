@@ -3,6 +3,8 @@
 
 function initPackageList {
     RETROPIE_PACKAGE_NAMES=(
+    	#Upgrade / management commands:
+    	setup update_packages
 
     	#LibRetro packages:
 		lr-4do
@@ -36,7 +38,7 @@ function initPackageList {
 		darkplaces-quake
 		sdlpop
 		smw
-	
+
 
 		#Tools:
 		mobilegamepad
