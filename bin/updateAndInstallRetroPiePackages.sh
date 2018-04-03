@@ -56,7 +56,7 @@ function initPackageList {
 		mupen64plus-testing
 
 		#Frontends / alternatives to Emulationstation: (Just select one?)
-		emulationstation-dev
+		# emulationstation-dev
 		# mehstation
 		#pegasus-fe
     )
