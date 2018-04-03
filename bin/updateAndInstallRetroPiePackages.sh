@@ -64,8 +64,6 @@ function initPackageList {
 
 function iterateThroughRetroPiePackagesAndInstall {
     #Iterate through the templates and install them: 
-    TEMPLATE_REPORT=""
-    TEMPLATE_VERBOSE_REPORT=""
     initPackageList
     for index in ${!RETROPIE_PACKAGE_NAMES[*]}; do
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
