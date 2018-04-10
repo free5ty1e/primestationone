@@ -13,21 +13,36 @@ function initPackageList {
 		lr-yabause
 		lr-desmume
 		lr-prboom
+		lr-snes9x
 		lr-snes9x-next
 		lr-prosystem
 		lr-mupen64plus
 		lr-dosbox
 		lr-hatari
+		lr-mame2010
 		lr-mame2014
 		lr-mame2016
+		lr-fbalpha2012
 		lr-puae
 		lr-vice
 		lr-virtualjaguar
 		lr-yabause
+		lr-atari800
+		lr-tyrquake
+		lr-tgbdual
+		lr-beetle-lynx
+		lr-mrboom
+		lr-parallel-n64
+		lr-ppsspp
+		lr-o2em
+		lr-beetle-wswan
+		lr-gw
+		lr-fmsx
+		lr-bluemsx
+		lr-nxengine
 
 
-		#Ports:
-		kodi
+		#Ports (Pi games):
 		minecraft
 		ags
 		dxx-rebirth
@@ -35,9 +50,13 @@ function initPackageList {
 		darkplaces-quake
 		sdlpop
 		smw
+		eduke32
+		sdlpop
+		wolf4sdl
 
 
 		#Tools:
+		kodi
 		mobilegamepad
 		virtualgamepad
 		retropie-manager
@@ -51,6 +70,8 @@ function initPackageList {
 		advmame
 		advmame-1.4
 		advmame-0.94
+		snes9x
+		uae4all
 
 		#Experimental:
 		mupen64plus-testing
