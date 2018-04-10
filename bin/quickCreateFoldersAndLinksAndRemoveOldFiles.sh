@@ -79,6 +79,7 @@ sudo rm /usr/local/bin/megaInstallBinariesPi1.sh
 sudo rm /usr/local/bin/megaInstallBinariesPi2.sh
 sudo rm /usr/local/bin/upgrade2gMinPrimestationToFull.sh
 sudo rm /usr/local/bin/megaInstallKodiWithExodus.sh
+sudo rm /usr/local/bin/megaInstallKodiWithElysium.sh
 
 
 echo Creating required folders...
