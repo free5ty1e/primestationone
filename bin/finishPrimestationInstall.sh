@@ -153,7 +153,7 @@ controllerConfigConstruction.sh
 
 n64SetDefaultEmulator.sh
 
-installDescent1and2.sh
+# installDescent1and2.sh
 
 alsamixer
 
