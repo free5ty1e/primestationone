@@ -377,3 +377,21 @@ function addLineToEndOfFileIfNOtExist() {
         grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
     fi
 }
+
+function launchDoomWadWithManagedSavefiles() {
+    defaultwad="doom1.wad"
+    if [ -z "$1" ]
+    then
+        echo "No wadfile parameter provided, defaulting to $defaultwad..."
+        wadfile="$defaultwad"
+    else
+        wadfile="$1"
+    fi
+    
+    echo "Launching $wadfile with properly managed savefiles..."
+    path="/home/pi/RetroPie/roms/ports/doom"
+
+    unzip -qq -o "${path}/savegames_${wadfile%.*}.zip" -d "$path"
+    "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "doom" "${path}/$wadfile"
+    cd "$path" && zip -mj "savegames_${wadfile%.*}.zip" prbmsav?.dsg
+}
