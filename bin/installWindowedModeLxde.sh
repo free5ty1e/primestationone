@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cowsay -f elephant "Windowed Mode Startx LXDE..."
-echo "Installing Windowed Mode Startx LXDE..."
+cowsay -f elephant "Windowed Mode Startx LXDE Desktop..."
+echo "Installing Windowed Mode Startx LXDE Desktop..."
 
 #pushd ~
 
@@ -10,9 +10,15 @@ echo "Installing Windowed Mode Startx LXDE..."
 #autoStartEmulationstationEnforce.sh
 # fixStartX.sh
 
+sudo apt-get remove -y realvnc-vnc-server mono-xsp4 mono-devel libmono-system-web4.0-cil
+cleanupTempFiles.sh
+
 # sudo ~/RetroPie-Setup/retropie_packages.sh raspbiantools lxde
-sudo apt-get install --no-install-recommends lxde
-sudo apt-get install xorg raspberrypi-ui-mods rpi-chromium-mods
+sudo apt-get install -y --no-install-recommends lxde
+sudo apt-get install -y xorg raspberrypi-ui-mods rpi-chromium-mods
+sudo apt-get install -y alsamixergui gedit clipit deluge transmission-gtk evince-gtk gnome-disk-utility gnome-mplayer gnome-system-tools gucharmap lxmusic audacious menu-xdg usermode 
+#network-manager-gnome
+
 
 # echo "Adding latest mono-xsp4 key server to repositories and performing update && upgrade to enable install of mono v4+ (see http://www.mono-project.com/docs/getting-started/install/linux/ )..."
 # sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -34,6 +40,9 @@ sudo apt-get install xorg raspberrypi-ui-mods rpi-chromium-mods
 # echo "Enabling virtual RealVNC server too..."
 # sudo systemctl enable vncserver-virtuald.service
 # sudo systemctl start vncserver-virtuald.service
+
+echo "Installing simple standard bottom panel setup for LXDE..."
+cp -vr ~/primestationone/reference/.config ~/
 
 echo "Setting up new EmulationStation entry for Desktop..."
 mkdir /home/pi/RetroPie/roms/desktop
