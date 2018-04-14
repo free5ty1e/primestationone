@@ -49,6 +49,7 @@ rm ~/RetroPie/roms/settings/megaModules/megaInstallThemePrimeStationOne.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_Pi1_older_retroarch_to_fix_rewind.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_Pi2_older_retroarch_to_fix_rewind.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_kodi_with_exodus.sh
+rm ~/RetroPie/roms/settings/megaModules/install_mega_module_nes_scrapins.sh
 
 rm ~/RetroPie/roms/settings/installs/first_run_and_reset_primestation_one_not_quick.sh
 
