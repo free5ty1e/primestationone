@@ -72,6 +72,7 @@ function initPackageList {
 		advmame-0.94
 		snes9x
 		uae4all
+		scummvm
 
 		#Experimental:
 		mupen64plus-testing
