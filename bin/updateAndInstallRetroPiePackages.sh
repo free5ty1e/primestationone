@@ -53,6 +53,11 @@ function initPackageList {
 		eduke32
 		sdlpop
 		wolf4sdl
+		cannonball
+		love
+		quake3
+		solarus
+		supertux
 
 
 		#Tools:
@@ -73,6 +78,9 @@ function initPackageList {
 		snes9x
 		uae4all
 		scummvm
+		pisnes
+		rpix86
+
 
 		#Experimental:
 		mupen64plus-testing
