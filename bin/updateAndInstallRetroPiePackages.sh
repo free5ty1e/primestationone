@@ -40,6 +40,13 @@ function initPackageList {
 		lr-fmsx
 		lr-bluemsx
 		lr-nxengine
+		lr-beetle-pcfx
+		lr-dinothawr
+		# lr-mess2016
+		
+		#The following require gcc 5.0 or later to compile:
+		lr-mess
+		lr-mame
 
 
 		#Ports (Pi games):
@@ -58,7 +65,8 @@ function initPackageList {
 		quake3
 		solarus
 		supertux
-
+		cgenius
+		
 
 		#Tools:
 		kodi
