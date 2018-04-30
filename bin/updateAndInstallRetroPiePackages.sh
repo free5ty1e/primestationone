@@ -12,6 +12,7 @@ function initPackageList {
 		lr-pcsx-rearmed
 		lr-yabause
 		lr-desmume
+		lr-desmume2015
 		lr-prboom
 		lr-snes9x
 		lr-snes9x-next
@@ -42,6 +43,7 @@ function initPackageList {
 		lr-nxengine
 		lr-beetle-pcfx
 		lr-dinothawr
+		lr-freeintv
 		# lr-mess2016
 		
 		#The following require gcc 5.0 or later to compile:
@@ -66,6 +68,7 @@ function initPackageList {
 		solarus
 		supertux
 		cgenius
+		digger
 		
 
 		#Tools:
@@ -73,6 +76,7 @@ function initPackageList {
 		mobilegamepad
 		virtualgamepad
 		retropie-manager
+		scraper
 
 		#Standalone emualators:
 		mupen64plus
@@ -88,6 +92,8 @@ function initPackageList {
 		scummvm
 		pisnes
 		rpix86
+		dosbox-sdl2
+
 
 
 		#Experimental:
