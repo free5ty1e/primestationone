@@ -143,5 +143,5 @@ sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
 # cowsay -f stegosaurus Installing Limelight streamer...
 # sudo ~/RetroPie-Setup/retropie_packages.sh limelight
 
-cowsay -f stegosaurus "Updating PS3 controller driver..."
-installPs3RecommendedDriver.sh
+# cowsay -f stegosaurus "Updating PS3 controller driver..."
+# installPs3RecommendedDriver.sh
