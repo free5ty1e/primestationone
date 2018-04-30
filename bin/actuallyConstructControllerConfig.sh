@@ -37,13 +37,13 @@ function remap_hotkeys_retroarchautoconf() {
     if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
     then
         echo Controller with PS button detected!  Inserting missing PS button mapping...
-        iniSet "input_ps_btn" "16" "$file" >/dev/null
-	input_exit_emu="input_ps"
+        # iniSet "input_ps_btn" "16" "$file" >/dev/null
+	   input_exit_emu="input_mode"
     fi
 
     iniConfig " = " "\""
     local mappings=(
-        'input_enable_hotkey input_ps'
+        'input_enable_hotkey input_mode'
         'input_exit_emulator input_select'
         'input_menu_toggle input_l'
         'input_load_state input_b'
