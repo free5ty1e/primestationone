@@ -26,27 +26,30 @@ emuconfigdirs=(
 function remap_hotkeys_retroarchautoconf() {
     local file="$1"
     local ini_value
-    local input_exit_emu="input_start"
+    # local input_exit_emu="input_start"
 
     [[ -z "$file" || ! -f "$file" ]] && return 1
 
 
     printMsgs "console" "Processing $file"
 
-    iniGet "input_device" "$file"
-    if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
-    then
-        echo Controller with PS button detected!  Inserting missing PS button mapping...
-        # iniSet "input_ps_btn" "16" "$file" >/dev/null
-	   input_exit_emu="input_mode"
-    fi
+    # iniGet "input_device" "$file"
+    # if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
+    # then
+    #     echo "Controller with PS button detected!  Inserting missing PS button mapping..."
+    #     # iniSet "input_ps_btn" "16" "$file" >/dev/null
+	   # input_exit_emu="input_mode"
+    # fi
+
+            #Old mapping was a12triangle, b13circle, x14x, y15square
+            #New mapping is a0x, b1circle, x2triangle, y3square
 
     iniConfig " = " "\""
     local mappings=(
         'input_enable_hotkey input_mode'
         'input_exit_emulator input_select'
         'input_menu_toggle input_l'
-        'input_load_state input_b'
+        'input_load_state input_a'
         'input_save_state input_y'
         'input_reset input_up'
         'input_state_slot_increase input_r'
@@ -59,7 +62,7 @@ function remap_hotkeys_retroarchautoconf() {
         'input_screenshot input_l3'
         'input_rewind input_r_x_minus'
         'input_hold_fast_forward input_r_x_plus'
-        'input_toggle_fast_forward input_a'
+        'input_toggle_fast_forward input_b'
         'input_pause_toggle input_start'
         'input_frame_advance input_x'
         'input_slowmotion input_r_y_plus'
@@ -147,22 +150,29 @@ if [ -d "$md_build/udev" ]; then
                 'pcengine'
             )
 
-            # for emu in "${emulatorsToButtonSwap[@]}"; do
-            #     emu=($emu)
-            #     iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            #     iniSet "input_player1_y_btn" "13"
-            #     iniSet "input_player1_a_btn" "14"
-            #     iniSet "input_player1_b_btn" "15"
-            #     iniSet "input_player2_y_btn" "13"
-            #     iniSet "input_player2_a_btn" "14"
-            #     iniSet "input_player2_b_btn" "15"
-            #     iniSet "input_player3_y_btn" "13"
-            #     iniSet "input_player3_a_btn" "14"
-            #     iniSet "input_player3_b_btn" "15"
-            #     iniSet "input_player4_y_btn" "13"
-            #     iniSet "input_player4_a_btn" "14"
-            #     iniSet "input_player4_b_btn" "15"
-            # done
+            #Old mapping was 12triangle, 13circle, 14x, 15square
+            #New mapping is 0x, 1circle, 2triangle, 3square
+            #Before, we were setting Jump (a) to the Cross button (14)
+            #   and Fire (b) to the Square (15) button instead of Circle (13) which is the default
+            #   and then Aux (y) to the Circle (13) button instead of the Square (15) button which is the default
+            #   ...heretofore: we want to set y to 1, a to 0, and b to 3
+
+            for emu in "${emulatorsToButtonSwap[@]}"; do
+                emu=($emu)
+                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+                iniSet "input_player1_y_btn" "1"
+                iniSet "input_player1_a_btn" "0"
+                iniSet "input_player1_b_btn" "3"
+                iniSet "input_player2_y_btn" "1"
+                iniSet "input_player2_a_btn" "0"
+                iniSet "input_player2_b_btn" "3"
+                iniSet "input_player3_y_btn" "1"
+                iniSet "input_player3_a_btn" "0"
+                iniSet "input_player3_b_btn" "3"
+                iniSet "input_player4_y_btn" "1"
+                iniSet "input_player4_a_btn" "0"
+                iniSet "input_player4_b_btn" "3"
+            done
 
             echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
             #local
@@ -173,22 +183,30 @@ if [ -d "$md_build/udev" ]; then
                 'sg-1000'
             )
 
-            # for emu in "${emulatorsToButtonSwapReverse[@]}"; do
-            #     emu=($emu)
-            #     iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            #     iniSet "input_player1_y_btn" "13"
-            #     iniSet "input_player1_a_btn" "15"
-            #     iniSet "input_player1_b_btn" "14"
-            #     iniSet "input_player2_y_btn" "13"
-            #     iniSet "input_player2_a_btn" "15"
-            #     iniSet "input_player2_b_btn" "14"
-            #     iniSet "input_player3_y_btn" "13"
-            #     iniSet "input_player3_a_btn" "15"
-            #     iniSet "input_player3_b_btn" "14"
-            #     iniSet "input_player4_y_btn" "13"
-            #     iniSet "input_player4_a_btn" "15"
-            #     iniSet "input_player4_b_btn" "14"
-            # done
+            #Old mapping was 12triangle, 13circle, 14x, 15square
+            #New mapping is 0x, 1circle, 2triangle, 3square
+            #Before, we were setting Jump (a) to the Square button (15)
+            #   and Fire (b) to the Cross (14) button
+            #   and then Aux (y) to the Circle (13) button
+            #   ...heretofore: we want to set y to 1, a to 3, and b to 0
+
+
+            for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+                emu=($emu)
+                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+                iniSet "input_player1_y_btn" "1"
+                iniSet "input_player1_a_btn" "3"
+                iniSet "input_player1_b_btn" "0"
+                iniSet "input_player2_y_btn" "1"
+                iniSet "input_player2_a_btn" "3"
+                iniSet "input_player2_b_btn" "0"
+                iniSet "input_player3_y_btn" "1"
+                iniSet "input_player3_a_btn" "3"
+                iniSet "input_player3_b_btn" "0"
+                iniSet "input_player4_y_btn" "1"
+                iniSet "input_player4_a_btn" "3"
+                iniSet "input_player4_b_btn" "0"
+            done
 
 
             echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
