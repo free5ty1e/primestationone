@@ -20,6 +20,8 @@ function initPackageList {
 		lr-mupen64plus
 		lr-dosbox
 		lr-hatari
+		lr-mame2003
+		lr-mame2003-plus
 		lr-mame2010
 		lr-mame2014
 		lr-mame2016
