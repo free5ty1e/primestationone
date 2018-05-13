@@ -213,7 +213,7 @@ if [ -d "$md_build/udev" ]; then
             #local
             #above keyword only for when below is in its own function:
             emulatorsToRearrangeButtons=(
-                'mame-mame4all'
+                'mame-libretro'
             )
 
             for emu in "${emulatorsToRearrangeButtons[@]}"; do
@@ -241,37 +241,17 @@ if [ -d "$md_build/udev" ]; then
                 #GenericGame Jump a_btn
                 #insert coin -> L3 instead of Select to avoid conflicts in some games
 
-                # iniSet "input_player1_select_btn" "1"
-                # iniSet "input_player1_l_btn" "10"
-                # iniSet "input_player1_r_btn" "11"
-                # iniSet "input_player1_x_btn" "12"
-                # iniSet "input_player1_y_btn" "13"
-                # iniSet "input_player1_a_btn" "14"
-                # iniSet "input_player1_b_btn" "15"
+                iniSet "input_player1_a_btn" "3"
+                iniSet "input_player1_y_btn" "0"
 
-                # iniSet "input_player2_select_btn" "1"
-                # iniSet "input_player2_l_btn" "10"
-                # iniSet "input_player2_r_btn" "11"
-                # iniSet "input_player2_x_btn" "12"
-                # iniSet "input_player2_y_btn" "13"
-                # iniSet "input_player2_a_btn" "14"
-                # iniSet "input_player2_b_btn" "15"
+                iniSet "input_player2_a_btn" "3"
+                iniSet "input_player2_y_btn" "0"
 
-                # iniSet "input_player3_select_btn" "1"
-                # iniSet "input_player3_l_btn" "10"
-                # iniSet "input_player3_r_btn" "11"
-                # iniSet "input_player3_x_btn" "12"
-                # iniSet "input_player3_y_btn" "13"
-                # iniSet "input_player3_a_btn" "14"
-                # iniSet "input_player3_b_btn" "15"
+                iniSet "input_player3_a_btn" "3"
+                iniSet "input_player3_y_btn" "0"
 
-                # iniSet "input_player4_select_btn" "1"
-                # iniSet "input_player4_l_btn" "10"
-                # iniSet "input_player4_r_btn" "11"
-                # iniSet "input_player4_x_btn" "12"
-                # iniSet "input_player4_y_btn" "13"
-                # iniSet "input_player4_a_btn" "14"
-                # iniSet "input_player4_b_btn" "15"
+                iniSet "input_player4_a_btn" "3"
+                iniSet "input_player4_y_btn" "0"
 
             done
         else
