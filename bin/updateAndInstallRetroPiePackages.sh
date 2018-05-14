@@ -25,10 +25,6 @@ function initPackageList {
 		lr-mame2003-plus
 		lr-mame2010
 		lr-mame2014
-		lr-mame2016
-		lr-mame
-		lr-mess2016
-		lr-mess
 		lr-fbalpha2012
 		lr-fbalpha
 		lr-puae
@@ -53,11 +49,6 @@ function initPackageList {
 		lr-freeintv
 		# lr-mess2016
 		
-		#The following require gcc 5.0 or later to compile:
-		lr-mess
-		lr-mame
-
-
 		#Ports (Pi games):
 		minecraft
 		ags
@@ -80,10 +71,11 @@ function initPackageList {
 
 		#Tools:
 		kodi
-		mobilegamepad
-		virtualgamepad
-		retropie-manager
+		# mobilegamepad
+		# virtualgamepad
+		#retropie-manager
 		scraper
+		launchingimages
 
 		#Standalone emualators:
 		mupen64plus
@@ -101,10 +93,16 @@ function initPackageList {
 		rpix86
 		dosbox-sdl2
 
-
-
 		#Experimental:
 		mupen64plus-testing
+
+		# The following don't appear to compile completely or take forever:
+		# lr-mame2016
+		# lr-mess2016
+
+		#The following require gcc 5.0 or later to compile:
+		# lr-mess
+		# lr-mame
 
 		#Frontends / alternatives to Emulationstation: (Just select one?)
 		# emulationstation-dev
