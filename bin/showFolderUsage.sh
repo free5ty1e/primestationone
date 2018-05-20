@@ -8,4 +8,4 @@ else
     currentFolder="$1"
 fi
 
-du -sch "$currentFolder/*" .[!.]* | sort -rh
+du -sch $currentFolder/* .[!.]* | sort -rh
