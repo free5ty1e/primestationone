@@ -79,19 +79,19 @@ function initPackageList {
 
 		#Standalone emualators:
 		mupen64plus
-		openmsx
-		sdltrs
-		minivmac
 		drastic
-		advmame
-		advmame-1.4
-		advmame-0.94
 		snes9x
 		uae4all
 		scummvm
 		pisnes
 		rpix86
 		dosbox-sdl2
+		# openmsx
+		# sdltrs
+		# minivmac
+		# advmame
+		# advmame-1.4
+		# advmame-0.94
 
 		#Experimental:
 		mupen64plus-testing
@@ -118,6 +118,7 @@ function iterateThroughRetroPiePackagesAndInstall {
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
         echo "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
         sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
+        cleanupTempFiles.sh
     done
 }
 
