@@ -3,9 +3,9 @@
 if [ -z "$1" ]
 then
     echo "No folder supplied, defaulting to current folder $(pwd)"
-    currentFolder=""
+    currentFolder="$(pwd)"
 else
-    currentFolder="$1/"
+    currentFolder="$1"
 fi
 
-du -sch "$1*" .[!.]* | sort -rh
+du -sch "$currentFolder/*" .[!.]* | sort -rh
