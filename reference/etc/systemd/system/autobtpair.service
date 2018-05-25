@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto Bluetooth Pairing service
+After=bluetooth.service
+Requires=bluetooth.service
+ 
+[Service]
+ExecStart=/local/usr/bin/auto-agent.py
+ 
+[Install]
+WantedBy=multi-user.target
