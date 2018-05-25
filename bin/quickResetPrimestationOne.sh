@@ -37,6 +37,7 @@ nukeRetroPieSetupRepoAndCheckoutFresh.sh
 quickUpdatePrimestationOneFiles.sh
 
 cowsay Enabling rewind functionality on basic emulators...
+rewindGlobalLongerCoarseBuffer.sh
 rewindAtari2600Enable.sh
 rewindGenesisEnable.sh
 rewindNesEnable.sh
