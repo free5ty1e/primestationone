@@ -51,6 +51,8 @@ rm ~/RetroPie/roms/settings/megaModules/install_mega_Pi2_older_retroarch_to_fix_
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_kodi_with_exodus.sh
 rm ~/RetroPie/roms/settings/megaModules/install_mega_module_nes_scrapins.sh
 
+rm ~/RetroPie/roms/settings/system/upgrade_primestation_one_full.sh
+
 rm ~/RetroPie/roms/settings/installs/first_run_and_reset_primestation_one_not_quick.sh
 
 rm ~/RetroPie/BIOS/Doukutsu.exe
