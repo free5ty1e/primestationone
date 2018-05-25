@@ -7,6 +7,7 @@ sudo rm -rf RetroPie-Setup/tmp/*
 echo Cleaning up old and outdated scripts...
 
 rm ~/RetroPie/roms/ports/StartXWindowedMode_Login_pi_Password_raspberry.sh
+rm ~/RetroPie/roms/ports/StartXWindowedMode.sh
 
 rm ~/RetroPie/roms/settings/install_all_mega_modules.sh
 rm ~/RetroPie/roms/settings/install_mega_module_binsnroms_large.sh
