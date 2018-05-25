@@ -26,6 +26,7 @@ sudo cp -vf bluezutils.py /usr/local/bin/
 
 sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
 sudo systemctl enable autobtpair
+sudo systemctl enable autobtpair.service
 
 
 
