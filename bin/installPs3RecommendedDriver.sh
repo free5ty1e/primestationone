@@ -7,6 +7,8 @@ sudo apt-get update
 sudo apt-get -y install libbluetooth-dev bluez-tools
 sudo -H pip install wheel
 sudo -H pip install pybluez
+pushd ~
+rm bluezutils.py
 wget https://raw.githubusercontent.com/pauloborges/bluez/master/test/bluezutils.py
 sudo cp -vf bluezutils.py /usr/local/bin/
 
@@ -31,14 +33,14 @@ sudo systemctl enable autobtpair.service
 
 
 
-echo "Setting up automatic sixaxis pairing upon USB connect via a simple udev rule and the standard sixpair binary..."
-sudo apt-get -y install libusb-dev joystick python-pygame
-cd ~
-wget http://www.pabr.org/sixlinux/sixpair.c
-gcc -o sixpair sixpair.c -lusb
-sudo cp -vf sixpair /usr/local/bin/
-sudo cp -vf /home/pi/primestationone/reference/etc/udev/rules.d/99-sixpair.rules /etc/udev/rules.d/
+# echo "Setting up automatic sixaxis pairing upon USB connect via a simple udev rule and the standard sixpair binary..."
+# sudo apt-get -y install libusb-dev joystick python-pygame
+# wget http://www.pabr.org/sixlinux/sixpair.c
+# gcc -o sixpair sixpair.c -lusb
+# sudo cp -vf sixpair /usr/local/bin/
+# sudo cp -vf /home/pi/primestationone/reference/etc/udev/rules.d/99-sixpair.rules /etc/udev/rules.d/
 
+popd
 
 
 
