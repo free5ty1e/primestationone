@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install bluez5 auto pairing capabilities:
+echo "Setting up automatic bluez5 standard bluetooth stack compatible sixaxis trust upon pair request..."
 sudo sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sudo sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get -y install libbluetooth-dev bluez-tools
@@ -27,6 +28,16 @@ sudo cp -vf bluezutils.py /usr/local/bin/
 sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
 sudo systemctl enable autobtpair
 sudo systemctl enable autobtpair.service
+
+
+
+echo "Setting up automatic sixaxis pairing upon USB connect via a simple udev rule and the standard sixpair binary..."
+sudo apt-get -y install libusb-dev joystick python-pygame
+cd ~
+wget http://www.pabr.org/sixlinux/sixpair.c
+gcc -o sixpair sixpair.c -lusb
+sudo cp -vf sixpair /usr/local/bin/
+sudo cp -vf /home/pi/primestationone/reference/etc/udev/rules.d/99-sixpair.rules /etc/udev/rules.d/
 
 
 
