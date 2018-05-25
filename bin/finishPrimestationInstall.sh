@@ -142,6 +142,9 @@ quickResetPrimestationOne.sh
 
 installMissingPortsFromRetroPieImage.sh
 
+installMegaTools.sh
+
+installKodi.sh
 # installNodeVirtualGamepads.sh
 installWindowedModeLxde.sh
 
