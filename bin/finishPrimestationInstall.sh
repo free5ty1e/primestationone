@@ -44,10 +44,10 @@ sudo ~/RetroPie-Setup/retropie_packages.sh stratagus depends
 sudo ~/RetroPie-Setup/retropie_packages.sh stratagus install_bin
 sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
 
-#N64 updated libretrocore glupen64!!
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 depends
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 configure
+# #N64 updated libretrocore glupen64!!
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 configure
 
 
 #Install Doom
