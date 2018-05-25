@@ -47,7 +47,7 @@ cp -vr ~/primestationone/reference/.config ~/
 echo "Setting up new EmulationStation entry for Desktop..."
 mkdir /home/pi/RetroPie/roms/desktop
 #cp RetroPie/roms/ports/StartXWindowedMode.sh RetroPie/roms/desktop/Desktop.sh
-cp RetroPie/roms/ports/Desktop.sh RetroPie/roms/desktop/Desktop.sh
+cp ~/RetroPie/roms/ports/Desktop.sh ~/RetroPie/roms/desktop/Desktop.sh
 
 #cowsay -f vader "You should probably reboot before attempting to start windowed mode startx..."
 
