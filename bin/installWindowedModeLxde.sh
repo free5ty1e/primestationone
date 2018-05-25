@@ -17,6 +17,7 @@ cleanupTempFiles.sh
 sudo apt-get install -y --no-install-recommends lxde
 sudo apt-get install -y xorg raspberrypi-ui-mods rpi-chromium-mods
 sudo apt-get install -y alsamixergui gedit clipit deluge transmission-gtk evince-gtk gnome-disk-utility gnome-mplayer gnome-system-tools gucharmap lxmusic audacious menu-xdg usermode 
+sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 #network-manager-gnome
 
 
