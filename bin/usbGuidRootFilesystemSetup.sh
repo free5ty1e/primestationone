@@ -35,13 +35,14 @@ sgdisk --largest-new=1 /dev/sda
 usbRootPartGuid=$(sudo sgdisk -i=1 /dev/sda | grep "Partition unique GUID:" | awk '{print $4}')
 echo "USB rootfs partition 1 GUID retrieved: $usbRootPartGuid"
 
-echo Here is where we need to set the /boot/cmdline.txt to point to root=PARTUUID=partitionguidhere along with rootdelay=5 at the end...
-echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbRootPartGuid..."
-sed "s/\${partitionguid}/$usbRootPartGuid/" /home/pi/primestationone/reference/boot/cmdlineForGuidUsb.txt > /home/pi/cmdline.txt
+# echo "Here is where we need to set the /boot/cmdline.txt to point to root=PARTUUID=partitionguidhere along with rootdelay=5 at the end..."
+# echo "Replacing GUID placeholder in new /boot/cmdline.txt with GUID $usbRootPartGuid..."
+# sed "s/\${partitionguid}/$usbRootPartGuid/" /home/pi/primestationone/reference/boot/cmdlineForGuidUsb.txt > /home/pi/cmdline.txt
 cp /boot/cmdline.txt /boot/cmdline.txt.bak
 rm /boot/cmdline.txt
-cp /home/pi/cmdline.txt /boot/cmdline.txt
-rm /home/pi/cmdline.txt
+# cp /home/pi/cmdline.txt /boot/cmdline.txt
+# rm /home/pi/cmdline.txt
+cp /home/pi/primestationone/reference/boot/cmdline.usbhd.sda2.txt /boot/cmdline.txt
 
 echo "Ensuring USB drive is unmounted again..."
 umount /dev/sda1
