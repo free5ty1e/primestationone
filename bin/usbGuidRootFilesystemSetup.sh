@@ -2,12 +2,13 @@
 
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 
-cowsay -f eyes "Configuring first USB stick to be our new root filesystem!  Using /dev/sda1 with GUID partition table..."
+echo "Configuring first USB stick to be our new root filesystem!  Using /dev/sda1 with GUID partition table..."
 ls /dev/sd*
 df -h
 ls /media/usb0
 
 echo "See http://www.raspberrypi.org/forums/viewtopic.php?f=29&t=44177 for more information on this procedure..."
+echo "NOTICE: YOU MUST DISABLE THE USBMOUNT SERVICE BY EDITING /etc/usbmount/usbmount.conf OR THIS WILL INTERFERE WITH THE FILESYSTEM CREATION!"
 read -p "MUST BE RUN AS ROOT -- Press any key to continue -- DO NOT RUN THIS IF YOU ALREADY ARE RUNNING YOUR PI ROOT FROM USB! -- or CTRL-C to cancel using /dev/sda1... " -n1 -s
 
 echo "Unmounting USB drive, which can be mounted twice in some cases..."
