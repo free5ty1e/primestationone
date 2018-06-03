@@ -25,6 +25,8 @@ cleanupTempFiles.sh
 echo "Zapping existing MBR and GPT partition tables on USB drive..."
 sgdisk -Z /dev/sda
 
+echo "Ensuring USB drive is unmounted again..."
+umount /dev/sda1
 #echo Now we need to create an appropriate partition on the USB drive.
 #echo Type n ENTER ENTER ENTER ENTER ENTER w ENTER y ENTER to write changes...
 #sudo gdisk /dev/sda
