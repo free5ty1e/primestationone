@@ -269,6 +269,9 @@ function cloud_create_backup_archive {
         tar --append --file="$BACKUPARCHIVEFILE.tar" "$DcDataFile"
     done
 
+    #All NDS drastic configs and savestates: different folder structure, though.
+    tar --append --verbose --file="$BACKUPARCHIVEFILE.tar" /opt/retropie/configs/nds/drastic/
+
 #TODO: Handle Dreamcast VMU cloud backups as they are not in the same folder structure
 #    for DreamcastVmuFile in /opt/retropie/emulators/reicast/vmu*.bin; do
 #        echo "Archiving Dreamcast VMU file $DreamcastVmuFile..."
