@@ -14,12 +14,12 @@ newretropieconfigsdir="$retropiebase/configs"
 allconfigsdir="$newretropieconfigsdir/all/retroarch-joypads"
 
 configdirs=(
-    "$legacyconfigsdir"
+    # "$legacyconfigsdir"
     "$allconfigsdir"
 )
 
 emuconfigdirs=(
-    "$legacyconfigsdir"
+    # "$legacyconfigsdir"
     "$newretropieconfigsdir"
 )
 
