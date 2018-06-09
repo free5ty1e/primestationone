@@ -101,9 +101,9 @@ if [ -d "$md_build/udev" ]; then
             # sudo mkdir -p "$whichconfigdir/"
             
             echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
-            rm "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
+            rm -vf "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
             # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-
+            rm -vf "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.*"
 
             echo "Stripping CRs from the autoconfigs...."
             cd "$md_build/udev/"
