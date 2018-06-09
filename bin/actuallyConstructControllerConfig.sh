@@ -98,7 +98,12 @@ if [ -d "$md_build/udev" ]; then
     for whichconfigdir in "${configdirs[@]}"; do
         if [ -d "$whichconfigdir" ]; then
             echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
-            sudo mkdir -p "$whichconfigdir/"
+            # sudo mkdir -p "$whichconfigdir/"
+            
+            echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
+            rm "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
+            # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+
 
             echo "Stripping CRs from the autoconfigs...."
             cd "$md_build/udev/"
