@@ -101,11 +101,6 @@ if [ -d "$md_build/udev" ]; then
             echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
             # sudo mkdir -p "$whichconfigdir/"
             
-            echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
-            sudo rm --verbose --force "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
-            # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-            sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.*"
-
             echo "Stripping CRs from the autoconfigs...."
             cd "$md_build/udev/"
             for file in *; do
@@ -263,13 +258,20 @@ if [ -d "$md_build/udev" ]; then
         else
             echo "$whichemuconfigdir does not exist, skipping!"
         fi
-        done
-    echo "Configuring Dreamcast Reicast PS3 controls..."
+    done
+    
+    # echo "Configuring Dreamcast Reicast PS3 controls..."
     #python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
     # sudo cp -vr opt/retropie/configs/dreamcast/emu.cfg opt/retropie/configs/dreamcast/
 
-    echo "Configuring N64 non-libretrocore PS3 controls..."
+    # echo "Configuring N64 non-libretrocore PS3 controls..."
     # sudo cp -vr opt/retropie/configs/n64/InputAutoCfg.ini opt/retropie/configs/n64/
+
+    echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
+    sudo rm --verbose --force "$allconfigsdir/Gasia_PS_Gamepad_USB.cfg"
+    # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
+    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
 
 else
     echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
