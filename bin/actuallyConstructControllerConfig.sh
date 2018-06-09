@@ -31,7 +31,8 @@ function remap_hotkeys_retroarchautoconf() {
     [[ -z "$file" || ! -f "$file" ]] && return 1
 
 
-    printMsgs "console" "Processing $file"
+    # printMsgs "console" "Processing $file"
+    echo "Remapping hotkeys for joystick: $file"
 
     # iniGet "input_device" "$file"
     # if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
