@@ -19,6 +19,7 @@ rm ~/RetroPie/roms/settings/install_mega_tools_for_module_installs.sh
 rm ~/RetroPie/roms/settings/install_mega_module_entire_retropie_binaries_folder.sh
 rm ~/RetroPie/roms/settings/install_mega_module_other_emulator_binaries.sh
 rm ~/RetroPie/roms/settings/install_mega_module_mapped_emulator_binaries.sh
+rm ~/RetroPie/roms/settings/install_mega_module_mame_37b5_roms.sh
 rm ~/RetroPie/roms/settings/install_windowed_mode_startx_lxde.sh
 rm ~/RetroPie/roms/settings/first_run_and_reset_primestation_one_not_quick.sh
 rm ~/RetroPie/roms/settings/pair_ps3_controller_currently_on_usb.sh
