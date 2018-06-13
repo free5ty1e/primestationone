@@ -5,19 +5,19 @@ source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 iniConfig " = " "" "/opt/retropie/configs/n64/mupen64plus.cfg"
 
 ## Joystick event string for stopping the emulator
-iniSet "Joy Mapping Stop" "\"J0B16\""
+iniSet "Joy Mapping Stop" "\"J0B10\""
 
 ## Joystick event string for switching between fullscreen/windowed modes
 iniSet "Joy Mapping Fullscreen" "\"\""
 
 ## Joystick event string for saving the emulator state
-iniSet "Joy Mapping Save State" "\"J0B0\""
+iniSet "Joy Mapping Save State" "\"J0B11\""
 
 ## Joystick event string for loading the emulator state
-iniSet "Joy Mapping Load State" "\"J0B2\""
+iniSet "Joy Mapping Load State" "\"J0B12\""
 
 ## Joystick event string for advancing the save state slot
-iniSet "Joy Mapping Increment Slot" "\"J0B1\""
+iniSet "Joy Mapping Increment Slot" "\"\""
 
 ## Joystick event string for taking a screenshot
 iniSet "Joy Mapping Screenshot" "\"\""
@@ -35,12 +35,13 @@ iniSet "Joy Mapping Increase Volume" "\"\""
 iniSet "Joy Mapping Decrease Volume" "\"\""
 
 ## Joystick event string for fast-forward
-iniSet "Joy Mapping Fast Forward" "\"J0B9\""
+iniSet "Joy Mapping Fast Forward" "\"J0B7\""
 
 ## Joystick event string for pressing the game shark button
 iniSet "Joy Mapping Gameshark" "\"\""
 
-cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
+# cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
+
 
 echo "Disabling RetroPie autoconfiguration of n64 hotkeys in favor of Primestation PS3 controls..."
 iniConfig " = " "" "/opt/retropie/configs/all/autoconf.cfg"

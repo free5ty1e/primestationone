@@ -87,6 +87,8 @@ function remap_hotkeys_retroarchautoconf() {
 echo "Cloning latest updated retroarch joypad base autoconfigs..."
 gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
 
+esControllerAutoConfig.sh
+
 echo "Checking to ensure clone was successful before proceeding...."
 if [ -d "$md_build/udev" ]; then
 
