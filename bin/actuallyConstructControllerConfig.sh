@@ -274,6 +274,7 @@ if [ -d "$md_build/udev" ]; then
     # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
     sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
     sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
+    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
 
 else
     echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
