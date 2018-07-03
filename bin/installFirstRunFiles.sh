@@ -9,6 +9,10 @@ fi
 
 cp -v ~/primestationone/reference/.bashrc ~/
 cp -v ~/primestationone/reference/.basilisk_ii_prefs ~/
+
+echo "Configuring MAME special emulator launchers..."
+sudo cp -rv ~/primestationone/reference/opt/retropie/configs/mame* /opt/retropie/configs/
+
 resetEsInputConfig.sh
 resetKodiConfig.sh
 
