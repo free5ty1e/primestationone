@@ -217,6 +217,10 @@ if [ -d "$md_build/udev" ]; then
             #above keyword only for when below is in its own function:
             emulatorsToRearrangeButtons=(
                 'mame-libretro'
+                'mame2000'
+                'mame2003'
+                'mame2010'
+                'mame2014'
             )
 
             for emu in "${emulatorsToRearrangeButtons[@]}"; do
