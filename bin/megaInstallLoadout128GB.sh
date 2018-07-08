@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cowsay -f hellokitty "Installing all mega modules..."
-echo "Installing all the mega modules you could possibly want..."
+cowsay -f hellokitty "Installing reasonable loadout of mega modules for a 128GB filesystem..."
+echo "Installing reasonable loadout of mega modules for a 128GB filesystem..."
 
 clearFoldersThatMayHaveOldBinsNRoms.sh
 
@@ -41,11 +41,11 @@ megaInstallPsxTekken3.sh
 megaInstallDcSoulCalibur.sh
 megaInstallScdNightTrap.sh
 megaInstallPsxFinalFantasy7.sh
-megaInstallDcGauntletLegends.sh
+# megaInstallDcGauntletLegends.sh
 megaInstallDcDeadOrAlive2.sh
 megaInstallDcVirtuaFighter3TB.sh
 megaInstallDcResidentEvil3Nemesis.sh
-megaInstallDcZombieRevenge.sh
+# megaInstallDcZombieRevenge.sh
 megaInstallApple2Roms.sh
 megaInstallDoomWads.sh
 megaInstallNintendoDsSelectRoms.sh
@@ -63,8 +63,8 @@ megaInstallSvm7thGuest.sh
 megaInstallVirtualBoyRoms.sh
 megaInstallWonderswanColorRoms.sh
 megaInstallWonderswanRoms.sh
-megaInstallDcPhantasyStarOnline.sh
-megaInstallN64Roms.sh
+# megaInstallDcPhantasyStarOnline.sh
 megaInstallMame2000v037b5Roms.sh
-megaInstallMame2003v078Roms.sh
 megaInstallFbaRoms.sh
+# megaInstallN64Roms.sh
+# megaInstallMame2003v078Roms.sh
