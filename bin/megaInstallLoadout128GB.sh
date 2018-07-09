@@ -67,4 +67,4 @@ megaInstallWonderswanRoms.sh
 megaInstallMame2000v037b5Roms.sh
 megaInstallFbaRoms.sh
 # megaInstallN64Roms.sh
-# megaInstallMame2003v078Roms.sh
+megaInstallMame2003v078Roms.sh
