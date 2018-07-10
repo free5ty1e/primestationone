@@ -17,7 +17,7 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
 
 ##### Current recommended, reasonably-priced buildout through Amazon Prime (PS3 controller(s)):
-* http://a.co/bRmn5QX - Raspberry Pi 3 starter kit (includes case, heatsinks, 2.5A power supply)
+* http://a.co/9AFzeT6 - Raspberry Pi 3 B+ starter kit (includes case, heatsinks, 2.5A power supply)
 * http://a.co/bXcSUlf - SanDisk 128GB Micro SD card for maximum gameage (can use as small as 8GB if you'd like but less games fit)
 * http://a.co/0Y9uBlb - PS3 controller charge && sync cable (USB A to USB Mini B Data Cable)
 * http://a.co/i3vkwzm - HDMI cable
