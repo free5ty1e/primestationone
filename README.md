@@ -14,7 +14,7 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * Cloud save and save state backup to mega.co.nz
 * Support for the SNES Mouse / Mario Paint with easy launch
 * Easy pairing scripts for bluetooth keyboards and mice
-* Automatic PS3-like pairing routine for controllers (plug in PS3 controller via USB for ~5 seconds, unplug and then can connect via bluetooth until a real PS3 or different Bluetooth adapter is paired).  
+* Pair PS3 controllers on the standard bluetooth stack (allows bluetooth to also be used for other devices like mouse and keyboard instead of just specialized for the PS3 only), via the Retropie Bluetooth menu.  Plug in the PS3 controller and press the PS3 button in the center to connect while the Pi is scanning for devices, then choose the NoInputNoOutput method of trust / verification.  The Pi will report a failure but just unplug the PS3 controller and press the PS3 button in the center to connect, it should work.
 
 ##### Current recommended, reasonably-priced buildout through Amazon Prime (PS3 controller(s)):
 * http://a.co/9AFzeT6 - Raspberry Pi 3 B+ starter kit (includes case, heatsinks, 2.5A power supply)
