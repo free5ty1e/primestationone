@@ -154,7 +154,7 @@ installPs3RecommendedDriver.sh
 
 #installMpegRecordingCapability.sh
 # sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
-controllerConfigConstruction.sh
+# controllerConfigConstruction.sh
 
 n64SetDefaultEmulator.sh
 
