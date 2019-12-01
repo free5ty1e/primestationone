@@ -51,5 +51,5 @@ psxAnalogEnable.sh
 
 # quickUpdatePrimestationOneFiles.sh
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
-controllerConfigConstruction.sh
+# controllerConfigConstruction.sh
 reinstallBashWelcomeTweak.sh
