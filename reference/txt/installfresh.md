@@ -2,7 +2,7 @@
 
 You'll probably first want to run `sudo raspi-config`, update the raspi-config tool itself from Advanced, and set up things like your memory split, overclock, and internationalization options.  (Probably also reboot after this.)
 
-Then, run `sudo ~/RetroPie-Setup/retropie_setup.sh` and navigate the menu to update the RetroPie script, install the appropriate PS3 driver(s) for your needs, set up your wifi connection if needed (ethernet really is recommended), and configure your system the way you'd like.  (Probably also reboot after this.)
+Then, run `sudo ~/RetroPie-Setup/retropie_setup.sh` and navigate the menu to update the RetroPie script, enable SSH connections if desired, install the appropriate PS3 driver(s) for your needs, set up your wifi connection if needed (ethernet really is recommended), and configure your system the way you'd like.  (Probably also reboot after this.)
 
 Then, make sure you are connected to the Internet, and copy / paste the following command into your Pi via a nice handy SSH session (or type it, whatever):
 ```
