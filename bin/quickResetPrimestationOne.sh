@@ -53,3 +53,6 @@ psxAnalogEnable.sh
 sudo ~/RetroPie-Setup/retropie_packages.sh retroarchautoconf
 # controllerConfigConstruction.sh
 reinstallBashWelcomeTweak.sh
+
+fixPermissionsAndSetExecutableBits.sh
+
