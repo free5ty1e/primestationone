@@ -19,26 +19,6 @@ cp -v .* ~/
 mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
 
-
-
-
-
-
-#TODO: Refactor out below into separate script to fix permissions and set executable for separate running since this takes FOREVER on a large ROM drive
-echo "Ensuring executable bits set on all scripts in roms..."
-find /home/pi/RetroPie/roms -name '*.sh' -print0 | xargs -0 chmod --verbose 755
-
-echo "Fixing permissions on your home and local folders just in case!"
-sudo chown pi:pi /home/pi/temp
-sudo chown -R pi ~
-sudo chown -R pi /usr/local
-
-
-
-
-
-
-
 # echo "Installing auto-expand check script..."
 # sudo cp -fv /home/pi/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
 # sudo chmod +x /etc/init.d/fsExpandCheck_jessie.sh
