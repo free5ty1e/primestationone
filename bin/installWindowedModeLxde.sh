@@ -11,7 +11,7 @@ echo "Installing Windowed Mode Startx LXDE Desktop..."
 # fixStartX.sh
 
 sudo apt-get remove -y realvnc-vnc-server mono-xsp4 mono-devel libmono-system-web4.0-cil
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 # sudo ~/RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 sudo apt-get install -y --no-install-recommends lxde

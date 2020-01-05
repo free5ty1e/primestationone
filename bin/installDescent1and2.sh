@@ -7,7 +7,7 @@ cowsay -f flaming-sheep "$message"
 echo Installing prerequisites...
 
 sudo apt-get -y install libsdl1.2-dev libsdl-mixer1.2-dev libphysfs-dev scons
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 pushd ~
 

@@ -118,7 +118,7 @@ function iterateThroughRetroPiePackagesAndInstall {
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
         echo "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
         sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
-        cleanupTempFiles.sh
+        # cleanupTempFiles.sh
     done
 }
 

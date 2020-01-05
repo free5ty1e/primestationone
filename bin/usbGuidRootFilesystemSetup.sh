@@ -17,7 +17,7 @@ umount /dev/sda1
 
 echo "Installing gdisk to handle GUID partition table initialization..."
 apt-get -y install gdisk rsync
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 #echo Now to zap all partitioning tables currently on the USB drive...
 #echo Type x ENTER to get to the eXperts menu

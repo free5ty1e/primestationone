@@ -13,7 +13,7 @@ sudo update-rc.d -f sixad remove
 echo Removing old Bluez...
 sudo apt-get -y remove --purge bluez
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 pushd ~
 

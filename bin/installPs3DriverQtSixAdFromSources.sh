@@ -5,7 +5,7 @@ echo "Installing Sixad PS3 sixaxis controller bluetooth pairing daemon qtsixad a
 pushd ~
 
 sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 mkdir temp
 cd temp

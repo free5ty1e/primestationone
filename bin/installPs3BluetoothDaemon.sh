@@ -4,7 +4,7 @@ cowsay -f bud-frogs Installing PS3 Bluetooth Daemon...
 echo Installing Sixad PS3 sixaxis controller bluetooth pairing daemon qtsixad and compatible bluez from apt...
 pushd ~
 sudo apt-get -y install libbluetooth3 bluez bluez-utils bluez-compat bluez-hcidump bluetooth
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 tar xfvz QtSixA-1.5.1.tar.gz
 #wget http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz
 #tar xfvz QtSixA-1.5.1-src.tar.gz

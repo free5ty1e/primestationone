@@ -20,7 +20,7 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" update
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" upgrade
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 sudo dpkg --configure -a --force-confnew
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
@@ -42,14 +42,14 @@ sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 sudo dpkg --configure -a --force-confnew
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools apt_upgrade
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
 sudo dpkg --configure -a --force-confnew
 sudo apt-get -y -f -o Dpkg::Options::="--force-confnew" install
@@ -72,7 +72,7 @@ installPs3RecommendedDriver.sh
 installKodi.sh
 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools package_cleanup 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 echo "Reinstalling some of the stuff we removed to make room for the upgrade..."
 megaInstallBinsNRoms.sh

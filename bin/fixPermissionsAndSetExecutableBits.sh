@@ -30,4 +30,6 @@ cp -vr RetroPie/* ~/RetroPie/
 # mkdir ~/.vice
 # cp -vr .vice/* ~/.vice/
 
+cleanupTempFiles.sh
+
 popd

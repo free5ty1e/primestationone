@@ -6,7 +6,7 @@ fancy_console_message "Installing PS3 driver QtSixAd fork with fake controller s
 sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump #separated for Jessie safe failure fallback
 sudo apt-get -y install checkinstall libusb-dev libbluetooth-dev joystick pyqt4-dev-tools
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 echo Entering working folder to build in...
 md_build="/tmp"

@@ -5,7 +5,7 @@ fancy_console_message "Installing PS3 driver QtSixAd fork with GASIA fake contro
 
 sudo apt-get -y install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick
 
-cleanupTempFiles.sh
+# cleanupTempFiles.sh
 
 echo Entering working folder to build in...
 md_build="/tmp"
