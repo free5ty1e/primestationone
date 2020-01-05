@@ -302,3 +302,14 @@ fi
 #sudo cp -vr ~/temp/*.cfg /opt/retropie/emulators/retroarch/configs/
 #rm ~/temp/*.cfg
 #popd
+
+#Need to set the following in /opt/retropie/configs/all/retroarch.cfg to fix the hotkey enable bug
+# input_enable_hotkey = "alt"
+# input_enable_hotkey_axis = "nul"
+# input_enable_hotkey_btn = "10"
+# input_enable_hotkey_mbtn = "nul"
+iniConfig " = " "" "/opt/retropie/configs/all/retroarch.cfg"
+iniSet "input_enable_hotkey" "alt"
+iniSet "input_enable_hotkey_axis" "nul"
+iniSet "input_enable_hotkey_btn" "10"
+iniSet "input_enable_hotkey_mbtn" "nul"
