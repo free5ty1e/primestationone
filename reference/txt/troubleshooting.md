@@ -1,4 +1,20 @@
-###Troubleshooting
+##Troubleshooting
+
+###Hotkeys always enabled or hotkey enable button not working
+See the following post for a solid way to fix these issues manually for whatever controller you may be using:
+https://retropie.org.uk/forum/topic/17314/hotkey-button-always-pressed/16
+
+```
+FIX
+
+RetroPie Configuration > RetroArch
+Settings > Input
+Input User 1 Binds > User 1 Device Index -- Verify this is set to the target controller
+Input Hotkey Binds > Enable hotkeys -- Set this to the target hotkey button (override Auto, even if the same button)
+Configurations > Save Current Configuration
+```
+
+
 Some of the previous versions of the PrimeStation One may or may not have inadvertently caused some ownership issues in the user file structure, and / or left unused or outdated scripts lying around where they can cause confusion.  The best way to ensure that things are really set as they should be, and that you have the absolute best starting point to move forward, you should run the following script.  Be prepared to lose your cached gamelists, custom emulationstation input adjustments and general settings:
 ```
 quickResetPrimestationOne.sh
