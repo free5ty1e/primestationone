@@ -12,7 +12,7 @@ function update_primestation() {
 
     updateThemePrimestationOne.sh
 
-    cleanupTempFiles.sh
+    # cleanupTempFiles.sh
 
     quickCreateFoldersAndLinksAndRemoveOldFiles.sh
 
