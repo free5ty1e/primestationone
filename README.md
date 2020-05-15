@@ -23,7 +23,7 @@ The point of the Primestation One is to be able to massively retrogame from the 
 * http://a.co/i3vkwzm - HDMI cable
 * http://a.co/bofBYoF - Genuine Sony PS3 controller.  Up to 4 supported simultaneously. (I have done my best to support generic PS3 controllers but no guarantees as there are so many different brands and firmware identification differences!!)
 
-#### Primestation pre-built image downloads (details and instructions below): http://goo.gl/RPKAr1
+#### Primestation pre-built image downloads (details and instructions below): https://bit.ly/primestationimages
 
 #### PrimeStation One Control / Convenience App for Android github repo: 
 *[![Build Status](https://travis-ci.org/free5ty1e/primestationone-control-android.svg?branch=master)](https://travis-ci.org/free5ty1e/primestationone-control-android)
