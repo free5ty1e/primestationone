@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function update_primestation() {
-    echo Installing PrimeStationOne files to their proper locations....
+    echo "Installing PrimeStationOne files to their proper locations...."
     bin/installPrimeStationOneFiles.sh
 
 #    installGoAndAnsize.sh
