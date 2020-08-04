@@ -9,7 +9,7 @@ sudo -H pip install wheel
 sudo -H pip install pybluez
 pushd ~
 rm bluezutils.py
-wget https://raw.githubusercontent.com/pauloborges/bluez/master/test/bluezutils.py
+wget http://raw.githubusercontent.com/pauloborges/bluez/master/test/bluezutils.py
 sudo cp -vf bluezutils.py /usr/local/bin/
 
 # grep -q -F 'auto-agent.py &' /home/pi/.bashrc || echo 'auto-agent.py &' >> /home/pi/.bashrc
