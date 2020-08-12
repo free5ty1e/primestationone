@@ -12,13 +12,24 @@ pushd ~ && rm -rf primestationone && git clone https://github.com/free5ty1e/prim
 ...You will end up in a the audio mixer `alsamixer`, where I recommend you crank your volume up from 40% to 100% with the `UP` arrow before pressing `ESC` to exit and save.  Then probably turn your TV volume down before starting a game.  Wow, you have plenty of volume :o
 
 
+### Combining RetroPie `usbromservice` with `debianusbfileserver` functionality
+If you are like me, and combine your Primestation with the Debian USB Fileserver (also by me, available here https://github.com/free5ty1e/debianusbfileserver ), you might notice that there is a conflict between the `usbronservice` trying to automount all USB drives it sees under the `/media/usb#` folders and the `debianusbfileserver`'s `mountusbdrivesbylabel.sh` script.   
+
+
+How I resolved this conflict: 
+1) My RetroPie roms / games drive is formatted as `FAT32`
+2) All my fileserver drives are formatted as `ext4`
+3) Using `sudo nano /etc/usbmount/usbmount.conf`, I removed `ext4` from the `FILESYSTEMS` list - this prevents the `usbromservice` from automounting the fileserver's `ext4` drives
+4) I just let the `mountusbdrivesbylabel.sh` script go ahead and automount the RetroPie games drive by its label - it is mounted in two locations, so what
+
+
 ### Pi 4 and 4k Displays
 You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 82 1920x1080 60Hz 16:9` and had a much better experience.
 
 
 ### Memory split
-I typically set it to `128MB` for Pi2 and Pi3
-I set it to `256MB` for Pi4
+I typically set it to `128MB` for Pi2 and Pi3, and I set it to `256MB` for Pi4
+
 
 ### Building emulators from source / downloading binaries (RetroPie)
 Launch `RETROPIE-SETUP` from the Retropie menu in Emulationstation to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source.
