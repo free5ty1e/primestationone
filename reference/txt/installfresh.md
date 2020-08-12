@@ -12,6 +12,14 @@ pushd ~ && rm -rf primestationone && git clone https://github.com/free5ty1e/prim
 ...You will end up in a the audio mixer `alsamixer`, where I recommend you crank your volume up from 40% to 100% with the `UP` arrow before pressing `ESC` to exit and save.  Then probably turn your TV volume down before starting a game.  Wow, you have plenty of volume :o
 
 
+### Pi 4 and 4k Displays
+You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 82 1920x1080 60Hz 16:9` and had a much better experience.
+
+
+### Memory split
+I typically set it to `128MB` for Pi2 and Pi3
+I set it to `256MB` for Pi4
+
 ### Building emulators from source / downloading binaries (RetroPie)
 Launch `RETROPIE-SETUP` from the Retropie menu in Emulationstation to get into the RetroPie setup menu, where you can choose individual or multiple emulators to install or build from binaries or source.
 
