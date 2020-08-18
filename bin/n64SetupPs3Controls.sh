@@ -2,7 +2,7 @@
 echo "Setting mupen64plus PS3 controls so PS3 button can exit emulator..."
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
-iniConfig " = " "" "/opt/retropie/configs/n64/mupen64plus.cfg"
+iniConfig ' = ' '"' '/opt/retropie/configs/n64/mupen64plus.cfg'
 
 ## Joystick event string for stopping the emulator
 iniSet "Joy Mapping Stop" "\"J0B10\""
@@ -11,10 +11,10 @@ iniSet "Joy Mapping Stop" "\"J0B10\""
 iniSet "Joy Mapping Fullscreen" "\"\""
 
 ## Joystick event string for saving the emulator state
-iniSet "Joy Mapping Save State" "\"J0B11\""
+iniSet "Joy Mapping Save State" "\"J0B12\""
 
 ## Joystick event string for loading the emulator state
-iniSet "Joy Mapping Load State" "\"J0B12\""
+iniSet "Joy Mapping Load State" "\"J0B11\""
 
 ## Joystick event string for advancing the save state slot
 iniSet "Joy Mapping Increment Slot" "\"\""
@@ -40,10 +40,9 @@ iniSet "Joy Mapping Fast Forward" "\"J0B7\""
 ## Joystick event string for pressing the game shark button
 iniSet "Joy Mapping Gameshark" "\"\""
 
-# cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
-
+cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
 
 echo "Disabling RetroPie autoconfiguration of n64 hotkeys in favor of Primestation PS3 controls..."
-iniConfig " = " "" "/opt/retropie/configs/all/autoconf.cfg"
+iniConfig ' = ' '"' '/opt/retropie/configs/all/autoconf.cfg'
 
 iniSet "mupen64plus_hotkeys" "\"0\""
