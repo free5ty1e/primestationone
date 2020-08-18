@@ -24,7 +24,7 @@ How I resolved this conflict:
 
 
 ### Pi 4 and 4k Displays
-You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 82 1920x1080 60Hz 16:9` and had a much better experience.
+You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 85 1280x720 60Hz 16:9` and had a much better experience.
 
 
 ### Memory split
