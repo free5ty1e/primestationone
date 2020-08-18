@@ -94,6 +94,7 @@ if [ -d "$md_build/udev" ]; then
 
     echo "Mapping any non-libretrocore emulators that we know how..."
     n64SetupPs3Controls.sh
+    dosSetupPs3Controls.sh
 
 #    echo Wiping out any existing controller autoconfigs
 #    sudo rm -rf "$configdir"

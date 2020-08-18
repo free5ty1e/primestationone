@@ -156,7 +156,7 @@ installPs3RecommendedDriver.sh
 # sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
 # controllerConfigConstruction.sh
 
-n64SetDefaultEmulator.sh
+setDefaultEmulators.sh
 
 # installDescent1and2.sh
 
