@@ -11,10 +11,10 @@ iniSet "Joy Mapping Stop" "J0B10"
 iniSet "Joy Mapping Fullscreen" ""
 
 ## Joystick event string for saving the emulator state
-iniSet "Joy Mapping Save State" "J0B12"
+iniSet "Joy Mapping Save State" "J0B2"
 
 ## Joystick event string for loading the emulator state
-iniSet "Joy Mapping Load State" "J0B11"
+iniSet "Joy Mapping Load State" "J0B1"
 
 ## Joystick event string for advancing the save state slot
 iniSet "Joy Mapping Increment Slot" ""
