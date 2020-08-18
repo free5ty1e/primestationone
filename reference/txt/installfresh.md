@@ -24,11 +24,24 @@ How I resolved this conflict:
 
 
 ### Pi 4 and 4k Displays
-You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 82 1920x1080 60Hz 16:9` and had a much better experience.
+You may notice that your Pi 4 supports 4k output; this is neat!  However, it is also quite slow.  I never see full framerates in 4k mode.  In order to get Emulationstation and emulation itself to run smoothly, I had to go into `raspiconfig.sh` and (under `Advanced Options`) then I set the resolution to `DMT Mode 85 1280x720 60Hz 16:9` and had a much better experience.
 
 
 ### Memory split
 I typically set it to `128MB` for Pi2 and Pi3, and I set it to `256MB` for Pi4
+
+### Running `ports` / Executing scripts from `roms` folders with USB `retropie-mount`
+By default, RetroPie will automount your USB drive with the `noexec` flag - but we want to run scripts from here as this enables all the menu items in the `ports` folder.  To fix this:
+```
+sudo nano /etc/usbmount/usbmount.conf
+```
+
+and remove the `noexec` flag from `MOUNTOPTIONS` so that line looks like this:
+```
+MOUNTOPTIONS="nodev,noatime"
+```
+
+Save and reboot, fixed!
 
 
 ### Building emulators from source / downloading binaries (RetroPie)
