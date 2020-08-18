@@ -40,6 +40,10 @@ iniSet "Joy Mapping Fast Forward" "J0B7"
 ## Joystick event string for pressing the game shark button
 iniSet "Joy Mapping Gameshark" ""
 
+echo "Setting mupen64 volume to 100pct"
+iniConfig ' = ' '' '/opt/retropie/configs/n64/mupen64plus.cfg'
+iniSet "VOLUME_DEFAULT" "100"
+
 cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
 
 echo "Disabling RetroPie autoconfiguration of n64 hotkeys in favor of Primestation PS3 controls..."
