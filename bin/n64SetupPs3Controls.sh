@@ -5,44 +5,44 @@ source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 iniConfig ' = ' '"' '/opt/retropie/configs/n64/mupen64plus.cfg'
 
 ## Joystick event string for stopping the emulator
-iniSet "Joy Mapping Stop" "\"J0B10\""
+iniSet "Joy Mapping Stop" "J0B10"
 
 ## Joystick event string for switching between fullscreen/windowed modes
-iniSet "Joy Mapping Fullscreen" "\"\""
+iniSet "Joy Mapping Fullscreen" ""
 
 ## Joystick event string for saving the emulator state
-iniSet "Joy Mapping Save State" "\"J0B12\""
+iniSet "Joy Mapping Save State" "J0B12"
 
 ## Joystick event string for loading the emulator state
-iniSet "Joy Mapping Load State" "\"J0B11\""
+iniSet "Joy Mapping Load State" "J0B11"
 
 ## Joystick event string for advancing the save state slot
-iniSet "Joy Mapping Increment Slot" "\"\""
+iniSet "Joy Mapping Increment Slot" ""
 
 ## Joystick event string for taking a screenshot
-iniSet "Joy Mapping Screenshot" "\"\""
+iniSet "Joy Mapping Screenshot" ""
 
 ## Joystick event string for pausing the emulator
-iniSet "Joy Mapping Pause" "\"\""
+iniSet "Joy Mapping Pause" ""
 
 ## Joystick event string for muting/unmuting the sound
-iniSet "Joy Mapping Mute" "\"\""
+iniSet "Joy Mapping Mute" ""
 
 ## Joystick event string for increasing the volume
-iniSet "Joy Mapping Increase Volume" "\"\""
+iniSet "Joy Mapping Increase Volume" ""
 
 ## Joystick event string for decreasing the volume
-iniSet "Joy Mapping Decrease Volume" "\"\""
+iniSet "Joy Mapping Decrease Volume" ""
 
 ## Joystick event string for fast-forward
-iniSet "Joy Mapping Fast Forward" "\"J0B7\""
+iniSet "Joy Mapping Fast Forward" "J0B7"
 
 ## Joystick event string for pressing the game shark button
-iniSet "Joy Mapping Gameshark" "\"\""
+iniSet "Joy Mapping Gameshark" ""
 
 cp -fv /home/pi/primestationone/reference/opt/retropie/configs/n64/InputAutoCfg.ini /opt/retropie/configs/n64/
 
 echo "Disabling RetroPie autoconfiguration of n64 hotkeys in favor of Primestation PS3 controls..."
 iniConfig ' = ' '"' '/opt/retropie/configs/all/autoconf.cfg'
 
-iniSet "mupen64plus_hotkeys" "\"0\""
+iniSet "mupen64plus_hotkeys" "0"
