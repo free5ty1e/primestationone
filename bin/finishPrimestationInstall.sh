@@ -17,11 +17,11 @@ sudo ~/RetroPie-Setup/retropie_packages.sh dosbox configure
 cp ~/primestationone/reference/opt/retropie/configs/pc/dosbox-SVN.conf /opt/retropie/configs/pc/
 
 #Fix C64
-sudo ~/RetroPie-Setup/retropie_packages.sh vice depends
-sudo ~/RetroPie-Setup/retropie_packages.sh vice install_bin
-rm -rf .vice
-sudo ~/RetroPie-Setup/retropie_packages.sh vice configure
-cp ~/primestationone/reference/opt/retropie/configs/c64/* ~/.vice/
+# sudo ~/RetroPie-Setup/retropie_packages.sh vice depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh vice install_bin
+# rm -rf .vice
+# sudo ~/RetroPie-Setup/retropie_packages.sh vice configure
+# cp ~/primestationone/reference/opt/retropie/configs/c64/* ~/.vice/
 
 #Fix Mac
 sudo ~/RetroPie-Setup/retropie_packages.sh basilisk depends

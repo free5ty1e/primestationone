@@ -1,8 +1,7 @@
 #!/bin/bash
-echo "Setting default emulators..."
+echo "Setting C64 default emulator..."
 source "/home/pi/RetroPie-Setup/scriptmodules/helpers.sh"
 source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
+iniConfig ' = ' '"' "/opt/retropie/configs/c64/emulators.cfg"
 
-c64SetDefaultEmulator.sh
-n64SetDefaultEmulator.sh
-dosSetDefaultEmulator.sh
+iniSet "default" "lr-vice"
