@@ -140,7 +140,6 @@ sudo RetroPie-Setup/retropie_packages.sh redream configure
 #MAME:
 sudo RetroPie-Setup/retropie_packages.sh lr-mame2015
 # sudo RetroPie-Setup/retropie_packages.sh lr-mame2015 configure
-
 sudo cleanupTempFiles.sh
 
 #Won't have enough room to compile on 8g card:
@@ -153,10 +152,15 @@ sudo cleanupTempFiles.sh
 # sudo RetroPie-Setup/retropie_packages.sh lr-mame configure
 
 
+#STEAM LINK
+sudo RetroPie-Setup/retropie_packages.sh steamlink
+sudo cleanupTempFiles.sh
+
 
 #TRS-80 COCO:
 sudo RetroPie-Setup/retropie_packages.sh xroar
 # sudo RetroPie-Setup/retropie_packages.sh xroar configure
+sudo cleanupTempFiles.sh
 
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
