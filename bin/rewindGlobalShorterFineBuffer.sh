@@ -9,4 +9,3 @@ source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 iniConfig " = " "" "/opt/retropie/configs/all/retroarch.cfg"
 iniSet "rewind_buffer_size" "40"
 iniSet "rewind_granularity" "2"
-ensureRetroarchEmuConfigsIncludesAreLast.sh
