@@ -1,6 +1,6 @@
 #!/bin/bash
 
-message="Enabling TG16 - PCENGINE emulation rewind feature which may cause massive slowdown just being on..."
+message="Enabling Atari 800 emulation rewind feature which may cause massive slowdown just being on..."
 echo "$message"
 cowsay -f eyes "$message"
 
