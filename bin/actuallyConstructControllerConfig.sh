@@ -152,7 +152,6 @@ if [ -d "$md_build/udev" ]; then
                 'gba'
                 'n64'
                 'pcengine'
-                'msx'
             )
 
             #Old mapping was 12triangle, 13circle, 14x, 15square
@@ -186,6 +185,7 @@ if [ -d "$md_build/udev" ]; then
                 'gamegear'
                 'mastersystem'
                 'sg-1000'
+                'msx'                
             )
 
             #Old mapping was 12triangle, 13circle, 14x, 15square
@@ -221,8 +221,10 @@ if [ -d "$md_build/udev" ]; then
                 'mame-libretro'
                 'mame2000'
                 'mame2003'
+                'mame2003-plus'
                 'mame2010'
                 'mame2014'
+                'mame2015'
             )
 
             for emu in "${emulatorsToRearrangeButtons[@]}"; do
