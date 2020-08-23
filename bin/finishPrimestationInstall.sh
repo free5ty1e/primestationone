@@ -188,18 +188,8 @@ sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 # quickResetPrimestationOne.sh
 quickUpdatePrimestationOneFiles.sh
 
-cowsay "Enabling rewind functionality on basic emulators..."
-echo "Enabling rewind functionality on basic emulators..."
-rewindGlobalLongerCoarseBuffer.sh
-rewindAtari2600Enable.sh
-rewindGenesisEnable.sh
-rewindNesEnable.sh
-rewindSnesEnable.sh
-rewindTg16Enable.sh
-rewindGamegearEnable.sh
-rewindGameboyEnable.sh
-rewindGameboyColorEnable.sh
-rewindMastersystemEnable.sh
+setRewinds.sh
+
 psxAnalogEnable.sh
 
 setDefaultEmulators.sh
