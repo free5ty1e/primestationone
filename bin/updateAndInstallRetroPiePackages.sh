@@ -19,7 +19,7 @@ function initPackageList {
 		lr-snes9x
 		lr-snes9x-next
 		lr-prosystem
-		lr-mupen64plus
+		lr-mupen64plus-next
 		lr-dosbox
 		lr-hatari
 		lr-mame2000
@@ -52,6 +52,8 @@ function initPackageList {
 		lr-freeintv
 		lr-armsnes
 		lr-nestopia
+		lr-flycast
+		lr-genesis-plus-gx
 		# lr-mess2016
 		
 		#Ports (Pi games):
@@ -105,6 +107,9 @@ function initPackageList {
 		# advmame
 		# advmame-1.4
 		# advmame-0.94
+
+		#Obsolete:
+		#lr-mupen64plus
 
 		#Experimental:
 		# mupen64plus-testing
