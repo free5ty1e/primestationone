@@ -11,6 +11,7 @@ sudo cp -vr var /
 mkdir /opt/retropie/configs/snesmouse
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
+cp -v reference/opt/retropie/configs/atari5200/*.cfg /opt/retropie/configs/atari5200/
 cp -vr .emulationstation/* ~/.emulationstation/
 cp -vr .kodi/* ~/.kodi/
 cp -vr .reicast/* ~/.reicast/
@@ -18,6 +19,7 @@ cp -vr .joymaps ~/
 cp -v .* ~/
 mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
+
 
 # echo "Installing auto-expand check script..."
 # sudo cp -fv /home/pi/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
