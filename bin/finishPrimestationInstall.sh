@@ -2,19 +2,31 @@
 
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 
+cowsay -f eyes "Ensuring all files here are actually owned by the Pi user!"
+echo "Ensuring all files here are actually owned by the Pi user!"
+sudo chown -hR pi:pi /home/pi/
+
+installAptRuntimePackages.sh
+
+cowsay -f elephant "Installing first run files..."
+echo "Installing first run files..."
+installFirstRunFiles.sh
+
 nukeRetroPieSetupRepoAndCheckoutFresh.sh
 
 #Setup all available RetroPie binaries:
 sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 
 #Fix n64
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-mupen64plus install_bin
+
+
 
 #Fix Dosbox
-sudo ~/RetroPie-Setup/retropie_packages.sh dosbox depends
-sudo ~/RetroPie-Setup/retropie_packages.sh dosbox install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh dosbox configure
-cp ~/primestationone/reference/opt/retropie/configs/pc/dosbox-SVN.conf /opt/retropie/configs/pc/
+# sudo ~/RetroPie-Setup/retropie_packages.sh dosbox depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh dosbox install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh dosbox configure
+# cp ~/primestationone/reference/opt/retropie/configs/pc/dosbox-SVN.conf /opt/retropie/configs/pc/
 
 #Fix C64
 # sudo ~/RetroPie-Setup/retropie_packages.sh vice depends
@@ -24,25 +36,25 @@ cp ~/primestationone/reference/opt/retropie/configs/pc/dosbox-SVN.conf /opt/retr
 # cp ~/primestationone/reference/opt/retropie/configs/c64/* ~/.vice/
 
 #Fix Mac
-sudo ~/RetroPie-Setup/retropie_packages.sh basilisk depends
-sudo ~/RetroPie-Setup/retropie_packages.sh basilisk install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh basilisk configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh basilisk depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh basilisk install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh basilisk configure
 
 #Fix Amiga
-sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm depends
-sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh uae4arm configure
 
 #Fix Apple ][
-sudo ~/RetroPie-Setup/retropie_packages.sh linapple depends
-sudo ~/RetroPie-Setup/retropie_packages.sh linapple install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh linapple configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh linapple depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh linapple install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh linapple configure
 
 #Install Stratagus / *crafts:
 #install Stratagus 2.4 / latest:
-sudo ~/RetroPie-Setup/retropie_packages.sh stratagus depends
-sudo ~/RetroPie-Setup/retropie_packages.sh stratagus install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh stratagus depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh stratagus install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
 
 # #N64 updated libretrocore glupen64!!
 # sudo ~/RetroPie-Setup/retropie_packages.sh lr-glupen64 depends
@@ -51,25 +63,25 @@ sudo ~/RetroPie-Setup/retropie_packages.sh stratagus configure
 
 
 #Install Doom
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-prboom configure
 
 #Install Descent 1 && 2
-sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth depends
-sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth depends
+# sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth configure
 # installDescent1and2.sh
 #Reassert latest binaries, maybe?  
 #sudo ~/RetroPie-Setup/retropie_packages.sh dxx-rebirth install_bin
 
 
 #Install ARMSNES
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-armsnes configure
 
 #Install NESTopia
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia install_bin
-sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia install_bin
+# sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
 
 
 #Built from sources only:
@@ -128,19 +140,18 @@ sudo ~/RetroPie-Setup/retropie_packages.sh lr-nestopia configure
 
 #DREAMCAST:
 # #   Reasserting Dreamcast emulator binaries just in case:
-sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
-sudo RetroPie-Setup/retropie_packages.sh reicast configure
-cp -vf ~/primestationone/reference/.reicast/vmu*.bin ~/.reicast/
+# sudo RetroPie-Setup/retropie_packages.sh reicast install_bin
+# sudo RetroPie-Setup/retropie_packages.sh reicast configure
+# cp -vf ~/primestationone/reference/.reicast/vmu*.bin ~/.reicast/
 # #installReicastPrimestationEdition.sh
 
-sudo RetroPie-Setup/retropie_packages.sh redream install_bin
-sudo RetroPie-Setup/retropie_packages.sh redream configure
+# sudo RetroPie-Setup/retropie_packages.sh redream install_bin
+# sudo RetroPie-Setup/retropie_packages.sh redream configure
 
 
 #MAME:
-sudo RetroPie-Setup/retropie_packages.sh lr-mame2015
+# sudo RetroPie-Setup/retropie_packages.sh lr-mame2015
 # sudo RetroPie-Setup/retropie_packages.sh lr-mame2015 configure
-sudo cleanupTempFiles.sh
 
 #Won't have enough room to compile on 8g card:
 # sudo RetroPie-Setup/retropie_packages.sh lr-mame2016
@@ -153,14 +164,19 @@ sudo cleanupTempFiles.sh
 
 
 #STEAM LINK
-sudo RetroPie-Setup/retropie_packages.sh steamlink
-sudo cleanupTempFiles.sh
+# sudo RetroPie-Setup/retropie_packages.sh steamlink
+# sudo cleanupTempFiles.sh
 
 
 #TRS-80 COCO:
-sudo RetroPie-Setup/retropie_packages.sh xroar
-# sudo RetroPie-Setup/retropie_packages.sh xroar configure
-sudo cleanupTempFiles.sh
+# sudo RetroPie-Setup/retropie_packages.sh xroar
+# # sudo RetroPie-Setup/retropie_packages.sh xroar configure
+# sudo cleanupTempFiles.sh
+
+
+#NETPLAY:
+# cowsay -f stegosaurus "Updating PS3 RetroNetPlay..."
+# sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
 
 
 # sudo RetroPie-Setup/retropie_packages.sh emulationstation install_bin
@@ -169,15 +185,36 @@ sudo cleanupTempFiles.sh
 # sudo rm /etc/usbmount/mount.d/01_retropie_copyroms 
 
 #   PrimestationPrep:
-quickResetPrimestationOne.sh
+# quickResetPrimestationOne.sh
+quickUpdatePrimestationOneFiles.sh
 
-installMissingPortsFromRetroPieImage.sh
+cowsay "Enabling rewind functionality on basic emulators..."
+echo "Enabling rewind functionality on basic emulators..."
+rewindGlobalLongerCoarseBuffer.sh
+rewindAtari2600Enable.sh
+rewindGenesisEnable.sh
+rewindNesEnable.sh
+rewindSnesEnable.sh
+rewindTg16Enable.sh
+rewindGamegearEnable.sh
+rewindGameboyEnable.sh
+rewindGameboyColorEnable.sh
+rewindMastersystemEnable.sh
+psxAnalogEnable.sh
+
+setDefaultEmulators.sh
 
 installMegaTools.sh
 
-installKodi.sh
+# installMissingPortsFromRetroPieImage.sh
+updateRetroPiePackagesAndOtherSetupCommands.sh
+
+fancy_console_message "Now iterating through and installing specified list of RetroPie modules"
+updateAndInstallRetroPiePackages.sh 
+
+
+# installKodi.sh
 # installNodeVirtualGamepads.sh
-installWindowedModeLxde.sh
 
 # installRainbowstream.sh
 
@@ -187,10 +224,13 @@ installPs3RecommendedDriver.sh
 # sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
 # controllerConfigConstruction.sh
 
-setDefaultEmulators.sh
-
 # installDescent1and2.sh
 
 alsamixer
 
+fancy_console_message "About to install LXDE Desktop mode, press CTRL-C to cancel if you already have a desktop installed..."
+pause
+installWindowedModeLxde.sh
+
 #autoExpandFilesystemNextBoot.sh
+

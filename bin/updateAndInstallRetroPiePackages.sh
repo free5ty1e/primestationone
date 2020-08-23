@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
+
 function initPackageList {
     RETROPIE_PACKAGE_NAMES=(
 
@@ -25,6 +27,7 @@ function initPackageList {
 		lr-mame2003-plus
 		lr-mame2010
 		lr-mame2014
+		lr-mame2015
 		lr-fbalpha2012
 		lr-fbalpha
 		lr-puae
@@ -47,6 +50,8 @@ function initPackageList {
 		lr-beetle-pcfx
 		lr-dinothawr
 		lr-freeintv
+		lr-armsnes
+		lr-nestopia
 		# lr-mess2016
 		
 		#Ports (Pi games):
@@ -67,25 +72,33 @@ function initPackageList {
 		supertux
 		cgenius
 		digger
-		
+		stratagus
+
 
 		#Tools:
 		kodi
-		# mobilegamepad
-		# virtualgamepad
-		#retropie-manager
 		scraper
 		launchingimages
+		virtualgamepad
+		steamlink
+		retronetplay
+		# mobilegamepad		
+		#retropie-manager
+
 
 		#Standalone emualators:
 		mupen64plus
 		drastic
 		snes9x
-		uae4all
 		scummvm
 		pisnes
 		rpix86
 		dosbox-sdl2
+		xroar
+		redream
+		linapple
+		basilisk
+		# uae4all
 		# openmsx
 		# sdltrs
 		# minivmac
@@ -94,13 +107,11 @@ function initPackageList {
 		# advmame-0.94
 
 		#Experimental:
-		mupen64plus-testing
+		# mupen64plus-testing
 
-		# The following don't appear to compile completely or take forever:
+		# The following take a long time and / or a lot of free space:
 		# lr-mame2016
 		# lr-mess2016
-
-		#The following require gcc 5.0 or later to compile:
 		# lr-mess
 		# lr-mame
 
@@ -116,9 +127,9 @@ function iterateThroughRetroPiePackagesAndInstall {
     initPackageList
     for index in ${!RETROPIE_PACKAGE_NAMES[*]}; do
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
-        echo "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
+        fancy_console_message "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
         sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
-        # cleanupTempFiles.sh
+		sudo cleanupTempFiles.sh
     done
 }
 

@@ -2,6 +2,11 @@
 
 source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 
+function pause()
+{
+    read -p "$*"
+}
+
 function multiply() {
     echo "Multiplying $1 x $2 with bc, storing raw float value in ANS_FLOAT, storing rounded integer in ANS"
     ANS_FLOAT=$(echo "${1}*${2}" |bc)

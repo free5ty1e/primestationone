@@ -1,17 +1,17 @@
 #!/bin/bash
 
-retroPieNukeAndCheckoutFresh.sh
+# retroPieNukeAndCheckoutFresh.sh
 
-cowsay -f stegosaurus "Now installing one thing that will require your attention with prompting at the end..."
+# cowsay -f stegosaurus "Now installing one thing that will require your attention with prompting at the end..."
 
-cowsay "Installing RetroPie binaries..."
-installRetroPieBinaries.sh
+# cowsay "Installing RetroPie binaries..."
+# installRetroPieBinaries.sh
 
-updateRetroPiePackagesAndOtherSetupCommands.sh
-updateAndInstallRetroPiePackages.sh
+# updateRetroPiePackagesAndOtherSetupCommands.sh
+# updateAndInstallRetroPiePackages.sh
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh reicast
-installReicastPrimestationEdition.sh
+# installReicastPrimestationEdition.sh
 
 
 #sudo ~/RetroPie-Setup/retropie_packages.sh inputstation
@@ -131,14 +131,11 @@ installReicastPrimestationEdition.sh
 #cowsay -f stegosaurus Installing LXDE windowed mode - startx...
 #installWindowedModeLxde.sh
 
-cowsay Installing awesome PrimestationOne tools and ports...
-installMegaTools.sh
+# cowsay Installing awesome PrimestationOne tools and ports...
+# installMegaTools.sh
 #installDescent1and2.sh
 
-cowsay -f stegosaurus "Now installing things that will require your attention with prompting..."
-
-cowsay -f stegosaurus "Updating PS3 RetroNetPlay..."
-sudo ~/RetroPie-Setup/retropie_packages.sh retronetplay
+# cowsay -f stegosaurus "Now installing things that will require your attention with prompting..."
 
 # cowsay -f stegosaurus Installing Limelight streamer...
 # sudo ~/RetroPie-Setup/retropie_packages.sh limelight

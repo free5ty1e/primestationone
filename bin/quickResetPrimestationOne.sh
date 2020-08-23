@@ -15,7 +15,7 @@ echo Applying various APT fixes just in case there is a problem in the package m
 sudo apt-get -fy install
 sudo dpkg --configure -a
 
-echo Ensuring all required apt packages are installed...
+echo "Ensuring all files here are actually owned by the Pi user!Ensuring all required apt packages are installed..."
 installAptRuntimePackages.sh
 
 cowsay -f eyes Ensuring all files here are actually owned by the Pi user!
@@ -24,7 +24,7 @@ sudo chown -hR pi:pi /home/pi/
 #removeUnneededAndOutdatedAptPackages.sh
 
 cowsay -f elephant Installing first run files...
-echo Installing first run files...
+echo "Installing first run files..."
 installFirstRunFiles.sh
 
 #echo Installing corrected blank gamelist.xml files...
