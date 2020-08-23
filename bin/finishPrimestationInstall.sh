@@ -188,11 +188,13 @@ sudo ~/RetroPie-Setup/retropie_packages.sh setup binaries
 # quickResetPrimestationOne.sh
 quickUpdatePrimestationOneFiles.sh
 
-setRewinds.sh
-
 psxAnalogEnable.sh
 
 setDefaultEmulators.sh
+
+setRewinds.sh
+
+ensureRetroarchEmuConfigsIncludesAreLast.sh
 
 installMegaTools.sh
 

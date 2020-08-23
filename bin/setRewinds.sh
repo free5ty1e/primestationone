@@ -12,5 +12,5 @@ rewindGameboyEnable.sh
 rewindGameboyColorEnable.sh
 rewindMastersystemEnable.sh
 rewindLynxEnable.sh
-rewindGlobalLongerCoarseBuffer.sh
 
+rewindGlobalLongerCoarseBuffer.sh
