@@ -6,4 +6,3 @@ DOS/At800&5200:CTRL-F9
 Apple ][:      F10
 AMIGA/CoCo:    CTRL-Q
 Macintosh:     CTRL-ESC
-Dreamcast:     PSmenu

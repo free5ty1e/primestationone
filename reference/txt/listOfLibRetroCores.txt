@@ -19,5 +19,6 @@ Sega Genesis <
 Sega CD, 32x
 Sega Saturn
 Playstation 1
+Dreamcast
 CaveStory, Doom
 Quake / Darkplaces
