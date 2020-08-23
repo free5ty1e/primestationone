@@ -5,8 +5,10 @@ GameBoy <
 GameBoy Color <
 GameBoy Advance
 GameGear <
-Atari 2600, 7800
-Atari Lynx, Jaguar
+Atari 2600 <
+Atari 800, 7800
+Atari Lynx <
+Atari Jaguar
 Vectrex, 3DO 
 Odyssey 2, MAME
 TurboGrafx16 <
