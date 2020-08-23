@@ -152,6 +152,7 @@ if [ -d "$md_build/udev" ]; then
                 'gba'
                 'n64'
                 'pcengine'
+                'msx'
             )
 
             #Old mapping was 12triangle, 13circle, 14x, 15square
