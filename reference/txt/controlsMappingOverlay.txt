@@ -1,7 +1,7 @@
 Hold 16 to Enable:
 0  : Exit Emulator
 1  : Screenshot
-2  : Record/End Movie
+2  : Record/End Gameplay
 3  : Pause Emulator
 4  : Reset
 5  : 
