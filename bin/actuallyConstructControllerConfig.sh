@@ -185,7 +185,8 @@ if [ -d "$md_build/udev" ]; then
                 'gamegear'
                 'mastersystem'
                 'sg-1000'
-                'msx'                
+                'msx'    
+                'atarilynx'            
             )
 
             #Old mapping was 12triangle, 13circle, 14x, 15square
