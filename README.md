@@ -2,8 +2,8 @@
 ## A Set of Scripts and Tools For a "Ready-To-Go" [RetroPie](https://github.com/petrockblog/RetroPie-Setup) 
 
 ### A Recent PS3 Controller Layout / Quick Reference: 
-![SplashScreen](http://i.imgur.com/biJf7xd.png)
-http://i.imgur.com/biJf7xd.png
+![SplashScreen](https://i.imgur.com/pY9QAPR.png)
+https://i.imgur.com/pY9QAPR.png
 
 The point of the Primestation One is to be able to massively retrogame from the comfort of your couch on minimal hardware, without getting up to change cartridges or discs or controllers or wiring or inputs, with optional netplay capabilities.
 
