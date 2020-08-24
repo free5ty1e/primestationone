@@ -84,6 +84,7 @@ function initPackageList {
 		virtualgamepad
 		steamlink
 		retronetplay
+		usbromservice
 		# mobilegamepad		
 		#retropie-manager
 
