@@ -37,6 +37,9 @@ updateRetroPiePackagesAndOtherSetupCommands.sh
 fancy_console_message "Now iterating through and installing specified list of RetroPie modules"
 updateAndInstallRetroPiePackages.sh 
 
+fancy_console_message "Now ensuring usbromservice will mount with execution enabled"
+sudo sed -i -e 's/,noexec//g' /etc/usbmount/usbmount.conf
+cat /etc/usbmount/usbmount.conf
 
 # installKodi.sh
 # installNodeVirtualGamepads.sh
