@@ -20,6 +20,7 @@ cp -v .* ~/
 mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
 cp -vr reference/.atari800.cfg ~/
+cp -vr ~/RetroPie/BIOS/dc_*.bin ~/RetroPie/BIOS/dc/
 
 # echo "Installing auto-expand check script..."
 # sudo cp -fv /home/pi/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
