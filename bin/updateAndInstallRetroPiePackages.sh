@@ -6,7 +6,7 @@ function initPackageList {
     RETROPIE_PACKAGE_NAMES=(
 
     	#LibRetro packages:
-		lr-4do
+		lr-opera
 		lr-beetle-vb
 		lr-mgba
 		lr-vba-next
@@ -111,6 +111,7 @@ function initPackageList {
 
 		#Obsolete:
 		#lr-mupen64plus
+		#lr-4do
 
 		#Experimental:
 		# mupen64plus-testing
