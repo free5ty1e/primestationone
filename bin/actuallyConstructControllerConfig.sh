@@ -85,20 +85,20 @@ function remap_hotkeys_retroarchautoconf() {
     done
 }
 
-echo "Cloning latest updated retroarch joypad base autoconfigs..."
-gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
+#PARAMETER 1: SKIP_CONTROLLER_REPO_MODS optionally skip the controller repo mod stage since it is slow.  Can be any word.
+if [ -z "$1" ]; then
+    echo "parameter 1: SKIP_CONTROLLER_REPO_MODS is optional!  Will run controller repo mods..."
 
-esControllerAutoConfig.sh
+    echo "Cloning latest updated retroarch joypad base autoconfigs..."
+    gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
 
-echo "Checking to ensure clone was successful before proceeding...."
-if [ -d "$md_build/udev" ]; then
+    esControllerAutoConfig.sh
 
-#    echo Wiping out any existing controller autoconfigs
-#    sudo rm -rf "$configdir"
+    echo "Checking to ensure clone was successful before proceeding...."
+    if [ -d "$md_build/udev" ]; then
 
-        #PARAMETER 1: SKIP_CONTROLLER_REPO_MODS optionally skip the controller repo mod stage since it is slow.  Can be any word.
-    if [ -z "$1" ]; then
-        echo "parameter 1: SKIP_CONTROLLER_REPO_MODS is optional!  Will run controller repo mods..."
+    #    echo Wiping out any existing controller autoconfigs
+    #    sudo rm -rf "$configdir"
 
         for whichconfigdir in "${configdirs[@]}"; do
             if [ -d "$whichconfigdir" ]; then
@@ -140,161 +140,160 @@ if [ -d "$md_build/udev" ]; then
                 echo "$whichconfigdir does not exist, skipping!"
             fi
         done
-    fi
-
-    echo "Mapping any non-libretrocore emulators that we know how..."
-    n64SetupPs3Controls.sh
-    dosSetupPs3Controls.sh
-
-    for whichemuconfigdir in "${emuconfigdirs[@]}"; do
-        if [ -d "$whichemuconfigdir" ]; then
-            echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
-            #local
-            #above keyword only for when below is in its own function:
-            emulatorsToButtonSwap=(
-                'nes'
-                'gb'
-                'gbc'
-                'gba'
-                'n64'
-                'pcengine'
-                'supergrafx'
-            )
-
-            #Old mapping was 12triangle, 13circle, 14x, 15square
-            #New mapping is 0x, 1circle, 2triangle, 3square
-            #Before, we were setting Jump (a) to the Cross button (14)
-            #   and Fire (b) to the Square (15) button instead of Circle (13) which is the default
-            #   and then Aux (y) to the Circle (13) button instead of the Square (15) button which is the default
-            #   ...heretofore: we want to set y to 1, a to 0, and b to 3
-
-            for emu in "${emulatorsToButtonSwap[@]}"; do
-                emu=($emu)
-                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-                iniSet "input_player1_y_btn" "1"
-                iniSet "input_player1_a_btn" "0"
-                iniSet "input_player1_b_btn" "3"
-                iniSet "input_player2_y_btn" "1"
-                iniSet "input_player2_a_btn" "0"
-                iniSet "input_player2_b_btn" "3"
-                iniSet "input_player3_y_btn" "1"
-                iniSet "input_player3_a_btn" "0"
-                iniSet "input_player3_b_btn" "3"
-                iniSet "input_player4_y_btn" "1"
-                iniSet "input_player4_a_btn" "0"
-                iniSet "input_player4_b_btn" "3"
-            done
-
-            echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
-            #local
-            #above keyword only for when below is in its own function:
-            emulatorsToButtonSwapReverse=(
-                'gamegear'
-                'mastersystem'
-                'sg-1000'
-                'msx'    
-                'atarilynx'            
-            )
-
-            #Old mapping was 12triangle, 13circle, 14x, 15square
-            #New mapping is 0x, 1circle, 2triangle, 3square
-            #Before, we were setting Jump (a) to the Square button (15)
-            #   and Fire (b) to the Cross (14) button
-            #   and then Aux (y) to the Circle (13) button
-            #   ...heretofore: we want to set y to 1, a to 3, and b to 0
-
-
-            for emu in "${emulatorsToButtonSwapReverse[@]}"; do
-                emu=($emu)
-                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-                iniSet "input_player1_y_btn" "1"
-                iniSet "input_player1_a_btn" "3"
-                iniSet "input_player1_b_btn" "0"
-                iniSet "input_player2_y_btn" "1"
-                iniSet "input_player2_a_btn" "3"
-                iniSet "input_player2_b_btn" "0"
-                iniSet "input_player3_y_btn" "1"
-                iniSet "input_player3_a_btn" "3"
-                iniSet "input_player3_b_btn" "0"
-                iniSet "input_player4_y_btn" "1"
-                iniSet "input_player4_a_btn" "3"
-                iniSet "input_player4_b_btn" "0"
-            done
-
-
-            echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
-            #local
-            #above keyword only for when below is in its own function:
-            emulatorsToRearrangeButtons=(
-                'mame-libretro'
-                'mame2000'
-                'mame2003'
-                'mame2003-plus'
-                'mame2010'
-                'mame2014'
-                'mame2015'
-            )
-
-            for emu in "${emulatorsToRearrangeButtons[@]}"; do
-                emu=($emu)
-                iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-
-                #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
-                #SF2 L punch = b_btn
-                #SF2 M punch = a_btn
-                #SF2 H punch = y_btn
-                #SF2 L kick =  x_btn
-                #SF2 M kick =  l_btn
-                #SF2 H kick =  r_btn
-
-                #MK2 L punch = x_btn
-                #MK2 H punch = a_btn
-                #MK2 Block = y_btn
-                #MK2 L kick = l_btn
-                #MK2 H kick = b_btn
-
-                #ForgottenWorlds rotateCCW l_btn
-                #ForgottenWorlds rotateCW r_btn
-
-                #GenericGame Fire b_btn
-                #GenericGame Jump a_btn
-                #insert coin -> L3 instead of Select to avoid conflicts in some games
-
-                iniSet "input_player1_b_btn" "3"
-                iniSet "input_player1_y_btn" "0"
-
-                iniSet "input_player2_b_btn" "3"
-                iniSet "input_player2_y_btn" "0"
-
-                iniSet "input_player3_b_btn" "3"
-                iniSet "input_player3_y_btn" "0"
-
-                iniSet "input_player4_b_btn" "3"
-                iniSet "input_player4_y_btn" "0"
-
-            done
-        else
-            echo "$whichemuconfigdir does not exist, skipping!"
-        fi
-    done
-    
-    # echo "Configuring Dreamcast Reicast PS3 controls..."
-    #python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
-    # sudo cp -vr opt/retropie/configs/dreamcast/emu.cfg opt/retropie/configs/dreamcast/
-
-    # echo "Configuring N64 non-libretrocore PS3 controls..."
-    # sudo cp -vr opt/retropie/configs/n64/InputAutoCfg.ini opt/retropie/configs/n64/
-
-    echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
-    sudo rm --verbose --force "$allconfigsdir/Gasia_PS_Gamepad_USB.cfg"
-    # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
-    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
-    sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-
-else
-    echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
+        echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
+        sudo rm --verbose --force "$allconfigsdir/Gasia_PS_Gamepad_USB.cfg"
+        # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
+        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
+        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+    else
+        echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
+    fi   
 fi
+
+echo "Mapping any non-libretrocore emulators that we know how..."
+n64SetupPs3Controls.sh
+dosSetupPs3Controls.sh
+
+for whichemuconfigdir in "${emuconfigdirs[@]}"; do
+    if [ -d "$whichemuconfigdir" ]; then
+        echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToButtonSwap=(
+            'nes'
+            'gb'
+            'gbc'
+            'gba'
+            'n64'
+            'pcengine'
+            'supergrafx'
+        )
+
+        #Old mapping was 12triangle, 13circle, 14x, 15square
+        #New mapping is 0x, 1circle, 2triangle, 3square
+        #Before, we were setting Jump (a) to the Cross button (14)
+        #   and Fire (b) to the Square (15) button instead of Circle (13) which is the default
+        #   and then Aux (y) to the Circle (13) button instead of the Square (15) button which is the default
+        #   ...heretofore: we want to set y to 1, a to 0, and b to 3
+
+        for emu in "${emulatorsToButtonSwap[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+            iniSet "input_player1_y_btn" "1"
+            iniSet "input_player1_a_btn" "0"
+            iniSet "input_player1_b_btn" "3"
+            iniSet "input_player2_y_btn" "1"
+            iniSet "input_player2_a_btn" "0"
+            iniSet "input_player2_b_btn" "3"
+            iniSet "input_player3_y_btn" "1"
+            iniSet "input_player3_a_btn" "0"
+            iniSet "input_player3_b_btn" "3"
+            iniSet "input_player4_y_btn" "1"
+            iniSet "input_player4_a_btn" "0"
+            iniSet "input_player4_b_btn" "3"
+        done
+
+        echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToButtonSwapReverse=(
+            'gamegear'
+            'mastersystem'
+            'sg-1000'
+            'msx'    
+            'atarilynx'            
+        )
+
+        #Old mapping was 12triangle, 13circle, 14x, 15square
+        #New mapping is 0x, 1circle, 2triangle, 3square
+        #Before, we were setting Jump (a) to the Square button (15)
+        #   and Fire (b) to the Cross (14) button
+        #   and then Aux (y) to the Circle (13) button
+        #   ...heretofore: we want to set y to 1, a to 3, and b to 0
+
+
+        for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+            iniSet "input_player1_y_btn" "1"
+            iniSet "input_player1_a_btn" "3"
+            iniSet "input_player1_b_btn" "0"
+            iniSet "input_player2_y_btn" "1"
+            iniSet "input_player2_a_btn" "3"
+            iniSet "input_player2_b_btn" "0"
+            iniSet "input_player3_y_btn" "1"
+            iniSet "input_player3_a_btn" "3"
+            iniSet "input_player3_b_btn" "0"
+            iniSet "input_player4_y_btn" "1"
+            iniSet "input_player4_a_btn" "3"
+            iniSet "input_player4_b_btn" "0"
+        done
+
+
+        echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToRearrangeButtons=(
+            'mame-libretro'
+            'mame2000'
+            'mame2003'
+            'mame2003-plus'
+            'mame2010'
+            'mame2014'
+            'mame2015'
+        )
+
+        for emu in "${emulatorsToRearrangeButtons[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+
+            #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
+            #SF2 L punch = b_btn
+            #SF2 M punch = a_btn
+            #SF2 H punch = y_btn
+            #SF2 L kick =  x_btn
+            #SF2 M kick =  l_btn
+            #SF2 H kick =  r_btn
+
+            #MK2 L punch = x_btn
+            #MK2 H punch = a_btn
+            #MK2 Block = y_btn
+            #MK2 L kick = l_btn
+            #MK2 H kick = b_btn
+
+            #ForgottenWorlds rotateCCW l_btn
+            #ForgottenWorlds rotateCW r_btn
+
+            #GenericGame Fire b_btn
+            #GenericGame Jump a_btn
+            #insert coin -> L3 instead of Select to avoid conflicts in some games
+
+            iniSet "input_player1_b_btn" "3"
+            iniSet "input_player1_y_btn" "0"
+
+            iniSet "input_player2_b_btn" "3"
+            iniSet "input_player2_y_btn" "0"
+
+            iniSet "input_player3_b_btn" "3"
+            iniSet "input_player3_y_btn" "0"
+
+            iniSet "input_player4_b_btn" "3"
+            iniSet "input_player4_y_btn" "0"
+
+        done
+    else
+        echo "$whichemuconfigdir does not exist, skipping!"
+    fi
+done
+
+# echo "Configuring Dreamcast Reicast PS3 controls..."
+#python /home/pi/primestationone/bin/dreamcastMapPs3ControlsForReicast.py
+# sudo cp -vr opt/retropie/configs/dreamcast/emu.cfg opt/retropie/configs/dreamcast/
+
+# echo "Configuring N64 non-libretrocore PS3 controls..."
+# sudo cp -vr opt/retropie/configs/n64/InputAutoCfg.ini opt/retropie/configs/n64/
+
 
 
 #pushd ~
