@@ -8,6 +8,7 @@ sudo cp -vr etc /
 #sudo cp -vr opt /
 sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/all/retroarch-joypads/
 sudo cp -vr var /
+mkdir ~/.xroar
 mkdir /opt/retropie/configs/snesmouse
 mkdir /home/pi/RetroPie/roms/supergrafx
 mkdir /opt/retropie/configs/supergrafx
@@ -24,7 +25,7 @@ mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
 cp -vr reference/.atari800.cfg ~/
 cp -vr ~/RetroPie/BIOS/dc_*.bin ~/RetroPie/BIOS/dc/
-ln --symbolic /opt/retropie/configs/coco/xroar.conf .xroar/xroar.conf
+ln --symbolic /opt/retropie/configs/coco/xroar.conf ~/.xroar/xroar.conf
 
 # echo "Installing auto-expand check script..."
 # sudo cp -fv /home/pi/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
