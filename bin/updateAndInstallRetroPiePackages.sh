@@ -38,6 +38,8 @@ function initPackageList {
 		lr-tyrquake
 		lr-tgbdual
 		lr-beetle-lynx
+		lr-beetle-pcfx
+		lr-beetle-supergrafx
 		lr-mrboom
 		lr-parallel-n64
 		lr-ppsspp
@@ -47,7 +49,6 @@ function initPackageList {
 		lr-fmsx
 		lr-bluemsx
 		lr-nxengine
-		lr-beetle-pcfx
 		lr-dinothawr
 		lr-freeintv
 		lr-armsnes
