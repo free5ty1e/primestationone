@@ -12,7 +12,7 @@ mkdir /opt/retropie/configs/snesmouse
 mkdir /home/pi/RetroPie/roms/supergrafx
 mkdir /opt/retropie/configs/supergrafx
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
-cp --verbose --no-clobber reference/opt/retropie/configs/supergrafx/*.cfg /opt/retropie/configs/supergrafx/
+cp --verbose reference/opt/retropie/configs/supergrafx/*.cfg /opt/retropie/configs/supergrafx/
 cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
 cp -v reference/opt/retropie/configs/atari5200/*.cfg /opt/retropie/configs/atari5200/
 cp -vr .emulationstation/* ~/.emulationstation/
