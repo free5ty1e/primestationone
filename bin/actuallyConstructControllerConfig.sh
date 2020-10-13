@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "Constructing the controller configs en masse to ALL match the splashscreen quick reference image..."
 echo "This will also enable non-PS3 controllers to map closely to the splashscreen instead of being way off..."
 
@@ -92,53 +93,58 @@ esControllerAutoConfig.sh
 echo "Checking to ensure clone was successful before proceeding...."
 if [ -d "$md_build/udev" ]; then
 
-    echo "Mapping any non-libretrocore emulators that we know how..."
-    n64SetupPs3Controls.sh
-    dosSetupPs3Controls.sh
-
 #    echo Wiping out any existing controller autoconfigs
 #    sudo rm -rf "$configdir"
 
-    for whichconfigdir in "${configdirs[@]}"; do
-        if [ -d "$whichconfigdir" ]; then
-            echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
-            # sudo mkdir -p "$whichconfigdir/"
-            
-            echo "Stripping CRs from the autoconfigs...."
-            cd "$md_build/udev/"
-            for file in *; do
-                sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
-                sudo chown $user:$user "$whichconfigdir/$file"
-            done
+        #PARAMETER 1: SKIP_CONTROLLER_REPO_MODS optionally skip the controller repo mod stage since it is slow.  Can be any word.
+    if [ -z "$1" ]; then
+        echo "parameter 1: SKIP_CONTROLLER_REPO_MODS is optional!  Will run controller repo mods..."
 
-            echo "Mapping special functions to match Primestation splashscreen..."
-            printMsgs "console" "Remapping controller hotkeys"
-
-            find "$whichconfigdir/" -print0 | while read -d $'\0' file
-                do
-                    remap_hotkeys_retroarchautoconf "$file"
+        for whichconfigdir in "${configdirs[@]}"; do
+            if [ -d "$whichconfigdir" ]; then
+                echo "Installing retroarch joypad base autoconfigs and legacy autoconfigs..."
+                # sudo mkdir -p "$whichconfigdir/"
+                
+                echo "Stripping CRs from the autoconfigs...."
+                cd "$md_build/udev/"
+                for file in *; do
+                    sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
+                    sudo chown $user:$user "$whichconfigdir/$file"
                 done
 
-            # echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
-            # rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
-            # cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
-            # iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
+                echo "Mapping special functions to match Primestation splashscreen..."
+                printMsgs "console" "Remapping controller hotkeys"
 
-            # echo "Adding configs to support other various known generic PS3 controllers too..."
-            # echo "TODO: Refactor the below into a function instead of duplicating this code repeatedly..."
-            # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
-            # iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
+                find "$whichconfigdir/" -print0 | while read -d $'\0' file
+                    do
+                        remap_hotkeys_retroarchautoconf "$file"
+                    done
 
-            # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
-            # iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+                # echo "Applying Workaround for PS4 controller overriding PS3 controllers on some newer bluetooth adapters, both show up as Sony Computer Entertainment Wireless Controller so Im erring on the side of I want PS3 controllers to work on the Primestation One..."
+                # rm -v "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+                # cp -v "$whichconfigdir/PS3Controller.cfg" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg"
+                # iniSet "input_device" "Sony Computer Entertainment Wireless Controller" "$whichconfigdir/Sony_Computer_Entertainment_Wireless_Controller.cfg" >/dev/null
 
-            # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg"
-            # iniSet "input_device" "SZMY-POWER CO.,LTD. PLAYSTATION(R)3 Controller" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg" >/dev/null
+                # echo "Adding configs to support other various known generic PS3 controllers too..."
+                # echo "TODO: Refactor the below into a function instead of duplicating this code repeatedly..."
+                # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad.cfg"
+                # iniSet "input_device" "ShanWan PS\(R\) Ga\`epad" "$whichconfigdir/ShanWanPS3Gamepad.cfg" >/dev/null
 
-        else
-            echo "$whichconfigdir does not exist, skipping!"
-        fi
-    done
+                # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/ShanWanPS3Gamepad2.cfg"
+                # iniSet "input_device" "ShanWan PS\(R\) Gamepad" "$whichconfigdir/ShanWanPS3Gamepad2.cfg" >/dev/null
+
+                # sudo cp -v "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg"
+                # iniSet "input_device" "SZMY-POWER CO.,LTD. PLAYSTATION(R)3 Controller" "$whichconfigdir/SzmyNoSixaxisPS3Gamepad.cfg" >/dev/null
+
+            else
+                echo "$whichconfigdir does not exist, skipping!"
+            fi
+        done
+    fi
+
+    echo "Mapping any non-libretrocore emulators that we know how..."
+    n64SetupPs3Controls.sh
+    dosSetupPs3Controls.sh
 
     for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         if [ -d "$whichemuconfigdir" ]; then
@@ -152,6 +158,7 @@ if [ -d "$md_build/udev" ]; then
                 'gba'
                 'n64'
                 'pcengine'
+                'supergrafx'
             )
 
             #Old mapping was 12triangle, 13circle, 14x, 15square
