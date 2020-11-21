@@ -243,9 +243,77 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             'mame2014'
             'mame2015'
         )
+        emulatorGameRemapFolderNames=(
+            '.'
+            'MAME 2000'
+            'MAME 2003'
+            'MAME 2003-PLUS'
+            'MAME 2010'
+            'MAME 2014'
+            'MAME 2015'
+        )
 
-        for emu in "${emulatorsToRearrangeButtons[@]}"; do
-            emu=($emu)
+        for ((i=0;i<${#emulatorsToRearrangeButtons[@]};++i)); do
+            emu="${emulatorsToRearrangeButtons[i]}"
+            emuFolderName="${emulatorGameRemapFolderNames[i]}"
+
+            printf "Now processing emu %s with game remap folder name %s\n" "${emu}" "${emuFolderName}"
+
+            #First, distribute the game-specific configurations for this emulator to the following games
+            specificGamesToRemapToStreetFighterControls=(
+                'sf1jp'
+                'sf2j'
+                'sf1us'
+                'sf2rb'
+                'sf1'
+                'sf2red'
+                'sf2accp2'
+                'sf2tj'
+                'sf2a'
+                'sf2t'
+                'sf2b'
+                'sf2'
+                'sf2cea'
+                'sfeverbw'
+                'sf2ceb'
+                'sfiii3n'
+                'sf2cej'
+                'sfootbal'
+                'sf2ce'
+                'sformula'
+                'sf2e'
+                'sfposeid'
+                'sf2jb'
+            )
+            echo "Remapping Street Fighter-style arcade game controls..."
+            for game in "${specificGamesToRemapToStreetFighterControls[@]}"; do
+                game=($game)
+                cp -vf "$HOME/primestationone/reference/mame-libretro/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+            done
+
+            specificGamesToRemapToMortalKombatControls=(
+                'mk2r14.zip'
+                'mk2r32.zip'
+                'mk2.zip'
+                'mk3r10.zip'
+                'mk3r20.zip'
+                'mk3.zip'
+                'mkla1.zip'
+                'mkla2.zip'
+                'mkla3.zip'
+                'mkla4.zip'
+                'mk.zip'
+            )
+            echo "Remapping Mortal Kombat-style arcade game controls..."
+            for game in "${specificGamesToRemapToMortalKombatControls[@]}"; do
+                game=($game)
+                cp -vf "$HOME/primestationone/reference/mame-libretro/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+            done
+
+
+
+
+            echo "Now remapping all other arcade games to use X for jump / main and square for fire / secondary..."
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
 
             #Libretrocore Mame4all internal retroarch mappings to take into consideration for a generic mame4all ps3 map:
