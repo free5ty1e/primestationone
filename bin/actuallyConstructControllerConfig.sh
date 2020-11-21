@@ -294,17 +294,17 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             done
 
             specificGamesToRemapToMortalKombatControls=(
-                'mk2r14.zip'
-                'mk2r32.zip'
-                'mk2.zip'
-                'mk3r10.zip'
-                'mk3r20.zip'
-                'mk3.zip'
-                'mkla1.zip'
-                'mkla2.zip'
-                'mkla3.zip'
-                'mkla4.zip'
-                'mk.zip'
+                'mk2r14'
+                'mk2r32'
+                'mk2'
+                'mk3r10'
+                'mk3r20'
+                'mk3'
+                'mkla1'
+                'mkla2'
+                'mkla3'
+                'mkla4'
+                'mk'
             )
             echo "Remapping Mortal Kombat-style arcade game controls..."
             for game in "${specificGamesToRemapToMortalKombatControls[@]}"; do
