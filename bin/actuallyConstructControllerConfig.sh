@@ -256,6 +256,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         for ((i=0;i<${#emulatorsToRearrangeButtons[@]};++i)); do
             emu="${emulatorsToRearrangeButtons[i]}"
             emuFolderName="${emulatorGameRemapFolderNames[i]}"
+            gameSpecificRemapSourceFolder="/home/pi/primestationone/reference/opt/retropie/configs/mame-libretro"
 
             printf "Now processing emu %s with game remap folder name %s\n" "${emu}" "${emuFolderName}"
 
@@ -288,7 +289,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Street Fighter-style arcade game controls..."
             for game in "${specificGamesToRemapToStreetFighterControls[@]}"; do
                 game=($game)
-                cp -vf "/home/pi/primestationone/reference/mame-libretro/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "${gameSpecificRemapSourceFolder}/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
             done
 
             specificGamesToRemapToMortalKombatControls=(
@@ -307,9 +308,8 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Mortal Kombat-style arcade game controls..."
             for game in "${specificGamesToRemapToMortalKombatControls[@]}"; do
                 game=($game)
-                cp -vf "/home/pi/primestationone/reference/mame-libretro/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "${gameSpecificRemapSourceFolder}/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
             done
-
 
 
             echo "Now remapping all other arcade games to use X for jump / main and square for fire / secondary..."
