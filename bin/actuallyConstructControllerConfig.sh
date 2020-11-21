@@ -288,7 +288,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Street Fighter-style arcade game controls..."
             for game in "${specificGamesToRemapToStreetFighterControls[@]}"; do
                 game=($game)
-                cp -vf "$HOME/primestationone/reference/mame-libretro/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "/home/pi/primestationone/reference/mame-libretro/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
             done
 
             specificGamesToRemapToMortalKombatControls=(
@@ -307,9 +307,8 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Mortal Kombat-style arcade game controls..."
             for game in "${specificGamesToRemapToMortalKombatControls[@]}"; do
                 game=($game)
-                cp -vf "$HOME/primestationone/reference/mame-libretro/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "/home/pi/primestationone/reference/mame-libretro/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
             done
-
 
 
 
