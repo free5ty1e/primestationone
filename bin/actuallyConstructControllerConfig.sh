@@ -312,6 +312,8 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
                 cp -vf "${gameSpecificRemapSourceFolder}/mortalkombat12.rmp" "${remapDestinationBaseFolder}/${emuFolderName}/${game}.rmp"
             done
 
+            echo "Changing ownership of remap files to pi..."
+            chown -Rv pi:pi "${remapDestinationBaseFolder}/*.rmp"
 
             echo "Now remapping all other arcade games to use X for jump / main and square for fire / secondary..."
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
