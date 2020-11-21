@@ -257,8 +257,9 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             emu="${emulatorsToRearrangeButtons[i]}"
             emuFolderName="${emulatorGameRemapFolderNames[i]}"
             gameSpecificRemapSourceFolder="/home/pi/primestationone/reference/opt/retropie/configs/mame-libretro"
-
+            remapDestinationBaseFolder="${whichemuconfigdir}/mame-libretro"
             printf "Now processing emu %s with game remap folder name %s\n" "${emu}" "${emuFolderName}"
+            mkdir -vp "${remapDestinationBaseFolder}/${emuFolderName}"
 
             #First, distribute the game-specific configurations for this emulator to the following games
             specificGamesToRemapToStreetFighterControls=(
@@ -289,7 +290,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Street Fighter-style arcade game controls..."
             for game in "${specificGamesToRemapToStreetFighterControls[@]}"; do
                 game=($game)
-                cp -vf "${gameSpecificRemapSourceFolder}/streetfighter.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "${gameSpecificRemapSourceFolder}/streetfighter.rmp" "${remapDestinationBaseFolder}/${emuFolderName}/${game}.rmp"
             done
 
             specificGamesToRemapToMortalKombatControls=(
@@ -308,7 +309,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             echo "Remapping Mortal Kombat-style arcade game controls..."
             for game in "${specificGamesToRemapToMortalKombatControls[@]}"; do
                 game=($game)
-                cp -vf "${gameSpecificRemapSourceFolder}/mortalkombat12.rmp" "${whichemuconfigdir}/${emu}/${emuFolderName}/${game}.rmp"
+                cp -vf "${gameSpecificRemapSourceFolder}/mortalkombat12.rmp" "${remapDestinationBaseFolder}/${emuFolderName}/${game}.rmp"
             done
 
 
