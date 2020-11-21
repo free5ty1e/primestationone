@@ -269,17 +269,29 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             #GenericGame Jump a_btn
             #insert coin -> L3 instead of Select to avoid conflicts in some games
 
-            iniSet "input_player1_b_btn" "3"
-            iniSet "input_player1_y_btn" "0"
+            iniUnset "input_player1_b_btn"
+            iniUnset "input_player1_y_btn"
 
-            iniSet "input_player2_b_btn" "3"
-            iniSet "input_player2_y_btn" "0"
+            iniUnset "input_player2_b_btn"
+            iniUnset "input_player2_y_btn"
 
-            iniSet "input_player3_b_btn" "3"
-            iniSet "input_player3_y_btn" "0"
+            iniUnset "input_player3_b_btn"
+            iniUnset "input_player3_y_btn"
 
-            iniSet "input_player4_b_btn" "3"
-            iniSet "input_player4_y_btn" "0"
+            iniUnset "input_player4_b_btn"
+            iniUnset "input_player4_y_btn"
+
+            # iniSet "input_player1_b_btn" "3"
+            # iniSet "input_player1_y_btn" "0"
+
+            # iniSet "input_player2_b_btn" "3"
+            # iniSet "input_player2_y_btn" "0"
+
+            # iniSet "input_player3_b_btn" "3"
+            # iniSet "input_player3_y_btn" "0"
+
+            # iniSet "input_player4_b_btn" "3"
+            # iniSet "input_player4_y_btn" "0"
 
         done
     else
