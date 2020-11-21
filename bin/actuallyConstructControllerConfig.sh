@@ -313,7 +313,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             done
 
             echo "Changing ownership of remap files to pi..."
-            chown -Rv pi:pi "${remapDestinationBaseFolder}/*.rmp"
+            chown -Rv pi:pi "${remapDestinationBaseFolder}"
 
             echo "Now remapping all other arcade games to use X for jump / main and square for fire / secondary..."
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
