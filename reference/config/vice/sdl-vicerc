@@ -1,0 +1,9 @@
+[C64]
+Mouse=1
+VICIIDoubleSize=1
+VICIIDoubleScan=1
+VICIIFilter=0
+VICIIVideoCache=0
+SDLWindowWidth=1280
+SDLWindowHeight=720
+SidEngine=0
