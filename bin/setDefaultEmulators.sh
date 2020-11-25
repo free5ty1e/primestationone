@@ -6,4 +6,5 @@ source "/home/pi/RetroPie-Setup/scriptmodules/inifuncs.sh"
 c64SetDefaultEmulator.sh
 dreamcastSetDefaultEmulator.sh
 n64SetDefaultEmulator.sh
+ndsSetDefaultEmulator.sh
 dosSetDefaultEmulator.sh
