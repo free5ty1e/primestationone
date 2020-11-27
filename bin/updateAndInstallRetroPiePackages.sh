@@ -102,6 +102,7 @@ function initPackageList {
 		redream
 		linapple
 		basilisk
+		openmsx
 		# uae4all
 		# openmsx
 		# sdltrs
