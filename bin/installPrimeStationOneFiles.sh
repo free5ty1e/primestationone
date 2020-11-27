@@ -9,6 +9,8 @@ sudo cp -vr etc /
 sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/all/retroarch-joypads/
 sudo cp -vr var /
 mkdir ~/.xroar
+mkdir /home/pi/RetroPie/roms/msxld
+mkdir /opt/retropie/configs/msxld
 mkdir /home/pi/RetroPie/roms/genesismouse
 mkdir /opt/retropie/configs/genesismouse
 mkdir /home/pi/RetroPie/roms/snesmouse
@@ -18,6 +20,7 @@ mkdir /opt/retropie/configs/supergrafx
 mkdir /home/pi/RetroPie/roms/tg16cd
 mkdir /opt/retropie/configs/tg16cd
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
+cp --verbose reference/opt/retropie/configs/msxld/*.cfg /opt/retropie/configs/msxld/
 cp --verbose reference/opt/retropie/configs/genesismouse/*.cfg /opt/retropie/configs/genesismouse/
 cp --verbose reference/opt/retropie/configs/supergrafx/*.cfg /opt/retropie/configs/supergrafx/
 cp --verbose reference/opt/retropie/configs/tg16cd/*.cfg /opt/retropie/configs/tg16cd/
