@@ -8,6 +8,8 @@ sudo cp -vr etc /
 #sudo cp -vr opt /
 sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/all/retroarch-joypads/
 sudo cp -vr var /
+sudo rm -rf /opt/retropie/emulators/openmsx/share/systemroms
+sudo ln -s /home/pi/RetroPie/BIOS/msxsystemroms /opt/retropie/emulators/openmsx/share/systemroms
 mkdir ~/.xroar
 mkdir /home/pi/RetroPie/roms/msxld
 mkdir /opt/retropie/configs/msxld
