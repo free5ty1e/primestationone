@@ -13,6 +13,8 @@ sudo ln -s /home/pi/RetroPie/BIOS/msxsystemroms /opt/retropie/emulators/openmsx/
 mkdir ~/.xroar
 mkdir /home/pi/RetroPie/roms/msxld
 mkdir /opt/retropie/configs/msxld
+mkdir /home/pi/RetroPie/roms/msxcas
+mkdir /opt/retropie/configs/msxcas
 mkdir /home/pi/RetroPie/roms/genesismouse
 mkdir /opt/retropie/configs/genesismouse
 mkdir /home/pi/RetroPie/roms/snesmouse
@@ -23,6 +25,7 @@ mkdir /home/pi/RetroPie/roms/tg16cd
 mkdir /opt/retropie/configs/tg16cd
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 cp --verbose reference/opt/retropie/configs/msxld/*.cfg /opt/retropie/configs/msxld/
+cp --verbose reference/opt/retropie/configs/msxcas/*.cfg /opt/retropie/configs/msxcas/
 cp --verbose reference/opt/retropie/configs/genesismouse/*.cfg /opt/retropie/configs/genesismouse/
 cp --verbose reference/opt/retropie/configs/supergrafx/*.cfg /opt/retropie/configs/supergrafx/
 cp --verbose reference/opt/retropie/configs/tg16cd/*.cfg /opt/retropie/configs/tg16cd/
