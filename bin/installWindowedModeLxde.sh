@@ -14,9 +14,9 @@ sudo apt-get remove -y realvnc-vnc-server mono-xsp4 mono-devel libmono-system-we
 # cleanupTempFiles.sh
 
 # sudo ~/RetroPie-Setup/retropie_packages.sh raspbiantools lxde
-sudo apt-get install -y --no-install-recommends lxde
-sudo apt-get install -y xorg raspberrypi-ui-mods rpi-chromium-mods
-sudo apt-get install -y alsamixergui gedit clipit deluge transmission-gtk evince-gtk gnome-disk-utility gnome-mplayer gnome-system-tools gucharmap lxmusic audacious menu-xdg usermode 
+#sudo apt-get install -y --no-install-recommends lxde
+#sudo apt-get install -y xorg raspberrypi-ui-mods rpi-chromium-mods
+#sudo apt-get install -y alsamixergui gedit clipit deluge transmission-gtk evince-gtk gnome-disk-utility gnome-mplayer gnome-system-tools gucharmap lxmusic audacious menu-xdg usermode 
 sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 #network-manager-gnome
 
@@ -42,8 +42,8 @@ sudo RetroPie-Setup/retropie_packages.sh raspbiantools lxde
 # sudo systemctl enable vncserver-virtuald.service
 # sudo systemctl start vncserver-virtuald.service
 
-echo "Installing simple standard bottom panel setup for LXDE..."
-cp -vr ~/primestationone/reference/.config ~/
+#echo "Installing simple standard bottom panel setup for LXDE..."
+#cp -vr ~/primestationone/reference/.config ~/
 
 echo "Setting up new EmulationStation entry for Desktop..."
 mkdir /home/pi/RetroPie/roms/desktop
