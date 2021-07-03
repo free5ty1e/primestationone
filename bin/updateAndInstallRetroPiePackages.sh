@@ -18,9 +18,13 @@ function initPackageList {
 		lr-prboom
 		lr-snes9x
 		lr-snes9x-next
+		lr-snes9x2002
+		lr-bsnes
 		lr-prosystem
 		lr-mupen64plus-next
 		lr-dosbox
+		lr-dosbox-pure
+		lr-scummvm
 		lr-hatari
 		lr-mame2000
 		lr-mame2003
@@ -58,6 +62,7 @@ function initPackageList {
 		# lr-mess2016
 		
 		#Ports (Pi games):
+		bombermaaan
 		minecraft
 		ags
 		dxx-rebirth
@@ -86,7 +91,7 @@ function initPackageList {
 		steamlink
 		retronetplay
 		usbromservice
-		# mobilegamepad		
+		mobilegamepad	
 		#retropie-manager
 
 
@@ -103,6 +108,8 @@ function initPackageList {
 		linapple
 		basilisk
 		openmsx
+		amiberry
+		mame
 		# uae4all
 		# openmsx
 		# sdltrs
