@@ -34,7 +34,9 @@ function initPackageList {
 		lr-mame2015
 		lr-fbalpha2012
 		lr-fbalpha
+		lr-neocd
 		lr-puae
+		lr-uae4arm
 		lr-vice
 		lr-virtualjaguar
 		lr-yabause
@@ -44,6 +46,7 @@ function initPackageList {
 		lr-beetle-lynx
 		lr-beetle-pcfx
 		lr-beetle-supergrafx
+		lr-beetle-saturn
 		lr-mrboom
 		lr-parallel-n64
 		lr-ppsspp
@@ -103,6 +106,7 @@ function initPackageList {
 		pisnes
 		rpix86
 		dosbox-sdl2
+		dosbox-staging
 		xroar
 		redream
 		linapple
@@ -110,6 +114,7 @@ function initPackageList {
 		openmsx
 		amiberry
 		mame
+		ppsspp
 		# uae4all
 		# openmsx
 		# sdltrs
