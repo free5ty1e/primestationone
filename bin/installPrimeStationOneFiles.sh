@@ -23,12 +23,31 @@ mkdir /home/pi/RetroPie/roms/supergrafx
 mkdir /opt/retropie/configs/supergrafx
 mkdir /home/pi/RetroPie/roms/tg16cd
 mkdir /opt/retropie/configs/tg16cd
+
+mkdir /home/pi/RetroPie/roms/mame2000
+mkdir /opt/retropie/configs/mame2000
+mkdir /home/pi/RetroPie/roms/mame2003
+mkdir /opt/retropie/configs/mame2003
+mkdir /home/pi/RetroPie/roms/mame2010
+mkdir /opt/retropie/configs/mame2010
+mkdir /home/pi/RetroPie/roms/mame2015
+mkdir /opt/retropie/configs/mame2015
+mkdir /home/pi/RetroPie/roms/mame2016
+mkdir /opt/retropie/configs/mame2016
+
 cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 cp --verbose reference/opt/retropie/configs/msxld/*.cfg /opt/retropie/configs/msxld/
 cp --verbose reference/opt/retropie/configs/msxcas/*.cfg /opt/retropie/configs/msxcas/
 cp --verbose reference/opt/retropie/configs/genesismouse/*.cfg /opt/retropie/configs/genesismouse/
 cp --verbose reference/opt/retropie/configs/supergrafx/*.cfg /opt/retropie/configs/supergrafx/
 cp --verbose reference/opt/retropie/configs/tg16cd/*.cfg /opt/retropie/configs/tg16cd/
+
+cp --verbose reference/opt/retropie/configs/mame2000/*.cfg /opt/retropie/configs/mame2000/
+cp --verbose reference/opt/retropie/configs/mame2003/*.cfg /opt/retropie/configs/mame2003/
+cp --verbose reference/opt/retropie/configs/mame2010/*.cfg /opt/retropie/configs/mame2010/
+cp --verbose reference/opt/retropie/configs/mame2015/*.cfg /opt/retropie/configs/mame2015/
+cp --verbose reference/opt/retropie/configs/mame2016/*.cfg /opt/retropie/configs/mame2016/
+
 cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
 cp -v reference/opt/retropie/configs/atari5200/*.cfg /opt/retropie/configs/atari5200/
 cp -vr .emulationstation/* ~/.emulationstation/
