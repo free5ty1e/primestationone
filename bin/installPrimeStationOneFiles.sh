@@ -21,6 +21,16 @@ else
   sudo ln -sv /home/pi/RetroPie/roms/psp/SAVEDATA /opt/retropie/configs/psp/PSP/SAVEDATA
 fi
 
+echo "Checking if PSP emulator PPSSPP has savestate data linked properly to retropie roms folder, if not will migrate and link..."
+if [[ -L "/opt/retropie/configs/psp/PSP/PPSSPP_STATE" ]]; then
+  echo "/opt/retropie/configs/psp/PSP/PPSSPP_STATE is already a link!  No need to migrate or link..."
+else
+  echo "/opt/retropie/configs/psp/PSP/PPSSPP_STATE is not a link!!  Need to migrate to retropie roms/psp/PPSSPP_STATE folder and link..."
+  cp -rfv /opt/retropie/configs/psp/PSP/PPSSPP_STATE/* /home/pi/RetroPie/roms/psp/PPSSPP_STATE/
+  rm -rf /opt/retropie/configs/psp/PSP/PPSSPP_STATE
+  sudo ln -sv /home/pi/RetroPie/roms/psp/PPSSPP_STATE /opt/retropie/configs/psp/PSP/PPSSPP_STATE
+fi
+
 mkdir ~/.xroar
 mkdir /home/pi/RetroPie/roms/msxld
 sudo mkdir /opt/retropie/configs/msxld
