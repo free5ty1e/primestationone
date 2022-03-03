@@ -2,7 +2,8 @@
 
 removeMacFilesFromFilesystem.sh
 
-sudo rm -rf RetroPie-Setup/tmp/*
+#sudo rm -rf RetroPie-Setup/tmp/*
+sudo rm -rf RetroPie-Setup/tmp/build
 
 echo Cleaning up old and outdated scripts...
 
