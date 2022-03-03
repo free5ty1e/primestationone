@@ -9,7 +9,18 @@ sudo cp -vr etc /
 sudo cp -vr opt/retropie/configs/all/retroarch-joypads/* /opt/retropie/configs/all/retroarch-joypads/
 sudo cp -vr var /
 sudo rm -rf /opt/retropie/emulators/openmsx/share/systemroms
-sudo ln -s /home/pi/RetroPie/BIOS/msxsystemroms /opt/retropie/emulators/openmsx/share/systemroms
+sudo ln -sv /home/pi/RetroPie/BIOS/msxsystemroms /opt/retropie/emulators/openmsx/share/systemroms
+
+echo "Checking if PSP emulator PPSSPP has savedata linked properly to retropie roms folder, if not will migrate and link..."
+if [[ -L "/opt/retropie/configs/psp/PSP/SAVEDATA" ]]; then
+  echo "/opt/retropie/configs/psp/PSP/SAVEDATA is already a link!  No need to migrate or link..."
+else
+  echo "/opt/retropie/configs/psp/PSP/SAVEDATA is not a link!!  Need to migrate to retropie roms/psp/SAVEDATA folder and link..."
+  cp -rfv /opt/retropie/configs/psp/PSP/SAVEDATA/* /home/pi/RetroPie/roms/psp/SAVEDATA/
+  rm -rf /opt/retropie/configs/psp/PSP/SAVEDATA
+  sudo ln -sv /home/pi/RetroPie/roms/psp/SAVEDATA /opt/retropie/configs/psp/PSP/SAVEDATA
+fi
+
 mkdir ~/.xroar
 mkdir /home/pi/RetroPie/roms/msxld
 sudo mkdir /opt/retropie/configs/msxld
