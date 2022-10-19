@@ -90,7 +90,8 @@ if [ -z "$1" ]; then
     echo "parameter 1: SKIP_CONTROLLER_REPO_MODS is optional!  Will run controller repo mods..."
 
     echo "Cloning latest updated retroarch joypad base autoconfigs..."
-    gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
+    # gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
+    sudo /home/pi/RetroPie-Setup/retropie_packages.sh retroarch update_joypad_autoconfigs
 
     esControllerAutoConfig.sh
 
