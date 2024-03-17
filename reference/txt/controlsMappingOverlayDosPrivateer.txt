@@ -1,0 +1,52 @@
+Privateer mappings for PS3 controller for DOSBOX-Pure via RetroArch
+0  : Select - Toggle Ship Setup Control config on / off
+1  : L3 - Gun Select (G)
+2  : R3 - Missile / Weapon Select (W)
+3  : Start - Navigation (N)
+4  : Up - (Hold L2 for Comms Option 1)
+5  : Right - (Hold L2 for Comms Option 2)
+6  : Down - (Hold L2 for Comms Option 3)
+7  : Left - (Hold L2 for Comms Option 4)
+8  : L2 - Hold to enable Comms Controls
+9  : R2 - wwwwwwwgggwg
+10 : L1 - Afterburner (TAB)
+11 : R1 - Lock on (L)
+12 : Triangle - Target (T) - Missile Cycle in Ship Setup Config
+13 : Circle - JoyButt2 - Missile / Weapon Use, double-tap-hold for afterburner
+14 : X - JoyButt1 - Fire, select in menu
+15 : Square - Fire Missile / Use Weapon (Enter)
+16 : PS - Communications (C)
+X1-: Left Stick Left - Roll left (Yaw left if hold 13)
+X1+: Left Stick Right - Roll right (Yaw right if hold 13)
+Y1-: Left Stick Up - Pitch down (Throttle up if hold 13)
+Y1+: Left Stick Down - Pitch up (Throttle down if hold 13)
+X2-: Right Stick Left - Roll left
+X2+: Right Stick Right - Roll right
+Y2-: Right Stick Up - Throttle Up
+Y2+: Right Stick Down - Throttle Down
+
+Keyboard controls:
+Afterburner	Tab
+Fire guns	Space
+Fire missile	Enter
+Accelerate	+
+Decelerate	-
+Full stop	Backspace
+Look left	F2
+Look right	F3
+Look forward	F1
+Look behind	F4
+Chase view	F5
+Battle view	F6
+Tactical view	F7
+Missile view	F8
+Tail view	F9
+Cycle weapons	W
+Cycle guns	G
+Cycle targets	T
+Lock target	L
+Damage HUD	D
+Autopilot	A
+Comms select	C
+Nav Map	N
+Eject	Ctrl-E
