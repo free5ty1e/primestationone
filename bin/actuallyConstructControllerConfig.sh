@@ -424,3 +424,13 @@ iniSet "input_enable_hotkey" "alt"
 iniSet "input_enable_hotkey_axis" "nul"
 iniSet "input_enable_hotkey_btn" "10"
 iniSet "input_enable_hotkey_mbtn" "nul"
+
+# On pi5 fresh retropie install ends up with no joystick autoconfigs configured
+#  sudo ./retropie_packages.sh retroarch update_joypad_autoconfigs
+#   ... installs to /home/pi/RetroPie-Setup/tmp/build/retroarch/autoconfigs/
+#  ... So we copy this folder's contents over to the correct location:
+#  cp -vr ~/RetroPie-Setup/tmp/build/retroarch/autoconfigs/* /opt/retropie/configs/all/retroarch-joypads/
+#  ACTUALLY let's just copy the udev items there so the folders are the same as on the pi4 for now?:
+# cp -v ~/RetroPie-Setup/tmp/build/retroarch/autoconfigs/udev/* /opt/retropie/configs/all/retroarch-joypads/
+iniSet "joypad_autoconfig_dir" "/opt/retropie/configs/all/retroarch-joypads"
+iniSet "input_autodetect_enable" "true"
