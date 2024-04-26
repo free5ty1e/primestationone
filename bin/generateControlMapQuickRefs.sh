@@ -6,3 +6,6 @@ generateControllerOverlay "/home/pi/quickref_n64_mupen64plus.png" "/home/pi/prim
 
 # echo Generating Commodore64 emulator VICE quickref image...
 # generateControllerOverlay "/home/pi/quickref_c64_vice.png" "/home/pi/primestationone/reference/txt/controlsMappingOverlayC64Vice.txt" "/home/pi/nothere"
+
+echo Generating Privateer DOS emulator quickref image...
+generateControllerOverlay "/home/pi/quickref_dos_privateer.png" "/home/pi/primestationone/reference/txt/controlsMappingOverlayDosPrivateer.txt" "/home/pi/nothere"
