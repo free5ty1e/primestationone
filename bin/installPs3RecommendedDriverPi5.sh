@@ -8,7 +8,8 @@ sudo apt-get -y install bluez-tools
 sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair2024.service /etc/systemd/system/
 sudo systemctl enable autobtpair2024
 sudo systemctl enable autobtpair2024.service
-sudo service autobtpair2024 status
+sudo service autobtpair2024 start
+# sudo service autobtpair2024 status
 
 # sudo sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sudo sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list
 # sudo apt-get update
