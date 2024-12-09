@@ -2,15 +2,29 @@
 
 # Install bluez5 auto pairing capabilities:
 echo "Setting up automatic bluez5 standard bluetooth stack compatible sixaxis trust upon pair request..."
-# sudo sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sudo sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list
+
 sudo apt-get update
-sudo apt-get -y install libbluetooth-dev bluez-tools python3-full pipx
-pipx install wheel
-pipx install pybluez
-pushd ~
-rm bluezutils.py
-wget http://raw.githubusercontent.com/pauloborges/bluez/master/test/bluezutils.py
-sudo cp -vf bluezutils.py /usr/local/bin/
+sudo apt-get -y install bluez-tools
+sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair2024.service /etc/systemd/system/
+sudo systemctl enable autobtpair2024
+sudo systemctl enable autobtpair2024.service
+sudo service autobtpair2024 status
+
+# sudo sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sudo sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list
+# sudo apt-get update
+# sudo apt-get -y install libbluetooth-dev bluez-tools python3-full pipx
+# pipx install wheel
+# pipx install pybluez
+# pushd ~
+# rm bluezutils.py
+# wget http://raw.githubusercontent.com/pauloborges/bluez/master/test/bluezutils.py
+# sudo cp -vf bluezutils.py /usr/local/bin/
+
+# sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
+# sudo systemctl enable autobtpair
+# sudo systemctl enable autobtpair.service
+# sudo service autobtpair status
+
 
 # grep -q -F 'auto-agent.py &' /home/pi/.bashrc || echo 'auto-agent.py &' >> /home/pi/.bashrc
 # cat /home/pi/.bashrc
@@ -27,10 +41,7 @@ sudo cp -vf bluezutils.py /usr/local/bin/
 # cat /etc/rc.local
 # sudo chmod +x /etc/rc.local
 
-sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
-sudo systemctl enable autobtpair
-sudo systemctl enable autobtpair.service
-sudo service autobtpair status
+
 
 
 # echo "Setting up automatic sixaxis pairing upon USB connect via a simple udev rule and the standard sixpair binary..."
@@ -40,7 +51,7 @@ sudo service autobtpair status
 # sudo cp -vf sixpair /usr/local/bin/
 # sudo cp -vf /home/pi/primestationone/reference/etc/udev/rules.d/99-sixpair.rules /etc/udev/rules.d/
 
-popd
+# popd
 
 
 

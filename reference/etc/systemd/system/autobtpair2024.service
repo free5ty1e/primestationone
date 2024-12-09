@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth Auto Trust Auth Agent for PS3 controllers
+After=bluetooth.service
+PartOf=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bt-agent -c DisplayOnly -p /home/pi/primestationone/reference/ps3bt/pin
+User=root
+[Install]
+WantedBy=bluetooth.target
