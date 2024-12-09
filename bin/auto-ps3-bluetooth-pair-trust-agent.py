@@ -67,9 +67,9 @@ class Agent(dbus.service.Object):
 					in_signature="o", out_signature="s")
 	def RequestPinCode(self, device):
 		print("RequestPinCode (%s)" % (device))
-		# set_trusted(device)
+		set_trusted(device)
 		# dev_connect(device)
-		return "0000" #dbus.UInt32(0000) 
+		return "0000\n" #dbus.UInt32(0000) 
 		#return ask("Enter PIN Code: ")
 
 	@dbus.service.method(AGENT_INTERFACE,
