@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get -y install libbluetooth-dev bluez bluez-tools python3-full pipx
 sudo service autobtpair stop
 
-sudo setConfParams.sh /etc/bluetooth/input.conf ClassicBondedOnly false
+sudo setConfParam.sh /etc/bluetooth/input.conf ClassicBondedOnly false
 echo "/etc/bluetooth/input.conf modified to:"
 cat /etc/bluetooth/input.conf
 echo ""
