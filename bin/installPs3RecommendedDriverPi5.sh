@@ -15,6 +15,14 @@ echo "Setting up automatic bluez5 standard bluetooth stack compatible sixaxis tr
 sudo apt-get update
 sudo apt-get -y install libbluetooth-dev bluez bluez-tools python3-full pipx
 sudo service autobtpair stop
+
+sudo setConfParams.sh /etc/bluetooth/input.conf ClassicBondedOnly false
+echo "/etc/bluetooth/input.conf modified to:"
+cat /etc/bluetooth/input.conf
+echo ""
+echo "Restarting bluetooth service..."
+sudo service bluetooth restart
+
 sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
 sudo systemctl enable autobtpair
 sudo systemctl enable autobtpair.service
