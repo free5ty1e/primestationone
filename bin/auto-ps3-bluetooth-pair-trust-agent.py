@@ -58,25 +58,27 @@ class Agent(dbus.service.Object):
 					in_signature="os", out_signature="")
 	def AuthorizeService(self, device, uuid):
 		print("AuthorizeService (%s, %s)" % (device, uuid))
-		authorize = ask("Authorize connection (yes/no): ")
-		if (authorize == "yes"):
-			return
-		raise Rejected("Connection rejected by user")
+		# authorize = ask("Authorize connection (yes/no): ")
+		# if (authorize == "yes"):
+		return
+		# raise Rejected("Connection rejected by user")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="s")
 	def RequestPinCode(self, device):
 		print("RequestPinCode (%s)" % (device))
 		set_trusted(device)
-		return ask("Enter PIN Code: ")
+		return 
+		#ask("Enter PIN Code: ")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="u")
 	def RequestPasskey(self, device):
 		print("RequestPasskey (%s)" % (device))
 		set_trusted(device)
-		passkey = ask("Enter passkey: ")
-		return dbus.UInt32(passkey)
+		# passkey = ask("Enter passkey: ")
+		# return dbus.UInt32(passkey)
+		return dbus.UInt32(0000) #hard code PIN to 0000
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="ouq", out_signature="")
@@ -93,20 +95,20 @@ class Agent(dbus.service.Object):
 					in_signature="ou", out_signature="")
 	def RequestConfirmation(self, device, passkey):
 		print("RequestConfirmation (%s, %06d)" % (device, passkey))
-		confirm = ask("Confirm passkey (yes/no): ")
-		if (confirm == "yes"):
-			set_trusted(device)
-			return
-		raise Rejected("Passkey doesn't match")
+		# confirm = ask("Confirm passkey (yes/no): ")
+		# if (confirm == "yes"):
+		set_trusted(device)
+		return
+		# raise Rejected("Passkey doesn't match")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="")
 	def RequestAuthorization(self, device):
 		print("RequestAuthorization (%s)" % (device))
-		auth = ask("Authorize? (yes/no): ")
-		if (auth == "yes"):
-			return
-		raise Rejected("Pairing rejected")
+		# auth = ask("Authorize? (yes/no): ")
+		# if (auth == "yes"):
+		return
+		# raise Rejected("Pairing rejected")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="", out_signature="")
@@ -182,4 +184,3 @@ if __name__ == '__main__':
 
 	#adapter.UnregisterAgent(path)
 	#print("Agent unregistered")
-	

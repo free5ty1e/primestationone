@@ -4,7 +4,7 @@ After=bluetooth.service
 Requires=bluetooth.service
  
 [Service]
-ExecStart=/usr/local/bin/auto-ps3-bluetooth-pair-trust-agent.py
+ExecStart=/usr/local/bin/auto-ps3-bluetooth-pair-trust-agent.py -c NoInputNoOutput
  
 [Install]
 WantedBy=multi-user.target

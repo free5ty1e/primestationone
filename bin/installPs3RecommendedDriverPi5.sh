@@ -17,6 +17,7 @@ sudo apt-get -y install libbluetooth-dev bluez bluez-tools python3-full pipx
 sudo cp -vf /home/pi/primestationone/reference/etc/systemd/system/autobtpair.service /etc/systemd/system/
 sudo systemctl enable autobtpair
 sudo systemctl enable autobtpair.service
+sudo service autobtpair start
 
 
 # pipx install wheel
