@@ -16,6 +16,10 @@ sudo apt-get update
 sudo apt-get -y install libbluetooth-dev bluez bluez-tools python3-full pipx
 sudo service autobtpair stop
 
+echo "Applying ClassicBondedOnly=false to /etc/bluetooth/input.conf, courtesy of https://www.reddit.com/r/Gentoo/comments/avjh70/comment/lbksnc0/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+echo "Current contents of this file before modification are:"
+cat /etc/bluetooth/input.conf
+echo ""
 sudo setConfParam.sh /etc/bluetooth/input.conf ClassicBondedOnly false
 echo "/etc/bluetooth/input.conf modified to:"
 cat /etc/bluetooth/input.conf
