@@ -5,8 +5,8 @@ PartOf=bluetooth.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/bt-agent --daemon --pin /home/pi/primestationone/reference/ps3bt/pin
-#ExecStart=/usr/bin/bt-agent -c NoInputNoOutput -p /home/pi/primestationone/reference/ps3bt/pin
+#ExecStart=/usr/bin/bt-agent --daemon --pin /home/pi/primestationone/reference/ps3bt/pin
+ExecStart=/usr/bin/bt-agent -c NoInputNoOutput -p /home/pi/primestationone/reference/ps3bt/pin
 #ExecStart=/bin/sh -c '/usr/bin/yes | /usr/bin/bt-agent --capability=NoInputNoOutput'
 #ExecStart=/bin/sh -c '/usr/bin/yes | /usr/bin/bt-agent --pin /home/pi/primestationone/reference/ps3bt/pin'
 User=root
