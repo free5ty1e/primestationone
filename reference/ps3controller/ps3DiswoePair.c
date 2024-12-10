@@ -116,6 +116,7 @@ int main(int argc, char *argv[]) {
 	    cfg < dev->config + dev->descriptor.bNumConfigurations;
 	    ++cfg ) {
 	int itfnum;
+  printf("Searching for USB attached device with vendor %x and product %x\n", VENDOR, PRODUCT);
 	for ( itfnum=0; itfnum<cfg->bNumInterfaces; ++itfnum ) {
 	  struct usb_interface *itf = &cfg->interface[itfnum];
 	  struct usb_interface_descriptor *alt;
