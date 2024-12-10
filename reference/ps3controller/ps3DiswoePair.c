@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
 	  for ( alt = itf->altsetting;
 		alt < itf->altsetting + itf->num_altsetting;
 		++alt ) {
-      printf("Processing device with vendor %d and product %d", dev->descriptor.idVendor, dev->descriptor.idProduct);
+      printf("Processing device with vendor %x and product %x\n", dev->descriptor.idVendor, dev->descriptor.idProduct);
 	    if ( dev->descriptor.idVendor == VENDOR &&
 		 dev->descriptor.idProduct == PRODUCT &&
 		 alt->bInterfaceClass == 3 ) {
