@@ -125,8 +125,9 @@ int main(int argc, char *argv[]) {
 		++alt ) {
       printf("Processing device with vendor %x and product %x with bInterfaceClass %d\n", dev->descriptor.idVendor, dev->descriptor.idProduct, alt->bInterfaceClass);
 	    if ( dev->descriptor.idVendor == VENDOR &&
-		 dev->descriptor.idProduct == PRODUCT &&
-		 alt->bInterfaceClass == 3 ) {
+		 dev->descriptor.idProduct == PRODUCT 
+     //&& alt->bInterfaceClass == 3 
+     ) {
 	      process_device(argc, argv, dev, cfg, itfnum);
 	      ++found;
 	    }
