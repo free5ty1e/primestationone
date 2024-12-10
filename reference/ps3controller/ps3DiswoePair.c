@@ -98,6 +98,7 @@ void process_device(int argc, char **argv, struct usb_device *dev,
 }
 
 int main(int argc, char *argv[]) {  
+  printf("Searching for USB attached device with vendor %x and product %x\n", VENDOR, PRODUCT);
 
   usb_init();
   if ( usb_find_busses() < 0 ) fatal("usb_find_busses");
@@ -116,7 +117,6 @@ int main(int argc, char *argv[]) {
 	    cfg < dev->config + dev->descriptor.bNumConfigurations;
 	    ++cfg ) {
 	int itfnum;
-  printf("Searching for USB attached device with vendor %x and product %x\n", VENDOR, PRODUCT);
 	for ( itfnum=0; itfnum<cfg->bNumInterfaces; ++itfnum ) {
 	  struct usb_interface *itf = &cfg->interface[itfnum];
 	  struct usb_interface_descriptor *alt;
