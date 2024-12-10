@@ -98,7 +98,7 @@ void process_device(int argc, char **argv, struct usb_device *dev,
 }
 
 int main(int argc, char *argv[]) {  
-  printf("Searching for USB attached device with vendor %x and product %x\n", VENDOR, PRODUCT);
+  printf("Searching for USB attached device with vendor %x and product %x with bInterfaceClass %d\n", VENDOR, PRODUCT, 3);
 
   usb_init();
   if ( usb_find_busses() < 0 ) fatal("usb_find_busses");
@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
 	  for ( alt = itf->altsetting;
 		alt < itf->altsetting + itf->num_altsetting;
 		++alt ) {
-      printf("Processing device with vendor %x and product %x\n", dev->descriptor.idVendor, dev->descriptor.idProduct);
+      printf("Processing device with vendor %x and product %x with bInterfaceClass %d\n", dev->descriptor.idVendor, dev->descriptor.idProduct, alt->bInterfaceClass);
 	    if ( dev->descriptor.idVendor == VENDOR &&
 		 dev->descriptor.idProduct == PRODUCT &&
 		 alt->bInterfaceClass == 3 ) {
