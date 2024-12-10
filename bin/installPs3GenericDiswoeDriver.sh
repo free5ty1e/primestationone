@@ -12,8 +12,10 @@ sudo apt-get install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-
 sudo apt-get -y remove cups
 sudo apt-get -y autoremove
 # wget http://www.pabr.org/sixlinux/sixpair.c
-cp ~/primestationone/reference/ps3controller/ps3DiswoePair.c ~/
-push ~
+cp -v /primestationone/reference/ps3controller/ps3DiswoePair.c ~/
+pushd ~
+echo "Compiling ps3DiswoePair.c ..."
 gcc -o ps3DiswoePair ps3DiswoePair.c -lusb
+echo "Compiled!  Installing ps3DiswoePair command..."
 sudo cp -v ps3DiswoePair /usr/local/bin/
 popd
