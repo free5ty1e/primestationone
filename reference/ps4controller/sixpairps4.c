@@ -7,7 +7,8 @@
 
 // Replace these with your controller's IDs
 #define SONY_VENDOR_ID 0x054C
-#define DUALSHOCK4_PRODUCT_ID 0x05C4
+#define DUALSHOCK4_PRODUCT_ID_OLD 0x05C4
+#define DUALSHOCK4_PRODUCT_ID_NEW 0x09CC
 
 void fatal(char *msg) {
     perror(msg);
@@ -27,10 +28,13 @@ int main(int argc, char *argv[]) {
         fatal("libusb initialization failed");
     }
 
-    // Open the DualShock 4 controller
-    dev = libusb_open_device_with_vid_pid(NULL, SONY_VENDOR_ID, DUALSHOCK4_PRODUCT_ID);
+    // Open the DualShock 4 controller (either old or new model)
+    dev = libusb_open_device_with_vid_pid(NULL, SONY_VENDOR_ID, DUALSHOCK4_PRODUCT_ID_OLD);
     if (!dev) {
-        fatal("No DualShock 4 controller found. Is it connected via USB?");
+        dev = libusb_open_device_with_vid_pid(NULL, SONY_VENDOR_ID, DUALSHOCK4_PRODUCT_ID_NEW);
+    }
+    if (!dev) {
+        fatal("No compatible DualShock 4 controller found. Is it connected via USB?");
     }
 
     printf("DualShock 4 controller found!\n");
