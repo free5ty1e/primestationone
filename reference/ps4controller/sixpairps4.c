@@ -40,15 +40,14 @@ int main(int argc, char *argv[]) {
     printf("DualShock 4 controller found!\n");
 
     // Detach kernel driver if necessary
-    if (libusb_kernel_driver_active(dev, 0)) {
+    // if (libusb_kernel_driver_active(dev, 0)) {
         res = libusb_detach_kernel_driver(dev, 0);
         if (res != 0) {
             printf("Warning: Could not detach kernel driver (error %d)\n", res);
         } else {
             printf("Kernel driver detached successfully.\n");
         }
-    }
-
+    // }
 
     // Claim the interface
     res = libusb_claim_interface(dev, 0);
