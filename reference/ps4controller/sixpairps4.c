@@ -20,6 +20,8 @@ int main(int argc, char *argv[]) {
     int res;
     unsigned char data[16];
 
+    libusb_set_option(NULL, LIBUSB_OPTION_LOG_LEVEL, LIBUSB_LOG_LEVEL_DEBUG);
+
     printf("Searching for Sony DualShock 4 controller...\n");
 
     // Initialize libusb
