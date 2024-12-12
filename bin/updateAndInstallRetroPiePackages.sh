@@ -47,11 +47,14 @@ function initPackageList {
 		lr-beetle-pcfx
 		lr-beetle-supergrafx
 		lr-beetle-saturn
+		lr-beetle-wswan
+		lr-beetle-pce
+		lr-beetle-psx
+		lr-beetle-saturn
 		lr-mrboom
 		lr-parallel-n64
 		lr-ppsspp
 		lr-o2em
-		lr-beetle-wswan
 		lr-gw
 		lr-fmsx
 		lr-bluemsx
@@ -61,7 +64,25 @@ function initPackageList {
 		lr-armsnes
 		lr-nestopia
 		lr-flycast
+		lr-flycast-dev
 		lr-genesis-plus-gx
+		lr-xrick
+		lr-quicknes
+		#Amiga PUAE emu:
+		lr-puae2021
+		lr-dirksimple
+		lr-dolphin
+		lr-gearsystem
+		lr-kronos
+		lr-mesen
+		lr-pokemini
+		lr-smsplus-gx
+		lr-stella
+		lr-superflappybirds
+
+
+
+		
 		# lr-mess2016
 		
 		#Ports (Pi games):
@@ -84,7 +105,18 @@ function initPackageList {
 		cgenius
 		digger
 		stratagus
-
+		micropolis
+		lincity-ng
+		lzdoom
+		gzdoom
+		giana
+		openttd
+		tyrquake
+		openblok
+		openbor
+		openpht
+		splitwolf
+		
 
 		#Tools:
 		kodi
@@ -103,6 +135,7 @@ function initPackageList {
 		drastic
 		snes9x
 		scummvm
+		scummvm-sdl1
 		pisnes
 		rpix86
 		dosbox-sdl2
@@ -115,7 +148,24 @@ function initPackageList {
 		amiberry
 		mame
 		ppsspp
-		# uae4all
+		ppsspp-1.5.4
+		dgen		
+		pcsx-rearmed
+		vice
+		uae4arm
+		uae4all
+		reicast
+		mame4all
+		gpsp
+		gngeopi
+		dosbox
+		daphne
+		advmame
+		advmame-1.4
+		advmame-0.94
+
+
+	
 		# openmsx
 		# sdltrs
 		# minivmac
@@ -149,7 +199,7 @@ function iterateThroughRetroPiePackagesAndInstall {
     for index in ${!RETROPIE_PACKAGE_NAMES[*]}; do
         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
         fancy_console_message "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
-        sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
+        sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME install"
 		sudo cleanupTempFiles.sh
     done
 }
