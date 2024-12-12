@@ -93,6 +93,14 @@ if [ -z "$1" ]; then
     # gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
     sudo /home/pi/RetroPie-Setup/retropie_packages.sh retroarch update_joypad_autoconfigs
 
+    echo "Correcting probably incorrect controller autoconfig symbolic link sudo /opt/retropie/configs/all/retroarch-joypads:"
+    ls -lha /opt/retropie/configs/all
+    ls -lha /opt/retropie/configs/all/retroarch-joypads
+    sudo rm /opt/retropie/configs/all/retroarch-joypads
+    sudo ln -s /opt/retropie/emulators/retroarch/autoconfig-presets /opt/retropie/configs/all/retroarch-joypads
+    ls -lha /opt/retropie/configs/all
+    ls -lha /opt/retropie/configs/all/retroarch-joypads
+
     esControllerAutoConfig.sh
 
     echo "Checking to ensure clone was successful before proceeding...."
