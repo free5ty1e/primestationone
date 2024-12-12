@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -60,48 +59,53 @@ int main(int argc, char *argv[]) {
                 continue;
             }
 
-            // Iterate over available interfaces
-            for (int interface_idx = 0; interface_idx < desc.bNumConfigurations; interface_idx++) {
+            // Iterate over all configurations for the device
+            for (int config_idx = 0; config_idx < desc.bNumConfigurations; config_idx++) {
                 struct libusb_config_descriptor *config_desc;
-                res = libusb_get_config_descriptor(dev_list[i], interface_idx, &config_desc);
+                res = libusb_get_config_descriptor(dev_list[i], config_idx, &config_desc);
                 if (res < 0) {
                     continue;
                 }
 
-                printf("Trying interface %d\n", interface_idx);
+                // Iterate over interfaces in this configuration
+                for (int interface_idx = 0; interface_idx < config_desc->bNumInterfaces; interface_idx++) {
+                    struct libusb_interface_descriptor *interface_desc = &config_desc->interface[interface_idx].altsetting[0];
 
-                // Try to claim the interface
-                res = libusb_claim_interface(dev, interface_idx);
-                if (res < 0) {
-                    printf("Failed to claim interface %d (error %d)\n", interface_idx, res);
-                    continue;
-                }
+                    printf("Trying interface %d in configuration %d\n", interface_idx, config_idx);
 
-                // Prepare the packet with the Raspberry Pi's Bluetooth MAC address
-                unsigned char bt_mac[6] = {0x00, 0x1A, 0x7D, 0xDA, 0x71, 0x13}; // Replace with your Pi's MAC
-                memset(data, 0, sizeof(data));
-                data[0] = 0x13;  // Command identifier
-                data[1] = 0x37;  // Magic number (example, might need to adjust)
-                memcpy(&data[2], bt_mac, 6);
+                    // Try to claim the interface
+                    res = libusb_claim_interface(dev, interface_desc->bInterfaceNumber);
+                    if (res < 0) {
+                        printf("Failed to claim interface %d (error %d)\n", interface_desc->bInterfaceNumber, res);
+                        continue;
+                    }
 
-                printf("Setting Bluetooth master to %02X:%02X:%02X:%02X:%02X:%02X\n",
-                       bt_mac[0], bt_mac[1], bt_mac[2], bt_mac[3], bt_mac[4], bt_mac[5]);
+                    // Prepare the packet with the Raspberry Pi's Bluetooth MAC address
+                    unsigned char bt_mac[6] = {0x00, 0x1A, 0x7D, 0xDA, 0x71, 0x13}; // Replace with your Pi's MAC
+                    memset(data, 0, sizeof(data));
+                    data[0] = 0x13;  // Command identifier
+                    data[1] = 0x37;  // Magic number (example, might need to adjust)
+                    memcpy(&data[2], bt_mac, 6);
 
-                // Send the packet
-                res = libusb_control_transfer(dev,
-                                              LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE,
-                                              0x09,  // HID SET_REPORT
-                                              (0x03 << 8) | 0xF4,  // Report Type (Feature) and Report ID
-                                              0,                   // Interface
-                                              data,
-                                              sizeof(data),
-                                              0);
-                if (res < 0) {
-                    printf("Failed to send control transfer (interface %d)\n", interface_idx);
-                } else {
-                    printf("Bluetooth master address set successfully on interface %d!\n", interface_idx);
-                    libusb_release_interface(dev, interface_idx);
-                    break;  // Exit after successful transfer
+                    printf("Setting Bluetooth master to %02X:%02X:%02X:%02X:%02X:%02X\n",
+                           bt_mac[0], bt_mac[1], bt_mac[2], bt_mac[3], bt_mac[4], bt_mac[5]);
+
+                    // Send the packet
+                    res = libusb_control_transfer(dev,
+                                                  LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE,
+                                                  0x09,  // HID SET_REPORT
+                                                  (0x03 << 8) | 0xF4,  // Report Type (Feature) and Report ID
+                                                  interface_desc->bInterfaceNumber,  // Interface
+                                                  data,
+                                                  sizeof(data),
+                                                  0);
+                    if (res < 0) {
+                        printf("Failed to send control transfer (interface %d, config %d)\n", interface_idx, config_idx);
+                    } else {
+                        printf("Bluetooth master address set successfully on interface %d, config %d!\n", interface_idx, config_idx);
+                        libusb_release_interface(dev, interface_desc->bInterfaceNumber);
+                        break;  // Exit after successful transfer
+                    }
                 }
             }
 
