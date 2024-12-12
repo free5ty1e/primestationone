@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
                                   0,                   // Interface
                                   data,
                                   sizeof(data),
-                                  0);
+                                  5000);
     if (res < 0) {
         fatal("Failed to send control transfer");
     }
