@@ -6,8 +6,10 @@ sudo apt update
 sudo apt install build-essential libusb-1.0-0-dev usbutils pkg-config
 
 pushd ~
+echo "Compiling sixpairps4..."
 gcc -o sixpairps4 primestationone/reference/ps4controller/sixpairps4.c -lusb-1.0
-
+echo "Compiled:"
+ls sixpairps4
 popd
 
 # echo "Reference https://retropie.org.uk/docs/PS4-Controller/ "
