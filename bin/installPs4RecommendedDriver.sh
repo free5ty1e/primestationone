@@ -5,8 +5,9 @@ echo "Reference https://retropie.org.uk/docs/PS4-Controller/ "
 
 sudo apt update
 sudo apt install python3-dev python3-pip pipx
-sudo pipx install ds4drv
+pipx install ds4drv
 pipx ensurepath
+pipx completions
 
 sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
 sudo udevadm control --reload-rules
