@@ -15,6 +15,22 @@ void fatal(char *msg) {
     exit(1);
 }
 
+int detach_kernel_driver(libusb_device_handle *dev, int interface_number) {
+    int res = libusb_detach_kernel_driver(dev, interface_number);
+    if (res == LIBUSB_ERROR_NOT_FOUND) {
+        printf("Kernel driver already detached from interface %d\n", interface_number);
+        return 0;
+    } else if (res == LIBUSB_ERROR_ACCESS) {
+        printf("Error: Unable to detach kernel driver from interface %d (access error)\n", interface_number);
+        return -1;
+    } else if (res < 0) {
+        printf("Failed to detach kernel driver from interface %d\n", interface_number);
+        return res;
+    }
+    printf("Kernel driver detached from interface %d\n", interface_number);
+    return 0;
+}
+
 int main(int argc, char *argv[]) {
     libusb_device_handle *dev;
     libusb_device **dev_list;
@@ -73,7 +89,12 @@ int main(int argc, char *argv[]) {
 
                     printf("Trying interface %d in configuration %d\n", interface_idx, config_idx);
 
-                    // Try to claim the interface
+                    // Detach kernel driver if it's attached
+                    if (detach_kernel_driver(dev, interface_desc->bInterfaceNumber) < 0) {
+                        continue;
+                    }
+
+                    // Attempt to claim the interface
                     res = libusb_claim_interface(dev, interface_desc->bInterfaceNumber);
                     if (res < 0) {
                         printf("Failed to claim interface %d (error %d)\n", interface_desc->bInterfaceNumber, res);
