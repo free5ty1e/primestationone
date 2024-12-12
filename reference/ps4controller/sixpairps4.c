@@ -20,8 +20,6 @@ int main(int argc, char *argv[]) {
     int res;
     unsigned char data[16];
 
-    libusb_set_option(NULL, LIBUSB_OPTION_LOG_LEVEL, LIBUSB_LOG_LEVEL_DEBUG);
-
     printf("Searching for Sony DualShock 4 controller...\n");
 
     // Initialize libusb
@@ -29,6 +27,8 @@ int main(int argc, char *argv[]) {
     if (res < 0) {
         fatal("libusb initialization failed");
     }
+
+    libusb_set_option(NULL, LIBUSB_OPTION_LOG_LEVEL, LIBUSB_LOG_LEVEL_DEBUG);
 
     // Open the DualShock 4 controller (either old or new model)
     dev = libusb_open_device_with_vid_pid(NULL, SONY_VENDOR_ID, DUALSHOCK4_PRODUCT_ID_OLD);
