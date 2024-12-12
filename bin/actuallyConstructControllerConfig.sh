@@ -12,7 +12,7 @@ emudir="$retropiebase/emulators"
 configdir="$emudir/retroarch/configs"
 legacyconfigsdir="$configdir"
 newretropieconfigsdir="$retropiebase/configs"
-allconfigsdir="$newretropieconfigsdir/all/retroarch-joypads"
+allconfigsdir="/home/pi/.config/retroarch/autoconfig"
 
 configdirs=(
     # "$legacyconfigsdir"
@@ -93,18 +93,19 @@ if [ -z "$1" ]; then
     # gitPullOrClone "$md_build" https://github.com/libretro/retroarch-joypad-autoconfig
     sudo /home/pi/RetroPie-Setup/retropie_packages.sh retroarch update_joypad_autoconfigs
 
-    echo "Correcting probably incorrect controller autoconfig symbolic link sudo /opt/retropie/configs/all/retroarch-joypads:"
-    ls -lha /opt/retropie/configs/all
-    ls -lha /opt/retropie/configs/all/retroarch-joypads
-    sudo rm /opt/retropie/configs/all/retroarch-joypads
-    sudo ln -s /opt/retropie/emulators/retroarch/autoconfig-presets /opt/retropie/configs/all/retroarch-joypads
-    ls -lha /opt/retropie/configs/all
-    ls -lha /opt/retropie/configs/all/retroarch-joypads
+    echo "Correcting probably incorrect controller autoconfig location"
+    # ls -lha /opt/retropie/configs/all
+    # ls -lha /opt/retropie/configs/all/retroarch-joypads
+    # sudo rm /opt/retropie/configs/all/retroarch-joypads
+    # sudo ln -s /opt/retropie/emulators/retroarch/autoconfig-presets /opt/retropie/configs/all/retroarch-joypads
+    # ls -lha /opt/retropie/configs/all
+    # ls -lha /opt/retropie/configs/all/retroarch-joypads
+    cp -vr /opt/retropie/emulators/retroarch/autoconfig-presets/* $allconfigsdir/
 
     esControllerAutoConfig.sh
 
     echo "Checking to ensure clone was successful before proceeding...."
-    if [ -d "$md_build/udev" ]; then
+    if [ -d "$allconfigsdir/udev" ]; then
 
     #    echo Wiping out any existing controller autoconfigs
     #    sudo rm -rf "$configdir"
@@ -115,7 +116,7 @@ if [ -z "$1" ]; then
                 # sudo mkdir -p "$whichconfigdir/"
                 
                 echo "Stripping CRs from the autoconfigs...."
-                cd "$md_build/udev/"
+                cd "$whichconfigdir/udev/"
                 for file in *; do
                     sudo tr -d '\015' <"$file" >"$whichconfigdir/$file"
                     sudo chown $user:$user "$whichconfigdir/$file"
@@ -150,11 +151,11 @@ if [ -z "$1" ]; then
             fi
         done
         echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
-        sudo rm --verbose --force "$allconfigsdir/Gasia_PS_Gamepad_USB.cfg"
+        sudo rm --verbose --force "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
         # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
-        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
-        sudo rm --verbose --force "$allconfigsdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
+        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
+        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
     else
         echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
     fi   
