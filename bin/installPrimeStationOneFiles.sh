@@ -32,6 +32,7 @@ else
 fi
 
 mkdir ~/.xroar
+cp --verbose reference/xroar/* ~/.xroar/
 mkdir /home/pi/RetroPie/roms/msxld
 sudo mkdir /opt/retropie/configs/msxld
 mkdir /home/pi/RetroPie/roms/msxcas
@@ -80,7 +81,7 @@ mkdir -p ~/RetroPie/roms/mame/mame2003/cfg
 cp -vr RetroPie/* ~/RetroPie/
 cp -vr reference/.atari800.cfg ~/
 cp -vr ~/RetroPie/BIOS/dc_*.bin ~/RetroPie/BIOS/dc/
-ln --symbolic /opt/retropie/configs/coco/xroar.conf ~/.xroar/xroar.conf
+#ln --symbolic /opt/retropie/configs/coco/xroar.conf ~/.xroar/xroar.conf
 cp -vr reference/config/vice/* ~/.config/vice/
 
 # echo "Installing auto-expand check script..."
