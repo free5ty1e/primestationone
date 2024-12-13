@@ -22,6 +22,9 @@ bus = None
 device_obj = None
 dev_path = None
 
+# Define the PS4 Controller's Bluetooth MAC address pattern (you can adapt this to your setup)
+PS4_CONTROLLER_MAC_PREFIX = "23:07:6A"  # Example prefix, modify as necessary
+
 def ask(prompt):
 	try:
 		return raw_input(prompt)
@@ -129,9 +132,28 @@ def pair_error(error):
 		device_obj.CancelPairing()
 	else:
 		print("Creating device failed: %s" % (error))
-
-
 	mainloop.quit()
+
+# def on_device_found(address, name):
+#     print(f"Device found: {name} ({address})")
+    
+#     # Check if the device is a PS4 controller (based on address or name)
+#     if address.startswith(PS4_CONTROLLER_MAC_PREFIX):  # or you can check by name
+#         print(f"PS4 controller found, auto trusting...")
+#         # Automatically trust the device
+#         set_trusted(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
+#         dev_connect(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
+
+def on_device_found(address, name):
+    print(f"Device found: {name} ({address})")
+    
+    # Check if the device name matches "Wireless Controller" (or other names for your PS4 controller)
+    if "Wireless Controller" in name:  # Adjust the string as needed
+        print(f"PS4 controller found, auto trusting...")
+        # Automatically trust the device by its path
+        device_path = f"/org/bluez/hci0/dev_{address.replace(':', '_')}"
+        set_trusted(device_path)
+        dev_connect(device_path)
 
 if __name__ == '__main__':
 	dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
@@ -164,6 +186,14 @@ if __name__ == '__main__':
 	manager.RegisterAgent(path, capability)
 
 	print("Agent registered")
+
+    # Register callback to detect devices
+	obj = bus.get_object("org.freedesktop.DBus", "/org/freedesktop/dbus")
+	interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+    
+    # Listen for device discovery events
+	bus.add_signal_receiver(on_device_found, dbus_interface="org.freedesktop.DBus.Properties",
+                            signal_name="PropertiesChanged", path_keyword="path")
 
 	# Fix-up old style invocation (BlueZ 4)
 	if len(args) > 0 and args[0].startswith("hci"):
