@@ -31,6 +31,19 @@ int detach_kernel_driver(libusb_device_handle *dev, int interface_number) {
     return 0;
 }
 
+char* get_bluetooth_mac() {
+    FILE *fp;
+    char *mac = malloc(18);
+    fp = popen("bluetoothctl show | grep 'Controller' | awk '{print $2}'", "r");
+    if (fp == NULL) {
+        fatal("Failed to retrieve Bluetooth MAC address");
+    }
+    fgets(mac, 18, fp);
+    fclose(fp);
+    mac[strlen(mac) - 1] = '\0'; // Remove the trailing newline character
+    return mac;
+}
+
 int main(int argc, char *argv[]) {
     libusb_device_handle *dev;
     libusb_device **dev_list;
@@ -54,6 +67,13 @@ int main(int argc, char *argv[]) {
     if (cnt < 0) {
         fatal("Failed to get device list");
     }
+
+    // Get the Bluetooth MAC address of the Raspberry Pi
+    char* bt_mac_str = get_bluetooth_mac();
+    unsigned char bt_mac[6];
+    sscanf(bt_mac_str, "%hhx:%hhx:%hhx:%hhx:%hhx:%hhx", 
+           &bt_mac[0], &bt_mac[1], &bt_mac[2], &bt_mac[3], &bt_mac[4], &bt_mac[5]);
+    free(bt_mac_str);
 
     // Iterate over the list of devices and try to find the DualShock 4 controller
     for (i = 0; i < cnt; i++) {
@@ -101,8 +121,6 @@ int main(int argc, char *argv[]) {
                         continue;
                     }
 
-                    // Prepare the packet with the Raspberry Pi's Bluetooth MAC address
-                    unsigned char bt_mac[6] = {0x00, 0x1A, 0x7D, 0xDA, 0x71, 0x13}; // Replace with your Pi's MAC
                     memset(data, 0, sizeof(data));
                     data[0] = 0x13;  // Command identifier
                     data[1] = 0x37;  // Magic number (example, might need to adjust)
