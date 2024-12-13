@@ -166,8 +166,9 @@ def pair_error(error):
 #         dev_connect(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
 
 def on_device_found(interface, changed, invalidated, path=None):
-    print(f"Device found: {changed} ({path})")
-    
+    # print(f"Device found: {changed} ({path})")
+    print(f"on_device_found(path={path})")
+
     # Check for device properties in the changed dictionary
     if "Name" in changed:
         name = changed["Name"]
