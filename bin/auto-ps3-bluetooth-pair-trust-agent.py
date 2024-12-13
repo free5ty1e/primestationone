@@ -32,6 +32,7 @@ def ask(prompt):
 		return input(prompt)
 
 def set_trusted(path):
+	print("Trusting device: {path}")
 	props = dbus.Interface(bus.get_object("org.bluez", path),
 					"org.freedesktop.DBus.Properties")
 	props.Set("org.bluez.Device1", "Trusted", True)
@@ -167,7 +168,6 @@ def on_device_found(interface, changed, invalidated, path=None):
             dev_connect(device_path)
         else:
             print("Device is not a PS4 controller.")
-
 
 
 if __name__ == '__main__':
