@@ -6,7 +6,8 @@ echo "First running sixpairps4 to set the bt master mac address via USB"
 
 # Set variables
 CONTROLLER_NAME="Wireless Controller"
-SCAN_TIMEOUT=30
+SCAN_TIMEOUT=60
+WAIT_TIME=1  # Check every 1 second
 
 # Start bluetoothctl in a controlled session
 echo -e "Starting a controlled bluetoothctl session...\n"
@@ -18,11 +19,26 @@ scan on
 EOF
 
 echo -e "Scan started. Please unplug the controller and press the PS button.\n"
-sleep $SCAN_TIMEOUT
 
-# Find the controller's MAC address
-MAC=$(bluetoothctl devices | grep "$CONTROLLER_NAME" | awk '{print $2}')
-if [[ "$MAC" == "" ]]; then
+# Initialize counter
+elapsed_time=0
+
+# Wait for controller detection, checking every second
+while [[ $elapsed_time -lt $SCAN_TIMEOUT ]]; do
+  # Check if the controller's MAC address is found
+  MAC=$(bluetoothctl devices | grep "$CONTROLLER_NAME" | awk '{print $2}')
+  if [[ -n "$MAC" ]]; then
+    echo "Controller detected with MAC: $MAC"
+    break
+  fi
+  
+  # Wait for 1 second before checking again
+  sleep $WAIT_TIME
+  ((elapsed_time+=WAIT_TIME))
+done
+
+# If MAC is still empty after the timeout, fail the process
+if [[ -z "$MAC" ]]; then
   echo "Failed to detect the controller. Ensure the controller is in pairing mode and try again."
   bluetoothctl scan off
   exit 1
