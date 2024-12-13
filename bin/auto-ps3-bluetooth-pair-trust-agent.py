@@ -31,11 +31,29 @@ def ask(prompt):
 	except:
 		return input(prompt)
 
-def set_trusted(path):
-	print("Trusting device: {path}")
-	props = dbus.Interface(bus.get_object("org.bluez", path),
-					"org.freedesktop.DBus.Properties")
-	props.Set("org.bluez.Device1", "Trusted", True)
+def set_trusted(device_path):
+    print(f"Trusting device at {device_path}")
+    bus = dbus.SystemBus()
+    bluez = bus.get_object('org.freedesktop.DBus', '/org/bluez')
+    adapter = dbus.Interface(bluez, 'org.freedesktop.DBus.Properties')
+    adapter.Set('org.freedesktop.DBus.Properties', 'Trusted', dbus.Boolean(True))
+
+def pair_device(device_path):
+    print(f"Pairing with device at {device_path}")
+    device = dbus.SystemBus().get_object('org.bluez', device_path)
+    device.Pair(dbus.Boolean(True))
+
+def connect_device(device_path):
+    print(f"Connecting to device at {device_path}")
+    device = dbus.SystemBus().get_object('org.bluez', device_path)
+    device.Connect(dbus.Boolean(True))
+
+# Main function where devices are found
+def process_device(device_path):
+    print(f"Device found at {device_path}")
+    set_trusted(device_path)
+    pair_device(device_path)
+    connect_device(device_path)
 
 def dev_connect(path):
 	dev = dbus.Interface(bus.get_object("org.bluez", path),
@@ -164,8 +182,9 @@ def on_device_found(interface, changed, invalidated, path=None):
             print(f"Attempting to trust and connect to: {device_path}")
             
             # Automatically trust the device by its path
-            set_trusted(device_path)
-            dev_connect(device_path)
+            # set_trusted(device_path)
+            # dev_connect(device_path)
+            process_device(device_path)
         else:
             print("Device is not a PS4 controller.")
 
