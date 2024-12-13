@@ -5,6 +5,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from optparse import OptionParser
 import sys
+import time
 import dbus
 import dbus.service
 import dbus.mainloop.glib
@@ -77,6 +78,8 @@ def connect_device(device_path):
     properties = dbus.Interface(bus.get_object("org.bluez", device_path), "org.freedesktop.DBus.Properties")
     
     if not properties.Get("org.bluez.Device1", "Connected"):
+        print(f"Sleeping for 2 seconds to allow connection time")
+        time.sleep(2)  # Wait for 2 seconds
         device.Connect()
     else:
         print(f"Device at {device_path} is already connected.")
