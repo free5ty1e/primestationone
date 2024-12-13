@@ -60,7 +60,8 @@ int main(int argc, char *argv[]) {
         fatal("libusb initialization failed");
     }
 
-    libusb_set_option(NULL, LIBUSB_OPTION_LOG_LEVEL, LIBUSB_LOG_LEVEL_DEBUG);
+    // Uncomment below for lots of debug information
+    //libusb_set_option(NULL, LIBUSB_OPTION_LOG_LEVEL, LIBUSB_LOG_LEVEL_DEBUG);
 
     // Get the list of USB devices
     cnt = libusb_get_device_list(context, &dev_list);
