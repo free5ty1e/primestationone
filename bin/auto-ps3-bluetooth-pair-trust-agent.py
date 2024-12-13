@@ -73,9 +73,14 @@ def pair_device(device_path):
         print("Device is already paired.")
 
 def connect_device(device_path):
-    print(f"Connecting to device at {device_path}")
-    device = dbus.SystemBus().get_object('org.bluez', device_path)
-    device.Connect(dbus.Boolean(True))
+    device = dbus.Interface(bus.get_object("org.bluez", device_path), "org.bluez.Device1")
+    properties = dbus.Interface(bus.get_object("org.bluez", device_path), "org.freedesktop.DBus.Properties")
+    
+    if not properties.Get("org.bluez.Device1", "Connected"):
+        device.Connect()
+    else:
+        print(f"Device at {device_path} is already connected.")
+
 
 # Main function where devices are found
 def process_ps4_device(device_path):
