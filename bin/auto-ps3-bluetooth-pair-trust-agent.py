@@ -165,32 +165,74 @@ def pair_error(error):
 #         set_trusted(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
 #         dev_connect(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
 
+# def on_device_found(interface, changed, invalidated, path=None):
+#     print(f"on_device_found(interface={interface},\nchanged={changed},\npath={path})")
+
+#     # Look for relevant device properties in the changed dictionary
+#     if "Connected" in changed and changed["Connected"] is True:
+#         # Device connected; proceed to check its identity
+#         device_path = path
+#         try:
+#             # Retrieve the device object
+#             device = dbus.SystemBus().get_object("org.bluez", device_path)
+#             props = dbus.Interface(device, "org.freedesktop.DBus.Properties")
+
+#             # Check for "Name" or other identifying properties
+#             name = props.Get("org.bluez.Device1", "Name")
+#             address = props.Get("org.bluez.Device1", "Address")
+
+#             print(f"Device connected: Name={name}, Address={address}")
+
+#             # Verify if it's the PS4 controller
+#             if "Wireless Controller" in name:
+#                 print(f"PS4 controller detected. Proceeding to auto trust, pair, and connect.")
+#                 process_device(device_path)
+#             else:
+#                 print("Connected device is not a PS4 controller.")
+#         except dbus.DBusException as e:
+#             print(f"Error retrieving device properties: {e}")
+
+# Centralized constant for known PS4 controller MAC address prefixes
+PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A"]
+
+def is_ps4_controller(mac_address):
+    """Check if the given MAC address starts with any known PS4 controller prefix."""
+    return any(mac_address.startswith(prefix) for prefix in PS4_CONTROLLER_MAC_PREFIXES)
+
 def on_device_found(interface, changed, invalidated, path=None):
-    print(f"on_device_found(interface={interface},\nchanged={changed},\npath={path})")
+    print(f"on_device_found(interface={interface},\npath={path})")
 
-    # Look for relevant device properties in the changed dictionary
-    if "Connected" in changed and changed["Connected"] is True:
-        # Device connected; proceed to check its identity
-        device_path = path
-        try:
-            # Retrieve the device object
-            device = dbus.SystemBus().get_object("org.bluez", device_path)
-            props = dbus.Interface(device, "org.freedesktop.DBus.Properties")
+    for key, value in changed.items():
+        print(f"on_device_found() changed property: {key}, Value: {value}")
 
-            # Check for "Name" or other identifying properties
-            name = props.Get("org.bluez.Device1", "Name")
-            address = props.Get("org.bluez.Device1", "Address")
+    if "Connected" in changed:
+        connected = changed["Connected"]
+        if connected:
+            print(f"Device {path} connected.")
+            # Extract MAC address from path and check if it's a PS4 controller
+            if path:
+                mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
+                if is_ps4_controller(mac_address):
+                    print("Detected PS4 controller connection.")
+                    process_device(path)
+        else:
+            print(f"Device {path} disconnected.")
 
-            print(f"Device connected: Name={name}, Address={address}")
+    # Check if the interface is for a device
+    if interface == "org.bluez.Device1":
+        # Extract MAC address from path
+        if path:
+            mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
+            print(f"on_device_found() Device MAC Address: {mac_address}")
 
-            # Verify if it's the PS4 controller
-            if "Wireless Controller" in name:
-                print(f"PS4 controller detected. Proceeding to auto trust, pair, and connect.")
-                process_device(device_path)
+            # Check if the MAC address matches a PS4 controller
+            if is_ps4_controller(mac_address):
+                print(f"on_device_found() PS4 controller detected via MAC address prefix: {mac_address}")
+                process_device(path)
             else:
-                print("Connected device is not a PS4 controller.")
-        except dbus.DBusException as e:
-            print(f"Error retrieving device properties: {e}")
+                print(f"on_device_found() Unknown device: {mac_address}")
+
+
 
 if __name__ == '__main__':
 	dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
