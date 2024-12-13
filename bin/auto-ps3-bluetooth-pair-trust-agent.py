@@ -144,16 +144,22 @@ def pair_error(error):
 #         set_trusted(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
 #         dev_connect(f"/org/bluez/hci0/dev_{address.replace(':', '_')}")
 
-def on_device_found(address, name):
-    print(f"Device found: {name} ({address})")
+def on_device_found(interface, changed, invalidated, path=None):
+    print(f"Device found: {changed} ({path})")
     
-    # Check if the device name matches "Wireless Controller" (or other names for your PS4 controller)
-    if "Wireless Controller" in name:  # Adjust the string as needed
-        print(f"PS4 controller found, auto trusting...")
-        # Automatically trust the device by its path
-        device_path = f"/org/bluez/hci0/dev_{address.replace(':', '_')}"
-        set_trusted(device_path)
-        dev_connect(device_path)
+    # We expect "Name" and "Address" properties to be in the changed dictionary.
+    if "Name" in changed:
+        name = changed["Name"]
+        address = changed.get("Address", None)  # You can handle cases where address is not provided
+        
+        # Check if the device name matches "Wireless Controller" (or other names for your PS4 controller)
+        if "Wireless Controller" in name:  # Adjust the string as needed
+            print(f"PS4 controller found, auto trusting...")
+            # Automatically trust the device by its path
+            device_path = f"/org/bluez/hci0/dev_{address.replace(':', '_')}"
+            set_trusted(device_path)
+            dev_connect(device_path)
+
 
 if __name__ == '__main__':
 	dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
@@ -192,8 +198,10 @@ if __name__ == '__main__':
 	interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
     
     # Listen for device discovery events
-	bus.add_signal_receiver(on_device_found, dbus_interface="org.freedesktop.DBus.Properties",
-                            signal_name="PropertiesChanged", path_keyword="path")
+	bus.add_signal_receiver(on_device_found, 
+							dbus_interface="org.freedesktop.DBus.Properties", 
+							signal_name="PropertiesChanged", 
+							path_keyword="path")
 
 	# Fix-up old style invocation (BlueZ 4)
 	if len(args) > 0 and args[0].startswith("hci"):
