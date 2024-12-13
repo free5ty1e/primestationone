@@ -110,9 +110,9 @@ int main(int argc, char *argv[]) {
                     printf("Trying interface %d in configuration %d\n", interface_idx, config_idx);
 
                     // Detach kernel driver if it's attached
-                    if (detach_kernel_driver(dev, interface_desc->bInterfaceNumber) < 0) {
-                        continue;
-                    }
+                    // if (detach_kernel_driver(dev, interface_desc->bInterfaceNumber) < 0) {
+                    //     continue;
+                    // }
 
                     // Attempt to claim the interface
                     res = libusb_claim_interface(dev, interface_desc->bInterfaceNumber);
