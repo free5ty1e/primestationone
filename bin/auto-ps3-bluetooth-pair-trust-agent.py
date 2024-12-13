@@ -88,7 +88,8 @@ def connect_device(device_path):
 # Main function where devices are found
 def process_ps4_device(device_path):
     print(f"Device found at {device_path}")
-    set_trusted_ps4(device_path)
+    # set_trusted_ps4(device_path)
+    set_trusted(device_path)
     pair_device(device_path)
     connect_device(device_path)
 
