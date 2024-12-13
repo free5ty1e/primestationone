@@ -32,6 +32,7 @@ sudo systemctl enable autobtpair
 sudo systemctl enable autobtpair.service
 sudo service autobtpair start
 
+sudo /home/pi/RetroPie-Setup/retropie_packages.sh customhidsony install
 
 # pipx install wheel
 # pipx install pybluez
