@@ -14,6 +14,7 @@ sudo cp -v sixpairps4 /usr/local/bin/
 echo "Installing udev rule to act like a PS4 to automate pairing when a ps4 controller is connected via USB"
 # sudo cp -v primestationone/reference/etc/udev/rules.d/99-sixpairps4.rules /etc/udev/rules.d/
 sudo cp -v primestationone/reference/etc/udev/rules.d/99-autopairps4bt.rules /etc/udev/rules.d/
+echo "Reloading udev rules..."
 sudo udevadm control --reload-rules
 popd
 
@@ -26,6 +27,7 @@ sudo setConfParam.sh /etc/bluetooth/main.conf PairableTimeout 0
 echo "/etc/bluetooth/main.conf modified to:"
 cat /etc/bluetooth/main.conf
 echo ""
+echo "Restarting bluetooth service..."
 sudo systemctl restart bluetooth
 
 # echo "Reference https://retropie.org.uk/docs/PS4-Controller/ "
