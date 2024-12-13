@@ -40,6 +40,27 @@ def set_trusted(device_path):
     adapter = dbus.Interface(bluez, 'org.freedesktop.DBus.Properties')
     adapter.Set('org.freedesktop.DBus.Properties', 'Trusted', dbus.Boolean(True))
 
+def set_trusted_ps4(device_path):
+    """
+    Sets the 'Trusted' property on a ps4 Bluetooth device.
+    """
+    try:
+        # Connect to the system bus
+        bus = dbus.SystemBus()
+
+        # Access the device's object
+        device = bus.get_object("org.bluez", device_path)
+
+        # Access the 'org.freedesktop.DBus.Properties' interface for the device
+        props = dbus.Interface(device, "org.freedesktop.DBus.Properties")
+
+        # Set the 'Trusted' property to True
+        props.Set("org.bluez.Device1", "Trusted", dbus.Boolean(True))
+
+        print(f"Device at {device_path} trusted successfully.")
+    except dbus.DBusException as e:
+        print(f"Failed to set 'Trusted' property on {device_path}: {e}")
+
 def pair_device(device_path):
     print(f"Pairing with device at {device_path}")
     device = dbus.SystemBus().get_object('org.bluez', device_path)
@@ -53,7 +74,7 @@ def connect_device(device_path):
 # Main function where devices are found
 def process_device(device_path):
     print(f"Device found at {device_path}")
-    set_trusted(device_path)
+    set_trusted_ps4(device_path)
     pair_device(device_path)
     connect_device(device_path)
 
