@@ -147,18 +147,27 @@ def pair_error(error):
 def on_device_found(interface, changed, invalidated, path=None):
     print(f"Device found: {changed} ({path})")
     
-    # We expect "Name" and "Address" properties to be in the changed dictionary.
+    # Check for device properties in the changed dictionary
     if "Name" in changed:
         name = changed["Name"]
-        address = changed.get("Address", None)  # You can handle cases where address is not provided
+        address = changed.get("Address", None)  # Get the address if available
+        
+        print(f"Device Name: {name}, Address: {address}")
         
         # Check if the device name matches "Wireless Controller" (or other names for your PS4 controller)
         if "Wireless Controller" in name:  # Adjust the string as needed
             print(f"PS4 controller found, auto trusting...")
-            # Automatically trust the device by its path
+
+            # Create device path based on address
             device_path = f"/org/bluez/hci0/dev_{address.replace(':', '_')}"
+            print(f"Attempting to trust and connect to: {device_path}")
+            
+            # Automatically trust the device by its path
             set_trusted(device_path)
             dev_connect(device_path)
+        else:
+            print("Device is not a PS4 controller.")
+
 
 
 if __name__ == '__main__':
