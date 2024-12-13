@@ -42,9 +42,9 @@ def set_trusted(device_path):
     adapter.Set('org.freedesktop.DBus.Properties', 'Trusted', dbus.Boolean(True))
 
 def set_trusted_ps4(device_path):
-    """
-    Sets the 'Trusted' property on a ps4 Bluetooth device.
-    """
+    # """
+    # Sets the 'Trusted' property on a ps4 Bluetooth device.
+    # """
     try:
         # Connect to the system bus
         bus = dbus.SystemBus()
