@@ -44,5 +44,4 @@ if bluetoothctl info "$MAC" | grep -q "Connected: yes"; then
   echo "Controller successfully paired and connected!"
 else
   echo "Controller pairing or connection failed. Please check the logs."
-  journalctl -u bluetooth -f
 fi
