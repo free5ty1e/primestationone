@@ -167,30 +167,30 @@ def pair_error(error):
 
 def on_device_found(interface, changed, invalidated, path=None):
     print(f"on_device_found(interface={interface},\nchanged={changed},\npath={path})")
-    # print(f"on_device_found(path={path})")
 
-    # Check for device properties in the changed dictionary
-    if "Name" in changed:
-        name = changed["Name"]
-        address = changed.get("Address", None)  # Get the address if available
-        
-        print(f"Device Name: {name}, Address: {address}")
-        
-        # Check if the device name matches "Wireless Controller" (or other names for your PS4 controller)
-        if "Wireless Controller" in name:  # Adjust the string as needed
-            print(f"PS4 controller found, auto trusting...")
+    # Look for relevant device properties in the changed dictionary
+    if "Connected" in changed and changed["Connected"] is True:
+        # Device connected; proceed to check its identity
+        device_path = path
+        try:
+            # Retrieve the device object
+            device = dbus.SystemBus().get_object("org.bluez", device_path)
+            props = dbus.Interface(device, "org.freedesktop.DBus.Properties")
 
-            # Create device path based on address
-            device_path = f"/org/bluez/hci0/dev_{address.replace(':', '_')}"
-            print(f"Attempting to trust and connect to: {device_path}")
-            
-            # Automatically trust the device by its path
-            # set_trusted(device_path)
-            # dev_connect(device_path)
-            process_device(device_path)
-        else:
-            print("Device is not a PS4 controller.")
+            # Check for "Name" or other identifying properties
+            name = props.Get("org.bluez.Device1", "Name")
+            address = props.Get("org.bluez.Device1", "Address")
 
+            print(f"Device connected: Name={name}, Address={address}")
+
+            # Verify if it's the PS4 controller
+            if "Wireless Controller" in name:
+                print(f"PS4 controller detected. Proceeding to auto trust, pair, and connect.")
+                process_device(device_path)
+            else:
+                print("Connected device is not a PS4 controller.")
+        except dbus.DBusException as e:
+            print(f"Error retrieving device properties: {e}")
 
 if __name__ == '__main__':
 	dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
