@@ -64,7 +64,13 @@ def set_trusted_ps4(device_path):
 def pair_device(device_path):
     print(f"Pairing with device at {device_path}")
     device = dbus.SystemBus().get_object('org.bluez', device_path)
-    device.Pair(dbus.Boolean(True))
+    # device.Pair(dbus.Boolean(True))
+    props = dbus.Interface(device, "org.freedesktop.DBus.Properties")
+    is_paired = props.Get("org.bluez.Device1", "Paired")
+    if not is_paired:
+        device.Pair()
+    else:
+        print("Device is already paired.")
 
 def connect_device(device_path):
     print(f"Connecting to device at {device_path}")
@@ -72,7 +78,7 @@ def connect_device(device_path):
     device.Connect(dbus.Boolean(True))
 
 # Main function where devices are found
-def process_device(device_path):
+def process_ps4_device(device_path):
     print(f"Device found at {device_path}")
     set_trusted_ps4(device_path)
     pair_device(device_path)
@@ -207,7 +213,7 @@ def pair_error(error):
 #             # Verify if it's the PS4 controller
 #             if "Wireless Controller" in name:
 #                 print(f"PS4 controller detected. Proceeding to auto trust, pair, and connect.")
-#                 process_device(device_path)
+#                 process_ps4_device(device_path)
 #             else:
 #                 print("Connected device is not a PS4 controller.")
 #         except dbus.DBusException as e:
@@ -235,7 +241,7 @@ def on_device_found(interface, changed, invalidated, path=None):
                 mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
                 if is_ps4_controller(mac_address):
                     print("Detected PS4 controller connection.")
-                    process_device(path)
+                    process_ps4_device(path)
         else:
             print(f"Device {path} disconnected.")
 
@@ -249,7 +255,7 @@ def on_device_found(interface, changed, invalidated, path=None):
             # Check if the MAC address matches a PS4 controller
             if is_ps4_controller(mac_address):
                 print(f"on_device_found() PS4 controller detected via MAC address prefix: {mac_address}")
-                process_device(path)
+                process_ps4_device(path)
             else:
                 print(f"on_device_found() Unknown device: {mac_address}")
 
