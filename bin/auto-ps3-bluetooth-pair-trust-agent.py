@@ -23,7 +23,9 @@ device_obj = None
 dev_path = None
 
 # Define the PS4 Controller's Bluetooth MAC address pattern (you can adapt this to your setup)
-PS4_CONTROLLER_MAC_PREFIX = "23:07:6A"  # Example prefix, modify as necessary
+# PS4_CONTROLLER_MAC_PREFIX = "23:07:6A"  # Example prefix, modify as necessary
+# Device 48:18:8D:B2:CE:EE Wireless Controller - blue ps4 chewed controller
+# Device 23:07:6A:50:0F:AC Wireless Controller - black generic ps4 controller 1
 
 def ask(prompt):
 	try:

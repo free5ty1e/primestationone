@@ -10,7 +10,23 @@ echo "Compiling sixpairps4..."
 gcc -o sixpairps4 primestationone/reference/ps4controller/sixpairps4.c -lusb-1.0
 echo "Compiled:"
 ls sixpairps4
+sudo cp -v sixpairps4 /usr/local/bin/
+echo "Installing udev rule to act like a PS4 to automate pairing when a ps4 controller is connected via USB"
+# sudo cp -v primestationone/reference/etc/udev/rules.d/99-sixpairps4.rules /etc/udev/rules.d/
+sudo cp -v primestationone/reference/etc/udev/rules.d/99-autopairps4bt.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
 popd
+
+echo "Applying DiscoverableTimeout = 0 and PairableTimeout = 0 to /etc/bluetooth/main.conf"
+echo "Current contents of this file before modification are:"
+cat /etc/bluetooth/main.conf
+echo ""
+sudo setConfParam.sh /etc/bluetooth/main.conf DiscoverableTimeout 0
+sudo setConfParam.sh /etc/bluetooth/main.conf PairableTimeout 0
+echo "/etc/bluetooth/main.conf modified to:"
+cat /etc/bluetooth/main.conf
+echo ""
+sudo systemctl restart bluetooth
 
 # echo "Reference https://retropie.org.uk/docs/PS4-Controller/ "
 
