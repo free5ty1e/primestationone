@@ -1,0 +1,13 @@
+[Unit]
+Description=DS4 Driver for PS4 Controller
+After=bluetooth.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=/usr/local/bin/ds4drv
+User=pi
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

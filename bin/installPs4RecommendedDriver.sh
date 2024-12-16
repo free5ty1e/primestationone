@@ -32,7 +32,6 @@ echo ""
 echo "Restarting bluetooth service..."
 sudo systemctl restart bluetooth
 
-
 #Ds4drv install:
 sudo apt update
 sudo apt install python3-dev python3-pip
@@ -42,6 +41,13 @@ sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
+#Ds4 service:
+pushd ~
+sudo cp -v primestationone/reference/etc/systemd/system/ds4drv.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable ds4drv
+sudo systemctl start ds4drv
+popd
 
 
 # echo "Reference https://retropie.org.uk/docs/PS4-Controller/ "
