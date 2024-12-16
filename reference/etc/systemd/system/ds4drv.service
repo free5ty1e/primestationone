@@ -4,7 +4,8 @@ After=bluetooth.target
 Requires=bluetooth.target
 
 [Service]
-ExecStart=/usr/local/bin/ds4drv --daemon
+ExecStart=/usr/local/bin/ds4drv
+# --daemon
 User=pi
 Restart=on-failure
 RestartSec=3
