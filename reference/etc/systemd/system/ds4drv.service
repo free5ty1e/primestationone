@@ -6,8 +6,8 @@ Requires=bluetooth.target
 [Service]
 ExecStart=/usr/local/bin/ds4drv --daemon
 User=pi
-Restart=always
-RestartSec=5
+Restart=on-failure
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
