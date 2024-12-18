@@ -86,6 +86,11 @@ cp -vr reference/config/vice/* ~/.config/vice/
 mkdir  ~/.config/ds4drv
 cp -vr reference/.config/ds4drv/* ~/.config/ds4drv/
 
+#reference\primestation-joypad-autoconfigs\ds4drv
+cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/
+cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/udev/
+
+
 # echo "Installing auto-expand check script..."
 # sudo cp -fv /home/pi/primestationone/bin/fsExpandCheck_jessie.sh /etc/init.d/
 # sudo chmod +x /etc/init.d/fsExpandCheck_jessie.sh
