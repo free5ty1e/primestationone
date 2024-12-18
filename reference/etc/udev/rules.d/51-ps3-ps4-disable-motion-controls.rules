@@ -1,0 +1,2 @@
+#disable DS3/DS4 motion controls
+SUBSYSTEM=="input", ATTRS{name}=="*Motion Sensors", RUN+="/bin/rm %E{DEVNAME}", ENV{ID_INPUT_JOYSTICK}=""

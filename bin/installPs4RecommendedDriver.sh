@@ -14,6 +14,8 @@ sudo cp -v sixpairps4 /usr/local/bin/
 echo "Installing udev rule to act like a PS4 to automate pairing when a ps4 controller is connected via USB"
 # sudo cp -v primestationone/reference/etc/udev/rules.d/99-sixpairps4.rules /etc/udev/rules.d/
 sudo cp -v primestationone/reference/etc/udev/rules.d/99-autopairps4bt.rules /etc/udev/rules.d/
+echo "Installing udev rule to disable PS3 / PS4 motion to minmize bluetooth traffic..."
+sudo cp -v primestationone/reference/etc/udev/rules.d/51-ps3-ps4-disable-motion-controls.rules /etc/udev/rules.d/
 echo "Reloading udev rules..."
 sudo udevadm control --reload-rules
 popd
