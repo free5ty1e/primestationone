@@ -87,8 +87,8 @@ mkdir  ~/.config/ds4drv
 cp -vr reference/.config/ds4drv/* ~/.config/ds4drv/
 
 #reference\primestation-joypad-autoconfigs\ds4drv
-cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/
-cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/udev/
+sudo cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/
+sudo cp -vr reference/primestation-joypad-autoconfigs/ds4drv/* /opt/retropie/configs/all/retroarch/autoconfig/udev/
 
 
 # echo "Installing auto-expand check script..."
