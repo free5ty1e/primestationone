@@ -37,7 +37,15 @@ sudo systemctl restart bluetooth
 #Ds4drv install:
 sudo apt update
 sudo apt install python3-dev python3-pip
-sudo pip3 install ds4drv
+# sudo pip3 install ds4drv
+echo "Checking out and compiling ds4drv from github.com/free5ty1e/dsdrv-generic"
+pushd ~
+git clone https://github.com/free5ty1e/dsdrv-generic.git
+cd dsdrv-generic
+git pull
+pip3 install setuptools
+sudo python3 setup.py install
+popd
 
 # sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
 sudo cp -v primestationone/reference/etc/udev/rules.d/50-ds4drv.rules /etc/udev/rules.d/
