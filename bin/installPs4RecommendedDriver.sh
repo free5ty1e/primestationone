@@ -35,9 +35,12 @@ echo "Restarting bluetooth service..."
 sudo systemctl restart bluetooth
 
 #Ds4drv install:
+echo "Installing ds4drv-cemu from https://github.com/TheDrHax/ds4drv-cemuhook ..."
 sudo apt update
 sudo apt install python3-dev python3-pip
-sudo pip3 install ds4drv
+# sudo pip3 install ds4drv
+# Install (or update to) the latest version of ds4drv-cemuhook from GitHub
+sudo pip3 install -U https://github.com/TheDrHax/ds4drv-cemuhook/archive/master.zip
 
 # sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
 sudo cp -v primestationone/reference/etc/udev/rules.d/50-ds4drv.rules /etc/udev/rules.d/
