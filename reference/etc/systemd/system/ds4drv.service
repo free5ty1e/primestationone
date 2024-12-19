@@ -4,7 +4,7 @@ After=bluetooth.target
 Requires=bluetooth.target
 
 [Service]
-ExecStart=/usr/local/bin/dsdrv --config /home/pi/.config/ds4drv/ds4drv.conf
+ExecStart=/usr/local/bin/dsdrv --config /home/pi/.config/ds4drv/ds4drv.conf --no-hidraw
 # --daemon
 User=pi
 Restart=on-failure
