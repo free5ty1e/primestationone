@@ -69,7 +69,12 @@ function Compress-File {
 
     # Get the original file size
     $originalSize = (Get-Item $filePath).Length
-    $global:totalOriginalSize += $originalSize
+    if ($originalSize -eq 0) {
+        Write-Host "Skipping file with zero size: $filePath"
+        return
+    }
+
+    $totalOriginalSize += $originalSize
 
     # Compress the file using 7-Zip
     $sevenZipArgs = @(
@@ -84,11 +89,12 @@ function Compress-File {
     # Get the compressed file size
     if (Test-Path -LiteralPath $zipFilePath) {
         $compressedSize = (Get-Item $zipFilePath).Length
-        $global:totalCompressedSize += $compressedSize
+        $totalCompressedSize += $compressedSize
 
         # Calculate and display size savings
         $sizeSavings = $originalSize - $compressedSize
-        $percentageSavings = ($sizeSavings / $originalSize) * 100
+        $percentageSavings = if ($originalSize -ne 0) { ($sizeSavings / $originalSize) * 100 } else { 0 }
+
         Write-Host "Created: $zipFilePath"
         Write-Host "Original Size: $($originalSize / 1MB) MB | Compressed Size: $($compressedSize / 1MB) MB"
         Write-Host "Savings: $($sizeSavings / 1MB) MB ($([math]::Round($percentageSavings, 2))%)"
@@ -104,7 +110,7 @@ Get-ChildItem -Path $FolderPath -Recurse -File | ForEach-Object {
 
 # Calculate overall savings
 $totalSavings = $totalOriginalSize - $totalCompressedSize
-$percentageTotalSavings = ($totalSavings / $totalOriginalSize) * 100
+$percentageTotalSavings = if ($totalOriginalSize -ne 0) { ($totalSavings / $totalOriginalSize) * 100 } else { 0 }
 
 # Display summary
 Write-Host "`nSummary:"
