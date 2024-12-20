@@ -60,20 +60,17 @@ $totalCompressedSize = 0
 # Function to process a .zip file
 function Process-ZipFile {
     param (
-        [string]$zipFilePath
+        [string]$zipFile
     )
 
-    Write-Host "Processing file: $zipFilePath"
-
-    # Use Get-Item to safely retrieve the file object
-    $zipFile = Get-Item -LiteralPath $zipFilePath
-    if (-not $zipFile) {
-        Write-Warning "File does not exist or is inaccessible: $zipFilePath"
+    Write-Host "Processing file: $zipFile"
+    if (-not (Test-Path $zipFile)) {
+        Write-Warning "File does not exist or is inaccessible: $zipFile"
         return
     }
 
     # Get file size
-    $originalSize = $zipFile.Length
+    $originalSize = (Get-Item $zipFile).Length
     $global:totalOriginalSize += $originalSize
 
     # Create a temporary folder for extraction
@@ -82,10 +79,10 @@ function Process-ZipFile {
 
     try {
         # Extract the .zip file
-        Expand-Archive -LiteralPath $zipFile.FullName -DestinationPath $tempFolder -Force
+        Expand-Archive -Path $zipFile -DestinationPath $tempFolder -Force
 
         # Compress the extracted contents into a .7z file
-        $sevenZipFile = "$($zipFile.FullName).7z"
+        $sevenZipFile = "$zipFile.7z"
         $sevenZipArgs = @(
             "a",          # Add command
             "-t7z",       # Use .7z format
@@ -97,13 +94,13 @@ function Process-ZipFile {
         Start-Process -FilePath $sevenZipPath -ArgumentList $sevenZipArgs -Wait -NoNewWindow
 
         # Get compressed file size
-        $compressedSize = (Get-Item -LiteralPath $sevenZipFile).Length
+        $compressedSize = (Get-Item $sevenZipFile).Length
         $global:totalCompressedSize += $compressedSize
 
         # Calculate size savings
         $sizeSavings = $originalSize - $compressedSize
         $percentageSavings = ($sizeSavings / $originalSize) * 100
-        Write-Host "Processed: $zipFile.FullName"
+        Write-Host "Processed: $zipFile"
         Write-Host "Original Size: $($originalSize / 1MB) MB | Compressed Size: $($compressedSize / 1MB) MB"
         Write-Host "Savings: $($sizeSavings / 1MB) MB ($([math]::Round($percentageSavings, 2))%)"
     }
@@ -115,7 +112,7 @@ function Process-ZipFile {
 
 # Traverse the folder and process all .zip files
 Get-ChildItem -Path $FolderPath -Recurse -Filter "*.zip" | ForEach-Object {
-    Process-ZipFile -zipFilePath $_.FullName
+    Process-ZipFile -zipFile $_.FullName
 }
 
 # Display total savings
