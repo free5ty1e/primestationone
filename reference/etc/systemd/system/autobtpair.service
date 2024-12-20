@@ -1,10 +1,14 @@
 [Unit]
 Description=Auto Bluetooth Pairing service
-After=bluetooth.service
-Requires=bluetooth.service
- 
+After=bluetooth.service dbus.service
+Requires=bluetooth.service dbus.service
+
 [Service]
+Type=simple
+ExecStartPre=/bin/sleep 15
 ExecStart=/usr/local/bin/auto-ps3-bluetooth-pair-trust-agent.py -c NoInputNoOutput
- 
+Restart=on-failure
+RestartSec=5
+
 [Install]
 WantedBy=multi-user.target
