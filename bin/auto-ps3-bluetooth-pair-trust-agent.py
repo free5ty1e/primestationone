@@ -23,11 +23,6 @@ bus = None
 device_obj = None
 dev_path = None
 
-# Define the PS4 Controller's Bluetooth MAC address pattern (you can adapt this to your setup)
-# PS4_CONTROLLER_MAC_PREFIX = "23:07:6A"  # Example prefix, modify as necessary
-# Device 48:18:8D:B2:CE:EE Wireless Controller - blue ps4 chewed controller
-# Device 23:07:6A:50:0F:AC Wireless Controller - black generic ps4 controller 1
-
 def ask(prompt):
 	try:
 		return raw_input(prompt)
@@ -76,7 +71,8 @@ def pair_device(device_path):
 def connect_device(device_path):
     device = dbus.Interface(bus.get_object("org.bluez", device_path), "org.bluez.Device1")
     properties = dbus.Interface(bus.get_object("org.bluez", device_path), "org.freedesktop.DBus.Properties")
-    
+    print(f"connect_device({device_path}) - device properties = {properties}")
+
     if not properties.Get("org.bluez.Device1", "Connected"):
         # print(f"Sleeping for 2 seconds to allow connection time")
         # time.sleep(2)  # Wait for 2 seconds
@@ -87,16 +83,45 @@ def connect_device(device_path):
 
 # Main function where devices are found
 def process_ps4_device(device_path):
-    print(f"Device found at {device_path}")
+    print(f"process_ps4_device({device_path})")
     # set_trusted_ps4(device_path)
-    set_trusted(device_path)
-    pair_device(device_path)
+    # set_trusted(device_path)
+    # pair_device(device_path)
     connect_device(device_path)
 
 def dev_connect(path):
 	dev = dbus.Interface(bus.get_object("org.bluez", path),
 							"org.bluez.Device1")
 	dev.Connect()
+
+import dbus
+
+def enable_scanning():
+    try:
+        bus = dbus.SystemBus()
+        adapter_path = "/org/bluez/hci0"  # Replace with your adapter's path if different
+        adapter = bus.get_object("org.bluez", adapter_path)
+        adapter_interface = dbus.Interface(adapter, "org.bluez.Adapter1")
+        
+        # Start discovery
+        adapter_interface.StartDiscovery()
+        print("Bluetooth scanning enabled.")
+    except dbus.DBusException as e:
+        print(f"Failed to enable scanning: {e}")
+
+def disable_scanning():
+    try:
+        bus = dbus.SystemBus()
+        adapter_path = "/org/bluez/hci0"  # Replace with your adapter's path if different
+        adapter = bus.get_object("org.bluez", adapter_path)
+        adapter_interface = dbus.Interface(adapter, "org.bluez.Adapter1")
+        
+        # Stop discovery
+        adapter_interface.StopDiscovery()
+        print("Bluetooth scanning disabled.")
+    except dbus.DBusException as e:
+        print(f"Failed to disable scanning: {e}")
+
 
 class Rejected(dbus.DBusException):
 	_dbus_error_name = "org.bluez.Error.Rejected"
@@ -229,14 +254,28 @@ def pair_error(error):
 #             print(f"Error retrieving device properties: {e}")
 
 # Centralized constant for known PS4 controller MAC address prefixes
-PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A"]
+# PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A", "F7:23:65"]
+PS4_CONTROLLER_NAMES = ["Wireless Controller"]
 
-def is_ps4_controller(mac_address):
-    """Check if the given MAC address starts with any known PS4 controller prefix."""
-    return any(mac_address.startswith(prefix) for prefix in PS4_CONTROLLER_MAC_PREFIXES)
+def is_ps4_controller(name, mac_address):
+    # Check if the given MAC address starts with any known PS4 controller prefix
+    # return any(mac_address.startswith(prefix) for prefix in PS4_CONTROLLER_MAC_PREFIXES)
+    return any(name.startswith(prefix) for prefix in PS4_CONTROLLER_NAMES)
 
 def on_device_found(interface, changed, invalidated, path=None):
-    print(f"on_device_found(interface={interface},\npath={path})")
+    print(f"on_device_found(path={path})")
+    bus = dbus.SystemBus()
+    obj = bus.get_object("org.bluez", path)
+    props_interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+    
+    # Get all properties of the device
+    properties = props_interface.GetAll("org.bluez.Device1")
+    
+    # Extract the 'Name' property
+    device_name = properties.get("Name", "Unknown")
+    
+    print(f"Device found: {device_name}")
+
 
     for key, value in changed.items():
         print(f"on_device_found() changed property: {key}, Value: {value}")
@@ -245,11 +284,11 @@ def on_device_found(interface, changed, invalidated, path=None):
         connected = changed["Connected"]
         if connected:
             print(f"Device {path} connected.")
-            # Extract MAC address from path and check if it's a PS4 controller
+            # Extract MAC address from path
             if path:
                 mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
-                if is_ps4_controller(mac_address):
-                    print("Detected PS4 controller connection.")
+                if is_ps4_controller(device_name, mac_address):
+                    print(f"Detected PS4 controller named {device_name} connection at mac {mac_address}.")
                     process_ps4_device(path)
         else:
             print(f"Device {path} disconnected.")
@@ -259,14 +298,12 @@ def on_device_found(interface, changed, invalidated, path=None):
         # Extract MAC address from path
         if path:
             mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
-            print(f"on_device_found() Device MAC Address: {mac_address}")
-
-            # Check if the MAC address matches a PS4 controller
-            if is_ps4_controller(mac_address):
-                print(f"on_device_found() PS4 controller detected via MAC address prefix: {mac_address}")
+            print(f"on_device_found() Extracted device MAC Address: {mac_address}")
+            if is_ps4_controller(device_name, mac_address):
+                print(f"on_device_found() PS4 controller named {device_name} detected with mac address: {mac_address}")
                 process_ps4_device(path)
             else:
-                print(f"on_device_found() Unknown device: {mac_address}")
+                print(f"on_device_found() Unknown device named {device_name} @ {mac_address}")
 
 
 
@@ -327,6 +364,8 @@ if __name__ == '__main__':
 		device_obj = device
 	else:
 		manager.RequestDefaultAgent(path)
+
+	enable_scanning()
 
 	mainloop.run()
 
