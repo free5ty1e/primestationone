@@ -47,6 +47,7 @@ cat /etc/usbmount/usbmount.conf
 # installRainbowstream.sh
 
 installPs3RecommendedDriver.sh
+installPs4RecommendedDriver.sh
 
 #installMpegRecordingCapability.sh
 # sudo RetroPie-Setup/retropie_packages.sh retroarch install_bin
