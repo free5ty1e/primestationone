@@ -230,7 +230,7 @@ def pair_error(error):
 #             print(f"Error retrieving device properties: {e}")
 
 # Centralized constant for known PS4 controller MAC address prefixes
-PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A"]
+PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A", "F7:23:65"]
 
 def is_ps4_controller(mac_address):
     """Check if the given MAC address starts with any known PS4 controller prefix."""
