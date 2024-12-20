@@ -4,6 +4,10 @@ param (
     [Parameter(ParameterSetName = "Process", Position = 0)]
     [string]$FolderPath = (Get-Location).Path,
 
+    # Optional parameter to specify the location of 7-Zip
+    [Parameter(ParameterSetName = "Process", Position = 1)]
+    [string]$SevenZipPath = "C:\Program Files\7-Zip\7z.exe",
+
     # Help parameter to display usage information
     [Parameter(ParameterSetName = "Help", HelpMessage = "Displays usage information.")]
     [switch]$Help
@@ -12,10 +16,11 @@ param (
 # Display help information if the -Help parameter is used
 if ($PSCmdlet.ParameterSetName -eq "Help") {
     Write-Host @"
-Usage: .\zipsTo7z.ps1 [-FolderPath <FolderPath>] [-Help]
+Usage: .\zipsTo7z.ps1 [-FolderPath <FolderPath>] [-SevenZipPath <SevenZipPath>] [-Help]
 
 Options:
   -FolderPath    Specify the folder to process. If not provided, defaults to the current directory.
+  -SevenZipPath  Specify the path to the 7-Zip executable. If not provided, defaults to 'C:\Program Files\7-Zip\7z.exe'.
   -Help          Displays this help information.
 
 Description:
@@ -27,8 +32,8 @@ Examples:
   1. Process a specific folder:
      .\zipsTo7z.ps1 -FolderPath "C:\Path\To\Your\Folder"
 
-  2. Process the current folder:
-     .\zipsTo7z.ps1
+  2. Specify a custom 7-Zip location:
+     .\zipsTo7z.ps1 -SevenZipPath "D:\CustomPath\7z.exe"
 
   3. Display help information:
      .\zipsTo7z.ps1 -Help
@@ -36,12 +41,9 @@ Examples:
     exit
 }
 
-# Path to the 7z.exe executable
-$sevenZipPath = "C:\Program Files\7-Zip\7z.exe"
-
 # Ensure 7-Zip is installed
-if (-not (Test-Path $sevenZipPath)) {
-    Write-Error "7-Zip is not installed or not found at $sevenZipPath."
+if (-not (Test-Path $SevenZipPath)) {
+    Write-Error "7-Zip is not installed or not found at $SevenZipPath. Please specify the correct path using -SevenZipPath."
     exit
 }
 
@@ -52,6 +54,7 @@ if (-not (Test-Path $FolderPath)) {
 }
 
 Write-Host "Processing folder: $FolderPath"
+Write-Host "Using 7-Zip at: $SevenZipPath"
 
 # Initialize variables for size calculations
 $totalOriginalSize = 0
@@ -94,7 +97,7 @@ function Process-ZipFile {
             "`"$tempFolder\*`""   # Input files path (quoted)
         )
 
-        Start-Process -FilePath $sevenZipPath -ArgumentList $sevenZipArgs -Wait -NoNewWindow
+        Start-Process -FilePath $SevenZipPath -ArgumentList $sevenZipArgs -Wait -NoNewWindow
 
         # Get compressed file size
         $compressedSize = (Get-Item -LiteralPath $sevenZipFile).Length
