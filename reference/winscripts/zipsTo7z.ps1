@@ -122,8 +122,22 @@ Get-ChildItem -Path $FolderPath -Recurse -Filter "*.zip" | ForEach-Object {
 }
 
 # Display total savings
+# $totalSavings = $totalOriginalSize - $totalCompressedSize
+# $percentageTotalSavings = ($totalSavings / $totalOriginalSize) * 100
+# Write-Host "`nSummary:"
+# Write-Host "Total Original Size: $($totalOriginalSize / 1GB) GB"
+# Write-Host "Total Compressed Size: $($totalCompressedSize / 1GB) GB"
+# Write-Host "Total Savings: $($totalSavings / 1GB) GB ($([math]::Round($percentageTotalSavings, 2))%)"
+
 $totalSavings = $totalOriginalSize - $totalCompressedSize
-$percentageTotalSavings = ($totalSavings / $totalOriginalSize) * 100
+
+# Safeguard against divide-by-zero
+if ($totalOriginalSize -ne 0) {
+    $percentageTotalSavings = ($totalSavings / $totalOriginalSize) * 100
+} else {
+    $percentageTotalSavings = 0
+}
+
 Write-Host "`nSummary:"
 Write-Host "Total Original Size: $($totalOriginalSize / 1GB) GB"
 Write-Host "Total Compressed Size: $($totalCompressedSize / 1GB) GB"
