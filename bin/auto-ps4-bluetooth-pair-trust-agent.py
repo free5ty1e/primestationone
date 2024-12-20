@@ -94,6 +94,35 @@ def dev_connect(path):
 							"org.bluez.Device1")
 	dev.Connect()
 
+import dbus
+
+def enable_scanning():
+    try:
+        bus = dbus.SystemBus()
+        adapter_path = "/org/bluez/hci0"  # Replace with your adapter's path if different
+        adapter = bus.get_object("org.bluez", adapter_path)
+        adapter_interface = dbus.Interface(adapter, "org.bluez.Adapter1")
+        
+        # Start discovery
+        adapter_interface.StartDiscovery()
+        print("Bluetooth scanning enabled.")
+    except dbus.DBusException as e:
+        print(f"Failed to enable scanning: {e}")
+
+def disable_scanning():
+    try:
+        bus = dbus.SystemBus()
+        adapter_path = "/org/bluez/hci0"  # Replace with your adapter's path if different
+        adapter = bus.get_object("org.bluez", adapter_path)
+        adapter_interface = dbus.Interface(adapter, "org.bluez.Adapter1")
+        
+        # Stop discovery
+        adapter_interface.StopDiscovery()
+        print("Bluetooth scanning disabled.")
+    except dbus.DBusException as e:
+        print(f"Failed to disable scanning: {e}")
+
+
 class Rejected(dbus.DBusException):
 	_dbus_error_name = "org.bluez.Error.Rejected"
 
@@ -335,6 +364,8 @@ if __name__ == '__main__':
 		device_obj = device
 	else:
 		manager.RequestDefaultAgent(path)
+
+	enable_scanning()
 
 	mainloop.run()
 
