@@ -23,11 +23,6 @@ bus = None
 device_obj = None
 dev_path = None
 
-# Define the PS4 Controller's Bluetooth MAC address pattern (you can adapt this to your setup)
-# PS4_CONTROLLER_MAC_PREFIX = "23:07:6A"  # Example prefix, modify as necessary
-# Device 48:18:8D:B2:CE:EE Wireless Controller - blue ps4 chewed controller
-# Device 23:07:6A:50:0F:AC Wireless Controller - black generic ps4 controller 1
-
 def ask(prompt):
 	try:
 		return raw_input(prompt)
@@ -230,15 +225,28 @@ def pair_error(error):
 #             print(f"Error retrieving device properties: {e}")
 
 # Centralized constant for known PS4 controller MAC address prefixes
-PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A", "F7:23:65"]
+# PS4_CONTROLLER_MAC_PREFIXES = ["48:18:8D", "23:07:6A", "F7:23:65"]
+PS4_CONTROLLER_NAMES = ["Wireless Controller"]
 
-def is_ps4_controller(mac_address):
-    """Check if the given MAC address starts with any known PS4 controller prefix."""
-    return any(mac_address.startswith(prefix) for prefix in PS4_CONTROLLER_MAC_PREFIXES)
+def is_ps4_controller(name, mac_address):
+    # Check if the given MAC address starts with any known PS4 controller prefix
+    # return any(mac_address.startswith(prefix) for prefix in PS4_CONTROLLER_MAC_PREFIXES)
+    return any(name.startswith(prefix) for prefix in PS4_CONTROLLER_NAMES)
 
 def on_device_found(interface, changed, invalidated, path=None):
     print(f"on_device_found(path={path})")
-	# interface={interface}
+    bus = dbus.SystemBus()
+    obj = bus.get_object("org.bluez", path)
+    props_interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+    
+    # Get all properties of the device
+    properties = props_interface.GetAll("org.bluez.Device1")
+    
+    # Extract the 'Name' property
+    device_name = properties.get("Name", "Unknown")
+    
+    print(f"Device found: {device_name}")
+
 
     for key, value in changed.items():
         print(f"on_device_found() changed property: {key}, Value: {value}")
@@ -247,11 +255,11 @@ def on_device_found(interface, changed, invalidated, path=None):
         connected = changed["Connected"]
         if connected:
             print(f"Device {path} connected.")
-            # Extract MAC address from path and check if it's a PS4 controller
+            # Extract MAC address from path
             if path:
                 mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
-                if is_ps4_controller(mac_address):
-                    print(f"Detected PS4 controller connection at mac {mac_address}.")
+                if is_ps4_controller(device_name, mac_address):
+                    print(f"Detected PS4 controller named {device_name} connection at mac {mac_address}.")
                     process_ps4_device(path)
         else:
             print(f"Device {path} disconnected.")
@@ -261,14 +269,12 @@ def on_device_found(interface, changed, invalidated, path=None):
         # Extract MAC address from path
         if path:
             mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
-            print(f"on_device_found() Device MAC Address: {mac_address}")
-
-            # Check if the MAC address matches a PS4 controller
-            if is_ps4_controller(mac_address):
-                print(f"on_device_found() PS4 controller detected with mac address: {mac_address}")
+            print(f"on_device_found() Extracted device MAC Address: {mac_address}")
+            if is_ps4_controller(device_name, mac_address):
+                print(f"on_device_found() PS4 controller named {device_name} detected with mac address: {mac_address}")
                 process_ps4_device(path)
             else:
-                print(f"on_device_found() Unknown device: {mac_address}")
+                print(f"on_device_found() Unknown device named {device_name} @ {mac_address}")
 
 
 
