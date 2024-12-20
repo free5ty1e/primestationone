@@ -111,7 +111,7 @@ function Process-ZipFile {
         Write-Host "Savings: $($sizeSavings / 1MB) MB ($([math]::Round($percentageSavings, 2))%)"
     }
     catch {
-        Write-Warning "Error processing file $zipFilePath: $_"
+        Write-Warning "Error processing: $($_.Exception.Message)"
     }
     finally {
         # Cleanup temporary folder
