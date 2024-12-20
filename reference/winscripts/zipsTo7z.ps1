@@ -56,9 +56,9 @@ if (-not (Test-Path $FolderPath)) {
 Write-Host "Processing folder: $FolderPath"
 Write-Host "Using 7-Zip at: $SevenZipPath"
 
-# Initialize variables for size calculations
-$totalOriginalSize = 0
-$totalCompressedSize = 0
+# Initialize global variables for size calculations
+$global:totalOriginalSize = 0
+$global:totalCompressedSize = 0
 
 # Function to process a .zip file
 function Process-ZipFile {
@@ -77,7 +77,7 @@ function Process-ZipFile {
 
     # Get file size
     $originalSize = $zipFile.Length
-    $global:totalOriginalSize += $originalSize
+    $global:totalOriginalSize += $originalSize  # Update global variable
 
     # Create a temporary folder for extraction
     $tempFolder = Join-Path $env:TEMP ([System.IO.Path]::GetRandomFileName())
@@ -101,7 +101,7 @@ function Process-ZipFile {
 
         # Get compressed file size
         $compressedSize = (Get-Item -LiteralPath $sevenZipFile).Length
-        $global:totalCompressedSize += $compressedSize
+        $global:totalCompressedSize += $compressedSize  # Update global variable
 
         # Calculate size savings
         $sizeSavings = $originalSize - $compressedSize
@@ -109,6 +109,9 @@ function Process-ZipFile {
         Write-Host "Processed: $zipFile.FullName"
         Write-Host "Original Size: $($originalSize / 1MB) MB | Compressed Size: $($compressedSize / 1MB) MB"
         Write-Host "Savings: $($sizeSavings / 1MB) MB ($([math]::Round($percentageSavings, 2))%)"
+    }
+    catch {
+        Write-Warning "Error processing file $zipFilePath: $_"
     }
     finally {
         # Cleanup temporary folder
@@ -128,17 +131,13 @@ Get-ChildItem -Path $FolderPath -Recurse -Filter "*.zip" | ForEach-Object {
 # Write-Host "Total Original Size: $($totalOriginalSize / 1GB) GB"
 # Write-Host "Total Compressed Size: $($totalCompressedSize / 1GB) GB"
 # Write-Host "Total Savings: $($totalSavings / 1GB) GB ($([math]::Round($percentageTotalSavings, 2))%)"
-
-$totalSavings = $totalOriginalSize - $totalCompressedSize
-
-# Safeguard against divide-by-zero
-if ($totalOriginalSize -ne 0) {
-    $percentageTotalSavings = ($totalSavings / $totalOriginalSize) * 100
+if ($global:totalOriginalSize -gt 0) {
+    $totalSavings = $global:totalOriginalSize - $global:totalCompressedSize
+    $percentageTotalSavings = ($totalSavings / $global:totalOriginalSize) * 100
+    Write-Host "`nSummary:"
+    Write-Host "Total Original Size: $($global:totalOriginalSize / 1GB) GB"
+    Write-Host "Total Compressed Size: $($global:totalCompressedSize / 1GB) GB"
+    Write-Host "Total Savings: $($totalSavings / 1GB) GB ($([math]::Round($percentageTotalSavings, 2))%)"
 } else {
-    $percentageTotalSavings = 0
+    Write-Host "`nSummary: No files were processed or the total size was zero."
 }
-
-Write-Host "`nSummary:"
-Write-Host "Total Original Size: $($totalOriginalSize / 1GB) GB"
-Write-Host "Total Compressed Size: $($totalCompressedSize / 1GB) GB"
-Write-Host "Total Savings: $($totalSavings / 1GB) GB ($([math]::Round($percentageTotalSavings, 2))%)"
