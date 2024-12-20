@@ -24,10 +24,10 @@ device_obj = None
 dev_path = None
 
 def ask(prompt):
-	try:
-		return raw_input(prompt)
-	except:
-		return input(prompt)
+    try:
+        return raw_input(prompt)
+    except:
+        return input(prompt)
 
 def set_trusted(device_path):
     print(f"Trusting device at {device_path}")
@@ -90,9 +90,9 @@ def process_ps4_device(device_path):
     connect_device(device_path)
 
 def dev_connect(path):
-	dev = dbus.Interface(bus.get_object("org.bluez", path),
-							"org.bluez.Device1")
-	dev.Connect()
+    dev = dbus.Interface(bus.get_object("org.bluez", path),
+                            "org.bluez.Device1")
+    dev.Connect()
 
 import dbus
 
@@ -124,97 +124,97 @@ def disable_scanning():
 
 
 class Rejected(dbus.DBusException):
-	_dbus_error_name = "org.bluez.Error.Rejected"
+    _dbus_error_name = "org.bluez.Error.Rejected"
 
 class Agent(dbus.service.Object):
-	exit_on_release = True
+    exit_on_release = True
 
-	def set_exit_on_release(self, exit_on_release):
-		self.exit_on_release = exit_on_release
+    def set_exit_on_release(self, exit_on_release):
+        self.exit_on_release = exit_on_release
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="", out_signature="")
-	def Release(self):
-		print("Release")
-		if self.exit_on_release:
-			mainloop.quit()
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="", out_signature="")
+    def Release(self):
+        print("Release")
+        if self.exit_on_release:
+            mainloop.quit()
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="os", out_signature="")
-	def AuthorizeService(self, device, uuid):
-		print("AuthorizeService (%s, %s)" % (device, uuid))
-		# authorize = ask("Authorize connection (yes/no): ")
-		# if (authorize == "yes"):
-		return
-		# raise Rejected("Connection rejected by user")
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="os", out_signature="")
+    def AuthorizeService(self, device, uuid):
+        print("AuthorizeService (%s, %s)" % (device, uuid))
+        # authorize = ask("Authorize connection (yes/no): ")
+        # if (authorize == "yes"):
+        return
+        # raise Rejected("Connection rejected by user")
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="o", out_signature="s")
-	def RequestPinCode(self, device):
-		print("RequestPinCode (%s)" % (device))
-		set_trusted(device)
-		# dev_connect(device)
-		return "0000\n" #dbus.UInt32(0000) 
-		#return ask("Enter PIN Code: ")
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="o", out_signature="s")
+    def RequestPinCode(self, device):
+        print("RequestPinCode (%s)" % (device))
+        set_trusted(device)
+        # dev_connect(device)
+        return "0000\n" #dbus.UInt32(0000) 
+        #return ask("Enter PIN Code: ")
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="o", out_signature="u")
-	def RequestPasskey(self, device):
-		print("RequestPasskey (%s)" % (device))
-		set_trusted(device)
-		# passkey = ask("Enter passkey: ")
-		# return dbus.UInt32(passkey)
-		return dbus.UInt32(0000) #hard code PIN to 0000
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="o", out_signature="u")
+    def RequestPasskey(self, device):
+        print("RequestPasskey (%s)" % (device))
+        set_trusted(device)
+        # passkey = ask("Enter passkey: ")
+        # return dbus.UInt32(passkey)
+        return dbus.UInt32(0000) #hard code PIN to 0000
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="ouq", out_signature="")
-	def DisplayPasskey(self, device, passkey, entered):
-		print("DisplayPasskey (%s, %06u entered %u)" %
-						(device, passkey, entered))
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="ouq", out_signature="")
+    def DisplayPasskey(self, device, passkey, entered):
+        print("DisplayPasskey (%s, %06u entered %u)" %
+                        (device, passkey, entered))
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="os", out_signature="")
-	def DisplayPinCode(self, device, pincode):
-		print("DisplayPinCode (%s, %s)" % (device, pincode))
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="os", out_signature="")
+    def DisplayPinCode(self, device, pincode):
+        print("DisplayPinCode (%s, %s)" % (device, pincode))
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="ou", out_signature="")
-	def RequestConfirmation(self, device, passkey):
-		print("RequestConfirmation (%s, %06d)" % (device, passkey))
-		# confirm = ask("Confirm passkey (yes/no): ")
-		# if (confirm == "yes"):
-		set_trusted(device)
-		return
-		# raise Rejected("Passkey doesn't match")
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="ou", out_signature="")
+    def RequestConfirmation(self, device, passkey):
+        print("RequestConfirmation (%s, %06d)" % (device, passkey))
+        # confirm = ask("Confirm passkey (yes/no): ")
+        # if (confirm == "yes"):
+        set_trusted(device)
+        return
+        # raise Rejected("Passkey doesn't match")
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="o", out_signature="")
-	def RequestAuthorization(self, device):
-		print("RequestAuthorization (%s)" % (device))
-		# auth = ask("Authorize? (yes/no): ")
-		# if (auth == "yes"):
-		return
-		# raise Rejected("Pairing rejected")
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="o", out_signature="")
+    def RequestAuthorization(self, device):
+        print("RequestAuthorization (%s)" % (device))
+        # auth = ask("Authorize? (yes/no): ")
+        # if (auth == "yes"):
+        return
+        # raise Rejected("Pairing rejected")
 
-	@dbus.service.method(AGENT_INTERFACE,
-					in_signature="", out_signature="")
-	def Cancel(self):
-		print("Cancel")
+    @dbus.service.method(AGENT_INTERFACE,
+                    in_signature="", out_signature="")
+    def Cancel(self):
+        print("Cancel")
 
 def pair_reply():
-	print("Device paired")
-	set_trusted(dev_path)
-	dev_connect(dev_path)
-	mainloop.quit()
+    print("Device paired")
+    set_trusted(dev_path)
+    dev_connect(dev_path)
+    mainloop.quit()
 
 def pair_error(error):
-	err_name = error.get_dbus_name()
-	if err_name == "org.freedesktop.DBus.Error.NoReply" and device_obj:
-		print("Timed out. Cancelling pairing")
-		device_obj.CancelPairing()
-	else:
-		print("Creating device failed: %s" % (error))
-	mainloop.quit()
+    err_name = error.get_dbus_name()
+    if err_name == "org.freedesktop.DBus.Error.NoReply" and device_obj:
+        print("Timed out. Cancelling pairing")
+        device_obj.CancelPairing()
+    else:
+        print("Creating device failed: %s" % (error))
+    mainloop.quit()
 
 # def on_device_found(address, name):
 #     print(f"Device found: {name} ({address})")
@@ -269,13 +269,13 @@ def on_device_found(interface, changed, invalidated, path=None):
         bus = dbus.SystemBus()
         obj = bus.get_object("org.bluez", path)
         props_interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
-		
-		# Get all properties of the device
+        
+        # Get all properties of the device
         properties = props_interface.GetAll("org.bluez.Device1")
-		
-		# Extract the 'Name' property
+        
+        # Extract the 'Name' property
         device_name = properties.get("Name", "Unknown")
-		
+        
         print(f"Device found: {device_name}")
 
 
@@ -283,21 +283,23 @@ def on_device_found(interface, changed, invalidated, path=None):
             print(f"on_device_found() changed property: {key}, Value: {value}")
 
         if "Connected" in changed:
-        	connected = changed["Connected"]
+            connected = changed["Connected"]
+            
             if connected:
                 print(f"Device {path} connected.")
-				# Extract MAC address from path
+                # Extract MAC address from path
                 if path:
                     mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
                     if is_ps4_controller(device_name, mac_address):
-                    print(f"Detected PS4 controller named {device_name} connection at mac {mac_address}.")
-                    process_ps4_device(path)
+                        print(f"Detected PS4 controller named {device_name} connection at mac {mac_address}.")
+                        process_ps4_device(path)
+            
             else:
                 print(f"Device {path} disconnected.")
 
-		# Check if the interface is for a device
+        # Check if the interface is for a device
         if interface == "org.bluez.Device1":
-			# Extract MAC address from path
+            # Extract MAC address from path
             if path:
                 mac_address = path.split('/')[-1].replace('dev_', '').replace('_', ':')
                 print(f"on_device_found() Extracted device MAC Address: {mac_address}")
@@ -308,71 +310,71 @@ def on_device_found(interface, changed, invalidated, path=None):
                     print(f"on_device_found() Unknown device named {device_name} @ {mac_address}")
     except Exception as e:
         print(f"on_device_found() exception caught: {e}")
-	
+    
 
 
 
 if __name__ == '__main__':
-	dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+    dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
-	bus = dbus.SystemBus()
+    bus = dbus.SystemBus()
 
-	capability = "NoInputNoOutput"
+    capability = "NoInputNoOutput"
 
-	parser = OptionParser()
-	parser.add_option("-i", "--adapter", action="store",
-					type="string",
-					dest="adapter_pattern",
-					default=None)
-	parser.add_option("-c", "--capability", action="store",
-					type="string", dest="capability")
-	parser.add_option("-t", "--timeout", action="store",
-					type="int", dest="timeout",
-					default=60000)
-	(options, args) = parser.parse_args()
-	if options.capability:
-		capability  = options.capability
+    parser = OptionParser()
+    parser.add_option("-i", "--adapter", action="store",
+                    type="string",
+                    dest="adapter_pattern",
+                    default=None)
+    parser.add_option("-c", "--capability", action="store",
+                    type="string", dest="capability")
+    parser.add_option("-t", "--timeout", action="store",
+                    type="int", dest="timeout",
+                    default=60000)
+    (options, args) = parser.parse_args()
+    if options.capability:
+        capability  = options.capability
 
-	path = "/test/agent"
-	agent = Agent(bus, path)
+    path = "/test/agent"
+    agent = Agent(bus, path)
 
-	mainloop = GObject.MainLoop()
+    mainloop = GObject.MainLoop()
 
-	obj = bus.get_object(BUS_NAME, "/org/bluez");
-	manager = dbus.Interface(obj, "org.bluez.AgentManager1")
-	manager.RegisterAgent(path, capability)
+    obj = bus.get_object(BUS_NAME, "/org/bluez");
+    manager = dbus.Interface(obj, "org.bluez.AgentManager1")
+    manager.RegisterAgent(path, capability)
 
-	print("Agent registered")
+    print("Agent registered")
 
     # Register callback to detect devices
-	obj = bus.get_object("org.freedesktop.DBus", "/org/freedesktop/dbus")
-	interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+    obj = bus.get_object("org.freedesktop.DBus", "/org/freedesktop/dbus")
+    interface = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
     
     # Listen for device discovery events
-	bus.add_signal_receiver(on_device_found, 
-							dbus_interface="org.freedesktop.DBus.Properties", 
-							signal_name="PropertiesChanged", 
-							path_keyword="path")
+    bus.add_signal_receiver(on_device_found, 
+                            dbus_interface="org.freedesktop.DBus.Properties", 
+                            signal_name="PropertiesChanged", 
+                            path_keyword="path")
 
-	# Fix-up old style invocation (BlueZ 4)
-	if len(args) > 0 and args[0].startswith("hci"):
-		options.adapter_pattern = args[0]
-		del args[:1]
+    # Fix-up old style invocation (BlueZ 4)
+    if len(args) > 0 and args[0].startswith("hci"):
+        options.adapter_pattern = args[0]
+        del args[:1]
 
-	if len(args) > 0:
-		device = bluezutils.find_device(args[0],
-						options.adapter_pattern)
-		dev_path = device.object_path
-		agent.set_exit_on_release(False)
-		device.Pair(reply_handler=pair_reply, error_handler=pair_error,
-								timeout=60000)
-		device_obj = device
-	else:
-		manager.RequestDefaultAgent(path)
+    if len(args) > 0:
+        device = bluezutils.find_device(args[0],
+                        options.adapter_pattern)
+        dev_path = device.object_path
+        agent.set_exit_on_release(False)
+        device.Pair(reply_handler=pair_reply, error_handler=pair_error,
+                                timeout=60000)
+        device_obj = device
+    else:
+        manager.RequestDefaultAgent(path)
 
-	enable_scanning()
+    enable_scanning()
 
-	mainloop.run()
+    mainloop.run()
 
-	#adapter.UnregisterAgent(path)
-	#print("Agent unregistered")
+    #adapter.UnregisterAgent(path)
+    #print("Agent unregistered")
