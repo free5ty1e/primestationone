@@ -356,6 +356,14 @@ function generateControllerOverlay() {
     listOfLibRetroCores=$(cat "$rightTextFile")
     colorOfLibRetroCores=$(cat /home/pi/primestationone/reference/txt/listOfLibRetroCoresColor.txt)
 
+    echo "4: inputImageFile: $4"
+    if [ -z "$4" ]
+    then
+        inputImageFile="/home/pi/primestationone/reference/imagery/splashscreen.png"
+    else
+        inputImageFile="$4"
+    fi
+
     primestationVersion=$(cat /home/pi/primestationone/reference/txt/version.txt)
     primestationVerColor=$(cat /home/pi/primestationone/reference/txt/vercolor.txt)
     keysToQuitEmusList=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmus.txt)
@@ -369,7 +377,7 @@ function generateControllerOverlay() {
     echo "$keysToQuitEmusList"
     echo "More info on the process at http://www.instructables.com/id/Add-text-to-images-with-Linux-convert-command/?ALLSTEPS"
     echo "......"
-    convert -font courier-bold -pointsize 44 -fill "$primestationVerColor" -draw "text 1600,45 \"$primestationVersion\"" -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$controlsMappingOverlay\"" -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" -pointsize 20 -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" /home/pi/primestationone/reference/imagery/splashscreen.png "$outputImageFile"
+    convert -font courier-bold -pointsize 44 -fill "$primestationVerColor" -draw "text 1600,45 \"$primestationVersion\"" -pointsize 32 -fill "$controlsMappingTextColor" -draw "text 12,260 \"$controlsMappingOverlay\"" -pointsize 30 -fill "$colorOfLibRetroCores" -draw "text 1560,260 \"$listOfLibRetroCores\"" -pointsize 20 -fill "$colorKeysToQuitEmus" -draw "text 810,245 \"$keysToQuitEmusList\"" "$inputImageFile" "$outputImageFile"
     echo "Complete, if you didn't just see any errors."
 }
 
