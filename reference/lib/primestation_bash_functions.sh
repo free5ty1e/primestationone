@@ -344,7 +344,6 @@ function generateControllerOverlay() {
         controlMapFile="$2"
     fi
     controlsMappingOverlay=$(cat "$controlMapFile")
-    controlsMappingTextColor=$(cat /home/pi/primestationone/reference/txt/controlsMappingTextColor.txt)
 
     echo "3: Right text overlay text file location: $3"
     if [ -z "$3" ]
@@ -354,7 +353,7 @@ function generateControllerOverlay() {
         rightTextFile="$3"
     fi
     listOfLibRetroCores=$(cat "$rightTextFile")
-    colorOfLibRetroCores=$(cat /home/pi/primestationone/reference/txt/listOfLibRetroCoresColor.txt)
+    
 
     echo "4: inputImageFile: $4"
     if [ -z "$4" ]
@@ -364,10 +363,24 @@ function generateControllerOverlay() {
         inputImageFile="$4"
     fi
 
+    echo "5: textColorOverride: $5"
+    if [ -z "$5" ]
+    then
+        controlsMappingTextColor=$(cat /home/pi/primestationone/reference/txt/controlsMappingTextColor.txt)
+        colorOfLibRetroCores=$(cat /home/pi/primestationone/reference/txt/listOfLibRetroCoresColor.txt)
+        colorKeysToQuitEmus=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmusColor.txt)
+
+    else
+        controlsMappingTextColor=$5
+        colorOfLibRetroCores=$5
+        colorKeysToQuitEmus=$5
+
+    fi
+
     primestationVersion=$(cat /home/pi/primestationone/reference/txt/version.txt)
     primestationVerColor=$(cat /home/pi/primestationone/reference/txt/vercolor.txt)
     keysToQuitEmusList=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmus.txt)
-    colorKeysToQuitEmus=$(cat /home/pi/primestationone/reference/txt/keysToQuitEmusColor.txt)
+
     echo "PrimeStation One $primestationVersion updating splashscreen version text overlay with $primestationVersion in color $primestationVerColor..."
     echo "...and a $controlsMappingTextColor controlsMappingOverlay: "
     echo "$controlsMappingOverlay"
