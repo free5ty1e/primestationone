@@ -100,7 +100,9 @@ function Process-ZipFile {
         Start-Process -FilePath $SevenZipPath -ArgumentList $sevenZipArgs -Wait -NoNewWindow
 
         # Get compressed file size
-        $compressedSize = (Get-Item -LiteralPath $sevenZipFile).Length
+        # $compressedSize = (Get-Item -LiteralPath $sevenZipFile).Length
+        $compressedFile = Get-Item -LiteralPath $sevenZipFile
+        $compressedSize = $compressedFile.Length
         $global:totalCompressedSize += $compressedSize  # Update global variable
 
         # Calculate size savings
@@ -109,6 +111,14 @@ function Process-ZipFile {
         Write-Host "Processed: $zipFile.FullName"
         Write-Host "Original Size: $($originalSize / 1MB) MB | Compressed Size: $($compressedSize / 1MB) MB"
         Write-Host "Savings: $($sizeSavings / 1MB) MB ($([math]::Round($percentageSavings, 2))%)"
+
+        # Delete the original file only if the .7z file was created successfully
+        if ($compressedFile -and $compressedSize -gt 0) {
+            Write-Host "Deleting original file: $zipFile.FullName"
+            Remove-Item -LiteralPath $zipFile.FullName -Force
+        } else {
+            Write-Warning "Compressed file was not created successfully; original file not deleted."
+        }        
     }
     catch {
         Write-Warning "Error processing: $($_.Exception.Message)"
