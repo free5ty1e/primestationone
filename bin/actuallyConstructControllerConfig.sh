@@ -175,7 +175,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             'gb'
             'gbc'
             'gba'
-            'n64'
+            # 'n64'
             'pcengine'
             'supergrafx'
         )
@@ -212,7 +212,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             'mastersystem'
             'sg-1000'
             'msx'    
-            'atarilynx'            
+            # 'atarilynx'            
         )
 
         #Old mapping was 12triangle, 13circle, 14x, 15square
@@ -240,6 +240,27 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             iniSet "input_player4_b_btn" "0"
         done
 
+        echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for jump and X for fire we will remap to use X for jump and Square for fire..."
+        #local
+        #above keyword only for when below is in its own function:
+        emulatorsToButtonSwapReverse=(
+            'atarilynx'
+            'wonderswan'
+            'wonderswancolor'        
+        )
+
+        for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+            emu=($emu)
+            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+            iniSet "input_player1_a_btn" "0"
+            iniSet "input_player1_b_btn" "3"
+            iniSet "input_player2_a_btn" "0"
+            iniSet "input_player2_b_btn" "3"
+            iniSet "input_player3_a_btn" "0"
+            iniSet "input_player3_b_btn" "3"
+            iniSet "input_player4_a_btn" "0"
+            iniSet "input_player4_b_btn" "3"                        
+        done
 
         echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
         #local
