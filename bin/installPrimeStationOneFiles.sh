@@ -11,6 +11,10 @@ sudo cp -vr var /
 sudo rm -rf /opt/retropie/emulators/openmsx/share/systemroms
 sudo ln -sv /home/pi/RetroPie/BIOS/msxsystemroms /opt/retropie/emulators/openmsx/share/systemroms
 
+echo "Linking retroarch-joypads folder so joy2key can find configs..."
+sudo ln -sv /opt/retropie/configs/all/retroarch/autoconfig /opt/retropie/configs/all/retroarch-joypads
+
+
 echo "Checking if PSP emulator PPSSPP has savedata linked properly to retropie roms folder, if not will migrate and link..."
 if [[ -L "/opt/retropie/configs/psp/PSP/SAVEDATA" ]]; then
   echo "/opt/retropie/configs/psp/PSP/SAVEDATA is already a link!  No need to migrate or link..."
