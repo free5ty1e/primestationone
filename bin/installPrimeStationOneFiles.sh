@@ -74,6 +74,10 @@ sudo cp --verbose reference/opt/retropie/configs/mame2010/*.cfg /opt/retropie/co
 sudo cp --verbose reference/opt/retropie/configs/mame2015/*.cfg /opt/retropie/configs/mame2015/
 sudo cp --verbose reference/opt/retropie/configs/mame2016/*.cfg /opt/retropie/configs/mame2016/
 
+echo "Installing snes 9x 2010 mouse remap file"
+sudo mkdir -v "/opt/retropie/configs/snes/Snes9x 2010"
+sudo cp --verbose "reference/opt/retropie/configs/snes/Snes9x 2010/snesmouse.rmp" "/opt/retropie/configs/snes/Snes9x 2010/"
+
 sudo cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
 sudo cp -v reference/opt/retropie/configs/atari5200/*.cfg /opt/retropie/configs/atari5200/
 cp -vr .emulationstation/* ~/.emulationstation/
