@@ -239,30 +239,31 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             iniSet "input_player4_b_btn" "0"
         done
 
-        echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for jump and X for fire we will remap to use X for jump and Square for fire..."
-        #local
-        #above keyword only for when below is in its own function:
-        emulatorsToButtonSwapReverse=(
-            'atarilynx'      
-        )
+        # echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for jump and X for fire we will remap to use X for jump and Square for fire..."
+        # #local
+        # #above keyword only for when below is in its own function:
+        # emulatorsToButtonSwapReverse=(
+        #     'atarilynx'      
+        # )
 
-        for emu in "${emulatorsToButtonSwapReverse[@]}"; do
-            emu=($emu)
-            iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_a_btn" "0"
-            iniSet "input_player1_b_btn" "3"
-            iniSet "input_player2_a_btn" "0"
-            iniSet "input_player2_b_btn" "3"
-            iniSet "input_player3_a_btn" "0"
-            iniSet "input_player3_b_btn" "3"
-            iniSet "input_player4_a_btn" "0"
-            iniSet "input_player4_b_btn" "3"                        
-        done
+        # for emu in "${emulatorsToButtonSwapReverse[@]}"; do
+        #     emu=($emu)
+        #     iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
+        #     iniSet "input_player1_a_btn" "0"
+        #     iniSet "input_player1_b_btn" "3"
+        #     iniSet "input_player2_a_btn" "0"
+        #     iniSet "input_player2_b_btn" "3"
+        #     iniSet "input_player3_a_btn" "0"
+        #     iniSet "input_player3_b_btn" "3"
+        #     iniSet "input_player4_a_btn" "0"
+        #     iniSet "input_player4_b_btn" "3"                        
+        # done
 
         echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for fire and X for jump we will remap to use X for jump and Square for fire..."
         #local
         #above keyword only for when below is in its own function:
         emulatorsToButtonSwapReverse=(
+            'atarilynx'
             'wonderswan'
             'wonderswancolor'        
         )
