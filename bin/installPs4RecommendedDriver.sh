@@ -25,8 +25,10 @@ echo "Applying DiscoverableTimeout = 0 and PairableTimeout = 0 to /etc/bluetooth
 echo "Current contents of this file before modification are:"
 cat /etc/bluetooth/main.conf
 echo ""
-# sudo setConfParam.sh /etc/bluetooth/main.conf DiscoverableTimeout 0
-# sudo setConfParam.sh /etc/bluetooth/main.conf PairableTimeout 0
+sudo setConfParam.sh /etc/bluetooth/main.conf DiscoverableTimeout 0
+sudo setConfParam.sh /etc/bluetooth/main.conf PairableTimeout 0
+sudo setConfParam.sh /etc/bluetooth/main.conf FastConnectable true
+sudo setConfParam.sh /etc/bluetooth/main.conf ReconnectAttempt 7
 sudo setConfParam.sh /etc/bluetooth/main.conf ControllerMode dual
 sudo setConfParam.sh /etc/bluetooth/main.conf JustWorksRepairing always
 echo "/etc/bluetooth/main.conf modified to:"

@@ -12,13 +12,14 @@ echo "First running sixpairps4 to set the bt master mac address via USB"
 # # Start bluetoothctl in a controlled session
 # echo -e "Starting a controlled bluetoothctl session...\n"
 
-# bluetoothctl <<EOF
-# agent on
-# default-agent
-# scan on
-# EOF
+echo "Ensuring bluetooth scan is on just in case it has been disabled for some reason..."
+# bluetoothctl scan on
+bluetoothctl <<EOF
+scan on
+exit
+EOF
 
-# echo -e "Scan started. Please unplug the controller and press the PS button.\n"
+echo "Scan started. Please unplug the controller, hold SHARE and then also hold the PS button until the ps4 controller LED shows short blinks."
 
 # # Initialize counter
 # elapsed_time=0
