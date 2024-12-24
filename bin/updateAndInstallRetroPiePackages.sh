@@ -163,6 +163,8 @@ function initPackageList {
 		advmame
 		advmame-1.4
 		advmame-0.94
+		coolcv
+		
 
 
 	
