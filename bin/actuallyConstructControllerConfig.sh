@@ -167,7 +167,7 @@ dosSetupPs3Controls.sh
 
 for whichemuconfigdir in "${emuconfigdirs[@]}"; do
     if [ -d "$whichemuconfigdir" ]; then
-        echo "Remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
+        echo "Clearing remapping individual emulator buttons to be more sensible and use Square for B instead of Cross for B which is asinine..."
         #local
         #above keyword only for when below is in its own function:
         emulatorsToButtonSwap=(
@@ -204,7 +204,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             iniUnset "input_player4_b_btn" "3"
         done
 
-        echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
+        echo "Clearing remaps for more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
         #local
         #above keyword only for when below is in its own function:
         emulatorsToButtonSwapReverse=(
@@ -259,7 +259,7 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         #     iniUnset "input_player4_b_btn" "3"                        
         # done
 
-        echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for fire and X for jump we will remap to use X for jump and Square for fire..."
+        echo "Clearing remaps for more individual emulator buttons to be more sensible - for systems that want to use Circle for fire and X for jump we will remap to use X for jump and Square for fire..."
         #local
         #above keyword only for when below is in its own function:
         emulatorsToButtonSwapReverse=(
