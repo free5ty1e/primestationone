@@ -1,7 +1,11 @@
+PRIMESTATION ONE v2.00 README.TXT
 
 * When in doubt, reboot!  If you must, remove power entirely for a couple seconds.  This fixes a lot of issues and will definitely exit anything you happen to be stuck in.
 
 * To power off a PS3 or PS4 controller in wireless mode, hold the PS button until the light turns off.  Should happen in 10-15 seconds.
+
+TO ROTATE certain emulators, press the SHARE / SELECT button.  Specifically, the "wonderswan" emulator starts sideways by default and needs to be rotated.
+You can also rotate certain other handheld emulators, such as atarilynx and wonderswancolor, if you'd like.
 
 =====PS3 CONTROLLERS:
 * To PAIR a PS3 controller to the Primestation:
