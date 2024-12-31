@@ -178,6 +178,11 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             # 'n64'
             'pcengine'
             'supergrafx'
+            'mame2000'
+            'mame2003'
+            'mame2010'
+            'mame2015'
+            'mame2016'
         )
 
         #Old mapping was 12triangle, 13circle, 14x, 15square
