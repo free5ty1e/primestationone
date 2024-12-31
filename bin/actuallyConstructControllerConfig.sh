@@ -295,7 +295,6 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             'mame2003'
             'mame2003-plus'
             'mame2010'
-            'mame2014'
             'mame2015'
         )
         emulatorGameRemapFolderNames=(
@@ -304,7 +303,6 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
             'MAME 2003'
             'MAME 2003-PLUS'
             'MAME 2010'
-            'MAME 2014'
             'MAME 2015'
         )
 

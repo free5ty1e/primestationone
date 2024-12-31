@@ -1,0 +1,13 @@
+input_libretro_device_p1 = "5"
+input_player1_analog_dpad_mode = "1"
+input_player1_btn_a = "11"
+input_player1_btn_b = "9"
+input_player1_btn_r = "8"
+input_player1_btn_x = "0"
+
+input_libretro_device_p2 = "5"
+input_player2_analog_dpad_mode = "1"
+input_player2_btn_a = "11"
+input_player2_btn_b = "9"
+input_player2_btn_r = "8"
+input_player2_btn_x = "0"
