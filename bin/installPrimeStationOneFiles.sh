@@ -78,6 +78,11 @@ echo "Installing snes 9x 2010 mouse remap file"
 sudo mkdir -v "/opt/retropie/configs/snes/Snes9x 2010"
 sudo cp --verbose "reference/opt/retropie/configs/snes/Snes9x 2010/snesmouse.rmp" "/opt/retropie/configs/snes/Snes9x 2010/"
 
+echo "Installing emulator-specific core remap files to fix things like A and B as circle and X on the PS3 controller (should be X and Square)..."
+echo "Fixing NES..."
+cp --verbose "reference/opt/retropie/configs/all/2buttonNesEmulatorRemap.rmp" "/opt/retropie/configs/nes/FCEUmm/FCEUmm.rmp"
+
+
 sudo cp -v reference/opt/retropie/configs/all/retronetplay.cfg /opt/retropie/configs/all/
 sudo cp -v reference/opt/retropie/configs/atari5200/*.cfg /opt/retropie/configs/atari5200/
 cp -vr .emulationstation/* ~/.emulationstation/

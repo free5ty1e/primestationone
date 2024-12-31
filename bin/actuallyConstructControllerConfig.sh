@@ -35,20 +35,20 @@ function remap_hotkeys_retroarchautoconf() {
     # printMsgs "console" "Processing $file"
     echo "Remapping hotkeys for joystick: $file"
 
-    # iniGet "input_device" "$file"
-    # if [[ $ini_value == *"PLAYSTATION(R)3"* || $ini_value == *"Gasia"* ]] 
-    # then
-    #     echo "Controller with PS button detected!  Inserting missing PS button mapping..."
-    #     # iniSet "input_ps_btn" "16" "$file" >/dev/null
-	   # input_exit_emu="input_mode"
-    # fi
-
-            #Old mapping was a12triangle, b13circle, x14x, y15square
-            #New mapping is a0x, b1circle, x2triangle, y3square
+    iniGet "input_device" "$file"
+    if [[ $ini_value == *"X-Box"* || $ini_value == *"Xbox"* ]]
+    then
+        echo "This is an xbox 360 controller, Inserting missing Guide button mapping..."
+        iniSet "input_home_btn" "8" "$file" >/dev/null
+    elif [[ $ini_value == *"PLAYSTATION"* || $ini_value == *"Playstation"* || $ini_value == *"Sony"* || $ini_value == *"ShanWan"* || $ini_value == *"Gasia"* ]]
+    then 
+        echo "Controller with PS button detected!  Inserting missing PS button mapping..."
+        iniSet "input_home_btn" "10" "$file" >/dev/null
+    fi
 
     iniConfig " = " "\""
     local mappings=(
-        'input_enable_hotkey input_mode'
+        'input_enable_hotkey input_home'
         'input_exit_emulator input_select'
         'input_menu_toggle input_l'
         'input_load_state input_b'
@@ -150,12 +150,12 @@ if [ -z "$1" ]; then
                 echo "$whichconfigdir does not exist, skipping!"
             fi
         done
-        echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
-        sudo rm --verbose --force "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
+        # echo "Now removing problematic confusing configurations that interfere with the PS3 controller sometimes setting up correctly..."
+        # sudo rm --verbose --force "$whichconfigdir/Gasia_PS_Gamepad_USB.cfg"
         # rm "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
-        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
-        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
-        sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
+        # sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg"
+        # sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg.bak"
+        # sudo rm --verbose --force "$whichconfigdir/Sony-PlayStation3-DualShock3-Controller-Bluez.cfg"
     else
         echo "Clone unsuccessful!  Unable to proceed with joypad autoconfig update...."
     fi   
@@ -190,18 +190,18 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         for emu in "${emulatorsToButtonSwap[@]}"; do
             emu=($emu)
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_y_btn" "1"
-            iniSet "input_player1_a_btn" "0"
-            iniSet "input_player1_b_btn" "3"
-            iniSet "input_player2_y_btn" "1"
-            iniSet "input_player2_a_btn" "0"
-            iniSet "input_player2_b_btn" "3"
-            iniSet "input_player3_y_btn" "1"
-            iniSet "input_player3_a_btn" "0"
-            iniSet "input_player3_b_btn" "3"
-            iniSet "input_player4_y_btn" "1"
-            iniSet "input_player4_a_btn" "0"
-            iniSet "input_player4_b_btn" "3"
+            iniUnset "input_player1_y_btn" "1"
+            iniUnset "input_player1_a_btn" "0"
+            iniUnset "input_player1_b_btn" "3"
+            iniUnset "input_player2_y_btn" "1"
+            iniUnset "input_player2_a_btn" "0"
+            iniUnset "input_player2_b_btn" "3"
+            iniUnset "input_player3_y_btn" "1"
+            iniUnset "input_player3_a_btn" "0"
+            iniUnset "input_player3_b_btn" "3"
+            iniUnset "input_player4_y_btn" "1"
+            iniUnset "input_player4_a_btn" "0"
+            iniUnset "input_player4_b_btn" "3"
         done
 
         echo "Remapping more individual emulator buttons to be more sensible and use Square for attack instead of Cross which is asinine..."
@@ -225,18 +225,18 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         for emu in "${emulatorsToButtonSwapReverse[@]}"; do
             emu=($emu)
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_y_btn" "1"
-            iniSet "input_player1_a_btn" "3"
-            iniSet "input_player1_b_btn" "0"
-            iniSet "input_player2_y_btn" "1"
-            iniSet "input_player2_a_btn" "3"
-            iniSet "input_player2_b_btn" "0"
-            iniSet "input_player3_y_btn" "1"
-            iniSet "input_player3_a_btn" "3"
-            iniSet "input_player3_b_btn" "0"
-            iniSet "input_player4_y_btn" "1"
-            iniSet "input_player4_a_btn" "3"
-            iniSet "input_player4_b_btn" "0"
+            iniUnset "input_player1_y_btn" "1"
+            iniUnset "input_player1_a_btn" "3"
+            iniUnset "input_player1_b_btn" "0"
+            iniUnset "input_player2_y_btn" "1"
+            iniUnset "input_player2_a_btn" "3"
+            iniUnset "input_player2_b_btn" "0"
+            iniUnset "input_player3_y_btn" "1"
+            iniUnset "input_player3_a_btn" "3"
+            iniUnset "input_player3_b_btn" "0"
+            iniUnset "input_player4_y_btn" "1"
+            iniUnset "input_player4_a_btn" "3"
+            iniUnset "input_player4_b_btn" "0"
         done
 
         # echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for jump and X for fire we will remap to use X for jump and Square for fire..."
@@ -249,14 +249,14 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         # for emu in "${emulatorsToButtonSwapReverse[@]}"; do
         #     emu=($emu)
         #     iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-        #     iniSet "input_player1_a_btn" "0"
-        #     iniSet "input_player1_b_btn" "3"
-        #     iniSet "input_player2_a_btn" "0"
-        #     iniSet "input_player2_b_btn" "3"
-        #     iniSet "input_player3_a_btn" "0"
-        #     iniSet "input_player3_b_btn" "3"
-        #     iniSet "input_player4_a_btn" "0"
-        #     iniSet "input_player4_b_btn" "3"                        
+        #     iniUnset "input_player1_a_btn" "0"
+        #     iniUnset "input_player1_b_btn" "3"
+        #     iniUnset "input_player2_a_btn" "0"
+        #     iniUnset "input_player2_b_btn" "3"
+        #     iniUnset "input_player3_a_btn" "0"
+        #     iniUnset "input_player3_b_btn" "3"
+        #     iniUnset "input_player4_a_btn" "0"
+        #     iniUnset "input_player4_b_btn" "3"                        
         # done
 
         echo "Remapping more individual emulator buttons to be more sensible - for systems that want to use Circle for fire and X for jump we will remap to use X for jump and Square for fire..."
@@ -271,14 +271,14 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
         for emu in "${emulatorsToButtonSwapReverse[@]}"; do
             emu=($emu)
             iniConfig " = " "" "$whichemuconfigdir/$emu/retroarch.cfg"
-            iniSet "input_player1_a_btn" "3"
-            iniSet "input_player1_b_btn" "0"
-            iniSet "input_player2_a_btn" "3"
-            iniSet "input_player2_b_btn" "0"
-            iniSet "input_player3_a_btn" "3"
-            iniSet "input_player3_b_btn" "0"
-            iniSet "input_player4_a_btn" "3"
-            iniSet "input_player4_b_btn" "0"                        
+            iniUnset "input_player1_a_btn" "3"
+            iniUnset "input_player1_b_btn" "0"
+            iniUnset "input_player2_a_btn" "3"
+            iniUnset "input_player2_b_btn" "0"
+            iniUnset "input_player3_a_btn" "3"
+            iniUnset "input_player3_b_btn" "0"
+            iniUnset "input_player4_a_btn" "3"
+            iniUnset "input_player4_b_btn" "0"                        
         done
 
         echo "Rearranging horribly wrong emulator button mappings for MAME to be more generally usable..."
@@ -403,18 +403,18 @@ for whichemuconfigdir in "${emuconfigdirs[@]}"; do
 
 
 
-            iniSet "input_player1_y_btn" "1"
-            iniSet "input_player1_a_btn" "0"
-            iniSet "input_player1_b_btn" "3"
-            iniSet "input_player2_y_btn" "1"
-            iniSet "input_player2_a_btn" "0"
-            iniSet "input_player2_b_btn" "3"
-            iniSet "input_player3_y_btn" "1"
-            iniSet "input_player3_a_btn" "0"
-            iniSet "input_player3_b_btn" "3"
-            iniSet "input_player4_y_btn" "1"
-            iniSet "input_player4_a_btn" "0"
-            iniSet "input_player4_b_btn" "3"
+            iniUnset "input_player1_y_btn" "1"
+            iniUnset "input_player1_a_btn" "0"
+            iniUnset "input_player1_b_btn" "3"
+            iniUnset "input_player2_y_btn" "1"
+            iniUnset "input_player2_a_btn" "0"
+            iniUnset "input_player2_b_btn" "3"
+            iniUnset "input_player3_y_btn" "1"
+            iniUnset "input_player3_a_btn" "0"
+            iniUnset "input_player3_b_btn" "3"
+            iniUnset "input_player4_y_btn" "1"
+            iniUnset "input_player4_a_btn" "0"
+            iniUnset "input_player4_b_btn" "3"
 
 
 
@@ -471,5 +471,6 @@ done
 iniConfig " = " "" "/opt/retropie/configs/all/retroarch.cfg"
 iniSet "input_enable_hotkey" "alt"
 iniSet "input_enable_hotkey_axis" "nul"
-iniSet "input_enable_hotkey_btn" "10"
+# iniSet "input_enable_hotkey_btn" "10"
+iniUnset "input_enable_hotkey_btn"
 iniSet "input_enable_hotkey_mbtn" "nul"
