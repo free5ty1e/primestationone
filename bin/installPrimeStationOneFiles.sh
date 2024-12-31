@@ -81,6 +81,9 @@ sudo cp --verbose "reference/opt/retropie/configs/snes/Snes9x 2010/snesmouse.rmp
 echo "Installing emulator-specific core remap files to fix things like A and B as circle and X on the PS3 controller (should be X and Square)..."
 echo "The core info files can be found at /opt/retropie/configs/all/retroarch/cores/ to determine the corename / filename for each remap file..."
 echo "Cores named Beetle are actually rebrands of mednafen, so those files begin with mednafen and not beetle."
+echo "First, ensuring all configs are owned by pi..."
+sudo chown --verbose --recursive pi:pi /opt/retropie/configs
+
 echo "FIRST - remapping 2 button emus that use Circle for jump and Cross for fire, to use Cross for jump and Square for fire..."
 echo "Remapping NES cores..."
 mkdir -vp "/opt/retropie/configs/nes/FCEUmm"
