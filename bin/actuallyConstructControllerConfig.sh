@@ -39,16 +39,16 @@ function remap_hotkeys_retroarchautoconf() {
     if [[ $ini_value == *"X-Box"* || $ini_value == *"Xbox"* ]]
     then
         echo "This is an xbox 360 controller, Inserting missing Guide button mapping..."
-        iniSet "input_home_btn" "8" "$file" >/dev/null
+        iniSet "input_mode_btn" "8" "$file" >/dev/null
     elif [[ $ini_value == *"PLAYSTATION"* || $ini_value == *"Playstation"* || $ini_value == *"Sony"* || $ini_value == *"ShanWan"* || $ini_value == *"Gasia"* ]]
     then 
         echo "Controller with PS button detected!  Inserting missing PS button mapping..."
-        iniSet "input_home_btn" "10" "$file" >/dev/null
+        iniSet "input_mode_btn" "10" "$file" >/dev/null
     fi
 
     iniConfig " = " "\""
     local mappings=(
-        'input_enable_hotkey input_home'
+        'input_enable_hotkey input_mode'
         'input_exit_emulator input_select'
         'input_menu_toggle input_l'
         'input_load_state input_b'
