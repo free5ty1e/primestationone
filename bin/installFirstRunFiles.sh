@@ -2,7 +2,7 @@
 
 #If primestation theme is installed, reset using that one in the settings.  Otherwise, use simple theme
 if [ -d /etc/emulationstation/themes/primestation ]; then
-    cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationtheme.cfg ~/.emulationstation/es_settings.cfg
+    cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationThemeWithFavs.cfg ~/.emulationstation/es_settings.cfg
 else
     cp -v ~/primestationone/reference/.emulationstation/es_settings.simpletheme.cfg ~/.emulationstation/es_settings.cfg
 fi

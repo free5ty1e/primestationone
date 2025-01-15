@@ -18,7 +18,7 @@ if [ -d "/etc/emulationstation/themes/primestation" ] && [ -d "/home/pi/primesta
         ./installToPrimestationOne.sh
 
         echo Setting emulationstation to use the PrimeStation One Theme you just installed...
-        cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationtheme.cfg ~/.emulationstation/es_settings.cfg
+        cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationThemeWithFavs.cfg ~/.emulationstation/es_settings.cfg
     else
         echo No changes exist upstream, no need to perform any update operations!
     fi

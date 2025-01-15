@@ -19,4 +19,4 @@ cd ..
 popd
 
 echo Setting emulationstation to use the PrimeStation One Theme you just installed...
-cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationtheme.cfg ~/.emulationstation/es_settings.cfg
+cp -v ~/primestationone/reference/.emulationstation/es_settings.primestationThemeWithFavs.cfg ~/.emulationstation/es_settings.cfg
