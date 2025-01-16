@@ -3,3 +3,37 @@ input_player1_btn_b = "8"
 input_player1_btn_x = "1"
 input_player1_btn_y = "0"
 
+input_player2_btn_a = "9"
+input_player2_btn_b = "8"
+input_player2_btn_x = "1"
+input_player2_btn_y = "0"
+
+input_player3_btn_a = "9"
+input_player3_btn_b = "8"
+input_player3_btn_x = "1"
+input_player3_btn_y = "0"
+
+input_player4_btn_a = "9"
+input_player4_btn_b = "8"
+input_player4_btn_x = "1"
+input_player4_btn_y = "0"
+
+input_player5_btn_a = "9"
+input_player5_btn_b = "8"
+input_player5_btn_x = "1"
+input_player5_btn_y = "0"
+
+input_player6_btn_a = "9"
+input_player6_btn_b = "8"
+input_player6_btn_x = "1"
+input_player6_btn_y = "0"
+
+input_player7_btn_a = "9"
+input_player7_btn_b = "8"
+input_player7_btn_x = "1"
+input_player7_btn_y = "0"
+
+input_player8_btn_a = "9"
+input_player8_btn_b = "8"
+input_player8_btn_x = "1"
+input_player8_btn_y = "0"
