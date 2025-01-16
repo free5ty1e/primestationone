@@ -164,13 +164,12 @@ function initPackageList {
 		advmame-1.4
 		advmame-0.94
 		coolcv
-		
+		minivmac
 
 
 	
 		# openmsx
 		# sdltrs
-		# minivmac
 		# advmame
 		# advmame-1.4
 		# advmame-0.94
