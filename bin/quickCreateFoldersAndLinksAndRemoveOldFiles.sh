@@ -88,6 +88,10 @@ sudo rm /usr/local/bin/megaInstallKodiWithExodus.sh
 sudo rm /usr/local/bin/megaInstallKodiWithElysium.sh
 
 
+rm -v /home/pi/RetroPie/roms/ports/Descent1.sh
+rm -v /home/pi/RetroPie/roms/ports/Descent2.sh
+rm -v /home/pi/RetroPie/roms/ports/RainbowStreamTwitterClient.sh
+
 echo Creating required folders...
 mkdir ~/temp
 mkdir ~/.vice
