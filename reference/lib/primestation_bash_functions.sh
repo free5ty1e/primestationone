@@ -424,3 +424,13 @@ function launchDoomWadWithManagedSavefiles() {
     "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "doom" "${path}/$wadfile"
     cd "$path" && zip -mj "savegames_${wadfile%.*}.zip" prbmsav?.dsg
 }
+
+# Function to process and install packages from a given array
+function retropieInstallPackageList {
+    local -n package_list=$1  # Use nameref to access the passed array
+    for package_name in "${package_list[@]}"; do
+        fancy_console_message "Installing RetroPie package $package_name ..."
+        sudo ~/RetroPie-Setup/retropie_packages.sh "$package_name"
+        sudo cleanupTempFiles.sh
+    done
+}

@@ -2,7 +2,7 @@
 
 source "/home/pi/primestationone/reference/lib/primestation_bash_functions.sh"
 
-function initPackageList {
+# function initPackageList {
     RETROPIE_PACKAGE_NAMES=(
 
     	#LibRetro packages:
@@ -164,7 +164,21 @@ function initPackageList {
 		advmame-1.4
 		advmame-0.94
 		coolcv
+
+		# new for v2.00rc5:
 		minivmac
+		love-0.10.2
+		opentyrian
+		xrick
+		cdogs-sdl
+		dsda-doom
+		ionfury
+		jumpnbump
+		mysticmine
+		uqm
+		vvvvvv
+		yquake2
+	
 
 
 	
@@ -192,18 +206,18 @@ function initPackageList {
 		# mehstation
 		#pegasus-fe
     )
-}
+# }
 
-function iterateThroughRetroPiePackagesAndInstall {
-    #Iterate through the templates and install them: 
-    initPackageList
-    for index in ${!RETROPIE_PACKAGE_NAMES[*]}; do
-        CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
-        fancy_console_message "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
-        sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
-		sudo cleanupTempFiles.sh
-    done
-}
+# function iterateThroughRetroPiePackagesAndInstall {
+#     #Iterate through the templates and install them: 
+#     initPackageList
+#     for index in ${!RETROPIE_PACKAGE_NAMES[*]}; do
+#         CURRENT_PACKAGE_NAME="${RETROPIE_PACKAGE_NAMES[$index]}"
+#         fancy_console_message "Installing RetroPie package $CURRENT_PACKAGE_NAME ..."
+#         sudo ~/RetroPie-Setup/retropie_packages.sh "$CURRENT_PACKAGE_NAME"
+# 		sudo cleanupTempFiles.sh
+#     done
+# }
 
 echo "Installing experimental emulators and such that dont require prompting..."
-iterateThroughRetroPiePackagesAndInstall
+retropieInstallPackageList RETROPIE_PACKAGE_NAMES
