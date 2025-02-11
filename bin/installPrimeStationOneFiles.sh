@@ -61,6 +61,9 @@ sudo mkdir /opt/retropie/configs/mame2015
 mkdir /home/pi/RetroPie/roms/mame2016
 sudo mkdir /opt/retropie/configs/mame2016
 
+sudo mkdir --parents /opt/retropie/configs/ports/descent1
+sudo mkdir --parents /opt/retropie/configs/ports/descent2
+
 sudo cp -v reference/opt/retropie/configs/snesmouse/*.cfg /opt/retropie/configs/snesmouse/
 sudo cp --verbose reference/opt/retropie/configs/msxld/*.cfg /opt/retropie/configs/msxld/
 sudo cp --verbose reference/opt/retropie/configs/msxcas/*.cfg /opt/retropie/configs/msxcas/
@@ -73,6 +76,9 @@ sudo cp --verbose reference/opt/retropie/configs/mame2003/*.cfg /opt/retropie/co
 sudo cp --verbose reference/opt/retropie/configs/mame2010/*.cfg /opt/retropie/configs/mame2010/
 sudo cp --verbose reference/opt/retropie/configs/mame2015/*.cfg /opt/retropie/configs/mame2015/
 sudo cp --verbose reference/opt/retropie/configs/mame2016/*.cfg /opt/retropie/configs/mame2016/
+
+sudo cp --verbose reference/opt/retropie/configs/ports/descent1/* /opt/retropie/configs/ports/descent1/
+sudo cp --verbose reference/opt/retropie/configs/ports/descent2/* /opt/retropie/configs/ports/descent2/
 
 echo "Installing snes 9x 2010 mouse remap file"
 sudo mkdir -v "/opt/retropie/configs/snes/Snes9x 2010"
