@@ -395,6 +395,12 @@ Bus 002 Device 002: ID 05e3:0626 Genesys Logic       # USB3 hub (daisy-chained)
 
 > **Recap of the whole investigation:** dirty flag → `fsck` failed to write → therefore hardware/bus, not filesystem → quirks already applied for most drives → the one drive missing from the quirks and sitting on an unstable SuperSpeed link was the culprit → fix by isolating that drive. **Lesson: when a *filesystem checker* can't write, and UAS is already quirked, look at the physical USB link (hub / USB3 vs USB2 / the drive's own adapter / cable / power), not the filesystem.**
 
+### 7.7 User-resolved conclusion
+
+After extensive diagnosis (commands from §7.4–7.5), the root cause was identified: **the Seagate drive's USB‑SATA adapter was not compatible with the Pi 4's SuperSpeed (USB 3) link**, causing repeated link resets during writes and the `fsync: Remote I/O error`. Swapping in a different USB‑SATA adapter resolved the issue immediately. The two WD drives' adapters worked fine on the same hub and port, confirming the problem was specific to the Seagate's own adapter, not the hub, the Pi, or the filesystem.
+
+The dirty exFAT flag cleared once writes succeeded, and `mountusbbylabel.sh` now mounts the drive by its volume label at `/media/<label>` without requiring a reboot.
+
 ### 7.6 All drives on the same powered USB3 hub — is it the drive's adapter?
 
 **Scenario:** all three drives hang off the **same powered USB3 hub**, connected directly to the Pi's USB3 port. The two WD drives mount and write fine; only the Seagate (`0bc2:3330`) resets on writes.
