@@ -228,6 +228,8 @@ After a clean check, try mounting again. If it now mounts, great — it was just
 > ```
 > `fuse`-based mounting produces the `FUSE exfat 1.x.y` banner you saw. The `exfat` (kernel) driver mounts silently and is generally more stable — see §7.2 for how to prefer it.
 
+> **⚠️ Important:** If `fsck.exfat` / `exfatfsck` **fails with the exact same `ERROR: fsync failed: Remote I/O error.`**, that is a huge clue — skip straight to §7.2. A filesystem tool that can *read* the volume but cannot *write* its fix back to disk is telling you the problem is on the **write path / hardware**, not in the filesystem. See the real-world case in §7.3.
+
 ### 7.2 Step 2 — "ERROR: fsync failed: Remote I/O error" (the real problem)
 
 This is the important one. **`Remote I/O error` during a write/`fsync` means the device dropped off the bus mid-write** — a physical-level I/O failure, not a filesystem logic error. You will usually *also* see the drive re-enumerating (e.g. a new `/dev/sdX`, or `dmesg` reporting a USB reset).
@@ -260,26 +262,74 @@ Most common causes, in order of likelihood:
    ```
    Look for `Reallocated_Sector_Ct`, `Pending_Sector`, or high error counts. (The file-server repo also has `drivesmartstats.sh` / `drivetestbadblocks*.sh` helpers.)
 
-### 7.3 Suggested workflow for this error
+### 7.3 Real-world case: `exfatfsck` fails with the same error
+
+```
+pi@primestationonepi4 ~ $ sudo exfatfsck /dev/sdc1
+exfatfsck 1.3.0
+Checking file system on /dev/sdc1.
+WARN: volume was not unmounted cleanly.
+ERROR: fsync failed: Remote I/O error.
+File system checking stopped. ERRORS FOUND: 1, FIXED: 0.
+```
+
+**Analyzing the result:**
+
+- `exfatfsck` successfully **read** the volume: it detected the dirty flag and walked the filesystem structure. So the **read path works**, and the filesystem itself is *probably* fine (just flagged dirty).
+- But it then tried to **write** its fix (clearing the dirty bit / repairing) and that write failed with `Remote I/O error` on `fsync`. `fsync` guarantees the data hit the physical disk; failing here means **the write never made it off the bus**.
+
+**Conclusion: this is a write-path hardware failure, not a filesystem problem.** The drive is effectively *read-only* to the system right now. A tool can't "fix" a dirty flag it isn't allowed to write. Hammering it with more `fsck` runs won't help and can risk the drive if it's genuinely failing.
+
+### 7.4 Working through this case — next diagnostic steps
+
+Run these **in order**. Each narrows the cause.
 
 ```bash
-# 1. Make sure it's not mounted
-mount | grep /dev/sdc || true
+# 1. Is the device flagged read-only by the kernel? (cheap, safe)
+blockdev --getro /dev/sdc
+#     0 = writable, 1 = read-only. If 1, the bridge/driver forced it read-only.
 
-# 2. Repair the dirty exFAT volume
-sudo fsck.exfat /dev/sdc1
+# 2. What does the kernel say is actually failing? Look for UAS/SCSI/USB resets.
+dmesg | tail -80
+dmesg | grep -iE "uas|usb-storage|I/O error|reset|sd 2:0:0:0|sdc" | tail -40
 
-# 3. Check for USB-level disconnects / re-enumeration
-dmesg | tail -50
+# 3. Is the drive being handled by UAS (buggy on Pi4) or usb-storage?
+#    Look in dmesg for "uas" vs "usb-storage" binding the device.
 
-# 4. Identify the USB device for a UAS quirk
-lsusb
+# 4. Identify the USB device so we can build a quirk entry.
+lsusb            # note the VENDOR:PRODUCT of the enclosure
+```
 
-# 5. Remount by label (see §4)
+What the answers tell you:
+
+| Finding | Meaning / next action |
+| --- | --- |
+| `blockdev` returns `1` (read-only) | The USB bridge has locked the drive read-only (many bridges do this after detecting errors). This is protective, not the root cause. Power-cycle the enclosure and fix the underlying bus issue first. |
+| `dmesg` shows UAS + `I/O error` / resets on a **USB3** port | **The Pi 4 UAS bug** — most likely. Apply the quirk in §7.2 item 1 and reboot. |
+| `dmesg` shows the device repeatedly disconnecting/re-enumerating | Cable, port, or power. Try a USB2 port / different cable (see §7.2 items 2–3). |
+| `lsusb` shows a **USB3 (500M/5G)** connection but `dmesg` shows UAS failures | Force `usb-storage` via the quirks parameter. |
+
+**If step 4 `lsusb` identifies the enclosure** (this is the most probable fix):
+
+```bash
+# e.g. 152d:0578 is a JMicron JMS578 USB3-SATA bridge:
+# add to /boot/config.txt under [pi4]:
+#   dtoverlay=disable-bt          (if you don't use BT; frees USB)
+# add to /boot/cmdline.txt (append, keep on ONE line):
+#   usb-storage.quirks=152d:0578:u
+sudo reboot
+```
+
+After reboot: unplug/replug the drive, then re-run the filesystem repair:
+
+```bash
+sudo exfatfsck /dev/sdc1
 sudo mountusbbylabel.sh
 ```
 
-If the error persists, apply the UAS quirk (item 1 in §7.2) and reboot — that resolves the majority of Pi 4 USB3 `Remote I/O error` cases.
+**If it still fails after the UAS quirk,** the cause is almost certainly **cable → power → the drive/enclosure itself**. Work down §7.2 items 2–4 (try another cable/port, check power, then `smartctl`).
+
+> **Bottom line:** When the *filesystem checker itself* can't write, stop trying to repair the filesystem and fix the **storage bus first**. On a Pi 4, the far-and-away most common culprit is the UAS driver. Solve that (quirk + reboot), and the "dirty volume" usually becomes writable and clears cleanly on the next `fsck`.
 
 ---
 
@@ -292,6 +342,6 @@ If the error persists, apply the UAS quirk (item 1 in §7.2) and reboot — that
 | ROMs don't sync to RetroPie | The `01_retropie_copyroms` hook needs the drive's filesystem in `FILESYSTEMS` in `usbmount.conf`, and the drive needs a `roms/` folder. |
 | By-label mount conflicts with file-server drive | See `reference/txt/installfresh.md`: e.g. remove `ext4` from `FILESYSTEMS` in `usbmount.conf` so `usbmount` ignores your `ext4` file-server drives and leaves them to the label script. |
 | "Permission denied" reading the drive | The hooks `chown`/`chmod` media dirs for `pi:pi` (`installAutoMountUsbByLabelToUsbmount.sh` runs `sudo chown pi:pi /media/*`). Re-run that or fix ownership. |
-| exFAT mount fails: `WARN: volume was not unmounted cleanly.` + `ERROR: fsync failed: Remote I/O error.` | See [§7 Troubleshooting — exFAT mount errors](#7-troubleshooting--exfat-mount-errors). Usually a dirty flag + a Pi 4 UAS/USB I/O disconnect: run `fsck.exfat`, then apply a `usb-storage.quirks` entry to disable UAS for the enclosure. |
+| exFAT mount fails: `WARN: volume was not unmounted cleanly.` + `ERROR: fsync failed: Remote I/O error.` | See [§7 Troubleshooting — exFAT mount errors](#7-troubleshooting--exfat-mount-errors). Likely a dirty flag **plus** a Pi 4 UAS/USB write-path disconnect. If `fsck`/`exfatfsck` also fails to write, it's hardware, not the filesystem: apply a `usb-storage.quirks` entry to disable UAS and reboot, then re-run `fsck`. |
 
 See also the diagram in [`excalidraw/usb-mounting-flow.excalidraw.md`](excalidraw/usb-mounting-flow.excalidraw.md) for a visual walkthrough of the whole flow.
