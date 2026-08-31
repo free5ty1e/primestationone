@@ -331,6 +331,103 @@ sudo mountusbbylabel.sh
 
 > **Bottom line:** When the *filesystem checker itself* can't write, stop trying to repair the filesystem and fix the **storage bus first**. On a Pi 4, the far-and-away most common culprit is the UAS driver. Solve that (quirk + reboot), and the "dirty volume" usually becomes writable and clears cleanly on the next `fsck`.
 
+### 7.5 Resolved: analyzing the actual diagnostic output
+
+The case was fully diagnosed with the commands from §7.4. Here is the output analysis, so you can recognize the same pattern later.
+
+**Diagnostic output gathered:**
+
+```bash
+sudo blockdev --getro /dev/sdc     # → 0 (writable, not forced read-only)
+```
+
+```bash
+# kernel command line (from dmesg), note the quirks ALREADY present:
+# usb-storage.quirks=0bc2:3322:u,1058:25fb:u,0bc2:a0a1:u,0bc2:50a2:u
+
+# dmesg excerpt:
+usb-storage 2-2.4.3:1.0: Quirks match for vid 1058 pid 25fb: 800000   # WD drive OK
+usb-storage 2-2.4.4:1.0: Quirks match for vid 1058 pid 25fb: 800000   # WD drive OK
+usb-storage 2-2.4.1:1.0: USB Mass Storage device detected             # failing Seagate (NO quirk line)
+usb 2-2.4.1: reset SuperSpeed Gen 1 USB device number 7 using xhci_hcd
+usb 2-2.4.1: reset SuperSpeed Gen 1 USB device number 7 using xhci_hcd
+usb 2-2.4.1: reset SuperSpeed Gen 1 USB device number 7 using xhci_hcd
+```
+
+```bash
+# lsusb (Bus 002 = USB3):
+Bus 002 Device 007: ID 0bc2:3330 Seagate RSS LLC     # ← the failing drive
+Bus 002 Device 005: ID 1058:25fb Western Digital     # working
+Bus 002 Device 004: ID 1058:25fb Western Digital     # working
+Bus 002 Device 003: ID 05e3:0626 Genesys Logic       # USB3 hub
+Bus 002 Device 002: ID 05e3:0626 Genesys Logic       # USB3 hub (daisy-chained)
+```
+
+**Reading the evidence — point by point:**
+
+| Observation | What it means |
+| --- | --- |
+| `blockdev --getro` = `0` | The device is **writable** at the block layer. Not a write-protect lock. |
+| WD drives (`1058:25fb`) show `Quirks match` and mount cleanly | The Pi 4 **UAS quirk is already in effect** for them, and they are happy on the same hub chain. |
+| The failing Seagate (`0bc2:3330`) is **not** in the quirks list **and** shows **no** `Quirks match` line | It's on `usb-storage` but explicitly un-quirked. |
+| Three `reset SuperSpeed Gen 1 USB device` events during the `fsck`'s writes | The drive's **USB3 (5 Gbps) link is dropping mid-write** — the writes fail and surface as `Remote I/O error`. |
+| Seagate is behind two `05e3:0626` Genesys USB3 hubs in series (`2-2.4.1`) | It's **daisy-chained through USB3 hubs** on a SuperSpeed link. |
+| Reads work, writes fail | Consistent with a **link reset during write** rather than a filesystem or drive-failure problem. |
+
+**Conclusion.** This was **not** a filesystem error and **not** the classic Pi 4 UAS bug (UAS is already disabled via quirks). It was **SuperSpeed (USB3) link instability** on the Seagate drive's connection — made much more likely by being daisy-chained through USB3 hubs — causing **link resets during writes**. The `fsync failed: Remote I/O error` was the symptom; the dirty flag was merely a consequence of the interrupted writes.
+
+**Fixes that actually apply here (in order):**
+
+1. **Drop the drive to USB2** (the definitive test & fix). The resets are specifically *SuperSpeed* link resets; USB2 (HighSpeed) uses a far more stable link. Plug the drive into a **USB2 port**, or if you must keep it on USB3, reduce the hub chain:
+   ```bash
+   # Connect the Seagate directly to a Pi USB3 port (bypassing the daisy-chained hubs)
+   # or into a USB2 port. Then:
+   sudo exfatfsck /dev/sdc1
+   sudo mountusbbylabel.sh
+   ```
+2. **Reduce / remove the daisy-chained USB3 hubs.** Two `05e3:0626` hubs in series at 5 Gbps is a common source of SuperSpeed instability. Connect the drive directly to a Pi USB3 port, or put the hubs behind USB2.
+3. **Add the Seagate to the quirks list as belt-and-suspenders** (harmless, in case the enclosure can also negotiate UAS):
+   ```
+   # append to the usb-storage.quirks=... in /boot/cmdline.txt:
+   0bc2:3330:u
+   ```
+4. If it still resets **directly on a USB2 port**, then suspect **cable → power → the drive/enclosure** (SMART check) rather than the bus.
+
+> **Recap of the whole investigation:** dirty flag → `fsck` failed to write → therefore hardware/bus, not filesystem → quirks already applied for most drives → the one drive missing from the quirks and sitting on an unstable SuperSpeed link was the culprit → fix by isolating that drive. **Lesson: when a *filesystem checker* can't write, and UAS is already quirked, look at the physical USB link (hub / USB3 vs USB2 / the drive's own adapter / cable / power), not the filesystem.**
+
+### 7.6 All drives on the same powered USB3 hub — is it the drive's adapter?
+
+**Scenario:** all three drives hang off the **same powered USB3 hub**, connected directly to the Pi's USB3 port. The two WD drives mount and write fine; only the Seagate (`0bc2:3330`) resets on writes.
+
+**Immediate conclusion:** because the *identical* hub + port + power work for the WD drives, the hub, the port, and the Pi are effectively ruled out. The problem is **specific to the Seagate** — almost certainly its **own USB→SATA bridge/adapter** (or the drive/enclosure), which is a *different adapter* from the WD drives. So to answer the question directly: **yes, a different USB adapter (the Seagate's) is the prime suspect.**
+
+> Note on the "two `05e3:0626` hubs" from `lsusb`: that is the **internal topology of the single powered hub** (many multi-port USB3 hubs enumerate as an internal hub tree), not a literal daisy-chain you need to dismantle. It reinforces that everything is behind one hub.
+
+**Confirm it before replacing anything — a quick A/B isolation test:**
+
+1. **Seagate directly on the Pi, bypassing the hub.**
+   Unplug the Seagate from the hub and plug it into the Pi's **USB3 port directly** (no hub). Then:
+   ```bash
+   sudo exfatfsck /dev/sdc1
+   sudo mountusbbylabel.sh
+   ```
+   - **Works** → the hub's relationship to this drive (power/port on the hub) was the issue. Try the Seagate on a *different hub port*; if it's a 2.5" portable drive, its spin-up on a shared hub may be borderline.
+   - **Still fails** → the Seagate itself, continue below.
+
+2. **Seagate on a USB2 port (or force USB2).**
+   The resets are specifically *SuperSpeed* resets. Plug the Seagate into a **USB2 port** and retry the same commands.
+   - **Works** → the drive's **bridge can't hold a stable SuperSpeed (5 Gbps) link** → its USB adapter is the culprit.
+
+3. **If steps 1–2 confirm the bridge:** replace the Seagate's USB adapter/cable.
+   - If the Seagate uses a **detachable USB→SATA adapter/cable**, swap in a known-good USB3 adapter (ideally a UASP-capable one, and add `0bc2:3330:u` to the quirks list so it uses `usb-storage`).
+   - If it's an **integrated enclosure**, the practical fix is to use that bare SATA drive in a **different enclosure/adapter**. Before discarding the drive, verify it's healthy with a SMART check so you don't blame a good drive:
+     ```bash
+     sudo smartctl -a /dev/sdc
+     ```
+   - As a stopgap that needs no hardware: run the drive **on USB2** (fully stable, just 480 Mbps instead of 5 Gbps — fine for file/Plex serving).
+
+> **Bottom line for "one powered hub, only one drive fails":** it's not your hub or your Pi. Isolate that one drive (direct → USB2 → swap adapter → SMART). The dirty exFAT flag clears itself once the writes actually succeed.
+
 ---
 
 ## 8. Troubleshooting quick-reference
