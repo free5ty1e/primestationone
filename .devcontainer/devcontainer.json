@@ -20,7 +20,8 @@
       "extensions": [
         "ms-python.python",
         "ms-python.black-formatter",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "pomdtr.excalidraw-editor"
       ]
     }
   },
