@@ -237,7 +237,6 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 
 **Diagnosis & fix workflow:**
 
-1. **Remount read-only (safest).** The drive is telling us it can't guarantee writes. Remount it so nothing else writes to it:
    ```bash
    sudo umount /media/PiGamesNDataBee
    sudo mount -o ro /dev/sdc1 /media/PiGamesNDataBee
@@ -255,8 +254,6 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 
 3. **Run `badblocks` (non‑destructive read‑only test).**
    ```bash
-   sudo badblocks -v /dev/sdc1
-   ```
    This scans every block for read errors. On a 14 TB drive this can take many hours. If errors are found, the drive is definitely degrading.
 
 4. **Check `smartctl` for drive health.**
@@ -332,7 +329,6 @@ After extensive diagnosis, the root cause for your 14 TB WD easystore `25FB` d
 
 > **Bottom line for "one powered hub, only one drive fails":** it's not your hub or your Pi. Isolate that one drive (direct → USB2 → swap adapter → SMART). The ext4 filesystem and its data will be much happier once the writes actually succeed.
 
-### 7.6 rsync I/O errors during file push/copy
 
 **Scenario:** you are pushing files to the drive from another system (e.g. TrueNAS, a laptop) and `rsync` reports `Input/output error (5)` on file metadata or directory creation.
 
@@ -348,7 +344,6 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 
 **Recommended actions, in order:**
 
-1. **Remount read-only (safest).** The drive is telling us it can't guarantee writes. Remount it so nothing else writes to it:
    ```bash
    sudo umount /media/PiGamesNDataBee
    sudo mount -o ro /dev/sdc1 /media/PiGamesNDataBee
@@ -363,8 +358,13 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 
 3. **Run `badblocks` (non‑destructive read‑only test).**
    ```bash
-   sudo badblocks -v /dev/sdc1
+
+
+   ⚠️ **32‑bit sector limit warning:** For drives > 4 TB (e.g., your 14 TB WD easystore), the default `badblocks` command uses a 32‑bit sector address that caps at ~4.3 TB. It will fail with:
    ```
+   badblocks: Value too large for defined data type invalid end block (13672381423): must be 32-bit value
+   ```
+   **Preferred alternative:** Use the SMART long self‑test instead (`sudo smartctl -t long /dev/sdc`). It is SMART‑certified, designed for large drives, and already running (completes Mon Aug 31 14:05:42 2026). The short/offline self‑tests that completed earlier all passed without error.
    On a 14 TB drive this can take many hours. If errors are found, the drive is degrading.
 
 4. **Check `smartctl` for drive health.**
@@ -379,18 +379,34 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 
 > **Note:** The I/O errors you saw can also re‑appear after the drive remaps some bad sectors and temporarily comes back online. Monitor `smartctl` weekly after the incident. If the pending/reallocated sector count keeps growing, the drive is reaching end‑of‑life.
 
+
+
+**Recommended actions, in order:**
+
+1. **Unmount the drive first.** `fsck.ext4` cannot run on a mounted filesystem — you must unmount it first:
+   ```bash
+   sudo umount /dev/sdc1
+   ```
+
+2. **Run `e2fsck` — check the filesystem.**
+   ```bash
+   sudo fsck.ext4 -y /dev/sdc1
+   ```
+   You should see inode and block checking pass (as in your log: *Pass 1: Checking inodes, blocks, and sizes through Pass 5: Checking group summary information*). If `fsck` reports errors, they are real filesystem issues that need addressing.
+
+3. **Remount the drive.**
+   ```bash
+   sudo mount -o rw /dev/sdc1 /media/usb1
+   ```
+
+4. **Run `mountusbbylabel.sh` to mount by label.**
+   ```bash
+   sudo mountusbbylabel.sh
+   ```
+   Your drive should now appear at `/media/<volume-label>` (e.g., `/media/PiGamesNDataBee`).
+
+> **Note:** This unmount→fsck→remount→mountusbbylabel.sh sequence is what actually worked in practice. The earlier "remount read-only" step is superseded by this order.
+
+### 7.6 rsync I/O errors during file push/copy
+
 ### 7.7 Quick-reference table
-
-| Symptom | Likely cause / fix |
-| --- | --- |
-| Drive doesn't appear after plugging in | `usbmount` is disabled (`ENABLED=0`) — run `mountusbbylabel.sh` (or `sequentialUsbDriveStartup.sh`). |
-| `/media/PiGamesNDataBee` doesn't exist | Drive has no label, or you need to re-run the by-label mount after labeling. Give it a label (§4 step 3) and rerun. |
-| ROMs don't sync to RetroPie | The `01_retropie_copyroms` hook needs the drive's filesystem in `FILESYSTEMS` in `usbmount.conf`, and the drive needs a `roms/` folder. |
-| By-label mount conflicts with file-server drive | See `reference/txt/installfresh.md`: e.g. remove `ext4` from `FILESYSTEMS` in `usbmount.conf` so `usbmount` ignores your `ext4` file-server drives and leaves them to the label script. |
-| "Permission denied" reading the drive | The hooks `chown`/`chmod` media dirs for `pi:pi` (`installAutoMountUsbByLabelToUsbmount.sh` runs `sudo chown pi:pi /media/*`). Re-run that or fix ownership. |
-| ext4 mount fails: `e2fsck` / `fsck.ext4` reports errors | See [§7.1](#71-filesystem-not-mounting--wrong-filesystem-errors). Use `sudo fsck.ext4 /dev/sdc1`, **not** `fsck.exfat` or `exfatfsck`. |
-| `rsync` reports `Input/output error (5)` on file stat/mkdir | See [§7.6 rsync I/O errors during file push/copy](#76-rsync-io-errors-during-file-push-copy). The drive has media‑level write failures; remount read‑only immediately, then run `e2fsck` / `smartctl` / `badblocks` to assess drive health. |
-
-See also the diagram in [`excalidraw/usb-mounting-flow.excalidraw.md`](excalidraw/usb-mounting-flow.excalidraw.md) for a visual walkthrough of the whole flow.
-
----
