@@ -184,8 +184,7 @@ This script (in `primestationone/bin/`) clones the file-server repo and runs its
 
 If `mountusbbylabel.sh` fails or you see errors about the filesystem type not matching:
 
-1. **Check the actual filesystem:**
-   ```bash
+Before running `fsck.ext4`, check all current mount points:```   mount | grep /dev/sdc1```If any entries appear, unmount each one:```   sudo umount /media/usb1   sudo umount /media/usb2   # unmount all mount points for /dev/sdc1```Then proceed with:   ```bash
    lsblk -f /dev/sdX
    sudo blkid /dev/sdX*
    ```
@@ -410,3 +409,79 @@ rsync: recv_generator: mkdir "/media/Media14Mir2/CarMusic32_CBR128k" failed: Inp
 ### 7.6 rsync I/O errors during file push/copy
 
 ### 7.7 Quick-reference table
+
+### 7.9 Persistent I/O errors on healthy drive — case study
+
+**Scenario:** All files fail with `Input/output error (5)` during `rsync` `stat` and `mkdir` operations. SMART long self-test completed without error. All critical SMART attributes (Reallocated_Sector_Ct, Current_Pending_Sector) = 100/100. Drive has **never** been connected to a Mac; exclusively accessed by Raspberry Pi running Raspberry Pi OS. Drive is ext4, labeled `PiGamesNDataBee`, 14 TB WD easystore `25FB`.
+
+**What this means:** The drive media is healthy (SMART PASSED), but the **filesystem metadata layer** is returning I/O errors. This is NOT a drive failure — it is a filesystem/USB-bridge compatibility issue.
+
+**Your rsync log sample:**
+
+```
+rsync: recv_generator: failed to stat "/media/Media14Mir2/Music/01 - Binary Finary - 1999.mp3": Input/output error (5)
+rsync: recv_generator: failed to stat "/media/Media14Mir2/Music/01 - SNOOP - STILL A G THANG (RADIO).MP3": Input/output error (5)
+rsync: recv_generator: failed to stat "/media/Media14Mir2/Music/02 - Agnelli & Nelson - Everyday.mp3": Input/output error (5)
+...
+```
+
+**Troubleshooting steps, in order:**
+
+1. **Check kernel USB/SCSI logs during rsync:**
+   ```bash
+   # Start rsync in background
+   rsync -av /source/ /media/Media14Mir2/ &
+   
+   # Watch kernel messages
+   while true; do
+     dmesg | tail -20
+     sleep 5
+   done
+   ```
+   **Look for:** `usb 2-2.4.1: reset SuperSpeed Gen 1 USB device`, `scsi ...: Result: hostbyte=DID_OK driverbyte=DRIVER_SENSE`, `sense_key : Medium_Error_NOT_VALID`.
+
+2. **Test raw block read/write with `dd`:**
+   ```bash
+   dd if=/dev/sdc1 of=/tmp/test_dd bs=4096 count=100 2>&1
+   ```
+   - **If dd succeeds:** problem is at the filesystem/metadata level, not the drive.
+   - **If dd fails:** drive media may be degrading (contradicts SMART — verify SMART).
+
+3. **Remount with explicit mount options:**
+   ```bash
+   sudo umount /dev/sdc1
+   sudo mount -o rw,inode64,commit=60 /dev/sdc1 /media/usb1
+   rsync -av /source/ /media/usb1/
+   ```
+
+4. **Run `debugfs` consistency check:**
+   ```bash
+   sudo debugfs -w /dev/sdc1
+   # In debugfs prompt: check → quit
+   ```
+
+5. **Re-partition and re-format (last resort):**
+   ```bash
+   # Backup what you can (if readable):
+   sudo umount /media/usb1
+   sudo dd if=/dev/sdc1 of=/tmp/sdc1_backup.img bs=4096
+   
+   # Re-partition:
+   sudo parted /dev/sdc mklabel gpt
+   sudo parted /dev/sdc mkpart primary ext4 1MiB 100%
+   
+   # Re-format:
+   sudo mkfs.ext4 /dev/sdc1
+   ```
+   Then restore data from backup (if any files are readable).
+
+6. **Connect drive directly to Pi USB3 port (bypass hub):**
+   ```bash
+   # Unplug from hub, plug directly into Pi's USB3 port
+   sudo umount /media/usb1
+   # Then rerun rsync
+   ```
+
+> **Bottom line:** All SMART attributes are healthy. The I/O errors are at the filesystem/USB-bridge layer. Steps 1–4 should resolve the issue for most drives. Step 5 gives you a "known good" starting point. Step 6 eliminates the hub as the cause.
+
+
